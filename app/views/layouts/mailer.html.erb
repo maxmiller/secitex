@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <% if Config.instance.dev? %>
+      <p style="color: red;font-weight: bold">ATENÇÃO: Essa é uma mensagem de teste do sistema da IV SECITEX. Por favor ignore.</p>
+    <% end %>
+
+    <%= yield %>
+
+    <p>Ficamos a disposição caso tenha problemas ou dúvidas.</p>
+
+    <p>
+      Atenciosamente,<br>
+      Comissão Organizadora Central da IV SECITEX<br>
+      <a href="mailto:secitex@ifrn.edu.br">secitex@ifrn.edu.br</a>
+    </p>
+  </body>
+</html>

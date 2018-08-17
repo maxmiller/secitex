@@ -1,0 +1,159 @@
+<%= content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $("#trabalho_participante_id").select2({
+        theme: "bootstrap"
+      });
+      hide_linhas();
+      hide_tipo_trabalhos();
+      $("select#trabalho_linha_evento_id").change(function() {
+        var nome_evento = $("select#trabalho_linha_evento_id").find(":selected").text();
+        var n1, n2;
+        if( nome_evento == "XIV CONGIC"){
+          show_linhas(17,62);
+          show_tipo_trabalhos(1,2);
+          $('#trabalho_resumo').parent().show();
+        }
+        else if( nome_evento == "VI MOSTRA TECNOLÓGICA"){
+          show_linhas(9,16);
+          show_tipo_trabalhos(3,3);
+          $('#trabalho_resumo').val("---");
+          $('#trabalho_resumo').parent().hide();
+        }
+        else if( nome_evento == "VI SIMPÓSIO DE EXTENSÃO"){
+          show_linhas(1,8);
+          show_tipo_trabalhos(4,5);
+          $('#trabalho_resumo').parent().show();
+        }else {
+          hide_linhas();
+          hide_tipo_trabalhos();
+        }
+      });
+    });
+
+    function show_linhas(n1,n2){
+      hide_linhas();
+      for(i = n1; i<=n2; i++){
+          $('select#trabalho_linha_id option:eq(' + i + ')').show();
+      }
+    }
+    function show_tipo_trabalhos(n1,n2){
+      hide_tipo_trabalhos();
+      for(i = n1; i<=n2; i++){
+          $('#trabalho_tipo_trabalho_id option:eq(' + i + ')').show();
+      }
+    }
+    function hide_tipo_trabalhos() {
+      $('#trabalho_tipo_trabalho_id').val('');
+      for(i = 1; i <= 5; i++){
+        $('#trabalho_tipo_trabalho_id option:eq(' + i + ')').hide();
+      }
+    }
+    function hide_linhas() {
+      $('select#trabalho_linha_id').val('');
+      for(i = 1; i <= 62; i++){
+        $('select#trabalho_linha_id option:eq(' + i + ')').hide();
+      }
+    }
+    $(function() {
+      var fieldsCount,
+          maxFieldsCount = 4,
+          $addLink = $('a.add_nested_fields');
+
+      function toggleAddLink() {
+        $addLink.toggle(fieldsCount <= maxFieldsCount)
+      }
+
+      $(document).on('nested:fieldAdded', function() {
+        fieldsCount += 1;
+        toggleAddLink();
+      });
+
+      $(document).on('nested:fieldRemoved', function() {
+        fieldsCount -= 1;
+        toggleAddLink();
+      });  
+
+      // count existing nested fields after page was loaded
+      fieldsCount = $('form .fields').length;
+      toggleAddLink();
+    });
+
+    /*$(function() {
+      if ($("select#trabalho_linha_evento_id").val() == "") {
+        //alert('aqui');
+        $("select#trabalho_linha_id option").remove();
+        var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+        $(row).appendTo("select#trabalho_linha_id");
+      }
+      $("select#trabalho_linha_evento_id").change(function() {
+        var id_value_string = $(this).val();
+        if (id_value_string == "") {
+          $("select#trabalho_linha_id option").remove();
+          var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+          $(row).appendTo("select#trabalho_linha_id");
+        } else {
+        // Send the request and update linhas dropdown
+          $.ajax({
+          dataType: "json",
+          cache: false,
+          url: '/get_linhas_by_evento/' + id_value_string,
+          timeout: 5000,
+          error: function(XMLHttpRequest, errorTextStatus, error) {
+            alert("Failed to submit : " + errorTextStatus + " ;" + error);
+          },
+          success: function(data) {
+            // Clear all options from course select
+            $("select#trabalho_linha_id option").remove();
+            //put in a empty default line
+            var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+            $(row).appendTo("select#trabalho_linha_id");
+            // Fill course select
+            $.each(data, function(i, j) {
+              row = "<option value=\"" + j.id + "\">" + j.nome + "</option>";
+              $(row).appendTo("select#trabalho_linha_id");
+            });
+          }
+        });
+      }
+    });
+  });*/
+  </script>
+<% end %>
+
+<%= bootstrap_nested_form_for(@trabalho, html: { multipart: true }) do |f| %>
+  <p>Todos os campos são obrigatórios.</p>
+  <%= f.fields_for :linha do |linha| %>
+    <%= linha.select :evento_id, Evento.select, prompt: 'Selecione' %>
+  <% end %>
+  <%= f.select :linha_id, Linha.select, prompt: 'Selecione', label: 'Área' %>
+  <%= f.select :tipo_trabalho_id, TipoTrabalho.select, prompt: 'Selecione', label: 'Tipo de trabalho' %>
+  <!-- Colocar áreas e subáreas -->
+  <%#= f.grouped_collection_select :linha_id, Evento.order(:nome), :linhas, :nome, :id, :nome,include_blank: 'Selecione' %>
+  <!-- -->
+
+  <%= f.text_field :titulo, label: 'Título' %>
+  <% if current_user.admin? %>
+    <%= f.select :participante_id, Participante.select, prompt: 'Selecione' %>
+  <% end %>
+  <%= f.text_area :resumo, rows: 5 %>
+  <div class="alert alert-info" role="alert"><strong>Atenção:</strong> Preencha os nomes dos autores abaixo na mesma ordem em que eles devem ser apresentados no artigo.</div>
+  <label for="autores" class="control-label">Autores</label>
+  <%= f.fields_for :autores do |autores| %>
+    <div class="form-group">
+      <div class="input-group">
+        <%= autores.text_field :nome, hide_label: true, placeholder: 'Nome do autor' %>
+        <span class="input-group-btn">
+          <%= autores.link_to_remove "Remover", class: 'btn btn-default' %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.link_to_add "Adicionar autor", :autores, class: 'btn btn-default' %>
+  </div>
+  <div class="alert alert-warning" role="alert"><strong>Atenção:</strong> O artigo submetido não pode conter os nomes dos autores.</div>
+  <%= f.file_field :arquivo, accept: '.doc,.docx', label: 'Arquivo (doc ou docx)' %>
+  
+  <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+<% end %>
