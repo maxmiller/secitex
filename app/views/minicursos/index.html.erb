@@ -5,14 +5,17 @@
   <div class="col-md-6">
     <div class="btn-group pull-right">
       <% if Config.instance.permitir_submissao_minicursos? and can? :new, Minicurso %>
-        <a href="<%= new_minicurso_path %>" class="btn btn-primary"><%= fa_icon 'graduation-cap' %> Propor Minicurso</a>
+        <!--<a href="<%= new_minicurso_path %>" class="btn btn-primary"><%= fa_icon 'graduation-cap' %> Propor Minicurso</a>-->
       <% end %>
     </div>
   </div>
 </div>
 
 <% if @minicursos.empty? %>
-  <p>Você não propôs nenhum minicurso.</p>
+  <div class="alert alert-danger" role="alert">
+    <strong>Atenção:</strong> as submissões de propostas de minicursos irão iniciar em breve.
+  </div>
+  <!--<p>Você não propôs nenhum minicurso.</p>-->
 <% else %>
   <table class="table table-bordered table-hover">
     <thead>
