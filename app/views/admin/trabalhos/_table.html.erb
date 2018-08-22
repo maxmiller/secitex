@@ -1,8 +1,9 @@
 <table id="datatable" class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th width="40%">Titulo</th>
-      <th width="10%">Linha de pesquisa</th>
+      <th width="30%">Titulo</th>
+      <th width="10%">Evento</th>
+      <th width="10%">Área</th>
       <th width="10%">Tipo de trabalho</th>
       <th width="10%">Sua Avaliação</th>
       <th width="10%">Avaliação Geral</th>
@@ -13,6 +14,7 @@
     <% trabalhos.each do |trabalho| %>
       <tr>
         <td><%= trabalho.titulo %></td>
+        <td><%= trabalho.linha.evento.nome %></td>
         <td><%= trabalho.linha.nome %></td>
         <td><%= trabalho.tipo_trabalho.nome %></td>
         <td>
@@ -28,7 +30,7 @@
             <% if can? :show, trabalho %>
               <%= link_to fa_icon('download'), trabalho.download, title: 'Download', class: 'btn btn-primary btn-sm' %>
             <% end %>
-            <% if trabalho.minha_avaliacao(current_user.autenticavel).present? %>
+            <% if true #trabalho.minha_avaliacao(current_user.autenticavel).present? %>
               <%= link_to fa_icon('gavel'), admin_trabalho_avaliar_path(trabalho), title: 'Avaliar', class: 'btn btn-primary btn-sm' %>
             <% end %>
             <% if can? :show, trabalho %>
