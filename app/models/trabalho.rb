@@ -20,7 +20,7 @@ class Trabalho < ApplicationRecord
 
   def download
     if Rails.env.production?
-      return "/secitex/#{self.arquivo.url}"
+      return "/#{self.arquivo.url}"
     else
       return "/#{self.arquivo.url}"
     end

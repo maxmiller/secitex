@@ -24,9 +24,9 @@ class Pagamento < ApplicationRecord
     pagamento = Pagamento.create(participante: participante)
 
     if Rails.env.development?
-      base_url = "http://semead.jalerson.ultrahook.com/semead"
+      base_url = "http://secitex.jalerson.ultrahook.com/secitex"
     else
-      base_url = "http://eventos.ifrn.edu.br/semead"
+      base_url = "http://submissaosecitex.ifrn.edu.br"
     end
 
     preference_data = {
@@ -34,7 +34,7 @@ class Pagamento < ApplicationRecord
       items: [
         {
           id: "inscricao",
-          title: "Inscrição da III SEMEAD/IFRN-EaD",
+          title: "Inscrição da IV SECITEX",
           description: "Inscrição para #{participante.nome} até #{pagamento.prazo.strftime('%d/%m/%Y')}",
           currency_id: "BRL",
           quantity: 1,
