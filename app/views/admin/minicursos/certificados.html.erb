@@ -16,7 +16,7 @@
 <h3>Minicurso: <%= @minicurso.titulo %></h3>
 
 <% if @minicurso.inscricoes.empty? %>
-  <p>Nenhuma inscrição encontrada para esse minicurso.</p>
+  <p>Nenhuma inscrição encontrada para esse minicurso ou oficina.</p>
 <% else %>
   <%= form_tag admin_minicurso_certificar_path, method: :patch do %>
     <table id="datatable" class="table table-hover table-bordered">
