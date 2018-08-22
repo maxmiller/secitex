@@ -6,8 +6,12 @@ class ApplicationMailer < ActionMailer::Base
     if Rails.env.development?
       return "http://localhost:3000/participantes/#{participante.id}/pagar"
     else
-      return "http://eventos.ifrn.edu.br/secitex2018/login/participantes/#{participante.id}/pagar"
+      return "http://submissaosecitex.ifrn.edu.br/login/participantes/#{participante.id}/pagar"
     end
+  end
+
+  def test
+    mail(to: "claubergb@gmail.com", subject: "Teste SECITEX", body: "Isso é um teste ...")
   end
   
 end
