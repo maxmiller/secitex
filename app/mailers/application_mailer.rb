@@ -10,8 +10,4 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
-  def test
-    mail(to: "claubergb@gmail.com", subject: "Teste SECITEX", body: "Isso é um teste ...")
-  end
-  
 end

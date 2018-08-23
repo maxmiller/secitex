@@ -7,7 +7,7 @@
     <h1><%= fa_icon 'file-text-o' %> Trabalhos</h1>
   </div>
   <div class="col-md-6">
-    <div class="btn-group pull-right">
+    <div class="btn-group pull-right" data-turbolinks="false">
       <% if current_user.admin? %>
         <a href="<%= new_admin_trabalho_path %>" class="btn btn-primary"><%= fa_icon 'upload' %> Enviar Trabalho</a>
       <% end %>

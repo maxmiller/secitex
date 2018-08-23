@@ -36,7 +36,7 @@
         <% end %>
 
         <% if current_user.tem_perfil?('participante') %>
-          <% if can? :index, Minicurso %>fas fa-palette
+          <% if can? :index, Minicurso %>
             <li><a href="<%= minicursos_path %>"><%= fa_icon 'graduation-cap' %> Minicursos e Oficinas</a></li>
           <% end %>
           <% if Config.instance.permitir_inscricao_minicursos? and current_user.autenticavel.confirmado? %>
