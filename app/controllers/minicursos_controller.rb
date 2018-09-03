@@ -12,6 +12,8 @@ class MinicursosController < ApplicationController
     if Config.instance.permitir_submissao_minicursos?
       authorize! :new, Minicurso
       @minicurso = Minicurso.new
+      @minicurso.participante = current_user.autenticavel
+      @minicurso.ministrantes.build(nome: current_user.autenticavel.nome)
     else
       redirect_to prazo_encerrado_minicursos_path
     end
@@ -30,6 +32,7 @@ class MinicursosController < ApplicationController
         format.html { redirect_to minicursos_path, notice: 'Minicurso proposto com sucesso!' }
       else
         format.html { render :new }
+        format.json { render json: @minicurso.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,10 +63,14 @@ class MinicursosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minicurso_params
-      params.require(:minicurso).permit(:titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, :participante_id)
+      params.require(:minicurso).permit(:titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, :participante_id, :data_horario, :espaco, :carga_horaria, :quantidade_vezes, :vagas, :tipo_minicurso_id, :linha_id, ministrantes_attributes: [ :nome ])
     end
 
     def set_participante
       params[:minicurso][:participante_id] = current_user.autenticavel.id
     end
+
 end
+
+
+

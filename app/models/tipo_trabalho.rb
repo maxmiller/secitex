@@ -1,5 +1,6 @@
 class TipoTrabalho < ApplicationRecord
   has_many :trabalhos
+  belongs_to :evento
 
   include Selectable
 

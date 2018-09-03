@@ -4,57 +4,9 @@
       $("#trabalho_participante_id").select2({
         theme: "bootstrap"
       });
-      hide_linhas();
-      hide_tipo_trabalhos();
-      $("select#trabalho_linha_evento_id").change(function() {
-        var nome_evento = $("select#trabalho_linha_evento_id").find(":selected").text();
-        var n1, n2;
-        if( nome_evento == "XIV CONGIC"){
-          show_linhas(17,62);
-          show_tipo_trabalhos(1,2);
-          $('#trabalho_resumo').parent().show();
-        }
-        else if( nome_evento == "VI MOSTRA TECNOLÓGICA"){
-          show_linhas(9,16);
-          show_tipo_trabalhos(3,3);
-          $('#trabalho_resumo').val("---");
-          $('#trabalho_resumo').parent().hide();
-        }
-        else if( nome_evento == "VI SIMPÓSIO DE EXTENSÃO"){
-          show_linhas(1,8);
-          show_tipo_trabalhos(4,5);
-          $('#trabalho_resumo').parent().show();
-        }else {
-          hide_linhas();
-          hide_tipo_trabalhos();
-        }
-      });
     });
 
-    function show_linhas(n1,n2){
-      hide_linhas();
-      for(i = n1; i<=n2; i++){
-          $('select#trabalho_linha_id option:eq(' + i + ')').show();
-      }
-    }
-    function show_tipo_trabalhos(n1,n2){
-      hide_tipo_trabalhos();
-      for(i = n1; i<=n2; i++){
-          $('#trabalho_tipo_trabalho_id option:eq(' + i + ')').show();
-      }
-    }
-    function hide_tipo_trabalhos() {
-      $('#trabalho_tipo_trabalho_id').val('');
-      for(i = 1; i <= 5; i++){
-        $('#trabalho_tipo_trabalho_id option:eq(' + i + ')').hide();
-      }
-    }
-    function hide_linhas() {
-      $('select#trabalho_linha_id').val('');
-      for(i = 1; i <= 62; i++){
-        $('select#trabalho_linha_id option:eq(' + i + ')').hide();
-      }
-    }
+
     $(function() {
       var fieldsCount,
           maxFieldsCount = 4,
@@ -77,33 +29,44 @@
       // count existing nested fields after page was loaded
       fieldsCount = $('form .fields').length;
       toggleAddLink();
-    });
 
-    /*$(function() {
       if ($("select#trabalho_linha_evento_id").val() == "") {
-        //alert('aqui');
         $("select#trabalho_linha_id option").remove();
         var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
         $(row).appendTo("select#trabalho_linha_id");
+        $("select#trabalho_tipo_trabalho_id option").remove();
+        var row2 = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+        $(row2).appendTo("select#trabalho_tipo_trabalho_id");
       }
+
+    });
+
+    
+
+    $(function() {
+        
       $("select#trabalho_linha_evento_id").change(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
           $("select#trabalho_linha_id option").remove();
+          $("select#trabalho_tipo_trabalho_id option").remove();
           var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
           $(row).appendTo("select#trabalho_linha_id");
+          $(row).appendTo("select#trabalho_tipo_trabalho_id");
         } else {
         // Send the request and update linhas dropdown
+          var url1 = '/get_linhas_by_evento/' + id_value_string;
+          var url2 = '/get_tipo_trabalhos_by_evento/' + id_value_string;
           $.ajax({
           dataType: "json",
           cache: false,
-          url: '/get_linhas_by_evento/' + id_value_string,
+          url: url1,
           timeout: 5000,
           error: function(XMLHttpRequest, errorTextStatus, error) {
             alert("Failed to submit : " + errorTextStatus + " ;" + error);
           },
           success: function(data) {
-            // Clear all options from course select
+            // Clear all options from linha select
             $("select#trabalho_linha_id option").remove();
             //put in a empty default line
             var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
@@ -115,9 +78,32 @@
             });
           }
         });
+
+        $.ajax({
+          dataType: "json",
+          cache: false,
+          url: url2,
+          timeout: 5000,
+          error: function(XMLHttpRequest, errorTextStatus, error) {
+            alert("Failed to submit : " + errorTextStatus + " ;" + error);
+          },
+          success: function(data) {
+
+            // Clear all options from linha select
+            $("select#trabalho_tipo_trabalho_id option").remove();
+            //put in a empty default line
+            var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+            $(row).appendTo("select#trabalho_tipo_trabalho_id");
+            // Fill course select
+            $.each(data, function(i, j) {
+              row = "<option value=\"" + j.id + "\">" + j.nome + "</option>";
+              $(row).appendTo("select#trabalho_tipo_trabalho_id");
+            });
+          }
+        });
       }
     });
-  });*/
+  });
   </script>
 <% end %>
 

@@ -1,17 +1,125 @@
-<%= bootstrap_form_for(@minicurso) do |f| %>
+<%= content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      
+      //hide_linhas();
+      $("#minicurso_material").parent().hide();
+      $("#minicurso_referencias").parent().hide();
+      $("#minicurso_material").val("---");
+      $("#minicurso_referencias").val("---");
+      
+      var fieldsCount,
+        maxFieldsCount = 4,
+        $addLink = $('a.add_nested_fields');
+
+      function toggleAddLink() {
+        $addLink.toggle(fieldsCount <= maxFieldsCount)
+      }
+
+      $(document).on('nested:fieldAdded', function() {
+        fieldsCount += 1;
+        toggleAddLink();
+      });
+
+      $(document).on('nested:fieldRemoved', function() {
+        fieldsCount -= 1;
+        toggleAddLink();
+      });  
+
+      // count existing nested fields after page was loaded
+      fieldsCount = $('form .fields').length;
+      toggleAddLink();
+    });
+
+      // Send the request and update linhas dropdown
+      $("select#minicurso_linha_id option").remove();
+      $.ajax({
+      dataType: "json",
+      cache: false,
+      url: '/get_linhas_minicursos/',
+      //url: '/get_linhas_by_evento/1',
+      timeout: 5000,
+      error: function(XMLHttpRequest, errorTextStatus, error) {
+        alert("Failed to submit : " + errorTextStatus + " ;" + error);
+      },
+      success: function(data) {
+        var linha = $("select#minicurso_linha_id option:selected").val();
+        // Clear all options from linha select
+        $("select#minicurso_linha_id option").remove();
+        //put in a empty default line
+        var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+        $(row).appendTo("select#minicurso_linha_id");
+        // Fill course select
+        $.each(data, function(i, j) {
+          if(linha==j.id)
+            row = "<option selected value=\"" + j.id + "\">" + j.nome + "</option>";
+          else
+            row = "<option value=\"" + j.id + "\">" + j.nome + "</option>";
+          $(row).appendTo("select#minicurso_linha_id");
+        });
+      }
+    });
+
+
+  </script>
+<% end %>
+<%= bootstrap_nested_form_for(@minicurso, html: { multipart: true }) do |f| %>
+
+  <%#= bootstrap_form_for(@minicurso) do |f| %>
+
   <p>Todos os campos são obrigatórios.</p>
   <%= f.text_field :titulo, label: 'Título' %>
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <%= f.text_area :justificativa, rows: 5 %>
+  <%= f.select :linha_id, Linha.select, prompt: 'Selecione', label: 'Área' %>
+  <!--<div class="row">-->
+    <!--<div class="col-md-6 col-sm-12">-->
+      
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <%= f.select :tipo_minicurso_id, TipoMinicurso.select, prompt: 'Selecione', label: 'Tipo' %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= f.number_field :vagas, label: 'Quantidade de vagas', min: 1 %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <%= f.number_field :quantidade_vezes, label: 'Número de vezes que pretende ministrar o minicurso ou a oficina durante o evento', min: 1 %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= f.number_field :carga_horaria, label: 'Carga horária (horas) - 2h, 4h, 6h ou 8h', min: 2, max: 8, step: 2 %>
+        </div>
+      </div>
+
+      
+      <div class="alert alert-info" role="alert"><strong>Atenção:</strong> Preencha abaixo os nomes dos ministrantes do minicurso ou da oficina.</div>
+      <label for="ministrantes" class="control-label">Ministrantes</label>
+      <%= f.fields_for :ministrantes do |ministrantes| %>
+        <div class="form-group">
+          <div class="input-group">
+            <%=ministrantes.text_field :nome, hide_label: true, placeholder: 'Nome do ministrante' %>
+            <span class="input-group-btn">
+              <%= ministrantes.link_to_remove "Remover", class: 'btn btn-default' %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.link_to_add "Adicionar ministrante", :ministrantes, class: 'btn btn-default' %>
+      </div>
+      <%= f.text_area :espaco, rows: 5, label: 'Espaço mais adequado para o desenvolvimento do minicurso ou da oficina (descrever espaço e mobiliário)' %>
+      <%= f.text_area :data_horario, rows: 5, label: 'Sugestão de data e horário' %>
       <%= f.text_area :objetivos, rows: 5 %>
+      <%= f.text_area :justificativa, rows: 5 %>
+      <%= f.text_area :programacao, rows: 5, label: 'Conteúdo Programático' %>
       <%= f.text_area :metodologia, rows: 5 %>
-    </div>
-    <div class="col-md-6 col-sm-12">
-      <%= f.text_area :programacao, rows: 5, label: 'Programação' %>
+    <!--</div>-->
+    <!--<div class="col-md-6 col-sm-12">-->
+
+      <%#= f.text_area :programacao, rows: 5, label: 'Conteúdo Programático' %>
+
       <%= f.text_area :material, rows: 5, label: 'Material necessário' %>
       <%= f.text_area :referencias, rows: 5, label: 'Referências' %>
-    </div>
-  </div>
+    <!--</div>-->
+  <!--</div>-->
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
 <% end %>

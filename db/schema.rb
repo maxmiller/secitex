@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_18_191537) do
+ActiveRecord::Schema.define(version: 2018_09_01_212557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,7 +148,24 @@ ActiveRecord::Schema.define(version: 2018_07_18_191537) do
     t.integer "vagas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tipo_minicurso_id"
+    t.integer "carga_horaria"
+    t.integer "quantidade_vezes"
+    t.bigint "linha_id"
+    t.string "equipe"
+    t.string "data_horario"
+    t.string "espaco"
+    t.index ["linha_id"], name: "index_minicursos_on_linha_id"
     t.index ["participante_id"], name: "index_minicursos_on_participante_id"
+    t.index ["tipo_minicurso_id"], name: "index_minicursos_on_tipo_minicurso_id"
+  end
+
+  create_table "ministrantes", force: :cascade do |t|
+    t.string "nome"
+    t.bigint "minicurso_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minicurso_id"], name: "index_ministrantes_on_minicurso_id"
   end
 
   create_table "organizadores", id: :serial, force: :cascade do |t|
@@ -215,6 +232,13 @@ ActiveRecord::Schema.define(version: 2018_07_18_191537) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tipo_minicursos", force: :cascade do |t|
+    t.string "nome"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tipo_participantes", id: :serial, force: :cascade do |t|
     t.string "nome"
     t.string "slug"
@@ -227,6 +251,8 @@ ActiveRecord::Schema.define(version: 2018_07_18_191537) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "evento_id"
+    t.index ["evento_id"], name: "index_tipo_trabalhos_on_evento_id"
   end
 
   create_table "trabalhos", id: :serial, force: :cascade do |t|
@@ -273,13 +299,17 @@ ActiveRecord::Schema.define(version: 2018_07_18_191537) do
   add_foreign_key "linhas", "eventos"
   add_foreign_key "membros", "linhas"
   add_foreign_key "membros", "organizadores"
+  add_foreign_key "minicursos", "linhas"
   add_foreign_key "minicursos", "participantes"
+  add_foreign_key "minicursos", "tipo_minicursos"
+  add_foreign_key "ministrantes", "minicursos"
   add_foreign_key "pagamentos", "participantes"
   add_foreign_key "participantes", "campi"
   add_foreign_key "participantes", "cidades"
   add_foreign_key "participantes", "minicursos"
   add_foreign_key "participantes", "paises"
   add_foreign_key "participantes", "tipo_participantes"
+  add_foreign_key "tipo_trabalhos", "eventos"
   add_foreign_key "trabalhos", "linhas"
   add_foreign_key "trabalhos", "participantes"
   add_foreign_key "trabalhos", "tipo_trabalhos"

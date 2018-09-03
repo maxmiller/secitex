@@ -2,9 +2,14 @@ class Minicurso < ApplicationRecord
   belongs_to :participante # Proponente/ministrante
   has_many :inscricoes
   has_many :participantes, through: :inscricoes
+  belongs_to :tipo_minicurso
+  belongs_to :linha
+  has_many :ministrantes
 
-  validates :titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, presence: true, on: :create
-  validates :titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, :vagas, :local, presence: true, on: :update
+  accepts_nested_attributes_for :ministrantes, :reject_if => proc { |params| params['nome'].blank? }
+
+  validates :carga_horaria, :espaco, :data_horario, :quantidade_vezes, :vagas, :linha_id, :tipo_minicurso_id, :titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, presence: true, on: :create
+  validates :carga_horaria, :espaco, :data_horario, :quantidade_vezes, :vagas, :linha_id, :tipo_minicurso_id, :titulo, :justificativa, :objetivos, :metodologia, :programacao, :material, :referencias, :local, presence: true, on: :update
   validates :vagas, numericality: { only_integer: true }, on: :update
 
   before_create :definir_avaliacao
@@ -43,7 +48,7 @@ class Minicurso < ApplicationRecord
     self.avaliacao == AVALIACAO[:aprovado]
   end
 
-  def carga_horaria
-    4
-  end
+  #def carga_horaria
+  #  4
+  #end
 end

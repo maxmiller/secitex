@@ -3,26 +3,34 @@
 <dl>
   <dt>Título</dt>
   <dd><%= @minicurso.titulo %></dd>
-  <dt>Ministrante</dt>
-  <dd><%= @minicurso.participante.nome %></dd>
-  <dt>Justificativa</dt>
-  <dd><%= @minicurso.justificativa %></dd>
+  <dt>Área</dt>
+  <dd><%= @minicurso.linha.nome %></dd>
+  <dt>Tipo</dt>
+  <dd><%= @minicurso.tipo_minicurso.nome %></dd>
+  <dt>Ministrantes</dt>
+  <% if @minicurso.ministrantes.empty? %>
+    <dd><%= @minicurso.participante.nome %></dd>
+  <% else %>
+    <% @minicurso.ministrantes.each do |ministrante| %>
+      <dd><%= ministrante.nome %></dd>
+    <% end %>
+  <% end %>
+  <dt>Quantidade de vagas</dt>
+  <dd><%= @minicurso.vagas %></dd>
+  <dt>Número de vezes que pretende ministrar o minicurso ou a oficina durante o evento</dt>
+  <dd><%= @minicurso.quantidade_vezes %></dd>
+  <dt>Carga horária (horas)</dt>
+  <dd><%= @minicurso.carga_horaria %></dd>
+  <dt>Espaço mais adequado para o desenvolvimento do minicurso ou da oficina (descrever espaço e mobiliário)</dt>
+  <dd><%= @minicurso.espaco %></dd>
+  <dt>Sugestão de data e horário</dt>
+  <dd><%= @minicurso.data_horario %></dd>
   <dt>Objetivos</dt>
   <dd><%= @minicurso.objetivos %></dd>
+  <dt>Justificativa</dt>
+  <dd><%= @minicurso.justificativa %></dd>
+  <dt>Conteúdo Programático</dt>
+  <dd><%= @minicurso.programacao %></dd>
   <dt>Metodologia</dt>
   <dd><%= @minicurso.metodologia %></dd>
-  <dt>Programação</dt>
-  <dd><%= @minicurso.programacao %></dd>
-  <dt>Material necessário</dt>
-  <dd><%= @minicurso.material %></dd>
-  <dt>Referências</dt>
-  <dd><%= @minicurso.referencias %></dd>
-  <% if @minicurso.local.present? %>
-    <dt>Local</dt>
-    <dd><%= @minicurso.local %></dd>
-  <% end %>
-  <% if @minicurso.vagas.present? %>
-    <dt>Vagas</dt>
-    <dd><%= @minicurso.vagas %></dd>
-  <% end %>
 </dl>

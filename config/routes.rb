@@ -69,7 +69,11 @@ Rails.application.routes.draw do
   get 'pagamentos/falhou'
   get 'usuarios/:usuario_id/personificar' => 'sessions#personificar', as: :personificar
   get 'get_linhas_by_evento/:evento_id', to: 'linhas#get_linhas_by_evento'  
-  get 'linha_search' => 'linhas#linha_search'
+  get 'get_tipo_trabalhos_by_evento/:evento_id', to: 'tipo_trabalhos#get_tipo_trabalhos_by_evento'
+  #get 'linha_search' => 'linhas#linha_search'
+  #get 'tipo_trabalhos_search' => 'tipo_trabalhos#tipo_trabalhos_search'
+  get 'get_linhas_minicursos', to: 'linhas#get_linhas_minicursos'  
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
