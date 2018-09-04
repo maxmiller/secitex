@@ -27,8 +27,40 @@
 <dl>
   <dt>Título</dt>
   <dd><%= @minicurso.titulo %></dd>
-  <dt>Ministrante</dt>
-  <dd><%= link_to @minicurso.participante.nome, admin_participante_path(@minicurso.participante) %></dd>
+  <dt>Proponente</dt>
+  <!--<dd><%= link_to @minicurso.participante.nome, admin_participante_path(@minicurso.participante) %></dd>-->
+  <dd><%= @minicurso.participante.nome %></dd>
+  <dt>Área</dt>
+  <dd><%= @minicurso.linha.nome %></dd>
+  <dt>Tipo</dt>
+  <dd><%= @minicurso.tipo_minicurso.nome %></dd>
+  <dt>Ministrantes</dt>
+  <% if @minicurso.ministrantes.empty? %>
+    <dd><%= @minicurso.participante.nome %></dd>
+  <% else %>
+    <% @minicurso.ministrantes.each do |ministrante| %>
+      <dd><%= ministrante.nome %></dd>
+    <% end %>
+  <% end %>
+  <dt>Quantidade de vagas</dt>
+  <dd><%= @minicurso.vagas %></dd>
+  <dt>Número de vezes que pretende ministrar o minicurso ou a oficina durante o evento</dt>
+  <dd><%= @minicurso.quantidade_vezes %></dd>
+  <dt>Carga horária (horas)</dt>
+  <dd><%= @minicurso.carga_horaria %></dd>
+  <dt>Espaço mais adequado para o desenvolvimento do minicurso ou da oficina (descrever espaço e mobiliário)</dt>
+  <dd><%= @minicurso.espaco %></dd>
+  <dt>Sugestão de data e horário</dt>
+  <dd><%= @minicurso.data_horario %></dd>
+  <dt>Objetivos</dt>
+  <dd><%= @minicurso.objetivos %></dd>
+  <dt>Justificativa</dt>
+  <dd><%= @minicurso.justificativa %></dd>
+  <dt>Conteúdo Programático</dt>
+  <dd><%= @minicurso.programacao %></dd>
+  <dt>Metodologia</dt>
+  <dd><%= @minicurso.metodologia %></dd>
+<!--
   <dt>Justificativa</dt>
   <dd><%= @minicurso.justificativa %></dd>
   <dt>Objetivos</dt>
@@ -50,7 +82,7 @@
     <dd><%= @minicurso.vagas %></dd>
   <% end %>
 </dl>
-
+-->
 <h2><%= fa_icon 'pencil' %> Inscrições</h2>
 
 <% if @minicurso.inscricoes.empty? %>
