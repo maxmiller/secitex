@@ -10,7 +10,7 @@
   <tbody>
     <% participantes.each do |participante| %>
       <tr>
-        <td><%= participante.nome %></td>
+        <td><%= participante.usuario.nome %></td>
         <td><%= participante.tipo_participante.nome %></td>
         <td><%= participante.instituicao %></td>
         <td>
