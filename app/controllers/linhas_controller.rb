@@ -10,7 +10,7 @@ class LinhasController < ApplicationController
   end
 =end
   def get_linhas_by_evento
-    @linhas = Linha.where("evento_id = ?", params[:evento_id])
+    @linhas = Linha.where("evento_id = ?", params[:evento_id]).order(nome: :asc)
     respond_to do |format|
       format.json { render :json => @linhas }
     end
