@@ -1,5 +1,5 @@
 module Admin::MinicursosHelper
-
+  
   def avaliacao_minicurso(avaliacao)
     if avaliacao == Minicurso::AVALIACAO[:aprovado]
       return "<span class='label label-success'>Aprovado</span>"

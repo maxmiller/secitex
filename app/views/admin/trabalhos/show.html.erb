@@ -39,13 +39,12 @@
     <strong>Autor(es):</strong><br>
     <ul>
       <% if @trabalho.autores.empty? %>
-        <!--<li><%= link_to @trabalho.participante.nome, admin_participante_path(@trabalho.participante) %></li>-->
+        <li><%= link_to @trabalho.participante.nome, admin_participante_path(@trabalho.participante) %></li>
         <li><%= @trabalho.participante.nome %></li>
       <% else %>
         <% @trabalho.autores.each do |autor| %>
           <% if autor.nome.downcase == @trabalho.participante.nome.downcase %>
-            <!--<li><%= link_to @trabalho.participante.nome, admin_participante_path(@trabalho.participante) %></li>-->
-            <li><%= @trabalho.participante.nome %></li>
+            <li><%= link_to @trabalho.participante.nome, admin_participante_path(@trabalho.participante) %></li>
           <% else %>
             <li><%= autor.nome %></li>
           <% end %>

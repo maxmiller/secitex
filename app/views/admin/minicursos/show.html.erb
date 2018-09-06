@@ -28,8 +28,7 @@
   <dt>Título</dt>
   <dd><%= @minicurso.titulo %></dd>
   <dt>Proponente</dt>
-  <!--<dd><%= link_to @minicurso.participante.nome, admin_participante_path(@minicurso.participante) %></dd>-->
-  <dd><%= @minicurso.participante.nome %></dd>
+  <dd><%= link_to @minicurso.participante.nome, admin_participante_path(@minicurso.participante) %></dd>
   <dt>Área</dt>
   <dd><%= @minicurso.linha.nome %></dd>
   <dt>Tipo</dt>
