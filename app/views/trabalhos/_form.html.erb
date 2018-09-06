@@ -112,7 +112,7 @@
   <%= f.fields_for :linha do |linha| %>
     <%= linha.select :evento_id, Evento.select, prompt: 'Selecione' %>
   <% end %>
-  <%= f.select :linha_id, Linha.select, prompt: 'Selecione', label: 'Área' %>
+  <%= f.select :linha_id, Linha.select, :order => "nome", prompt: 'Selecione', label: 'Área' %>
   <%= f.select :tipo_trabalho_id, TipoTrabalho.select, prompt: 'Selecione', label: 'Tipo de trabalho' %>
   <!-- Colocar áreas e subáreas -->
   <%#= f.grouped_collection_select :linha_id, Evento.order(:nome), :linhas, :nome, :id, :nome,include_blank: 'Selecione' %>

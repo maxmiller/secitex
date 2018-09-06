@@ -14,9 +14,9 @@ namespace :usuarios do
 
   end
 
-  desc "Adicionar usuarios"
-  task adicionar_usuarios: :environment do
-    puts "Criando usuários... "
+  desc "Adicionar coordenadores"
+  task adicionar_coordenadores: :environment do
+    puts "Criando coordenadores... "
     coordenador_comissao_cientifica = Perfil.find_by(slug: 'coordenador_comissao_cientifica')
     marcio = Usuario.create(nome: 'Márcio Adriano de Azevedo', email: 'marcio.azevedo@ifrn.edu.br', password: '321mud@r', perfil: coordenador_comissao_cientifica)
     marcio = Organizador.create(usuario: marcio)
@@ -55,6 +55,13 @@ namespace :usuarios do
     fernando = Usuario.create(nome: 'Fernando Antonio da Silva', email: 'fernando.silva@ifrn.edu.br', password: '321mud@r', perfil: coordenador_comissao_cientifica)
     fernando = Organizador.create(usuario: fernando)
     puts "Concluído!"
+  end
+
+  desc "Adicionar avaliadores"
+  task adicionar_avaliadores: :environment do
+      puts "Criando avaliadores... "
+      membro_comissao_cientifica = Perfil.find_by(slug: 'membro_comissao_cientifica')
+      puts membro_comissao_cientifica.nome
   end
 
 end
