@@ -228,6 +228,8 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
+    recaptcha (4.12.0)
+      json
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -360,6 +362,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.0)
   rake (= 12.3.1)
+  recaptcha
   rest-client
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
