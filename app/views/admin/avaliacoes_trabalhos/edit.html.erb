@@ -55,93 +55,189 @@
 </div>
 
 <%= bootstrap_form_for(@avaliacao, url: admin_trabalho_avaliacao_path(@avaliacao.trabalho, @avaliacao)) do |f| %>
-
   <div class="row">
     <div class="col-md-12">
-      <%= f.form_group :linha_tematica, label: { text: 'O tema está inserido na linha temática a que foi submetido? *' } do %>
-        <%= f.radio_button :linha_tematica, AvaliacaoTrabalho::LINHA_TEMATICA[:sim], label: 'Sim', checked: true, onchange: 'toggle_avaliacao()' %>
-        <%= f.radio_button :linha_tematica, AvaliacaoTrabalho::LINHA_TEMATICA[:nao], label: 'Não', onchange: 'toggle_avaliacao()' %>
-      <% end %>
-      <div id="linha" class="oculto">
-        <%= f.select :linha_id, Linha.select, { prompt: 'Selecione', label: 'Linha a qual o trabalho deve ser submetido' } %>
-      </div>
-      <%= f.form_group :atende_normas, class: 'avaliacao', label: { text: 'Atende às normas da Holos? *' } do %>
-        <%= f.radio_button :atende_normas, AvaliacaoTrabalho::ATENDE_NORMAS[:sim], label: 'Sim' %>
-        <%= f.radio_button :atende_normas, AvaliacaoTrabalho::ATENDE_NORMAS[:nao], label: 'Não/recusado' %>
-      <% end %>
-      <%= f.form_group :tematica_evento, class: 'avaliacao', label: { text: 'O tema está inserido na temática do evento? *' } do %>
-        <%= f.radio_button :tematica_evento, AvaliacaoTrabalho::TEMATICA_EVENTO[:sim], label: 'Sim' %>
-        <%= f.radio_button :tematica_evento, AvaliacaoTrabalho::TEMATICA_EVENTO[:nao], label: 'Não/recusado' %>
-      <% end %>
+      <p>
+        <strong>Evento:</strong>
+        <%= @avaliacao.trabalho.linha.evento.nome %>
+      </p>
+      <p>
+        <strong>Área:</strong>
+        <%= @avaliacao.trabalho.linha.nome %>
+      </p>
+      <p>
+        <strong>Título:</strong>
+        <%= @avaliacao.trabalho.titulo %>
+      </p>
+    </div>
+  </div>
+  <p>Todos os campos são obrigatórios.</p>
+  <div class="row">
+    <div class="col-md-12 oculto" id="tema">
+      <!--%= f.form_group :linha_tematica, label: { text: 'O tema está inserido na linha temática a que foi submetido? *' } do %-->
+        <!--%= f.radio_button :linha_tematica, AvaliacaoTrabalho::LINHA_TEMATICA[:sim], label: 'Sim', checked: true, onchange: 'toggle_avaliacao()' %-->
+        <!--%= f.radio_button :linha_tematica, AvaliacaoTrabalho::LINHA_TEMATICA[:nao], label: 'Não', onchange: 'toggle_avaliacao()' %-->
+      <!--% end %-->
+      <!--div id="linha" class="oculto"-->
+        <!--%= f.select :linha_id, Linha.select, { prompt: 'Selecione', label: 'Linha a qual o trabalho deve ser submetido' } %-->
+      <!--/div-->
+      <!--%= f.form_group :atende_normas, class: 'avaliacao', label: { text: 'Atende às normas da Holos? *' } do %-->
+        <!--%= f.radio_button :atende_normas, AvaliacaoTrabalho::ATENDE_NORMAS[:sim], checked: true, label: 'Sim' %-->
+        <!--%= f.radio_button :atende_normas, AvaliacaoTrabalho::ATENDE_NORMAS[:nao], label: 'Não/recusado' %-->
+      <!--% end %-->
+      <!--%= f.form_group :tematica_evento, class: 'avaliacao', label: { text: 'O tema está inserido na temática do evento? *' } do %-->
+        <!--%= f.radio_button :tematica_evento, AvaliacaoTrabalho::TEMATICA_EVENTO[:sim], label: 'Sim', checked: true %-->
+        <!--%= f.radio_button :tematica_evento, AvaliacaoTrabalho::TEMATICA_EVENTO[:nao], label: 'Não/recusado' %-->
+      <!--% end %-->
     </div>
   </div>
 
   <table class="table table-bordered table-hover avaliacao">
     <thead>
       <tr>
-        <th>Itens</th>
-        <th>Atende</th>
-        <th>Parcialmente</th>
-        <th>Não atende</th>
+        <th width="80%">Critérios</th>
+        <th width="20%">Pontuação</th>
+        <!--<th>Itens</th>-->
+        <!--<th>Atende</th>-->
+        <!--<th>Parcialmente</th>-->
+        <!--<th>Não atende</th>-->
       </tr>
     </thead>
     <tbody>
       <tr>
+        <% if @avaliacao.trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO" %>
+          <% @texto_criterio1 = '1. Coerência e clareza do conteúdo do resumo expandido quanto a sua estrutura, objetivos e resultados alcançados e/ou esperados' %>
+          <% @texto_criterio2 = '2. Elaboração do resumo expandido seguindo as normas do evento, uso adequado da língua portuguesa e dos tópicos (gráficos, tabelas, quadros, figuras, etc.)' %>
+          <% @texto_criterio3 = '3. Envolvimento com a comunidade externa' %>
+          <% @texto_criterio4 = '4. Relevância para a transformação social, conforme os objetivos e resultados alcançados' %>
+          <% @texto_criterio5 = '5. Impacto na formação do estudante' %>
+          <% @texto_criterio6 = '6. Caráter interdisciplinar e indissociabilidade entre ensino, pesquisa e extensão' %>
+          <% @max_criterio1 = 20 %>
+          <% @max_criterio2 = 10 %>
+          <% @max_criterio3 = 20 %>
+          <% @max_criterio4 = 20 %>
+          <% @max_criterio5 = 20 %>
+          <% @max_criterio6 = 10 %>
+        <% elsif @avaliacao.trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA" %>
+          <% @texto_criterio1 = '1. Execução do projeto' %>
+          <% @texto_criterio2 = '2. Originalidade' %>
+          <% @texto_criterio3 = '3. Apresentação e estrutura do projeto' %>
+          <% @texto_criterio4 = '4. Potencial empreendedor/inovador' %>
+          <% @texto_criterio5 = '5. Não se aplica' %>
+          <% @texto_criterio6 = '6. Não se aplica' %>
+          <% @max_criterio1 = 25 %>
+          <% @max_criterio2 = 25 %>
+          <% @max_criterio3 = 25 %>
+          <% @max_criterio4 = 25 %>
+          <% @max_criterio5 = 0 %>
+          <% @max_criterio6 = 0 %>
+        <% elsif @avaliacao.trabalho.linha.evento.nome == "XIV CONGIC" %>
+          <% @texto_criterio1 = '1. Qual pontuação você atribui quanto aos aspectos textuais (linguagem formal, concordância e regência verbais, ortografia, acentuação gráfica e pontuação)?' %>
+          <% @texto_criterio2 = '2. Qual pontuação você atribui quanto à estrutura organizacional (título, área temática, autores, resumo, palavras-chave, introdução, metodologia, resultados alcançados/esperados, referências)?' %>
+          <% @texto_criterio3 = '3. Qual pontuação você atribui quanto à formatação do texto, normas da ABNT, titulação de tabelas e quadros e extensão máxima?' %>
+          <% @texto_criterio4 = '4. Qual pontuação você atribui quanto à relevância, coerência e legitimidade das referências utilizadas?' %>
+          <% @texto_criterio5 = '5. Qual pontuação você atribui quanto à clareza dos objetivos?' %>
+          <% @texto_criterio6 = '6. Qual pontuação você atribui quanto aos resultados apresentados, no que diz respeito ao alcance dos objetivos propostos?' %>
+          <% @max_criterio1 = 15 %>
+          <% @max_criterio2 = 15 %>
+          <% @max_criterio3 = 15 %>
+          <% @max_criterio4 = 15 %>
+          <% @max_criterio5 = 20 %>
+          <% @max_criterio6 = 20 %>
+        <% end %>
         <td>
-          <%= f.label :relevancia, '1. Relevância e pertinência do trabalho para a linha temática a que foi submetido *', class: 'control-label' %>
-          <span id="campo_relevancia" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          <%= f.label :criterio1, @texto_criterio1, class: 'control-label' %>
+          <span id="campo_criterio1" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
         </td>
-        <td><%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= f.number_field :criterio1, label: 'Máximo: '+@max_criterio1.to_s+' pontos', min: 0, max: @max_criterio1 %></td>
+        <!--<td>--><!--%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :relevancia, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
       </tr>
       <tr>
         <td>
-          <%= f.label :adequacao, '2. Adequação conceitual na formulação dos problemas *', class: 'control-label' %>
-          <span id="campo_adequacao" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          <%= f.label :criterio2, @texto_criterio2, class: 'control-label' %>
+          <span id="campo_criterio2" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
         </td>
-        <td><%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= f.number_field :criterio2, label: 'Máximo: '+@max_criterio2.to_s+' pontos', min: 0, max: @max_criterio2 %></td>
+        <!--<td>--><!--%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :adequacao, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
       </tr>
       <tr>
         <td>
-          <%= f.label :consistencia, '3. Consistência e rigor na abordagem teórico-metodológica e na argumentação *', class: 'control-label' %>
-          <span id="campo_consistencia" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          <%= f.label :criterio3, @texto_criterio3, class: 'control-label' %>
+          <span id="campo_criterio3" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
         </td>
-        <td><%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= f.number_field :criterio3, label: 'Máximo: '+@max_criterio3.to_s+' pontos', min: 0, max: @max_criterio3 %></td>
+        <!--<td>--><!--%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :consistencia, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
       </tr>
       <tr>
         <td>
-          <%= f.label :interlocucao, '4. Interlocução com a produção da área da educação a distância, em particular com os temas propostos pela linha temática a que o trabalho foi submetido *', class: 'control-label' %>
-          <span id="campo_interlocucao" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          <%= f.label :criterio4, @texto_criterio4 %>
+          <span id="campo_criterio4" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
         </td>
-        <td><%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= f.number_field :criterio4, label: 'Máximo: '+@max_criterio4.to_s+' pontos', min: 0, max: @max_criterio4 %></td>
+        <!--<td>--><!--%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+        <!--<td>--><!--%= f.radio_button :interlocucao, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
       </tr>
-      <tr>
-        <td>
-          <%= f.label :originalidade, '5. Originalidade e contribuição para o avanço do conhecimento na área do evento especialmente para a linha temática a que foi submetido *', class: 'control-label'%>
-          <span id="campo_originalidade" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
-        </td>
-        <td><%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
-      </tr>
+      <% if @max_criterio5 != 0 %>
+        <tr>
+          <td>
+            <%= f.label :criterio5, @texto_criterio5, class: 'control-label'%>
+            <span id="campo_criterio5" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          </td>
+          <td><%= f.number_field :criterio5, label: 'Máximo: '+@max_criterio5.to_s+' pontos', min: 0, max: @max_criterio5 %></td>          
+        </tr>
+      <% else %>
+        <tr style="display:none;">
+          <td>
+            <%= f.label :criterio5, @texto_criterio5, class: 'control-label'%>
+            <span id="campo_criterio5" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          </td>
+          <td><%= f.number_field :criterio5, label: 'Máximo: '+@max_criterio5.to_s+' pontos', min: 0, max: @max_criterio5, :value => @max_criterio5 %></td>
+        </tr>
+      <% end %>
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
+
+      <% if @max_criterio6 != 0 %>
+        <tr>
+          <td>
+            <%= f.label :criterio6, @texto_criterio6, class: 'control-label'%>
+            <span id="campo_criterio6" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          </td>
+          <td><%= f.number_field :criterio6, label: 'Máximo: '+@max_criterio6.to_s+' pontos', min: 0, max: @max_criterio6 %></td>
+        </tr>
+      <% else %>
+        <tr style="display:none;">
+          <td>
+            <%= f.label :criterio6, @texto_criterio6, class: 'control-label'%>
+            <span id="campo_criterio6" class="oculto campo_obrigatorio"><br>campo obrigatório</span>
+          </td>
+          <td><%= f.number_field :criterio6, label: 'Máximo: '+@max_criterio6.to_s+' pontos', min: 0, max: @max_criterio6, :value => @max_criterio6 %></td>
+        </tr>
+      <% end %>
+
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:atende] %--><!--</td>-->
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:parcialmente] %--><!--</td>-->
+          <!--<td>--><!--%= f.radio_button :originalidade, AvaliacaoTrabalho::ITENS[:nao_atende] %--><!--</td>-->
     </tbody>
   </table>
 
   <div class="row">
     <div class="col-md-12">
-      <%= f.form_group :situacao, class: 'avaliacao', label: { text: 'Qual a sua avaliação final sobre esse trabalho? *' } do %>
-        <%= f.radio_button :situacao, AvaliacaoTrabalho::SITUACOES[:aprovado], label: 'Aprovado', onchange: "avaliacao('aprovado')" %>
-        <%= f.radio_button :situacao, AvaliacaoTrabalho::SITUACOES[:reprovado], label: 'Não aceito', onchange: "avaliacao('reprovado')" %>
-      <% end %>
-      <div id="parecer" class="oculto">
-        <%= f.text_area :parecer, class: "form-control", label: 'Parecer', placeholder: 'Justifique a sua avaliação' %>
+      <%= f.hidden_field :situacao, :value => AvaliacaoTrabalho::SITUACOES[:avaliado] %>
+      <!--%= f.form_group :situacao, class: 'avaliacao', label: { text: 'Qual a sua avaliação final sobre esse trabalho? *' } do %-->
+        <!--%= f.radio_button :situacao, AvaliacaoTrabalho::SITUACOES[:aprovado], label: 'Aprovado', onchange: "avaliacao('aprovado')" %-->
+        <!--%= f.radio_button :situacao, AvaliacaoTrabalho::SITUACOES[:reprovado], label: 'Não aceito', onchange: "avaliacao('reprovado')" %-->
+      <!--% end %-->
+      <div id="parecer">
+        <%= f.text_area :parecer, rows: 5, class: "form-control", label: 'Comentários', placeholder: 'Comente a sua avaliação' %>
       </div>
     </div>
   </div>

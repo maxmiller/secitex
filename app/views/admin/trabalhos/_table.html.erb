@@ -4,10 +4,13 @@
       <th width="30%">Titulo</th>
       <th width="10%">Evento</th>
       <th width="10%">Área</th>
-      <th width="10%">Tipo de trabalho</th>
-      <th width="10%">Sua Avaliação</th>
-      <th width="10%">Avaliação Geral</th>
-      <th width="20%">Opções</th>
+      <th width="10%">Tipo de Trabalho</th>
+      <!--th width="10%">Sua Avaliação</th-->
+      <!--th width="10%">Avaliação Geral</th-->
+      <th width="8%">Sua Avaliação</th>
+      <th width="8">Avaliação Geral</th>
+      <th width="10%">Situação</th>
+      <th width="14%">Opções</th>
     </tr>
   </thead>
   <tbody>
@@ -19,12 +22,23 @@
         <td><%= trabalho.tipo_trabalho.nome %></td>
         <td>
           <% if trabalho.minha_avaliacao(current_user.autenticavel).present? %>
-            <%= situacao(trabalho.minha_avaliacao(current_user.autenticavel).situacao).html_safe %>
+            <% if trabalho.avaliacao_pendente?(current_user.autenticavel) %>
+              <%= trabalho.status_situacao(trabalho.situacao_avaliacao(current_user.autenticavel)).html_safe %>
+            <% else %>
+              <%= trabalho.nota_avaliador(current_user.autenticavel) %>
+            <% end %>
           <% else %>
             -
           <% end %>
         </td>
-        <td><%= situacao(trabalho.situacao).html_safe %></td>
+        <td>
+          <% if trabalho.avaliacao_geral_pendente? %>
+            <%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %>
+          <% else %>
+            <%= trabalho.nota_geral %>
+          <% end %>
+        </td>
+        <td><%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %></td>
         <td>
           <div class="btn-group">
             <% if can? :show, trabalho %>

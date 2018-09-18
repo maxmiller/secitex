@@ -45,7 +45,8 @@ class Ability
 
     if usuario.tem_perfil?('membro_comissao_cientifica')
       can [ :index, :show ], Participante
-      can [ :index, :show, :ver_autores ], Trabalho
+      #can [ :index, :show, :ver_autores ], Trabalho
+      can [ :index, :show ], Trabalho
       can [ :index, :show ], AvaliacaoTrabalho
       can [ :edit, :update ], AvaliacaoTrabalho, organizador_id: usuario.autenticavel.id
     end

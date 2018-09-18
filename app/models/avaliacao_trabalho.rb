@@ -5,17 +5,22 @@ class AvaliacaoTrabalho < ApplicationRecord
 
   before_create :definir_situacao
   before_update :verificar_situacao
-  after_update :verificar_discrepancia# , :notificar_autor
+  #after_update :verificar_discrepancia# , :notificar_autor
 
-  validates :situacao, :atende_normas, :tematica_evento, :linha_tematica, :relevancia, :adequacao, :consistencia, :interlocucao, :originalidade, presence: true, on: :update, unless: :outra_linha?
-  validates :parecer, presence: true, if: :reprovado?
-  validates :linha_id, :parecer, presence: true, if: :outra_linha?
+  #validates :situacao, :atende_normas, :tematica_evento, :linha_tematica, :relevancia, :adequacao, :consistencia, :interlocucao, :originalidade, presence: true, on: :update, unless: :outra_linha?
+  validates :situacao, :criterio1, :criterio2, :criterio3, :criterio4, :criterio5, :criterio6, presence: true, on: :update
+  validates :parecer, presence: true, on: :update
+  #validates :parecer, presence: true, if: :reprovado?
+  #validates :linha_id, :parecer, presence: true, if: :outra_linha?
 
   SITUACOES = {
     reprovado: -1,
     pendente: 0,
     aprovado: 1,
-    outra_linha: 2
+    outra_linha: 2,
+    aceito: 3,
+    nao_aceito: 4,
+    avaliado: 5
   }
 
   ATENDE_NORMAS = {
@@ -122,5 +127,9 @@ class AvaliacaoTrabalho < ApplicationRecord
 
   def definir_situacao
     self.situacao = SITUACOES[:pendente]
+  end
+
+  def funcao
+    return "teste"
   end
 end

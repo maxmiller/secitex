@@ -8,7 +8,7 @@ class Trabalho < ApplicationRecord
   accepts_nested_attributes_for :autores, :reject_if => proc { |params| params['nome'].blank? }
 
   before_destroy :apagar_arquivo
-  #after_create :definir_avaliadores
+  after_create :definir_avaliadores
 
   validates :titulo, :resumo, :linha_id, :tipo_trabalho_id, presence: true
 
@@ -26,8 +26,71 @@ class Trabalho < ApplicationRecord
     end
   end
 
+  def nota_avaliador(organizador)
+    avaliacao = self.avaliacoes.where(organizador_id: organizador.id).first
+    return avaliacao.criterio1.to_i + avaliacao.criterio2.to_i + avaliacao.criterio3.to_i + avaliacao.criterio4.to_i + avaliacao.criterio5.to_i + avaliacao.criterio6.to_i
+  end
+
+  def nota_geral
+    avaliacao1 = self.avaliacoes.first
+    avaliacao2 = self.avaliacoes.last
+
+    nota1 = avaliacao1.criterio1.to_i + avaliacao1.criterio2.to_i + avaliacao1.criterio3.to_i + avaliacao1.criterio4.to_i + avaliacao1.criterio5.to_i + avaliacao1.criterio6.to_i
+    nota2 = avaliacao2.criterio1.to_i + avaliacao2.criterio2.to_i + avaliacao2.criterio3.to_i + avaliacao2.criterio4.to_i + avaliacao2.criterio5.to_i + avaliacao2.criterio6.to_i
+
+    return (nota1+nota2)/2
+  end
+
   def minha_avaliacao(organizador)
     return self.avaliacoes.where(organizador_id: organizador.id).first
+  end
+
+  def situacao_avaliacao(organizador)
+    return self.avaliacoes.where(organizador_id: organizador.id).first.situacao
+  end
+
+  def situacao_avaliacao_geral
+    avaliacoes = self.avaliacoes
+    avaliacoes.each do |avaliacao|
+      if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
+        return AvaliacaoTrabalho::SITUACOES[:pendente]
+      end
+    end
+
+    return AvaliacaoTrabalho::SITUACOES[:avaliado]
+  end
+
+  def avaliacao_pendente?(organizador)
+    avaliacao = self.avaliacoes.where(organizador_id: organizador.id).first
+    return avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
+  end
+  
+  def avaliacao_geral_pendente?
+    avaliacoes = self.avaliacoes
+    avaliacoes.each do |avaliacao|
+      if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
+        return true
+      end
+    end
+    return false
+  end
+
+  def status_situacao(situacao)
+    if situacao == AvaliacaoTrabalho::SITUACOES[:aprovado]
+      return "<span class='label label-success'>Aprovado</span>"
+    elsif situacao == AvaliacaoTrabalho::SITUACOES[:reprovado]
+      return "<span class='label label-danger'>Reprovado</span>"
+    elsif situacao == AvaliacaoTrabalho::SITUACOES[:outra_linha]
+      return "<span class='label label-warning'>Outra linha</span>"
+    elsif situacao == AvaliacaoTrabalho::SITUACOES[:aceito]
+      return "<span class='label label-success'>Aceito</span>"
+    elsif situacao == AvaliacaoTrabalho::SITUACOES[:nao_aceito]
+      return "<span class='label label-danger'>Não aceito</span>"
+    elsif situacao == AvaliacaoTrabalho::SITUACOES[:avaliado]
+      return "<span class='label label-info'>Avaliado</span><br/><span class='label label-info'>Aguardando resultado</span>"
+    else
+      return "<span class='label label-default'>Pendente</span>"
+    end
   end
 
   def apagar_arquivo
@@ -59,6 +122,7 @@ class Trabalho < ApplicationRecord
 
   def atribuir_avaliador
     avaliadores_candidatos = (self.linha.organizadores - self.avaliadores)
+
     if avaliadores_candidatos.empty?
       raise RuntimeError, 'Não há avaliadores suficientes para atribuir!'
     end
@@ -78,13 +142,12 @@ class Trabalho < ApplicationRecord
   end
 
   def situacao
-    #avaliacoes = self.avaliacoes_linha_atual
-    #avaliacoes.each do |avaliacao|
-    #  if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
-    #    return AvaliacaoTrabalho::SITUACOES[:pendente]
-    #  end
-      return AvaliacaoTrabalho::SITUACOES[:pendente]
-    #end
+    avaliacoes = self.avaliacoes_linha_atual
+    avaliacoes.each do |avaliacao|
+      if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
+        return AvaliacaoTrabalho::SITUACOES[:pendente]
+      end
+    end
 
     aprovadas = 0
     reprovadas = 0
@@ -108,6 +171,10 @@ class Trabalho < ApplicationRecord
 
   def self.aprovados
     self.all.select { |trabalho| trabalho.aprovado? }
+  end
+
+  def pendente?
+    return self.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
   end
 
   def aprovado?

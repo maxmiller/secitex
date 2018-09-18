@@ -81,7 +81,14 @@
       <% @avaliacoes.each do |avaliacao| %>
         <tr>
           <td><%= avaliacao.organizador.nome %></td>
-          <td><%= situacao(avaliacao.situacao).html_safe %></td>
+          <!--td--><%#= situacao(avaliacao.situacao).html_safe %><!--/td-->
+          <td>
+            <% if @trabalho.avaliacao_pendente?(avaliacao.organizador) %>
+              <%= @trabalho.status_situacao(@trabalho.situacao_avaliacao(avaliacao.organizador)).html_safe %>
+            <% else %>
+              <%= @trabalho.nota_avaliador(avaliacao.organizador) %>
+            <% end %>
+          </td>
           <td><%= link_to fa_icon('eye'), admin_trabalho_avaliacao_path(avaliacao.trabalho, avaliacao), class: "btn btn-primary btn-sm" %></td>
         </tr>
       <% end %>

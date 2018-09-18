@@ -14,84 +14,140 @@
 </p>
 
 <% if @avaliacao.outra_linha? %>
-  <p>
-    <strong>O tema está inserido na linha temática a que foi submetido?</strong><br>
-    Não, o trabalho deve ser submetido para <%= @avaliacao.linha.nome %>.
-  </p>
-  <p>
-    <strong>Parecer</strong><br>
-    <%= @avaliacao.parecer %>
-  </p>
+  <!--p-->
+    <!--strong>O tema está inserido na linha temática a que foi submetido?</strong><br-->
+    <!--Não, o trabalho deve ser submetido para--> <%#= @avaliacao.linha.nome %>.
+  <!--/p-->
+  <!--p-->
+    <!--strong>Parecer</strong><br-->
+    <%#= @avaliacao.parecer %>
+  <!--/p-->
 <% else %>
-  <p>
-    <strong>Atende às normas da Holos?</strong>
-    <% if @avaliacao.atende_normas.nil? %>
-      Não avaliado
-    <% else %>
-      <% if @avaliacao.atende_normas == AvaliacaoTrabalho::ATENDE_NORMAS[:sim] %>
-        Sim
-      <% else %>
-        Não/recusado
-      <% end %>
-    <% end %>
-  </p>
-  <p>
-    <strong>O tema está inserido na temática do evento?</strong>
-    <% if @avaliacao.tematica_evento.nil? %>
-      Não avaliado
-    <% else %>
-      <% if @avaliacao.tematica_evento == AvaliacaoTrabalho::TEMATICA_EVENTO[:sim] %>
-        Sim
-      <% else %>
-        Não/recusado
-      <% end %>
-    <% end %>
-  </p>
+  <!--p-->
+    <!--strong>Atende às normas da Holos?</strong-->
+    <%# if @avaliacao.atende_normas.nil? %>
+      <!--Não avaliado-->
+    <%# else %>
+      <%# if @avaliacao.atende_normas == AvaliacaoTrabalho::ATENDE_NORMAS[:sim] %>
+        <!--Sim-->
+      <%# else %>
+        <!--Não/recusado-->
+      <%# end %>
+    <%# end %>
+  <!--/p-->
+  <!--p-->
+    <!--strong>O tema está inserido na temática do evento?</strong-->
+    <%# if @avaliacao.tematica_evento.nil? %>
+      <!--Não avaliado-->
+    <%# else %>
+      <%# if @avaliacao.tematica_evento == AvaliacaoTrabalho::TEMATICA_EVENTO[:sim] %>
+        <!--Sim-->
+      <%# else %>
+        <!--Não/recusado-->
+      <%# end %>
+    <%# end %>
+  <!--/p-->
 
   <table class="table table-bordered table-hover avaliacao">
     <thead>
       <tr>
-        <th>Itens</th>
-        <th>Atende</th>
-        <th>Parcialmente</th>
-        <th>Não atende</th>
+        <th width="80%">Critérios</th>
+        <th width="20%">Pontuação</th>
+        <!--th>Itens</th-->
+        <!--th>Atende</th-->
+        <!--th>Parcialmente</th-->
+        <!--th>Não atende</th-->
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>1. Relevância e pertinência do trabalho para a linha temática a que foi submetido</td>
-        <td><%= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <% if @avaliacao.trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO" %>
+          <% @texto_criterio1 = '1. Coerência e clareza do conteúdo do resumo expandido quanto a sua estrutura, objetivos e resultados alcançados e/ou esperados' %>
+          <% @texto_criterio2 = '2. Elaboração do resumo expandido seguindo as normas do evento, uso adequado da língua portuguesa e dos tópicos (gráficos, tabelas, quadros, figuras, etc.)' %>
+          <% @texto_criterio3 = '3. Envolvimento com a comunidade externa' %>
+          <% @texto_criterio4 = '4. Relevância para a transformação social, conforme os objetivos e resultados alcançados' %>
+          <% @texto_criterio5 = '5. Impacto na formação do estudante' %>
+          <% @texto_criterio6 = '6. Caráter interdisciplinar e indissociabilidade entre ensino, pesquisa e extensão' %>
+          <% @max_criterio1 = 20 %>
+          <% @max_criterio2 = 10 %>
+          <% @max_criterio3 = 20 %>
+          <% @max_criterio4 = 20 %>
+          <% @max_criterio5 = 20 %>
+          <% @max_criterio6 = 10 %>
+        <% elsif @avaliacao.trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA" %>
+          <% @texto_criterio1 = '1. Execução do projeto' %>
+          <% @texto_criterio2 = '2. Originalidade' %>
+          <% @texto_criterio3 = '3. Apresentação e estrutura do projeto' %>
+          <% @texto_criterio4 = '4. Potencial empreendedor/inovador' %>
+          <% @texto_criterio5 = '5. Não se aplica' %>
+          <% @texto_criterio6 = '6. Não se aplica' %>
+          <% @max_criterio1 = 25 %>
+          <% @max_criterio2 = 25 %>
+          <% @max_criterio3 = 25 %>
+          <% @max_criterio4 = 25 %>
+          <% @max_criterio5 = 0 %>
+          <% @max_criterio6 = 0 %>
+        <% elsif @avaliacao.trabalho.linha.evento.nome == "XIV CONGIC" %>
+          <% @texto_criterio1 = '1. Qual pontuação você atribui quanto aos aspectos textuais (linguagem formal, concordância e regência verbais, ortografia, acentuação gráfica e pontuação)?' %>
+          <% @texto_criterio2 = '2. Qual pontuação você atribui quanto à estrutura organizacional (título, área temática, autores, resumo, palavras-chave, introdução, metodologia, resultados alcançados/esperados, referências)?' %>
+          <% @texto_criterio3 = '3. Qual pontuação você atribui quanto à formatação do texto, normas da ABNT, titulação de tabelas e quadros e extensão máxima?' %>
+          <% @texto_criterio4 = '4. Qual pontuação você atribui quanto à relevância, coerência e legitimidade das referências utilizadas?' %>
+          <% @texto_criterio5 = '5. Qual pontuação você atribui quanto à clareza dos objetivos?' %>
+          <% @texto_criterio6 = '6. Qual pontuação você atribui quanto aos resultados apresentados, no que diz respeito ao alcance dos objetivos propostos?' %>
+          <% @max_criterio1 = 15 %>
+          <% @max_criterio2 = 15 %>
+          <% @max_criterio3 = 15 %>
+          <% @max_criterio4 = 15 %>
+          <% @max_criterio5 = 20 %>
+          <% @max_criterio6 = 20 %>
+        <% end %>
+        <td><%= @texto_criterio1 %></td>
+        <td><%= @avaliacao.criterio1 %></td>
+        <!--td><%#= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:atende] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:parcialmente] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.relevancia == AvaliacaoTrabalho::ITENS[:nao_atende] %></td-->
       </tr>
       <tr>
-        <td>2. Adequação conceitual na formulação dos problemas</td>
-        <td><%= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= @texto_criterio2 %></td>
+        <td><%= @avaliacao.criterio2 %></td>
+        <!--td><%#= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:atende] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:parcialmente] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.adequacao == AvaliacaoTrabalho::ITENS[:nao_atende] %></td-->
       </tr>
       <tr>
-        <td>3. Consistência e rigor na abordagem teórico-metodológica e na argumentação</td>
-        <td><%= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= @texto_criterio3 %></td>
+        <td><%= @avaliacao.criterio3 %></td>
+        <!--td><%#= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:atende] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:parcialmente] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.consistencia == AvaliacaoTrabalho::ITENS[:nao_atende] %></td-->
       </tr>
       <tr>
-        <td>4. Interlocução com a produção da área da educação a distância, em particular com os temas propostos pela linha temática a que o trabalho foi submetido</td>
-        <td><%= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
+        <td><%= @texto_criterio4 %></td>
+        <td><%= @avaliacao.criterio4 %></td>
+        <!--td><%#= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:atende] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:parcialmente] %></td-->
+        <!--td><%#= fa_icon('check') if @avaliacao.interlocucao == AvaliacaoTrabalho::ITENS[:nao_atende] %></td-->
       </tr>
-      <tr>
-        <td>5. Originalidade e contribuição para o avanço do conhecimento na área do evento especialmente para a linha temática a que foi submetido</td>
-        <td><%= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:atende] %></td>
-        <td><%= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:parcialmente] %></td>
-        <td><%= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:nao_atende] %></td>
-      </tr>
+      <% if @avaliacao.trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" %>
+        <tr>
+          <td><%= @texto_criterio5 %></td>
+          <td><%= @avaliacao.criterio5 %></td>
+          <!--td><%#= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:atende] %></td-->
+          <!--td><%#= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:parcialmente] %--></td>
+          <!--td><%#= fa_icon('check') if @avaliacao.originalidade == AvaliacaoTrabalho::ITENS[:nao_atende] %></td-->
+        </tr>
+        <tr>
+          <td><%= @texto_criterio6 %></td>
+          <td><%= @avaliacao.criterio6 %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
+  <p align="center">
+    <strong>Pontuação total:</strong> <%= (@avaliacao.criterio1+@avaliacao.criterio2+@avaliacao.criterio3+@avaliacao.criterio4+@avaliacao.criterio5+@avaliacao.criterio6) if @avaliacao.criterio1 %>
+  </p>
   <p>
-    <strong>Avaliação final:</strong> <%= situacao(@avaliacao.situacao).html_safe %>
+    <!--strong>Avaliação final:</strong--> <!--%= situacao(@avaliacao.situacao).html_safe %-->
   </p>
   <% if @avaliacao.reprovado? %>
     <p>

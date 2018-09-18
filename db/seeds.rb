@@ -132,13 +132,12 @@ linha_congic_engenharia_agricola = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Eng
 linha_congic_recursos_florestais_engenharia_florestal = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Recursos Florestais e Engenharia Florestal', slug: 'recursos_florestais_engenharia_florestal', evento: congic)
 linha_congic_recursos_pesqueiros_engenharia_pesca = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Recursos Pesqueiros e Engenharia de Pesca', slug: 'recursos_pesqueiros_engenharia_pesca', evento: congic)
 linha_congic_zootecnia_e_medicina_veterinaria = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Zootecnia e Medicina Veterinária', slug: 'zootecnia_e_medicina_veterinaria', evento: congic)
-linha_congic_ciencias_biologicas = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - CIÊNCIAS BIOLÓGICAS', slug: 'ciencias_biologicas', evento: congic)
-linha_congic_biofisica = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Biofísica', slug: 'biofisica', evento: congic)
-linha_congic_biologia_geral = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Biologia Geral', slug: 'biologia_geral', evento: congic)
-linha_congic_bioquimica = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Bioquímica', slug: 'bioquimica', evento: congic)
-linha_congic_botanica = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Botânica', slug: 'botanica', evento: congic)
-linha_congic_ecologia_meio_ambiente = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Ecologia e Meio Ambiente', slug: 'ecologia_meio_ambiente', evento: congic)
-linha_congic_microbiologia = Linha.create(nome: 'CIÊNCIAS AGRÁRIAS - Microbiologia', slug: 'microbiologia', evento: congic)
+linha_congic_biofisica = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Biofísica', slug: 'biofisica', evento: congic)
+linha_congic_biologia_geral = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Biologia Geral', slug: 'biologia_geral', evento: congic)
+linha_congic_bioquimica = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Bioquímica', slug: 'bioquimica', evento: congic)
+linha_congic_botanica = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Botânica', slug: 'botanica', evento: congic)
+linha_congic_ecologia_meio_ambiente = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Ecologia e Meio Ambiente', slug: 'ecologia_meio_ambiente', evento: congic)
+linha_congic_microbiologia = Linha.create(nome: 'CIÊNCIAS BIOLÓGICAS - Microbiologia', slug: 'microbiologia', evento: congic)
 linha_congic_enfermagem = Linha.create(nome: 'CIÊNCIAS DA SAÚDE - Enfermagem', slug: 'enfermagem', evento: congic)
 linha_congic_educacao_fisica = Linha.create(nome: 'CIÊNCIAS DA SAÚDE - Educação Física', slug: 'educacao_fisica', evento: congic)
 linha_congic_saude_coletiva = Linha.create(nome: 'CIÊNCIAS DA SAÚDE - Saúde Coletiva', slug: 'saude_coletiva', evento: congic)
@@ -186,11 +185,11 @@ puts "concluído!"
 
 print "Adicionando tipos de trabalhos... "
 
-TipoTrabalho.create(nome: 'Artigo Científico - Apresentação Oral', slug: 'apresentacao_oral_congic')
-TipoTrabalho.create(nome: 'Resumo Expandido - Apresentação em Pôster', slug: 'poster_congic')
-TipoTrabalho.create(nome: 'Mostra Tecnológica', slug: 'mostra_tecnologica')
-TipoTrabalho.create(nome: 'Mostra de Extensão', slug: 'mostra_extensao')
-TipoTrabalho.create(nome: 'Pôster', slug: 'poster_extensao')
+TipoTrabalho.create(nome: 'Artigo Científico - Apresentação Oral', slug: 'apresentacao_oral_congic', evento: congic)
+TipoTrabalho.create(nome: 'Resumo Expandido - Apresentação em Pôster', slug: 'poster_congic', evento: congic)
+TipoTrabalho.create(nome: 'Mostra Tecnológica', slug: 'mostra_tecnologica', evento: mostra_tecnologica)
+TipoTrabalho.create(nome: 'Mostra de Extensão', slug: 'mostra_extensao', evento: simposio_extensao)
+TipoTrabalho.create(nome: 'Pôster', slug: 'poster_extensao', evento: simposio_extensao)
 
 puts "concluído!"
 

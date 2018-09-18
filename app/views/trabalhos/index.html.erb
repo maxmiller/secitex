@@ -30,7 +30,8 @@
           <td><%= trabalho.titulo %></td>
           <td><%= trabalho.linha.nome %></td>
           <td><%= trabalho.tipo_trabalho.nome %></td>
-          <td><%= situacao(trabalho.situacao).html_safe %></td>
+          <!--td--><%#= situacao(trabalho.situacao).html_safe %><!--/td-->
+          <td><%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %></td>
           <td>
             <div class="btn-group">
               <% if trabalho.aprovado? and can? :aceite, trabalho %>

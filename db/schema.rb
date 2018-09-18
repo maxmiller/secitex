@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_105545) do
+ActiveRecord::Schema.define(version: 2018_09_10_181907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2018_09_06_105545) do
     t.integer "organizador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "criterio1"
+    t.integer "criterio2"
+    t.integer "criterio3"
+    t.integer "criterio4"
+    t.integer "criterio5"
+    t.integer "criterio6"
     t.index ["linha_id"], name: "index_avaliacoes_trabalhos_on_linha_id"
     t.index ["organizador_id"], name: "index_avaliacoes_trabalhos_on_organizador_id"
     t.index ["trabalho_id"], name: "index_avaliacoes_trabalhos_on_trabalho_id"
