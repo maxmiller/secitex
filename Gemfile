@@ -18,7 +18,6 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'google_drive'
 gem 'rest-client'
-gem "recaptcha", require: "recaptcha/rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

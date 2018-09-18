@@ -41,7 +41,7 @@ class ParticipantesController < ApplicationController
     @participante = Participante.new(participante_params)
     respond_to do |format|
       @participante.atribuir_perfil
-      if verify_recaptcha(model: @participante) && @participante.save
+      if @participante.save
         session[:usuario_id] = @participante.usuario.id
         ParticipanteMailer.inscricao_realizada(@participante).deliver_now
         format.html { redirect_to participacao_path, notice: 'Inscrição realizada com sucesso!' }
