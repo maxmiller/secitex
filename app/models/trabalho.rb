@@ -56,7 +56,7 @@ class Trabalho < ApplicationRecord
         return AvaliacaoTrabalho::SITUACOES[:pendente]
       end
     end
-
+    return AvaliacaoTrabalho::SITUACOES[:pendente]
     return AvaliacaoTrabalho::SITUACOES[:avaliado]
   end
 
