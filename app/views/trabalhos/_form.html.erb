@@ -138,7 +138,7 @@
   <div class="form-group">
     <%= f.link_to_add "Adicionar autor", :autores, class: 'btn btn-default' %>
   </div>
-  <div class="alert alert-warning" role="alert"><strong>Atenção:</strong> O artigo submetido não pode conter os nomes dos autores.</div>
+  <div class="alert alert-danger" role="alert"><strong>Atenção:</strong> Os nomes dos autores não devem constar no arquivo submetido. Eles devem ser informados apenas no formulário de submissão. Os trabalhos submetidos com os nomes dos autores no arquivo não serão aceitos.</div>
   <%= f.file_field :arquivo, label: 'Arquivo (doc ou docx)' %>
   
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
