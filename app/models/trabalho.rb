@@ -8,7 +8,7 @@ class Trabalho < ApplicationRecord
   accepts_nested_attributes_for :autores, :reject_if => proc { |params| params['nome'].blank? }
 
   before_destroy :apagar_arquivo
-  after_create :definir_avaliadores
+  #after_create :definir_avaliadores
 
   validates :titulo, :resumo, :linha_id, :tipo_trabalho_id, presence: true
 
@@ -142,6 +142,7 @@ class Trabalho < ApplicationRecord
   end
 
   def situacao
+    return AvaliacaoTrabalho::SITUACOES[:pendente]
     avaliacoes = self.avaliacoes_linha_atual
     avaliacoes.each do |avaliacao|
       if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
