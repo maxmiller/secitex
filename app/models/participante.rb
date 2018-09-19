@@ -172,4 +172,45 @@ class Participante < ApplicationRecord
   def self.pagantes
     self.joins(:usuario).where(pago: true)
   end
+
+  def icons_listagem_participante
+  participante = self
+    html = ""
+    if participante.possui_necessidades_especiais?
+      html += fa_icon('wheelchair', title: 'Possui necessidades especiais')
+      html += "&nbsp".html_safe
+    end
+=begin
+    if participante.pagamento_por_empenho?
+      html += fa_icon('file-text-o', title: 'Pagamento da taxa de inscrição por empenho')
+      html += "&nbsp".html_safe
+    elsif participante.isento? or participante.solicitou_isencao? or participante.isencao_aprovada?
+      html += fa_icon('credit-card', classes: 'fa-disabled', title: 'Solicitou isenção/isento')
+      html += "&nbsp".html_safe
+    else
+      html += fa_icon('credit-card', title: 'Pagamento da taxa de inscrição tradicional')
+      html += "&nbsp".html_safe
+    end
+=end
+
+    if participante.confirmado?
+      html += fa_icon('thumbs-up', title: 'Confirmado')
+      html += "&nbsp".html_safe
+    else
+      html += fa_icon('thumbs-up', classes: 'fa-disabled', title: 'Não confirmado')
+      html += "&nbsp".html_safe
+    end
+    if participante.credenciado?
+      html += fa_icon('address-card-o', title: 'Credenciado')
+      html += "&nbsp".html_safe
+    else
+      html += fa_icon('address-card-o', classes: 'fa-disabled', title: 'Não credenciado')
+      html += "&nbsp".html_safe
+    end
+    return html
+  end
+
+  def fa_icon(icon, title: '', classes: '')
+    "<i class='fa fa-#{icon} #{classes}' title='#{title}' aria-hidden='true'></i>".html_safe
+  end
 end
