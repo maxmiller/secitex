@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_111844) do
+ActiveRecord::Schema.define(version: 2018_09_21_121550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alunos", force: :cascade do |t|
+    t.string "nome"
+    t.string "maticula"
+    t.bigint "equipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipe_id"], name: "index_alunos_on_equipe_id"
+  end
 
   create_table "autores", id: :serial, force: :cascade do |t|
     t.string "nome"
@@ -95,6 +104,15 @@ ActiveRecord::Schema.define(version: 2018_09_21_111844) do
     t.boolean "exibir_certificados"
     t.date "data_inicio_inscricoes_robotica"
     t.date "data_termino_inscricoes_robotica"
+  end
+
+  create_table "equipes", force: :cascade do |t|
+    t.string "nome"
+    t.integer "status"
+    t.bigint "participante_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participante_id"], name: "index_equipes_on_participante_id"
   end
 
   create_table "estados", id: :serial, force: :cascade do |t|
@@ -296,12 +314,14 @@ ActiveRecord::Schema.define(version: 2018_09_21_111844) do
     t.index ["perfil_id"], name: "index_usuarios_on_perfil_id"
   end
 
+  add_foreign_key "alunos", "equipes"
   add_foreign_key "autores", "trabalhos"
   add_foreign_key "avaliacoes_trabalhos", "linhas"
   add_foreign_key "avaliacoes_trabalhos", "organizadores"
   add_foreign_key "avaliacoes_trabalhos", "trabalhos"
   add_foreign_key "certificados", "usuarios"
   add_foreign_key "cidades", "estados"
+  add_foreign_key "equipes", "participantes"
   add_foreign_key "inscricoes", "minicursos"
   add_foreign_key "inscricoes", "participantes"
   add_foreign_key "linhas", "eventos"
