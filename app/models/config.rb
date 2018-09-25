@@ -30,6 +30,10 @@ class Config < ApplicationRecord
     (Date.today >= self.data_inicio_inscricoes_minicursos and Date.today <= self.data_termino_inscricoes_minicursos)
   end
 
+  def permitir_inscricao_equipes?
+    (Date.today >= self.data_inicio_inscricoes_robotica and Date.today <= self.data_termino_inscricoes_robotica)
+  end
+
   def exibir_certificados?
     false
   end

@@ -64,6 +64,6 @@ class Usuario < ApplicationRecord
   end
 
   def servidor?
-    self.matricula != nil
+    return false
   end
 end

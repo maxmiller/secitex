@@ -1,0 +1,81 @@
+<%= content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $("#equipe_participante_id").select2({
+        theme: "bootstrap"
+      });
+    });
+
+
+    $(function() {
+      var fieldsCount,
+          maxFieldsCount = 4,
+          $addLink = $('a.add_nested_fields');
+
+      function toggleAddLink() {
+        $addLink.toggle(fieldsCount + 1 <= maxFieldsCount);
+      }
+
+      $(document).on('nested:fieldAdded', function() {
+        fieldsCount += 1;
+        toggleAddLink();
+      });
+
+      $(document).on('nested:fieldRemoved', function() {
+        fieldsCount -= 1;
+        toggleAddLink();
+      });
+
+      // count existing nested fields after page was loaded
+      fieldsCount = $('form .fields').length;
+      toggleAddLink();
+      //$("#equipe_participante_id").prop('disabled', 'disabled');
+
+    });
+
+  </script>
+<% end %>
+
+<%= bootstrap_nested_form_for(@equipe, html: { multipart: true }) do |f| %>
+  <p>Todos os campos são obrigatórios.</p>
+
+  <%= f.text_field :nome, label: 'Nome da equipe' %>
+  <%#= f.select :participante_id, label: 'Nome da equipe', Participante.select, prompt: 'Selecione', :value => Participante.first %>
+
+  <%#= f.select :participante, options_for_select([[@equipe.participante.nome, @equipe.participante.id]]), label: 'Técnico' %>
+  <%#= f.label :tecnico, 'Técnico: ', class: 'control-label' %>
+  <!--br-->
+  <%#= f.label :tecnico, @equipe.participante.nome, class: 'control-label' %>
+  <!--%= f.select :participante_id, Participante.select, label: 'Técnico', :selected => session[:participante_id] %-->
+  
+  <div class="alert alert-danger" role="alert"><strong>Atenção:</strong> A equipe não será validada e não poderá participar da competição caso viole alguma das seguintes regras:
+    <ul>
+      <li>As equipes só podem ser inscritas por servidores do IFRN.</li>
+      <li>As equipes devem ter entre 2 e 4 alunos.</li>
+      <li>Cada aluno só pode ser inscrito em uma única equipe.</li>
+      <li>Todos os alunos da equipe precisam estar regularmente matriculados e cursando disciplinas regulares dos cursos técnicos integrados do IFRN.</li>
+    </ul>
+  </div>
+  <label for="alunos" class="control-label">Alunos</label>
+  <%= f.fields_for :alunos do |aluno| %>
+    <div class="form-group">
+      <% if aluno.index == 0 || aluno.index == 0 %>
+        <%= aluno.text_field :nome, hide_label: true, placeholder: 'Nome do aluno' %>
+      <% else %>
+        <div class="input-group">
+          <%= aluno.text_field :nome, hide_label: true, placeholder: 'Nome do aluno' %>
+          <span class="input-group-btn">
+            <%= aluno.link_to_remove "Remover", class: 'btn btn-default', style: 'visibility: hidden;' %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.link_to_add "Adicionar aluno", :alunos, class: 'btn btn-default' %>
+  </div>
+  <div class="alert alert-info" role="alert"><strong>Atenção:</strong> As equipes serão validadas até 10/10/2018.</div>  
+  <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+<% end %>
+

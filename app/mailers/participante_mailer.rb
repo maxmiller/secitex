@@ -3,13 +3,19 @@ class ParticipanteMailer < ApplicationMailer
   def inscricao_realizada(participante)
     @participante = participante
     @url_pagamento = url_pagamento(participante)
-    mail(to: participante.email, subject: '[SECITEX] Inscrição realizada com sucesso!')
+    mail(to: participante.email, subject: '[IV SECITEX] Inscrição realizada com sucesso!')
   end
 
   def trabalho_submetido(participante, trabalho)
     @participante = participante
     @trabalho = trabalho
     mail(to: participante.email, subject: '[IV SECITEX] Trabalho submetido com sucesso!')
+  end
+
+  def equipe_inscrita(participante, equipe)
+    @participante = participante
+    @equipe = equipe
+    mail(to: participante.email, subject: '[IV SECITEX] Equipe inscrita com sucesso!')
   end
 
   def minicurso_proposto(participante, minicurso)

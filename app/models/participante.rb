@@ -14,6 +14,7 @@ class Participante < ApplicationRecord
   has_many :minicursos_propostos, dependent: :destroy, class_name: 'Minicurso'
   has_many :inscricoes
   has_many :minicursos, through: :inscricoes
+  has_many :equipes
 
   has_attached_file :nota_empenho, {
     path: "public/system/:class/:attachment/:id/:style/:filename",
