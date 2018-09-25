@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_193105) do
+ActiveRecord::Schema.define(version: 2018_09_25_163140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,14 @@ ActiveRecord::Schema.define(version: 2018_09_21_193105) do
     t.bigint "participante_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "aluno1"
+    t.string "aluno2"
+    t.string "aluno3"
+    t.string "aluno4"
+    t.string "matricula1"
+    t.string "matricula2"
+    t.string "matricula3"
+    t.string "matricula4"
     t.index ["participante_id"], name: "index_equipes_on_participante_id"
   end
 

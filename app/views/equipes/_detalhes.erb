@@ -1,0 +1,20 @@
+
+<p><strong>Status:</strong> <%= @equipe.status_equipe(@equipe.status).html_safe %></p>
+
+<dl>
+  <dt>Nome</dt>
+  <dd><%= @equipe.nome %></dd>
+  <br>
+  <dt>Treinador</dt>
+  <dd><%= @equipe.participante.nome %></dd>
+  <br>
+  <dt>Alunos</dt>
+  <dd><%= '('+@equipe.matricula1+') '+@equipe.aluno1 %></dd>
+  <dd><%= '('+@equipe.matricula2+') '+@equipe.aluno2 %></dd>
+  <% if !@equipe.matricula3.blank? && !@equipe.aluno3.blank? %>
+    <dd><%= '('+@equipe.matricula3+') '+@equipe.aluno3 %></dd>
+  <% end %>
+  <% if !@equipe.matricula4.blank? && !@equipe.aluno4.blank? %>
+    <dd><%= '('+@equipe.matricula4+') '+@equipe.aluno4 %></dd>
+  <% end %>
+</dl>

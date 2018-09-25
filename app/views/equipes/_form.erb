@@ -37,9 +37,9 @@
 <% end %>
 
 <%= bootstrap_nested_form_for(@equipe, html: { multipart: true }) do |f| %>
-  <p>Todos os campos são obrigatórios.</p>
+  <p>Os campos marcados com * são obrigatórios.</p>
 
-  <%= f.text_field :nome, label: 'Nome da equipe' %>
+  <%= f.text_field :nome, label: 'Nome da equipe *' %>
   <%#= f.select :participante_id, label: 'Nome da equipe', Participante.select, prompt: 'Selecione', :value => Participante.first %>
 
   <%#= f.select :participante, options_for_select([[@equipe.participante.nome, @equipe.participante.id]]), label: 'Técnico' %>
@@ -56,25 +56,42 @@
       <li>Todos os alunos da equipe precisam estar regularmente matriculados e cursando disciplinas regulares dos cursos técnicos integrados do IFRN.</li>
     </ul>
   </div>
-  <label for="alunos" class="control-label">Alunos</label>
-  <%= f.fields_for :alunos do |aluno| %>
-    <div class="form-group">
-      <% if aluno.index == 0 || aluno.index == 0 %>
-        <%= aluno.text_field :nome, hide_label: true, placeholder: 'Nome do aluno' %>
-      <% else %>
-        <div class="input-group">
-          <%= aluno.text_field :nome, hide_label: true, placeholder: 'Nome do aluno' %>
-          <span class="input-group-btn">
-            <%= aluno.link_to_remove "Remover", class: 'btn btn-default', style: 'visibility: hidden;' %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
+  <label class="control-label">Alunos</label>
   <div class="form-group">
-    <%= f.link_to_add "Adicionar aluno", :alunos, class: 'btn btn-default' %>
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <%= f.text_field :aluno1, hide_label: true, placeholder: 'Nome do 1º aluno * (obrigatório)' %>
+      </div>
+      <div class="col-md-4 col-sm-12">
+      <%= f.text_field :matricula1, hide_label: true, placeholder: 'Matrícula do 1º aluno * (obrigatório)' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <%= f.text_field :aluno2, hide_label: true, placeholder: 'Nome do 2º aluno * (obrigatório)' %>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <%= f.text_field :matricula2, hide_label: true, placeholder: 'Matrícula 2º aluno * (obrigatório)' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <%= f.text_field :aluno3, hide_label: true, placeholder: 'Nome do 3º aluno (opcional)' %>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <%= f.text_field :matricula3, hide_label: true, placeholder: 'Matrícula do 3º aluno (opcional)' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <%= f.text_field :aluno4, hide_label: true, placeholder: 'Nome do 4º aluno (opcional)' %>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <%= f.text_field :matricula4, hide_label: true, placeholder: 'Matrícula do 4º aluno (opcional)' %>
+      </div>
+    </div>
   </div>
+  <%= f.hidden_field :status, :value => Equipe::STATUS[:pendente] %>
   <div class="alert alert-info" role="alert"><strong>Atenção:</strong> As equipes serão validadas até 10/10/2018.</div>  
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
 <% end %>
