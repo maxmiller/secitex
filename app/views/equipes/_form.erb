@@ -43,9 +43,17 @@
   <%#= f.select :participante_id, label: 'Nome da equipe', Participante.select, prompt: 'Selecione', :value => Participante.first %>
 
   <%#= f.select :participante, options_for_select([[@equipe.participante.nome, @equipe.participante.id]]), label: 'Técnico' %>
-  <%#= f.label :tecnico, 'Técnico: ', class: 'control-label' %>
-  <!--br-->
-  <%#= f.label :tecnico, @equipe.participante.nome, class: 'control-label' %>
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <strong>Técnico:</strong>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <%= @equipe.participante.nome %>
+    </div>
+  </div>
+  <br>
   <!--%= f.select :participante_id, Participante.select, label: 'Técnico', :selected => session[:participante_id] %-->
   
   <div class="alert alert-danger" role="alert"><strong>Atenção:</strong> A equipe não será validada e não poderá participar da competição caso viole alguma das seguintes regras:
