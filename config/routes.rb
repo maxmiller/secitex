@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     get 'prazo_encerrado', on: :collection
     get 'aceite'
   end
+  resources :equipes do
+    get 'prazo_encerrado', on: :collection
+  end
   resources :minicursos do
     get 'prazo_encerrado', on: :collection
     get 'aceite'
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
     get 'cancelar'
   end
   namespace :admin do
+    resources :equipes
     resources :inscricoes
     resources :participantes do
       get 'credenciar'
@@ -33,11 +37,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :equipes
   resources :sessions
   resources :participantes do
     get 'pagar'
   end
-
+  
   resources :certificados
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
