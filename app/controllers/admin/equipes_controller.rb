@@ -1,13 +1,19 @@
 class Admin::EquipesController < ApplicationController
-  def admin/index
+  def index
+  	authorize! :index, Equipe
+    @equipes = Equipe.all
   end
 
-  def admin/new
+  def new
+    authorize! :new, Equipe
+    @equipe = Equipe.new
   end
 
-  def admin/show
+  def show
+  	authorize! :show, @equipe
   end
 
-  def admin/edit
+  def edit
+  	return true
   end
 end
