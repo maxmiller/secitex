@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1><%= fa_icon 'trophy' %> Olímpiada de Robótica</h1>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right" data-turbolinks="false">
+      <% if Config.instance.permitir_inscricao_equipes? and can? :new, Equipe %>
+        <!--a href="<%= new_equipe_path %>" class="btn btn-primary"><%#= fa_icon 'trophy' %> Inscrever Equipe</a-->
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="alert alert-danger" role="alert"><strong>Atenção:</strong> Inscrições em breve.</div>
+<% if @equipes.empty? %>
+  <p>Você não inscreveu nenhuma equipe.</p>
+<% else %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Status</th>
+        <th colspan="3">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @equipes.each do |equipe| %>
+        <tr>
+          <td><%= equipe.nome %></td>
+          <td><%= equipe.status_equipe(equipe.status).html_safe %></td>
+          <td>
+            <div class="btn-group">
+              <% if can? :show, equipe %>
+                <%= link_to fa_icon('eye'), equipe, title: 'Detalhar', class: 'btn btn-primary btn-sm' %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
