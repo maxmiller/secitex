@@ -112,6 +112,6 @@
   <%= participante.file_field :nota_empenho, label: 'Nota de empenho (pdf)' %>
   <%= participante.check_box :possui_necessidades_especiais, label: 'Você possui alguma necessidade específica?', onchange: "toggle('necessidades_especiais')" %>
   <%= participante.text_area :necessidades_especiais, label: 'Descreva a(s) sua(s) necessidade(s) específica(s)' %>
-  <%= recaptcha_tags %>
-  <%= participante.submit 'Enviar', class: 'btn btn-primary' %>
+  <%#= recaptcha_tags %>
+  <%#= participante.submit 'Enviar', class: 'btn btn-primary' %>
 <% end %>
