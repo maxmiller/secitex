@@ -62,11 +62,6 @@ namespace :usuarios do
       puts "Criando avaliadores... "
       membro_comissao_cientifica = Perfil.find_by(slug: 'membro_comissao_cientifica')
 
-      avaliador1 = Usuario.create(nome: 'Avaliador Número 1', email: 'avaliador1@ifrn.edu.br', password: '123456', perfil: membro_comissao_cientifica)
-      avaliador1 = Organizador.create(usuario: avaliador1)
-      avaliador2 = Usuario.create(nome: 'Avaliador Número 2', email: 'avaliador2@ifrn.edu.br', password: '123456', perfil: membro_comissao_cientifica)
-      avaliador2 = Organizador.create(usuario: avaliador2)
-      
       linha_simposio_comunicacao  = Linha.find_by(nome: 'Comunicação')
       linha_simposio_cultura  = Linha.find_by(nome: 'Cultura')
       linha_simposio_direitos_humanos_justica  = Linha.find_by(nome: 'Direitos Humanos e Justiça')
@@ -128,17 +123,41 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
+      avaliador1 = Usuario.create(nome: 'Avaliador Número 1', email: 'avaliadorBsecitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
+      puts avaliador1.inspect
+      avaliador1 = Organizador.create(usuario: avaliador1)
+      puts avaliador1.inspect
+      #avaliador2 = Usuario.create(nome: 'Avaliador Número 2', email: 'avaliador02secitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
+      #avaliador2 = Organizador.create(usuario: avaliador2)
+      
+
 
       Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador2, coordenador: false)
+      #Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_simposio_cultura, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador2, coordenador: false)
+      #Membro.create(linha: linha_simposio_cultura, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador2, coordenador: false)
+      #Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador2, coordenador: false)
+      #Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador2, coordenador: false)
+      puts avaliador1.inspect
 
       puts "Concluído!"
+  end
+
+  desc "Notificar Cadastro de Avaliadores"
+  task notificar_cadastro_avaliador: :environment do
+    avaliador1 = Usuario.find_by(email: 'avaliadorBsecitex@gmail.com')
+    avaliador1 = Organizador.find_by(usuario: avaliador1)
+    texto = ""
+    puts "Nome: "+avaliador1.nome
+    puts "email: "+avaliador1.email
+    linhas = avaliador1.linhas
+    linhas.each do |linha|
+      puts "Evento: "+linha.evento.nome+", Área: "+linha.nome
+    end
+    OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+
   end
 
   desc "Atribuir avaliadores"
