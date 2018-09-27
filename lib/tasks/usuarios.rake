@@ -123,31 +123,65 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
-      avaliador1 = Usuario.create(nome: 'Avaliador Número 1', email: 'avaliador1secitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
-      avaliador1 = Organizador.create(usuario: avaliador1)
-      #avaliador2 = Usuario.create(nome: 'Avaliador Número 2', email: 'avaliador02secitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
-      #avaliador2 = Organizador.create(usuario: avaliador2)
+      avaliador1 = Usuario.find_by(email: 'joao.teixeira@ifrn.edu.br')
+      avaliador1 = Organizador.find_by(usuario: avaliador1)
+      avaliador2 = Usuario.find_by(email: 'rafael.passos@ifrn.edu.br')
+      avaliador2 = Organizador.find_by(usuario: avaliador2)
       
+      puts avaliador1.nome
+     
+      puts avaliador2.nome
 
+      avaliador3 = Usuario.create(nome: 'Liege Monique Filgueiras da Silva', email: 'silva.liege@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador3 = Organizador.create(usuario: avaliador3)
 
-      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador1, coordenador: false)
-      #Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador2, coordenador: false)
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador1, coordenador: false)
-      #Membro.create(linha: linha_simposio_cultura, organizador: avaliador2, coordenador: false)
+      avaliador4 = Usuario.create(nome: 'Miler Franco D Anjour', email: 'miler.danjour@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador4 = Organizador.create(usuario: avaliador4)    
+
+      Membro.create(linha: linha_mostra_artes_letras_linguistica, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_agrarias, organizador: avaliador1, coordenador: false)
       Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador1, coordenador: false)
-      #Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador1, coordenador: false)
-      #Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador2, coordenador: false)
-      puts avaliador1.inspect
+      Membro.create(linha: linha_mostra_ciencias_exatas_terra, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_humanas, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_sociais_aplicadas, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_mostra_engenharias, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_mostra_artes_letras_linguistica, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_agrarias, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_exatas_terra, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_humanas, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_sociais_aplicadas, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_engenharias, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_mostra_artes_letras_linguistica, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_agrarias, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_exatas_terra, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_humanas, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_sociais_aplicadas, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_engenharias, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_mostra_artes_letras_linguistica, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_agrarias, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_biologicas, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_saude, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_exatas_terra, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_humanas, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_ciencias_sociais_aplicadas, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_mostra_engenharias, organizador: avaliador4, coordenador: false)
 
       puts "Concluído!"
   end
 
   desc "Notificar Cadastro de Avaliadores"
   task notificar_cadastro_avaliador: :environment do
-    avaliador1 = Usuario.find_by(email: 'avaliador1secitex@gmail.com')
+    avaliador1 = Usuario.find_by(email: 'silva.liege@ifrn.edu.br')
     avaliador1 = Organizador.find_by(usuario: avaliador1)
+    avaliador2 = Usuario.find_by(email: 'miler.danjour@ifrn.edu.br')
+    avaliador2 = Organizador.find_by(usuario: avaliador2)
     OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+    OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
     puts "Concluído!"
   end
 
