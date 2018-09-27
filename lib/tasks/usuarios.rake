@@ -123,10 +123,8 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
-      avaliador1 = Usuario.create(nome: 'Avaliador Número 1', email: 'avaliadorBsecitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
-      puts avaliador1.inspect
+      avaliador1 = Usuario.create(nome: 'Avaliador Número 1', email: 'avaliador1secitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      puts avaliador1.inspect
       #avaliador2 = Usuario.create(nome: 'Avaliador Número 2', email: 'avaliador02secitex@gmail.com', password: '123456', perfil: membro_comissao_cientifica)
       #avaliador2 = Organizador.create(usuario: avaliador2)
       
@@ -150,7 +148,7 @@ namespace :usuarios do
     avaliador1 = Usuario.find_by(email: 'avaliadorBsecitex@gmail.com')
     avaliador1 = Organizador.find_by(usuario: avaliador1)
     OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-
+    puts "Concluído!"
   end
 
   desc "Atribuir avaliadores"
