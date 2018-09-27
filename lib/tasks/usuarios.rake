@@ -149,13 +149,6 @@ namespace :usuarios do
   task notificar_cadastro_avaliador: :environment do
     avaliador1 = Usuario.find_by(email: 'avaliadorBsecitex@gmail.com')
     avaliador1 = Organizador.find_by(usuario: avaliador1)
-    texto = ""
-    puts "Nome: "+avaliador1.nome
-    puts "email: "+avaliador1.email
-    linhas = avaliador1.linhas
-    linhas.each do |linha|
-      puts "Evento: "+linha.evento.nome+", Área: "+linha.nome
-    end
     OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
 
   end

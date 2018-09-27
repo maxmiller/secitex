@@ -1,0 +1,18 @@
+<p>Caro(a) <%= @avaliador.nome %>,</p>
+
+<p>Você acaba de ser cadastrado como avaliador da IV SECITEX nas seguintes áreas:</p>
+<ul>
+  <% linhas = @avaliador.linhas %>
+  <%  linhas.each do |linha| %>
+  <li>Evento: <%= linha.evento.nome %> - Área: <%= linha.nome %></li>
+  <%  end %>
+</ul>
+
+<p>
+	Para acessar o sistema pela primeira vez, você deve solicitar recuperação de senha através do endereço <%= link_to "http://submissaosecitex.ifrn.edu.br", "http://submissaosecitex.ifrn.edu.br" %>, informando seu e-mail (<%= @avaliador.email %>) e clicando no botão 'Esqueceu sua senha?'.
+</p>
+
+<p>
+  Você será notificado via e-mail caso alguma avaliação seja atribuída a você. Você pode acompanhar a situação das avaliações atribuídas a você através do endereço <%= link_to "http://submissaosecitex.ifrn.edu.br", "http://submissaosecitex.ifrn.edu.br" %>, clicando na aba 'Trabalhos', e, em seguida, selecionando o trabalho que deseja verificar a avaliação.
+</p>
+
