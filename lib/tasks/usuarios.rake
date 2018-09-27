@@ -145,7 +145,7 @@ namespace :usuarios do
 
   desc "Notificar Cadastro de Avaliadores"
   task notificar_cadastro_avaliador: :environment do
-    avaliador1 = Usuario.find_by(email: 'avaliadorBsecitex@gmail.com')
+    avaliador1 = Usuario.find_by(email: 'avaliador1secitex@gmail.com')
     avaliador1 = Organizador.find_by(usuario: avaliador1)
     OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
     puts "Concluído!"
