@@ -4290,8 +4290,11 @@ sleep(15)
 
   desc "Atribuir avaliadores"
   task atribuir_avaliadores: :environment do
+    i = 0
     Trabalho.all.each do |trabalho|
-        trabalho.definir_avaliadores
+        i = i + 1
+        puts "Definindo "+i+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id
+        #trabalho.definir_avaliadores
         sleep(30)
     end
   end
