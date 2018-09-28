@@ -3698,48 +3698,6 @@ puts "Terminado"
 sleep(15)
 =end
 
-puts "Procurando usuário charlyene.souza@ifrn.edu.br"
-avaliador223 = Usuario.find_by(email: 'charlyene.souza@ifrn.edu.br')
-avaliador223 = Organizador.find_by(usuario: avaliador223)
-OrganizadorMailer.avaliador_cadastrado(avaliador223).deliver_now
-puts "Terminado"
-sleep(15)
-
-puts "Procurando usuário cleiton.medeiros@ifrn.edu.br"
-avaliador224 = Usuario.find_by(email: 'cleiton.medeiros@ifrn.edu.br')
-avaliador224 = Organizador.find_by(usuario: avaliador224)
-OrganizadorMailer.avaliador_cadastrado(avaliador224).deliver_now
-puts "Terminado"
-sleep(15)
-
-puts "Procurando usuário cleonecc@gmail.com"
-avaliador225 = Usuario.find_by(email: 'cleonecc@gmail.com')
-avaliador225 = Organizador.find_by(usuario: avaliador225)
-OrganizadorMailer.avaliador_cadastrado(avaliador225).deliver_now
-puts "Terminado"
-sleep(15)
-
-puts "Procurando usuário cristiane_nascimento_fernandes@outlook.com"
-avaliador226 = Usuario.find_by(email: 'cristiane_nascimento_fernandes@outlook.com')
-avaliador226 = Organizador.find_by(usuario: avaliador226)
-OrganizadorMailer.avaliador_cadastrado(avaliador226).deliver_now
-puts "Terminado"
-sleep(15)
-
-puts "Procurando usuário damiaoneto222@gmail.com"
-avaliador227 = Usuario.find_by(email: 'damiaoneto222@gmail.com')
-avaliador227 = Organizador.find_by(usuario: avaliador227)
-OrganizadorMailer.avaliador_cadastrado(avaliador227).deliver_now
-puts "Terminado"
-sleep(15)
-
-puts "Procurando usuário danielaksx@hotmail.com"
-avaliador228 = Usuario.find_by(email: 'danielaksx@hotmail.com')
-avaliador228 = Organizador.find_by(usuario: avaliador228)
-OrganizadorMailer.avaliador_cadastrado(avaliador228).deliver_now
-puts "Terminado"
-sleep(15)
-
 puts "Procurando usuário uchoa.danielle@gmail.com"
 avaliador229 = Usuario.find_by(email: 'uchoa.danielle@gmail.com')
 avaliador229 = Organizador.find_by(usuario: avaliador229)
