@@ -4292,6 +4292,7 @@ sleep(15)
   task atribuir_avaliadores: :environment do
     Trabalho.all.each do |trabalho|
         trabalho.definir_avaliadores
+        sleep(30)
     end
   end
 end
