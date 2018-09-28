@@ -3678,7 +3678,7 @@ Membro.create(linha: linha_congic_letras, organizador: avaliador339, coordenador
 
   desc "Notificar Cadastro de Avaliadores"
   task notificar_cadastro_avaliador: :environment do
-    
+=begin    
 membro_comissao_cientifica = Perfil.find_by(slug: 'membro_comissao_cientifica')
 linha_congic_engenharia_civil  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Civil')
 linha_congic_arquitetura_urbanismo  = Linha.find_by(nome: 'CIÊNCIAS SOCIAIS APLICADAS - Arquitetura e Urbanismo')
@@ -3696,7 +3696,7 @@ avaliador181 = Organizador.find_by(usuario: avaliador181)
 OrganizadorMailer.avaliador_cadastrado(avaliador181).deliver_now
 puts "Terminado"
 sleep(15)
-
+=end
 puts "Procurando usuário silvio.pereira@ifpb.edu.br"
 avaliador182 = Usuario.find_by(email: 'silvio.pereira@ifpb.edu.br')
 avaliador182 = Organizador.find_by(usuario: avaliador182)
