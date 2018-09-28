@@ -4295,7 +4295,9 @@ sleep(15)
     atribuir = false
     Trabalho.all.each do |trabalho|
       if atribuir == false
+        puts "Verificando se "+trabalho.id.to_i+" é igual a "+ultimo_sorteado.to_i
         if trabalho.id.to_i == ultimo_sorteado.to_i
+          puts "É ... "
           atribuir = true
         end
       else
