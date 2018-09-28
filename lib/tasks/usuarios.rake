@@ -3678,12 +3678,131 @@ Membro.create(linha: linha_congic_letras, organizador: avaliador339, coordenador
 
   desc "Notificar Cadastro de Avaliadores"
   task notificar_cadastro_avaliador: :environment do
-    avaliador1 = Usuario.find_by(email: 'silva.liege@ifrn.edu.br')
-    avaliador1 = Organizador.find_by(usuario: avaliador1)
-    avaliador2 = Usuario.find_by(email: 'miler.danjour@ifrn.edu.br')
-    avaliador2 = Organizador.find_by(usuario: avaliador2)
-    OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-    OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+puts "Procurando usuário marcia.toledo@ifrn.edu.br"
+avaliador1 = Usuario.find_by(email: 'marcia.toledo@ifrn.edu.br')
+avaliador1 = Organizador.find_by(usuario: avaliador1)
+OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+
+puts "Procurando usuário geanne.alves.lima@gmail.com"
+avaliador2 = Usuario.find_by(email: 'geanne.alves.lima@gmail.com')
+avaliador2 = Organizador.find_by(usuario: avaliador2)
+OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+
+puts "Procurando usuário danilodiass18@gmail.com"
+avaliador3 = Usuario.find_by(email: 'danilodiass18@gmail.com')
+avaliador3 = Organizador.find_by(usuario: avaliador3)
+OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
+
+puts "Procurando usuário jordania_gids@yahoo.com.br"
+avaliador4 = Usuario.find_by(email: 'jordania_gids@yahoo.com.br')
+avaliador4 = Organizador.find_by(usuario: avaliador4)
+OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now
+
+puts "Procurando usuário carlosjrdao@gmail.com"
+avaliador5 = Usuario.find_by(email: 'carlosjrdao@gmail.com')
+avaliador5 = Organizador.find_by(usuario: avaliador5)
+OrganizadorMailer.avaliador_cadastrado(avaliador5).deliver_now
+
+puts "Procurando usuário lucenaadriano@hotmail.com"
+avaliador6 = Usuario.find_by(email: 'lucenaadriano@hotmail.com')
+avaliador6 = Organizador.find_by(usuario: avaliador6)
+OrganizadorMailer.avaliador_cadastrado(avaliador6).deliver_now
+
+puts "Procurando usuário lauradomingos1@hotmail.com"
+avaliador7 = Usuario.find_by(email: 'lauradomingos1@hotmail.com')
+avaliador7 = Organizador.find_by(usuario: avaliador7)
+OrganizadorMailer.avaliador_cadastrado(avaliador7).deliver_now
+
+puts "Procurando usuário jaianepadilha5@gmail.com"
+avaliador8 = Usuario.find_by(email: 'jaianepadilha5@gmail.com')
+avaliador8 = Organizador.find_by(usuario: avaliador8)
+OrganizadorMailer.avaliador_cadastrado(avaliador8).deliver_now
+
+puts "Procurando usuário ofelipeteixeira@gmail.com"
+avaliador9 = Usuario.find_by(email: 'ofelipeteixeira@gmail.com')
+avaliador9 = Organizador.find_by(usuario: avaliador9)
+OrganizadorMailer.avaliador_cadastrado(avaliador9).deliver_now
+
+puts "Procurando usuário marcos.santiago@ifrn.edu.br"
+avaliador10 = Usuario.find_by(email: 'marcos.santiago@ifrn.edu.br')
+avaliador10 = Organizador.find_by(usuario: avaliador10)
+OrganizadorMailer.avaliador_cadastrado(avaliador10).deliver_now
+
+puts "Procurando usuário mafurca2014@gmail.com"
+avaliador11 = Usuario.find_by(email: 'mafurca2014@gmail.com')
+avaliador11 = Organizador.find_by(usuario: avaliador11)
+OrganizadorMailer.avaliador_cadastrado(avaliador11).deliver_now
+
+puts "Procurando usuário eli_fisica@hotmail.com"
+avaliador12 = Usuario.find_by(email: 'eli_fisica@hotmail.com')
+avaliador12 = Organizador.find_by(usuario: avaliador12)
+OrganizadorMailer.avaliador_cadastrado(avaliador12).deliver_now
+
+puts "Procurando usuário vicente.amintas@ifrn.edu.br"
+avaliador13 = Usuario.find_by(email: 'vicente.amintas@ifrn.edu.br')
+avaliador13 = Organizador.find_by(usuario: avaliador13)
+OrganizadorMailer.avaliador_cadastrado(avaliador13).deliver_now
+
+puts "Procurando usuário cauealmeidagalvao@gmail.com"
+avaliador14 = Usuario.find_by(email: 'cauealmeidagalvao@gmail.com')
+avaliador14 = Organizador.find_by(usuario: avaliador14)
+OrganizadorMailer.avaliador_cadastrado(avaliador14).deliver_now
+
+puts "Procurando usuário maria.duarte@ifap.edu.br"
+avaliador15 = Usuario.find_by(email: 'maria.duarte@ifap.edu.br')
+avaliador15 = Organizador.find_by(usuario: avaliador15)
+OrganizadorMailer.avaliador_cadastrado(avaliador15).deliver_now
+
+puts "Procurando usuário andregrilo@info.ufrn.br"
+avaliador16 = Usuario.find_by(email: 'andregrilo@info.ufrn.br')
+avaliador16 = Organizador.find_by(usuario: avaliador16)
+OrganizadorMailer.avaliador_cadastrado(avaliador16).deliver_now
+
+puts "Procurando usuário regia.lopes@ifrn.edu.br"
+avaliador17 = Usuario.find_by(email: 'regia.lopes@ifrn.edu.br')
+avaliador17 = Organizador.find_by(usuario: avaliador17)
+OrganizadorMailer.avaliador_cadastrado(avaliador17).deliver_now
+
+
+puts "Procurando usuário monique.oliveira@ifrn.edu.br"
+avaliador19 = Usuario.find_by(email: 'monique.oliveira@ifrn.edu.br')
+avaliador19 = Organizador.find_by(usuario: avaliador19)
+OrganizadorMailer.avaliador_cadastrado(avaliador19).deliver_now
+
+puts "Procurando usuário divina.tavares@ifma.edu.br"
+avaliador20 = Usuario.find_by(email: 'divina.tavares@ifma.edu.br')
+avaliador20 = Organizador.find_by(usuario: avaliador20)
+OrganizadorMailer.avaliador_cadastrado(avaliador20).deliver_now
+
+puts "Procurando usuário erineide.silva@ifrn.edu.br"
+avaliador21 = Usuario.find_by(email: 'erineide.silva@ifrn.edu.br')
+avaliador21 = Organizador.find_by(usuario: avaliador21)
+OrganizadorMailer.avaliador_cadastrado(avaliador21).deliver_now
+
+puts "Procurando usuário anacristinab62@gmail.com"
+avaliador22 = Usuario.find_by(email: 'anacristinab62@gmail.com')
+avaliador22 = Organizador.find_by(usuario: avaliador22)
+OrganizadorMailer.avaliador_cadastrado(avaliador22).deliver_now
+
+puts "Procurando usuário mastroiannioliveira@gmail.com"
+avaliador23 = Usuario.find_by(email: 'mastroiannioliveira@gmail.com')
+avaliador23 = Organizador.find_by(usuario: avaliador23)
+OrganizadorMailer.avaliador_cadastrado(avaliador23).deliver_now
+
+puts "Procurando usuário ana.catarina@ifrn.edu.br"
+avaliador24 = Usuario.find_by(email: 'ana.catarina@ifrn.edu.br')
+avaliador24 = Organizador.find_by(usuario: avaliador24)
+OrganizadorMailer.avaliador_cadastrado(avaliador24).deliver_now
+
+puts "Procurando usuário marina.palhano@yahoo.com.br"
+avaliador25 = Usuario.find_by(email: 'marina.palhano@yahoo.com.br')
+avaliador25 = Organizador.find_by(usuario: avaliador25)
+OrganizadorMailer.avaliador_cadastrado(avaliador25).deliver_now
+
+puts "Procurando usuário eduardofrancisco2219@hotmail.com"
+avaliador26 = Usuario.find_by(email: 'eduardofrancisco2219@hotmail.com')
+avaliador26 = Organizador.find_by(usuario: avaliador26)
+OrganizadorMailer.avaliador_cadastrado(avaliador26).deliver_now
     puts "Concluído!"
   end
 
