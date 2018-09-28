@@ -4301,7 +4301,7 @@ sleep(15)
       else
         i = i + 1
         puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-        trabalho.definir_avaliadores
+        #trabalho.definir_avaliadores
         sleep(30)
         puts "Finalizado"
       end
