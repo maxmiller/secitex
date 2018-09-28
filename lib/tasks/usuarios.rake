@@ -4294,6 +4294,7 @@ sleep(15)
     ultimo_sorteado = 875
     atribuir = false
     Trabalho.all.each do |trabalho|
+      puts trabalho.avaliadores.length
       if trabalho.avaliadores.length == 0
         i = i + 1
         puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
