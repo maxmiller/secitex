@@ -3682,7 +3682,7 @@ Membro.create(linha: linha_congic_letras, organizador: avaliador339, coordenador
 
 
 puts "Procurando usuário shirley.genuino@ifrn.edu.br "
-avaliador152 = Usuario.find_by(email: 'shirley.genuino@ifrn.edu.br ')
+avaliador152 = Usuario.find_by(email: 'shirley.genuino@ifrn.edu.br')
 avaliador152 = Organizador.find_by(usuario: avaliador152)
 OrganizadorMailer.avaliador_cadastrado(avaliador152).deliver_now
 puts "Terminado"
