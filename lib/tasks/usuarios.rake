@@ -4291,11 +4291,17 @@ sleep(15)
   desc "Atribuir avaliadores"
   task atribuir_avaliadores: :environment do
     i = 0
+    sorteados = [ 33, 17, 18, 19, 20, 21, 22, 23]
     Trabalho.all.each do |trabalho|
+      if sorteados.include? trabalho.id.to_i
+      else
         i = i + 1
-        puts "Definindo "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-        #trabalho.definir_avaliadores
+        puts "Sorteando "+i+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
+        trabalho.definir_avaliadores
         sleep(30)
+        puts "Finalizado"
+      end
     end
+    puts "Concluído"
   end
 end
