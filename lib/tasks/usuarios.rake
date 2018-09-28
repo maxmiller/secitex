@@ -4291,7 +4291,7 @@ sleep(15)
   desc "Atribuir avaliadores"
   task atribuir_avaliadores: :environment do
     i = 0
-    ultimo_sorteado = 866
+    ultimo_sorteado = 875
     atribuir = false
     Trabalho.all.each do |trabalho|
       if atribuir == false
