@@ -4291,7 +4291,7 @@ sleep(15)
   desc "Atribuir avaliadores"
   task atribuir_avaliadores: :environment do
     i = 0
-    sorteados = [ 33, 17, 18, 19, 20, 21, 22, 23]
+    sorteados = [ 33, 17, 18, 19, 20, 21, 22, 23, 32, 24, 27, 28, 29, 30, 31, 34, 35, 36, 37, 38, 40, 41, 42, 39, 43, 44, 85, 45, 46, 47, 48, 49 ]
     Trabalho.all.each do |trabalho|
       if sorteados.include? trabalho.id.to_i
       else

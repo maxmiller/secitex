@@ -7,7 +7,7 @@ class AvaliacaoMailer < ApplicationMailer
     if Rails.env.development?
       @download = "http://localhost:3000" + @trabalho.download
     else
-      @download = "http://eventos.ifrn.edu.br" + @trabalho.download
+      @download = "http://submissaosecitex.ifrn.edu.br" + @trabalho.download
     end
 
     mail to: avaliador.email, subject: '[IV SECITEX] Avaliação atribuída para você'
