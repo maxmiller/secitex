@@ -4293,7 +4293,7 @@ sleep(15)
     i = 0
     Trabalho.all.each do |trabalho|
         i = i + 1
-        puts "Definindo "+i+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id
+        puts "Definindo "+i+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
         #trabalho.definir_avaliadores
         sleep(30)
     end
