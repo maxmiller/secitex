@@ -1543,7 +1543,7 @@ puts "Adicionando avaliador151 a linha linha_simposio_educacao"
 Membro.create(linha: linha_simposio_educacao, organizador: avaliador151, coordenador: false)
 
 puts "Criando usuário shirley.genuino@ifrn.edu.br "
-avaliador152 = Usuario.create(nome: 'Shirley Luanna Vieira Peixoto Genuíno', email: 'shirley.genuino@ifrn.edu.br ', password: '#$852$#', perfil: membro_comissao_cientifica)
+avaliador152 = Usuario.create(nome: 'Shirley Luanna Vieira Peixoto Genuíno', email: 'shirley.genuino@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
 avaliador152 = Organizador.create(usuario: avaliador152)
 puts "Adicionando avaliador152 a linha linha_simposio_trabalho"
 Membro.create(linha: linha_simposio_trabalho, organizador: avaliador152, coordenador: false)
@@ -3678,8 +3678,14 @@ Membro.create(linha: linha_congic_letras, organizador: avaliador339, coordenador
 
   desc "Notificar Cadastro de Avaliadores"
   task notificar_cadastro_avaliador: :environment do
+    membro_comissao_cientifica = Perfil.find_by(slug: 'membro_comissao_cientifica')
+    linha_simposio_trabalho  = Linha.find_by(nome: 'Trabalho')
 
-
+puts "Criando usuário shirley.genuino@ifrn.edu.br "
+avaliador152 = Usuario.create(nome: 'Shirley Luanna Vieira Peixoto Genuíno', email: 'shirley.genuino@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+avaliador152 = Organizador.create(usuario: avaliador152)
+puts "Adicionando avaliador152 a linha linha_simposio_trabalho"
+Membro.create(linha: linha_simposio_trabalho, organizador: avaliador152, coordenador: false)
 
 puts "Procurando usuário shirley.genuino@ifrn.edu.br "
 avaliador152 = Usuario.find_by(email: 'shirley.genuino@ifrn.edu.br')
