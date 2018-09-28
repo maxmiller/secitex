@@ -4294,14 +4294,7 @@ sleep(15)
     ultimo_sorteado = 875
     atribuir = false
     Trabalho.all.each do |trabalho|
-      puts trabalho.avaliadores.length
-      if atribuir == false
-        puts "Verificando se "+trabalho.id.to_s+" é igual a "+ultimo_sorteado.to_s
-        if trabalho.id.to_i == ultimo_sorteado.to_i
-          puts "É ... "
-          atribuir = true
-        end
-      else
+      if trabalho.avaliadores.length == 0
         i = i + 1
         puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
         #trabalho.definir_avaliadores
