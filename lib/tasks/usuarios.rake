@@ -3680,1979 +3680,2165 @@ Membro.create(linha: linha_congic_letras, organizador: avaliador339, coordenador
   task notificar_cadastro_avaliador: :environment do
 
 
-puts "Procurando usuário marcia.toledo@ifrn.edu.br"
-avaliador1 = Usuario.find_by(email: 'marcia.toledo@ifrn.edu.br')
-avaliador1 = Organizador.find_by(usuario: avaliador1)
-OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-sleep(10)
-
-puts "Procurando usuário geanne.alves.lima@gmail.com"
-avaliador2 = Usuario.find_by(email: 'geanne.alves.lima@gmail.com')
-avaliador2 = Organizador.find_by(usuario: avaliador2)
-OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
-sleep(10)
-
-puts "Procurando usuário danilodiass18@gmail.com"
-avaliador3 = Usuario.find_by(email: 'danilodiass18@gmail.com')
-avaliador3 = Organizador.find_by(usuario: avaliador3)
-OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
-sleep(10)
-
-puts "Procurando usuário jordania_gids@yahoo.com.br"
-avaliador4 = Usuario.find_by(email: 'jordania_gids@yahoo.com.br')
-avaliador4 = Organizador.find_by(usuario: avaliador4)
-OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now
-sleep(10)
-
-puts "Procurando usuário carlosjrdao@gmail.com"
-avaliador5 = Usuario.find_by(email: 'carlosjrdao@gmail.com')
-avaliador5 = Organizador.find_by(usuario: avaliador5)
-OrganizadorMailer.avaliador_cadastrado(avaliador5).deliver_now
-sleep(10)
-
-puts "Procurando usuário lucenaadriano@hotmail.com"
-avaliador6 = Usuario.find_by(email: 'lucenaadriano@hotmail.com')
-avaliador6 = Organizador.find_by(usuario: avaliador6)
-OrganizadorMailer.avaliador_cadastrado(avaliador6).deliver_now
-sleep(10)
-
-puts "Procurando usuário lauradomingos1@hotmail.com"
-avaliador7 = Usuario.find_by(email: 'lauradomingos1@hotmail.com')
-avaliador7 = Organizador.find_by(usuario: avaliador7)
-OrganizadorMailer.avaliador_cadastrado(avaliador7).deliver_now
-sleep(10)
-
-puts "Procurando usuário jaianepadilha5@gmail.com"
-avaliador8 = Usuario.find_by(email: 'jaianepadilha5@gmail.com')
-avaliador8 = Organizador.find_by(usuario: avaliador8)
-OrganizadorMailer.avaliador_cadastrado(avaliador8).deliver_now
-sleep(10)
-
-puts "Procurando usuário ofelipeteixeira@gmail.com"
-avaliador9 = Usuario.find_by(email: 'ofelipeteixeira@gmail.com')
-avaliador9 = Organizador.find_by(usuario: avaliador9)
-OrganizadorMailer.avaliador_cadastrado(avaliador9).deliver_now
-sleep(10)
-
-puts "Procurando usuário marcos.santiago@ifrn.edu.br"
-avaliador10 = Usuario.find_by(email: 'marcos.santiago@ifrn.edu.br')
-avaliador10 = Organizador.find_by(usuario: avaliador10)
-OrganizadorMailer.avaliador_cadastrado(avaliador10).deliver_now
-sleep(10)
-
-puts "Procurando usuário mafurca2014@gmail.com"
-avaliador11 = Usuario.find_by(email: 'mafurca2014@gmail.com')
-avaliador11 = Organizador.find_by(usuario: avaliador11)
-OrganizadorMailer.avaliador_cadastrado(avaliador11).deliver_now
-sleep(10)
-
-puts "Procurando usuário eli_fisica@hotmail.com"
-avaliador12 = Usuario.find_by(email: 'eli_fisica@hotmail.com')
-avaliador12 = Organizador.find_by(usuario: avaliador12)
-OrganizadorMailer.avaliador_cadastrado(avaliador12).deliver_now
-sleep(10)
-
-puts "Procurando usuário vicente.amintas@ifrn.edu.br"
-avaliador13 = Usuario.find_by(email: 'vicente.amintas@ifrn.edu.br')
-avaliador13 = Organizador.find_by(usuario: avaliador13)
-OrganizadorMailer.avaliador_cadastrado(avaliador13).deliver_now
-sleep(10)
-
-puts "Procurando usuário cauealmeidagalvao@gmail.com"
-avaliador14 = Usuario.find_by(email: 'cauealmeidagalvao@gmail.com')
-avaliador14 = Organizador.find_by(usuario: avaliador14)
-OrganizadorMailer.avaliador_cadastrado(avaliador14).deliver_now
-sleep(10)
-
-puts "Procurando usuário maria.duarte@ifap.edu.br"
-avaliador15 = Usuario.find_by(email: 'maria.duarte@ifap.edu.br')
-avaliador15 = Organizador.find_by(usuario: avaliador15)
-OrganizadorMailer.avaliador_cadastrado(avaliador15).deliver_now
-sleep(10)
-
-puts "Procurando usuário andregrilo@info.ufrn.br"
-avaliador16 = Usuario.find_by(email: 'andregrilo@info.ufrn.br')
-avaliador16 = Organizador.find_by(usuario: avaliador16)
-OrganizadorMailer.avaliador_cadastrado(avaliador16).deliver_now
-sleep(10)
-
-puts "Procurando usuário regia.lopes@ifrn.edu.br"
-avaliador17 = Usuario.find_by(email: 'regia.lopes@ifrn.edu.br')
-avaliador17 = Organizador.find_by(usuario: avaliador17)
-OrganizadorMailer.avaliador_cadastrado(avaliador17).deliver_now
-sleep(10)
-
-
-puts "Procurando usuário monique.oliveira@ifrn.edu.br"
-avaliador19 = Usuario.find_by(email: 'monique.oliveira@ifrn.edu.br')
-avaliador19 = Organizador.find_by(usuario: avaliador19)
-OrganizadorMailer.avaliador_cadastrado(avaliador19).deliver_now
-sleep(10)
-
-puts "Procurando usuário divina.tavares@ifma.edu.br"
-avaliador20 = Usuario.find_by(email: 'divina.tavares@ifma.edu.br')
-avaliador20 = Organizador.find_by(usuario: avaliador20)
-OrganizadorMailer.avaliador_cadastrado(avaliador20).deliver_now
-sleep(10)
-
-puts "Procurando usuário erineide.silva@ifrn.edu.br"
-avaliador21 = Usuario.find_by(email: 'erineide.silva@ifrn.edu.br')
-avaliador21 = Organizador.find_by(usuario: avaliador21)
-OrganizadorMailer.avaliador_cadastrado(avaliador21).deliver_now
-sleep(10)
-
 puts "Procurando usuário anacristinab62@gmail.com"
 avaliador22 = Usuario.find_by(email: 'anacristinab62@gmail.com')
 avaliador22 = Organizador.find_by(usuario: avaliador22)
 OrganizadorMailer.avaliador_cadastrado(avaliador22).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário mastroiannioliveira@gmail.com"
 avaliador23 = Usuario.find_by(email: 'mastroiannioliveira@gmail.com')
 avaliador23 = Organizador.find_by(usuario: avaliador23)
 OrganizadorMailer.avaliador_cadastrado(avaliador23).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ana.catarina@ifrn.edu.br"
 avaliador24 = Usuario.find_by(email: 'ana.catarina@ifrn.edu.br')
 avaliador24 = Organizador.find_by(usuario: avaliador24)
 OrganizadorMailer.avaliador_cadastrado(avaliador24).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marina.palhano@yahoo.com.br"
 avaliador25 = Usuario.find_by(email: 'marina.palhano@yahoo.com.br')
 avaliador25 = Organizador.find_by(usuario: avaliador25)
 OrganizadorMailer.avaliador_cadastrado(avaliador25).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário eduardofrancisco2219@hotmail.com"
 avaliador26 = Usuario.find_by(email: 'eduardofrancisco2219@hotmail.com')
 avaliador26 = Organizador.find_by(usuario: avaliador26)
 OrganizadorMailer.avaliador_cadastrado(avaliador26).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maria.marques@ifb.edu.br"
 avaliador27 = Usuario.find_by(email: 'maria.marques@ifb.edu.br')
 avaliador27 = Organizador.find_by(usuario: avaliador27)
 OrganizadorMailer.avaliador_cadastrado(avaliador27).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário monteiro.junior@ifrn.edu.br"
 avaliador28 = Usuario.find_by(email: 'monteiro.junior@ifrn.edu.br')
 avaliador28 = Organizador.find_by(usuario: avaliador28)
 OrganizadorMailer.avaliador_cadastrado(avaliador28).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário valvernagues.freitas@ifrn.edu.br"
 avaliador29 = Usuario.find_by(email: 'valvernagues.freitas@ifrn.edu.br')
 avaliador29 = Organizador.find_by(usuario: avaliador29)
 OrganizadorMailer.avaliador_cadastrado(avaliador29).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário erivaldunp@hotmail.com"
 avaliador30 = Usuario.find_by(email: 'erivaldunp@hotmail.com')
 avaliador30 = Organizador.find_by(usuario: avaliador30)
 OrganizadorMailer.avaliador_cadastrado(avaliador30).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jacqueline.pessanha01@gmail.com"
 avaliador31 = Usuario.find_by(email: 'jacqueline.pessanha01@gmail.com')
 avaliador31 = Organizador.find_by(usuario: avaliador31)
 OrganizadorMailer.avaliador_cadastrado(avaliador31).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rejane.azevedo@ifrn.edu.br"
 avaliador32 = Usuario.find_by(email: 'rejane.azevedo@ifrn.edu.br')
 avaliador32 = Organizador.find_by(usuario: avaliador32)
 OrganizadorMailer.avaliador_cadastrado(avaliador32).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jsamaralima@gmail.com"
 avaliador33 = Usuario.find_by(email: 'jsamaralima@gmail.com')
 avaliador33 = Organizador.find_by(usuario: avaliador33)
 OrganizadorMailer.avaliador_cadastrado(avaliador33).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rubens.capis@gmail.com"
 avaliador34 = Usuario.find_by(email: 'rubens.capis@gmail.com')
 avaliador34 = Organizador.find_by(usuario: avaliador34)
 OrganizadorMailer.avaliador_cadastrado(avaliador34).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário geraldo.freire@ifrn.edu.br"
 avaliador35 = Usuario.find_by(email: 'geraldo.freire@ifrn.edu.br')
 avaliador35 = Organizador.find_by(usuario: avaliador35)
 OrganizadorMailer.avaliador_cadastrado(avaliador35).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário thiago.loureiro@ifrn.edu.br"
 avaliador36 = Usuario.find_by(email: 'thiago.loureiro@ifrn.edu.br')
 avaliador36 = Organizador.find_by(usuario: avaliador36)
 OrganizadorMailer.avaliador_cadastrado(avaliador36).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alexandre.avincola@ifpr.edu.br"
 avaliador37 = Usuario.find_by(email: 'alexandre.avincola@ifpr.edu.br')
 avaliador37 = Organizador.find_by(usuario: avaliador37)
 OrganizadorMailer.avaliador_cadastrado(avaliador37).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário anauzira.kurita@ifpr.edu.br"
 avaliador38 = Usuario.find_by(email: 'anauzira.kurita@ifpr.edu.br')
 avaliador38 = Organizador.find_by(usuario: avaliador38)
 OrganizadorMailer.avaliador_cadastrado(avaliador38).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário angela.maques@ifpr.edu.br"
 avaliador39 = Usuario.find_by(email: 'angela.maques@ifpr.edu.br')
 avaliador39 = Organizador.find_by(usuario: avaliador39)
 OrganizadorMailer.avaliador_cadastrado(avaliador39).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário AUGUSTO.FLORES@IFPR.EDU.BR"
 avaliador40 = Usuario.find_by(email: 'AUGUSTO.FLORES@IFPR.EDU.BR')
 avaliador40 = Organizador.find_by(usuario: avaliador40)
 OrganizadorMailer.avaliador_cadastrado(avaliador40).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário dandaraqueiroga@gmail.com"
 avaliador41 = Usuario.find_by(email: 'dandaraqueiroga@gmail.com')
 avaliador41 = Organizador.find_by(usuario: avaliador41)
 OrganizadorMailer.avaliador_cadastrado(avaliador41).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário dennison.rodrigues@ifpr.edu.br"
 avaliador42 = Usuario.find_by(email: 'dennison.rodrigues@ifpr.edu.br')
 avaliador42 = Organizador.find_by(usuario: avaliador42)
 OrganizadorMailer.avaliador_cadastrado(avaliador42).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário derdried.johann@ifpr.edu.br"
 avaliador43 = Usuario.find_by(email: 'derdried.johann@ifpr.edu.br')
 avaliador43 = Organizador.find_by(usuario: avaliador43)
 OrganizadorMailer.avaliador_cadastrado(avaliador43).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário diego.panonceli@ifpr.edu.br"
 avaliador44 = Usuario.find_by(email: 'diego.panonceli@ifpr.edu.br')
 avaliador44 = Organizador.find_by(usuario: avaliador44)
 OrganizadorMailer.avaliador_cadastrado(avaliador44).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ecnedith@gmail.com"
 avaliador45 = Usuario.find_by(email: 'ecnedith@gmail.com')
 avaliador45 = Organizador.find_by(usuario: avaliador45)
 OrganizadorMailer.avaliador_cadastrado(avaliador45).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário edmundo.pozes@ifsc.edu.br"
 avaliador46 = Usuario.find_by(email: 'edmundo.pozes@ifsc.edu.br')
 avaliador46 = Organizador.find_by(usuario: avaliador46)
 OrganizadorMailer.avaliador_cadastrado(avaliador46).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário emerson.ferreira@ifpr.edu.br"
 avaliador47 = Usuario.find_by(email: 'emerson.ferreira@ifpr.edu.br')
 avaliador47 = Organizador.find_by(usuario: avaliador47)
 OrganizadorMailer.avaliador_cadastrado(avaliador47).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário evertondsb36@gmail.com"
 avaliador48 = Usuario.find_by(email: 'evertondsb36@gmail.com')
 avaliador48 = Organizador.find_by(usuario: avaliador48)
 OrganizadorMailer.avaliador_cadastrado(avaliador48).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário felipe.borges@ifpr.edu.br"
 avaliador49 = Usuario.find_by(email: 'felipe.borges@ifpr.edu.br')
 avaliador49 = Organizador.find_by(usuario: avaliador49)
 OrganizadorMailer.avaliador_cadastrado(avaliador49).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário felipejfc@gmail.com"
 avaliador50 = Usuario.find_by(email: 'felipejfc@gmail.com')
 avaliador50 = Organizador.find_by(usuario: avaliador50)
 OrganizadorMailer.avaliador_cadastrado(avaliador50).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário FLAVIUSVALADARES@IFSP.EDU.BR"
 avaliador51 = Usuario.find_by(email: 'FLAVIUSVALADARES@IFSP.EDU.BR')
 avaliador51 = Organizador.find_by(usuario: avaliador51)
 OrganizadorMailer.avaliador_cadastrado(avaliador51).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gilvanedja@gmail.com"
 avaliador52 = Usuario.find_by(email: 'gilvanedja@gmail.com')
 avaliador52 = Organizador.find_by(usuario: avaliador52)
 OrganizadorMailer.avaliador_cadastrado(avaliador52).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário acessiarq@gmail.com"
 avaliador53 = Usuario.find_by(email: 'acessiarq@gmail.com')
 avaliador53 = Organizador.find_by(usuario: avaliador53)
 OrganizadorMailer.avaliador_cadastrado(avaliador53).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário john.faber@ifsp.edu.br"
 avaliador54 = Usuario.find_by(email: 'john.faber@ifsp.edu.br')
 avaliador54 = Organizador.find_by(usuario: avaliador54)
 OrganizadorMailer.avaliador_cadastrado(avaliador54).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário quirinojm@hotmail.com"
 avaliador55 = Usuario.find_by(email: 'quirinojm@hotmail.com')
 avaliador55 = Organizador.find_by(usuario: avaliador55)
 OrganizadorMailer.avaliador_cadastrado(avaliador55).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário profkat.rlc@gmail.com"
 avaliador56 = Usuario.find_by(email: 'profkat.rlc@gmail.com')
 avaliador56 = Organizador.find_by(usuario: avaliador56)
 OrganizadorMailer.avaliador_cadastrado(avaliador56).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário kessia.marchi@ifpr.edu.br"
 avaliador57 = Usuario.find_by(email: 'kessia.marchi@ifpr.edu.br')
 avaliador57 = Organizador.find_by(usuario: avaliador57)
 OrganizadorMailer.avaliador_cadastrado(avaliador57).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário larisse.carvalho@garanhuns.ifpe.edu.br"
 avaliador58 = Usuario.find_by(email: 'larisse.carvalho@garanhuns.ifpe.edu.br')
 avaliador58 = Organizador.find_by(usuario: avaliador58)
 OrganizadorMailer.avaliador_cadastrado(avaliador58).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário leandro.delgado@ifpr.edu.br"
 avaliador59 = Usuario.find_by(email: 'leandro.delgado@ifpr.edu.br')
 avaliador59 = Organizador.find_by(usuario: avaliador59)
 OrganizadorMailer.avaliador_cadastrado(avaliador59).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário luciana.teixeira@usu.edu.br"
 avaliador60 = Usuario.find_by(email: 'luciana.teixeira@usu.edu.br')
 avaliador60 = Organizador.find_by(usuario: avaliador60)
 OrganizadorMailer.avaliador_cadastrado(avaliador60).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maicon.souza@ifpr.edu.br"
 avaliador61 = Usuario.find_by(email: 'maicon.souza@ifpr.edu.br')
 avaliador61 = Organizador.find_by(usuario: avaliador61)
 OrganizadorMailer.avaliador_cadastrado(avaliador61).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário engmarcelocefet@terra.com.br"
 avaliador62 = Usuario.find_by(email: 'engmarcelocefet@terra.com.br')
 avaliador62 = Organizador.find_by(usuario: avaliador62)
 OrganizadorMailer.avaliador_cadastrado(avaliador62).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcelo.borth@ifpr.edu.br"
 avaliador63 = Usuario.find_by(email: 'marcelo.borth@ifpr.edu.br')
 avaliador63 = Organizador.find_by(usuario: avaliador63)
 OrganizadorMailer.avaliador_cadastrado(avaliador63).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcelo.s.nogueira@gmail.com"
 avaliador64 = Usuario.find_by(email: 'marcelo.s.nogueira@gmail.com')
 avaliador64 = Organizador.find_by(usuario: avaliador64)
 OrganizadorMailer.avaliador_cadastrado(avaliador64).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcio.carvalho@ifms.edu.br"
 avaliador65 = Usuario.find_by(email: 'marcio.carvalho@ifms.edu.br')
 avaliador65 = Organizador.find_by(usuario: avaliador65)
 OrganizadorMailer.avaliador_cadastrado(avaliador65).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marisgabardo@gmail.com"
 avaliador66 = Usuario.find_by(email: 'marisgabardo@gmail.com')
 avaliador66 = Organizador.find_by(usuario: avaliador66)
 OrganizadorMailer.avaliador_cadastrado(avaliador66).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário michele.vieira@ifpr.edu.br"
 avaliador67 = Usuario.find_by(email: 'michele.vieira@ifpr.edu.br')
 avaliador67 = Organizador.find_by(usuario: avaliador67)
 OrganizadorMailer.avaliador_cadastrado(avaliador67).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário michelsch.joao@ifsc.edu.br"
 avaliador68 = Usuario.find_by(email: 'michelsch.joao@ifsc.edu.br')
 avaliador68 = Organizador.find_by(usuario: avaliador68)
 OrganizadorMailer.avaliador_cadastrado(avaliador68).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário lima.patriciasouza@gmail.com"
 avaliador69 = Usuario.find_by(email: 'lima.patriciasouza@gmail.com')
 avaliador69 = Organizador.find_by(usuario: avaliador69)
 OrganizadorMailer.avaliador_cadastrado(avaliador69).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário priled@gmail.com"
 avaliador70 = Usuario.find_by(email: 'priled@gmail.com')
 avaliador70 = Organizador.find_by(usuario: avaliador70)
 OrganizadorMailer.avaliador_cadastrado(avaliador70).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rafael.silva@ifpr.edu.br"
 avaliador71 = Usuario.find_by(email: 'rafael.silva@ifpr.edu.br')
 avaliador71 = Organizador.find_by(usuario: avaliador71)
 OrganizadorMailer.avaliador_cadastrado(avaliador71).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rtannure@ifes.edu.br"
 avaliador72 = Usuario.find_by(email: 'rtannure@ifes.edu.br')
 avaliador72 = Organizador.find_by(usuario: avaliador72)
 OrganizadorMailer.avaliador_cadastrado(avaliador72).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ricardo.rosa@ifpr.edu.br"
 avaliador73 = Usuario.find_by(email: 'ricardo.rosa@ifpr.edu.br')
 avaliador73 = Organizador.find_by(usuario: avaliador73)
 OrganizadorMailer.avaliador_cadastrado(avaliador73).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rcbortoletto@gmail.com"
 avaliador74 = Usuario.find_by(email: 'rcbortoletto@gmail.com')
 avaliador74 = Organizador.find_by(usuario: avaliador74)
 OrganizadorMailer.avaliador_cadastrado(avaliador74).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rosa.barbosa@ifpr.edu.br"
 avaliador75 = Usuario.find_by(email: 'rosa.barbosa@ifpr.edu.br')
 avaliador75 = Organizador.find_by(usuario: avaliador75)
 OrganizadorMailer.avaliador_cadastrado(avaliador75).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário simone.karine@hotmail.com"
 avaliador76 = Usuario.find_by(email: 'simone.karine@hotmail.com')
 avaliador76 = Organizador.find_by(usuario: avaliador76)
 OrganizadorMailer.avaliador_cadastrado(avaliador76).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário Suellen.jensen@ifpr.edu.br"
 avaliador77 = Usuario.find_by(email: 'Suellen.jensen@ifpr.edu.br')
 avaliador77 = Organizador.find_by(usuario: avaliador77)
 OrganizadorMailer.avaliador_cadastrado(avaliador77).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário tatiana.pimentel@ifpr.edu.br"
 avaliador78 = Usuario.find_by(email: 'tatiana.pimentel@ifpr.edu.br')
 avaliador78 = Organizador.find_by(usuario: avaliador78)
 OrganizadorMailer.avaliador_cadastrado(avaliador78).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário thiagoesteves@yahoo.com.br"
 avaliador79 = Usuario.find_by(email: 'thiagoesteves@yahoo.com.br')
 avaliador79 = Organizador.find_by(usuario: avaliador79)
 OrganizadorMailer.avaliador_cadastrado(avaliador79).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário profvandervilson@hotmail.com"
 avaliador80 = Usuario.find_by(email: 'profvandervilson@hotmail.com')
 avaliador80 = Organizador.find_by(usuario: avaliador80)
 OrganizadorMailer.avaliador_cadastrado(avaliador80).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário annapaullinna.silva@ifrn.edu.br"
 avaliador81 = Usuario.find_by(email: 'annapaullinna.silva@ifrn.edu.br')
 avaliador81 = Organizador.find_by(usuario: avaliador81)
 OrganizadorMailer.avaliador_cadastrado(avaliador81).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário renato.alencar@ifrn.edu.br"
 avaliador82 = Usuario.find_by(email: 'renato.alencar@ifrn.edu.br')
 avaliador82 = Organizador.find_by(usuario: avaliador82)
 OrganizadorMailer.avaliador_cadastrado(avaliador82).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário laylamendes@gmail.com"
 avaliador83 = Usuario.find_by(email: 'laylamendes@gmail.com')
 avaliador83 = Organizador.find_by(usuario: avaliador83)
 OrganizadorMailer.avaliador_cadastrado(avaliador83).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário valeska.dominguez@ifrn.edu.br"
 avaliador84 = Usuario.find_by(email: 'valeska.dominguez@ifrn.edu.br')
 avaliador84 = Organizador.find_by(usuario: avaliador84)
 OrganizadorMailer.avaliador_cadastrado(avaliador84).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rafaelaleite@gmail.com"
 avaliador85 = Usuario.find_by(email: 'rafaelaleite@gmail.com')
 avaliador85 = Organizador.find_by(usuario: avaliador85)
 OrganizadorMailer.avaliador_cadastrado(avaliador85).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário neyvanrodrigues@gmail.com"
 avaliador86 = Usuario.find_by(email: 'neyvanrodrigues@gmail.com')
 avaliador86 = Organizador.find_by(usuario: avaliador86)
 OrganizadorMailer.avaliador_cadastrado(avaliador86).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alberto.gomes@ifrn.edu.br"
 avaliador87 = Usuario.find_by(email: 'alberto.gomes@ifrn.edu.br')
 avaliador87 = Organizador.find_by(usuario: avaliador87)
 OrganizadorMailer.avaliador_cadastrado(avaliador87).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carlos.albuquerque@ifrn.edu.br"
 avaliador88 = Usuario.find_by(email: 'carlos.albuquerque@ifrn.edu.br')
 avaliador88 = Organizador.find_by(usuario: avaliador88)
 OrganizadorMailer.avaliador_cadastrado(avaliador88).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jaqueline.melo@ifrn.edu.br"
 avaliador89 = Usuario.find_by(email: 'jaqueline.melo@ifrn.edu.br')
 avaliador89 = Organizador.find_by(usuario: avaliador89)
 OrganizadorMailer.avaliador_cadastrado(avaliador89).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário cristiane.cruz@ifrn.edu.br"
 avaliador91 = Usuario.find_by(email: 'cristiane.cruz@ifrn.edu.br')
 avaliador91 = Organizador.find_by(usuario: avaliador91)
 OrganizadorMailer.avaliador_cadastrado(avaliador91).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário fabiorolimcg@yahoo.com.br"
 avaliador92 = Usuario.find_by(email: 'fabiorolimcg@yahoo.com.br')
 avaliador92 = Organizador.find_by(usuario: avaliador92)
 OrganizadorMailer.avaliador_cadastrado(avaliador92).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário juanfflorencio@outlook.com"
 avaliador93 = Usuario.find_by(email: 'juanfflorencio@outlook.com')
 avaliador93 = Organizador.find_by(usuario: avaliador93)
 OrganizadorMailer.avaliador_cadastrado(avaliador93).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário SALMONVITORINO@GMAIL.COM"
 avaliador94 = Usuario.find_by(email: 'SALMONVITORINO@GMAIL.COM')
 avaliador94 = Organizador.find_by(usuario: avaliador94)
 OrganizadorMailer.avaliador_cadastrado(avaliador94).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário sonia.araujo@ifrn.edu.br"
 avaliador96 = Usuario.find_by(email: 'sonia.araujo@ifrn.edu.br')
 avaliador96 = Organizador.find_by(usuario: avaliador96)
 OrganizadorMailer.avaliador_cadastrado(avaliador96).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário naluliba@gmail.com"
 avaliador97 = Usuario.find_by(email: 'naluliba@gmail.com')
 avaliador97 = Organizador.find_by(usuario: avaliador97)
 OrganizadorMailer.avaliador_cadastrado(avaliador97).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ceresvdantas@gmail.com"
 avaliador98 = Usuario.find_by(email: 'ceresvdantas@gmail.com')
 avaliador98 = Organizador.find_by(usuario: avaliador98)
 OrganizadorMailer.avaliador_cadastrado(avaliador98).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jairorodriguessouza@gmail.com"
 avaliador99 = Usuario.find_by(email: 'jairorodriguessouza@gmail.com')
 avaliador99 = Organizador.find_by(usuario: avaliador99)
 OrganizadorMailer.avaliador_cadastrado(avaliador99).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alexandro.rocha@ifrn.edu.br"
 avaliador100 = Usuario.find_by(email: 'alexandro.rocha@ifrn.edu.br')
 avaliador100 = Organizador.find_by(usuario: avaliador100)
 OrganizadorMailer.avaliador_cadastrado(avaliador100).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário mauro.meyer17@gmail.com"
 avaliador101 = Usuario.find_by(email: 'mauro.meyer17@gmail.com')
 avaliador101 = Organizador.find_by(usuario: avaliador101)
 OrganizadorMailer.avaliador_cadastrado(avaliador101).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário adalberto.souza@ifrr.edu.br"
 avaliador102 = Usuario.find_by(email: 'adalberto.souza@ifrr.edu.br')
 avaliador102 = Organizador.find_by(usuario: avaliador102)
 OrganizadorMailer.avaliador_cadastrado(avaliador102).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário macchipaloma@hotmail.com"
 avaliador103 = Usuario.find_by(email: 'macchipaloma@hotmail.com')
 avaliador103 = Organizador.find_by(usuario: avaliador103)
 OrganizadorMailer.avaliador_cadastrado(avaliador103).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário tereza.cizenando@ifrn.edu.br"
 avaliador104 = Usuario.find_by(email: 'tereza.cizenando@ifrn.edu.br')
 avaliador104 = Organizador.find_by(usuario: avaliador104)
 OrganizadorMailer.avaliador_cadastrado(avaliador104).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário fabiana.rodrigues@ifrn.edu.br"
 avaliador105 = Usuario.find_by(email: 'fabiana.rodrigues@ifrn.edu.br')
 avaliador105 = Organizador.find_by(usuario: avaliador105)
 OrganizadorMailer.avaliador_cadastrado(avaliador105).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário francinaidesilva@gmail.com"
 avaliador106 = Usuario.find_by(email: 'francinaidesilva@gmail.com')
 avaliador106 = Organizador.find_by(usuario: avaliador106)
 OrganizadorMailer.avaliador_cadastrado(avaliador106).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário emiliana.fernandes@ifrn.edu.br"
 avaliador107 = Usuario.find_by(email: 'emiliana.fernandes@ifrn.edu.br')
 avaliador107 = Organizador.find_by(usuario: avaliador107)
 OrganizadorMailer.avaliador_cadastrado(avaliador107).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário loreta.melo@ifrn.edu.br"
 avaliador108 = Usuario.find_by(email: 'loreta.melo@ifrn.edu.br')
 avaliador108 = Organizador.find_by(usuario: avaliador108)
 OrganizadorMailer.avaliador_cadastrado(avaliador108).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gilmara02@yahoo.com.br"
 avaliador109 = Usuario.find_by(email: 'gilmara02@yahoo.com.br')
 avaliador109 = Organizador.find_by(usuario: avaliador109)
 OrganizadorMailer.avaliador_cadastrado(avaliador109).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário renan.ramalho@ifrn.edu.br"
 avaliador110 = Usuario.find_by(email: 'renan.ramalho@ifrn.edu.br')
 avaliador110 = Organizador.find_by(usuario: avaliador110)
 OrganizadorMailer.avaliador_cadastrado(avaliador110).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário sintiahelpes@yahoo.com.br"
 avaliador111 = Usuario.find_by(email: 'sintiahelpes@yahoo.com.br')
 avaliador111 = Organizador.find_by(usuario: avaliador111)
 OrganizadorMailer.avaliador_cadastrado(avaliador111).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário olivesamara@gmail.com"
 avaliador112 = Usuario.find_by(email: 'olivesamara@gmail.com')
 avaliador112 = Organizador.find_by(usuario: avaliador112)
 OrganizadorMailer.avaliador_cadastrado(avaliador112).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário FERNANDO.MELO@IFRN.EDU.BR"
 avaliador113 = Usuario.find_by(email: 'FERNANDO.MELO@IFRN.EDU.BR')
 avaliador113 = Organizador.find_by(usuario: avaliador113)
 OrganizadorMailer.avaliador_cadastrado(avaliador113).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário schwarcz.kaiser@gmail.com"
 avaliador114 = Usuario.find_by(email: 'schwarcz.kaiser@gmail.com')
 avaliador114 = Organizador.find_by(usuario: avaliador114)
 OrganizadorMailer.avaliador_cadastrado(avaliador114).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário angelo.soares@ifrn.edu.br"
 avaliador115 = Usuario.find_by(email: 'angelo.soares@ifrn.edu.br')
 avaliador115 = Organizador.find_by(usuario: avaliador115)
 OrganizadorMailer.avaliador_cadastrado(avaliador115).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário paulo.lopes@ifrn.edu.br"
 avaliador116 = Usuario.find_by(email: 'paulo.lopes@ifrn.edu.br')
 avaliador116 = Organizador.find_by(usuario: avaliador116)
 OrganizadorMailer.avaliador_cadastrado(avaliador116).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário antonio.sermilher@ifrn.edu.br"
 avaliador117 = Usuario.find_by(email: 'antonio.sermilher@ifrn.edu.br')
 avaliador117 = Organizador.find_by(usuario: avaliador117)
 OrganizadorMailer.avaliador_cadastrado(avaliador117).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário euza.raquel@escolar.ifrn.edu.br"
 avaliador118 = Usuario.find_by(email: 'euza.raquel@escolar.ifrn.edu.br')
 avaliador118 = Organizador.find_by(usuario: avaliador118)
 OrganizadorMailer.avaliador_cadastrado(avaliador118).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário oliveira.leonor@ifrn.edu.br"
 avaliador119 = Usuario.find_by(email: 'oliveira.leonor@ifrn.edu.br')
 avaliador119 = Organizador.find_by(usuario: avaliador119)
 OrganizadorMailer.avaliador_cadastrado(avaliador119).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário RAFAELA.BEZERRA@IFRN.EDU.BR"
 avaliador120 = Usuario.find_by(email: 'RAFAELA.BEZERRA@IFRN.EDU.BR')
 avaliador120 = Organizador.find_by(usuario: avaliador120)
 OrganizadorMailer.avaliador_cadastrado(avaliador120).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alice.lima@ifrn.edu.br"
 avaliador121 = Usuario.find_by(email: 'alice.lima@ifrn.edu.br')
 avaliador121 = Organizador.find_by(usuario: avaliador121)
 OrganizadorMailer.avaliador_cadastrado(avaliador121).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário magnus.xavier@ifrn.edu.br"
 avaliador122 = Usuario.find_by(email: 'magnus.xavier@ifrn.edu.br')
 avaliador122 = Organizador.find_by(usuario: avaliador122)
 OrganizadorMailer.avaliador_cadastrado(avaliador122).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carlos.deyvinson@hotmail.com"
 avaliador123 = Usuario.find_by(email: 'carlos.deyvinson@hotmail.com')
 avaliador123 = Organizador.find_by(usuario: avaliador123)
 OrganizadorMailer.avaliador_cadastrado(avaliador123).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carlos.duarte@ifrn.edu.br"
 avaliador124 = Usuario.find_by(email: 'carlos.duarte@ifrn.edu.br')
 avaliador124 = Organizador.find_by(usuario: avaliador124)
 OrganizadorMailer.avaliador_cadastrado(avaliador124).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário filipe.quintaes@ifrn.edu.br"
 avaliador125 = Usuario.find_by(email: 'filipe.quintaes@ifrn.edu.br')
 avaliador125 = Organizador.find_by(usuario: avaliador125)
 OrganizadorMailer.avaliador_cadastrado(avaliador125).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário bruno.amarant@ifrn.edu.br"
 avaliador126 = Usuario.find_by(email: 'bruno.amarant@ifrn.edu.br')
 avaliador126 = Organizador.find_by(usuario: avaliador126)
 OrganizadorMailer.avaliador_cadastrado(avaliador126).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jalon.medeiros@ifrn.edu.br"
 avaliador127 = Usuario.find_by(email: 'jalon.medeiros@ifrn.edu.br')
 avaliador127 = Organizador.find_by(usuario: avaliador127)
 OrganizadorMailer.avaliador_cadastrado(avaliador127).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário daniele.bezerra@ifrn.edu.br"
 avaliador128 = Usuario.find_by(email: 'daniele.bezerra@ifrn.edu.br')
 avaliador128 = Organizador.find_by(usuario: avaliador128)
 OrganizadorMailer.avaliador_cadastrado(avaliador128).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcus.sampaio@ifrn.edu.br"
 avaliador129 = Usuario.find_by(email: 'marcus.sampaio@ifrn.edu.br')
 avaliador129 = Organizador.find_by(usuario: avaliador129)
 OrganizadorMailer.avaliador_cadastrado(avaliador129).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maria.kassimati@ifrn.edu.br"
 avaliador130 = Usuario.find_by(email: 'maria.kassimati@ifrn.edu.br')
 avaliador130 = Organizador.find_by(usuario: avaliador130)
 OrganizadorMailer.avaliador_cadastrado(avaliador130).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário joelma.tito@ifrn.edu.br"
 avaliador131 = Usuario.find_by(email: 'joelma.tito@ifrn.edu.br')
 avaliador131 = Organizador.find_by(usuario: avaliador131)
 OrganizadorMailer.avaliador_cadastrado(avaliador131).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário trajano.ana@ifrn.edu.br"
 avaliador132 = Usuario.find_by(email: 'trajano.ana@ifrn.edu.br')
 avaliador132 = Organizador.find_by(usuario: avaliador132)
 OrganizadorMailer.avaliador_cadastrado(avaliador132).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário joycimara.rodrigues@ifrn.edu.br"
 avaliador133 = Usuario.find_by(email: 'joycimara.rodrigues@ifrn.edu.br')
 avaliador133 = Organizador.find_by(usuario: avaliador133)
 OrganizadorMailer.avaliador_cadastrado(avaliador133).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alexandre.medeiros@ifrn.edu.br"
 avaliador134 = Usuario.find_by(email: 'alexandre.medeiros@ifrn.edu.br')
 avaliador134 = Organizador.find_by(usuario: avaliador134)
 OrganizadorMailer.avaliador_cadastrado(avaliador134).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cristinasouzabispo@yahoo.com.br"
 avaliador135 = Usuario.find_by(email: 'cristinasouzabispo@yahoo.com.br')
 avaliador135 = Organizador.find_by(usuario: avaliador135)
 OrganizadorMailer.avaliador_cadastrado(avaliador135).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário severino.gomes@ifrn.edu.br"
 avaliador136 = Usuario.find_by(email: 'severino.gomes@ifrn.edu.br')
 avaliador136 = Organizador.find_by(usuario: avaliador136)
 OrganizadorMailer.avaliador_cadastrado(avaliador136).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário fernanda_potiguar@yahoo.com.br"
 avaliador137 = Usuario.find_by(email: 'fernanda_potiguar@yahoo.com.br')
 avaliador137 = Organizador.find_by(usuario: avaliador137)
 OrganizadorMailer.avaliador_cadastrado(avaliador137).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ulisandra.lima@ifrn.edu.br"
 avaliador138 = Usuario.find_by(email: 'ulisandra.lima@ifrn.edu.br')
 avaliador138 = Organizador.find_by(usuario: avaliador138)
 OrganizadorMailer.avaliador_cadastrado(avaliador138).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário souza.daniela@ifrn.edu.br"
 avaliador139 = Usuario.find_by(email: 'souza.daniela@ifrn.edu.br')
 avaliador139 = Organizador.find_by(usuario: avaliador139)
 OrganizadorMailer.avaliador_cadastrado(avaliador139).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário aldinizia.souza@ifrn.edu"
 avaliador140 = Usuario.find_by(email: 'aldinizia.souza@ifrn.edu')
 avaliador140 = Organizador.find_by(usuario: avaliador140)
 OrganizadorMailer.avaliador_cadastrado(avaliador140).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário diego.cirne@ifrn.edu.br"
 avaliador141 = Usuario.find_by(email: 'diego.cirne@ifrn.edu.br')
 avaliador141 = Organizador.find_by(usuario: avaliador141)
 OrganizadorMailer.avaliador_cadastrado(avaliador141).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ana.aguiar@ifrn.edu.br"
 avaliador142 = Usuario.find_by(email: 'ana.aguiar@ifrn.edu.br')
 avaliador142 = Organizador.find_by(usuario: avaliador142)
 OrganizadorMailer.avaliador_cadastrado(avaliador142).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário george.gomes@ifrn.edu.br"
 avaliador143 = Usuario.find_by(email: 'george.gomes@ifrn.edu.br')
 avaliador143 = Organizador.find_by(usuario: avaliador143)
 OrganizadorMailer.avaliador_cadastrado(avaliador143).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário karina.vasconcelos@ifrn.edu.br"
 avaliador144 = Usuario.find_by(email: 'karina.vasconcelos@ifrn.edu.br')
 avaliador144 = Organizador.find_by(usuario: avaliador144)
 OrganizadorMailer.avaliador_cadastrado(avaliador144).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alexandrearaujo.gppcom@gmail.com"
 avaliador145 = Usuario.find_by(email: 'alexandrearaujo.gppcom@gmail.com')
 avaliador145 = Organizador.find_by(usuario: avaliador145)
 OrganizadorMailer.avaliador_cadastrado(avaliador145).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário leo.moreira@me.com"
 avaliador147 = Usuario.find_by(email: 'leo.moreira@me.com')
 avaliador147 = Organizador.find_by(usuario: avaliador147)
 OrganizadorMailer.avaliador_cadastrado(avaliador147).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário idelmarcia.dantas@ifrn.edu.br"
 avaliador148 = Usuario.find_by(email: 'idelmarcia.dantas@ifrn.edu.br')
 avaliador148 = Organizador.find_by(usuario: avaliador148)
 OrganizadorMailer.avaliador_cadastrado(avaliador148).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gislene.araujo@ifrn.edu.br"
 avaliador149 = Usuario.find_by(email: 'gislene.araujo@ifrn.edu.br')
 avaliador149 = Organizador.find_by(usuario: avaliador149)
 OrganizadorMailer.avaliador_cadastrado(avaliador149).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rosane.andrade@ifrn.edu.br"
 avaliador150 = Usuario.find_by(email: 'rosane.andrade@ifrn.edu.br')
 avaliador150 = Organizador.find_by(usuario: avaliador150)
 OrganizadorMailer.avaliador_cadastrado(avaliador150).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário renanmoraes_ifce@hotmail.com"
 avaliador151 = Usuario.find_by(email: 'renanmoraes_ifce@hotmail.com')
 avaliador151 = Organizador.find_by(usuario: avaliador151)
 OrganizadorMailer.avaliador_cadastrado(avaliador151).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário shirley.genuino@ifrn.edu.br "
 avaliador152 = Usuario.find_by(email: 'shirley.genuino@ifrn.edu.br ')
 avaliador152 = Organizador.find_by(usuario: avaliador152)
 OrganizadorMailer.avaliador_cadastrado(avaliador152).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário augustodlx@yahoo.com.br"
 avaliador153 = Usuario.find_by(email: 'augustodlx@yahoo.com.br')
 avaliador153 = Organizador.find_by(usuario: avaliador153)
 OrganizadorMailer.avaliador_cadastrado(avaliador153).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário divino.cruz@ifrn.edu.br"
 avaliador154 = Usuario.find_by(email: 'divino.cruz@ifrn.edu.br')
 avaliador154 = Organizador.find_by(usuario: avaliador154)
 OrganizadorMailer.avaliador_cadastrado(avaliador154).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário micaeldamasceno@gmail.com"
 avaliador155 = Usuario.find_by(email: 'micaeldamasceno@gmail.com')
 avaliador155 = Organizador.find_by(usuario: avaliador155)
 OrganizadorMailer.avaliador_cadastrado(avaliador155).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jonas.morais@ifrn.edu.br"
 avaliador156 = Usuario.find_by(email: 'jonas.morais@ifrn.edu.br')
 avaliador156 = Organizador.find_by(usuario: avaliador156)
 OrganizadorMailer.avaliador_cadastrado(avaliador156).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário viviane.pinheiro@ifrn.edu.br"
 avaliador157 = Usuario.find_by(email: 'viviane.pinheiro@ifrn.edu.br')
 avaliador157 = Organizador.find_by(usuario: avaliador157)
 OrganizadorMailer.avaliador_cadastrado(avaliador157).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário ferreira.marcionila@ifrn.edu.br"
 avaliador159 = Usuario.find_by(email: 'ferreira.marcionila@ifrn.edu.br')
 avaliador159 = Organizador.find_by(usuario: avaliador159)
 OrganizadorMailer.avaliador_cadastrado(avaliador159).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cedrickgomes@gmail.com"
 avaliador160 = Usuario.find_by(email: 'cedrickgomes@gmail.com')
 avaliador160 = Organizador.find_by(usuario: avaliador160)
 OrganizadorMailer.avaliador_cadastrado(avaliador160).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marta.nepomuceno@outlook.com"
 avaliador161 = Usuario.find_by(email: 'marta.nepomuceno@outlook.com')
 avaliador161 = Organizador.find_by(usuario: avaliador161)
 OrganizadorMailer.avaliador_cadastrado(avaliador161).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ronison.ifrn@gmail.com"
 avaliador162 = Usuario.find_by(email: 'ronison.ifrn@gmail.com')
 avaliador162 = Organizador.find_by(usuario: avaliador162)
 OrganizadorMailer.avaliador_cadastrado(avaliador162).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário andrenobrega999@gmail.com"
 avaliador163 = Usuario.find_by(email: 'andrenobrega999@gmail.com')
 avaliador163 = Organizador.find_by(usuario: avaliador163)
 OrganizadorMailer.avaliador_cadastrado(avaliador163).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário mario.tavares@ifrn.edu.br"
 avaliador164 = Usuario.find_by(email: 'mario.tavares@ifrn.edu.br')
 avaliador164 = Organizador.find_by(usuario: avaliador164)
 OrganizadorMailer.avaliador_cadastrado(avaliador164).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jardel.comex@gmail.com"
 avaliador165 = Usuario.find_by(email: 'jardel.comex@gmail.com')
 avaliador165 = Organizador.find_by(usuario: avaliador165)
 OrganizadorMailer.avaliador_cadastrado(avaliador165).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário agripina.reboucas@ifrn.edu.br"
 avaliador166 = Usuario.find_by(email: 'agripina.reboucas@ifrn.edu.br')
 avaliador166 = Organizador.find_by(usuario: avaliador166)
 OrganizadorMailer.avaliador_cadastrado(avaliador166).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário robsonkingboy@gmail.com"
 avaliador167 = Usuario.find_by(email: 'robsonkingboy@gmail.com')
 avaliador167 = Organizador.find_by(usuario: avaliador167)
 OrganizadorMailer.avaliador_cadastrado(avaliador167).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário sizenande.bispo@ifrr.edu.br"
 avaliador168 = Usuario.find_by(email: 'sizenande.bispo@ifrr.edu.br')
 avaliador168 = Organizador.find_by(usuario: avaliador168)
 OrganizadorMailer.avaliador_cadastrado(avaliador168).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maria.sousa@ifrn.edu.br"
 avaliador169 = Usuario.find_by(email: 'maria.sousa@ifrn.edu.br')
 avaliador169 = Organizador.find_by(usuario: avaliador169)
 OrganizadorMailer.avaliador_cadastrado(avaliador169).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário celso.soares@ifpe.edu.br"
 avaliador170 = Usuario.find_by(email: 'celso.soares@ifpe.edu.br')
 avaliador170 = Organizador.find_by(usuario: avaliador170)
 OrganizadorMailer.avaliador_cadastrado(avaliador170).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jose.filho@ifrj.edu.br"
 avaliador171 = Usuario.find_by(email: 'jose.filho@ifrj.edu.br')
 avaliador171 = Organizador.find_by(usuario: avaliador171)
 OrganizadorMailer.avaliador_cadastrado(avaliador171).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário andre.alves@ifrn.edu.br"
 avaliador172 = Usuario.find_by(email: 'andre.alves@ifrn.edu.br')
 avaliador172 = Organizador.find_by(usuario: avaliador172)
 OrganizadorMailer.avaliador_cadastrado(avaliador172).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário roberto.lima@ifrn.edu.br"
 avaliador173 = Usuario.find_by(email: 'roberto.lima@ifrn.edu.br')
 avaliador173 = Organizador.find_by(usuario: avaliador173)
 OrganizadorMailer.avaliador_cadastrado(avaliador173).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jose.filho@ifsc.edu.br"
 avaliador174 = Usuario.find_by(email: 'jose.filho@ifsc.edu.br')
 avaliador174 = Organizador.find_by(usuario: avaliador174)
 OrganizadorMailer.avaliador_cadastrado(avaliador174).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rivandrade@yahoo.com.br"
 avaliador175 = Usuario.find_by(email: 'rivandrade@yahoo.com.br')
 avaliador175 = Organizador.find_by(usuario: avaliador175)
 OrganizadorMailer.avaliador_cadastrado(avaliador175).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jnilsonmorais@yahoo.com.br"
 avaliador176 = Usuario.find_by(email: 'jnilsonmorais@yahoo.com.br')
 avaliador176 = Organizador.find_by(usuario: avaliador176)
 OrganizadorMailer.avaliador_cadastrado(avaliador176).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jose.kleber@ifrn.edu.br"
 avaliador177 = Usuario.find_by(email: 'jose.kleber@ifrn.edu.br')
 avaliador177 = Organizador.find_by(usuario: avaliador177)
 OrganizadorMailer.avaliador_cadastrado(avaliador177).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário regisln2434@gmail.com"
 avaliador178 = Usuario.find_by(email: 'regisln2434@gmail.com')
 avaliador178 = Organizador.find_by(usuario: avaliador178)
 OrganizadorMailer.avaliador_cadastrado(avaliador178).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário sandrosousaadv@yahoo.com"
 avaliador179 = Usuario.find_by(email: 'sandrosousaadv@yahoo.com')
 avaliador179 = Organizador.find_by(usuario: avaliador179)
 OrganizadorMailer.avaliador_cadastrado(avaliador179).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jorge.rabelo@ifrn.edu.br"
 avaliador180 = Usuario.find_by(email: 'jorge.rabelo@ifrn.edu.br')
 avaliador180 = Organizador.find_by(usuario: avaliador180)
 OrganizadorMailer.avaliador_cadastrado(avaliador180).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gilda.lucia@escolar.ifrn.edu.br​"
 avaliador181 = Usuario.find_by(email: 'gilda.lucia@escolar.ifrn.edu.br​')
 avaliador181 = Organizador.find_by(usuario: avaliador181)
 OrganizadorMailer.avaliador_cadastrado(avaliador181).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário silvio.pereira@ifpb.edu.br"
 avaliador182 = Usuario.find_by(email: 'silvio.pereira@ifpb.edu.br')
 avaliador182 = Organizador.find_by(usuario: avaliador182)
 OrganizadorMailer.avaliador_cadastrado(avaliador182).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário anita.lima@gmail.com"
 avaliador183 = Usuario.find_by(email: 'anita.lima@gmail.com')
 avaliador183 = Organizador.find_by(usuario: avaliador183)
 OrganizadorMailer.avaliador_cadastrado(avaliador183).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gustavobarbalho2010@hotmail.com"
 avaliador184 = Usuario.find_by(email: 'gustavobarbalho2010@hotmail.com')
 avaliador184 = Organizador.find_by(usuario: avaliador184)
 OrganizadorMailer.avaliador_cadastrado(avaliador184).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário wagner.alves@ifpe.edu.br"
 avaliador185 = Usuario.find_by(email: 'wagner.alves@ifpe.edu.br')
 avaliador185 = Organizador.find_by(usuario: avaliador185)
 OrganizadorMailer.avaliador_cadastrado(avaliador185).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cristianeclebia@gmail.com"
 avaliador186 = Usuario.find_by(email: 'cristianeclebia@gmail.com')
 avaliador186 = Organizador.find_by(usuario: avaliador186)
 OrganizadorMailer.avaliador_cadastrado(avaliador186).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário erivaldounp@hotmail.com"
 avaliador187 = Usuario.find_by(email: 'erivaldounp@hotmail.com')
 avaliador187 = Organizador.find_by(usuario: avaliador187)
 OrganizadorMailer.avaliador_cadastrado(avaliador187).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jalvaro.paiva@gmail.com"
 avaliador188 = Usuario.find_by(email: 'jalvaro.paiva@gmail.com')
 avaliador188 = Organizador.find_by(usuario: avaliador188)
 OrganizadorMailer.avaliador_cadastrado(avaliador188).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário elisanbh@gmail.com"
 avaliador189 = Usuario.find_by(email: 'elisanbh@gmail.com')
 avaliador189 = Organizador.find_by(usuario: avaliador189)
 OrganizadorMailer.avaliador_cadastrado(avaliador189).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcone.silva@ifrn.edu.br"
 avaliador190 = Usuario.find_by(email: 'marcone.silva@ifrn.edu.br')
 avaliador190 = Organizador.find_by(usuario: avaliador190)
 OrganizadorMailer.avaliador_cadastrado(avaliador190).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carla.katarina@gmail.com"
 avaliador191 = Usuario.find_by(email: 'carla.katarina@gmail.com')
 avaliador191 = Organizador.find_by(usuario: avaliador191)
 OrganizadorMailer.avaliador_cadastrado(avaliador191).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário charles.freitas@ifrn.edu.br"
 avaliador192 = Usuario.find_by(email: 'charles.freitas@ifrn.edu.br')
 avaliador192 = Organizador.find_by(usuario: avaliador192)
 OrganizadorMailer.avaliador_cadastrado(avaliador192).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jean.tavares@ifrn.edu.br"
 avaliador193 = Usuario.find_by(email: 'jean.tavares@ifrn.edu.br')
 avaliador193 = Organizador.find_by(usuario: avaliador193)
 OrganizadorMailer.avaliador_cadastrado(avaliador193).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário mauro.meyer@ifrn.edu.br"
 avaliador194 = Usuario.find_by(email: 'mauro.meyer@ifrn.edu.br')
 avaliador194 = Organizador.find_by(usuario: avaliador194)
 OrganizadorMailer.avaliador_cadastrado(avaliador194).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário diogoquantum@gmail.com"
 avaliador195 = Usuario.find_by(email: 'diogoquantum@gmail.com')
 avaliador195 = Organizador.find_by(usuario: avaliador195)
 OrganizadorMailer.avaliador_cadastrado(avaliador195).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário adss_santos@yahoo.com.br"
 avaliador196 = Usuario.find_by(email: 'adss_santos@yahoo.com.br')
 avaliador196 = Organizador.find_by(usuario: avaliador196)
 OrganizadorMailer.avaliador_cadastrado(avaliador196).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário brunnicastro@hotmail.com"
 avaliador197 = Usuario.find_by(email: 'brunnicastro@hotmail.com')
 avaliador197 = Organizador.find_by(usuario: avaliador197)
 OrganizadorMailer.avaliador_cadastrado(avaliador197).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ailton.dantas@ifrn.edu.br"
 avaliador198 = Usuario.find_by(email: 'ailton.dantas@ifrn.edu.br')
 avaliador198 = Organizador.find_by(usuario: avaliador198)
 OrganizadorMailer.avaliador_cadastrado(avaliador198).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alenilda.fernandes@hotmail.com"
 avaliador199 = Usuario.find_by(email: 'alenilda.fernandes@hotmail.com')
 avaliador199 = Organizador.find_by(usuario: avaliador199)
 OrganizadorMailer.avaliador_cadastrado(avaliador199).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alessandro.souza@ifrn.edu.br"
 avaliador200 = Usuario.find_by(email: 'alessandro.souza@ifrn.edu.br')
 avaliador200 = Organizador.find_by(usuario: avaliador200)
 OrganizadorMailer.avaliador_cadastrado(avaliador200).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alexandre.pereira@ifrn.edu.br"
 avaliador201 = Usuario.find_by(email: 'alexandre.pereira@ifrn.edu.br')
 avaliador201 = Organizador.find_by(usuario: avaliador201)
 OrganizadorMailer.avaliador_cadastrado(avaliador201).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário sr.alexandre16@hotmail.com"
 avaliador202 = Usuario.find_by(email: 'sr.alexandre16@hotmail.com')
 avaliador202 = Organizador.find_by(usuario: avaliador202)
 OrganizadorMailer.avaliador_cadastrado(avaliador202).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário alianpaiva@ifrn.edu.br"
 avaliador203 = Usuario.find_by(email: 'alianpaiva@ifrn.edu.br')
 avaliador203 = Organizador.find_by(usuario: avaliador203)
 OrganizadorMailer.avaliador_cadastrado(avaliador203).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carolinaveras@yahoo.com"
 avaliador204 = Usuario.find_by(email: 'carolinaveras@yahoo.com')
 avaliador204 = Organizador.find_by(usuario: avaliador204)
 OrganizadorMailer.avaliador_cadastrado(avaliador204).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário anacmafra@yahoo.com.br"
 avaliador205 = Usuario.find_by(email: 'anacmafra@yahoo.com.br')
 avaliador205 = Organizador.find_by(usuario: avaliador205)
 OrganizadorMailer.avaliador_cadastrado(avaliador205).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário katnega@gmail.com"
 avaliador206 = Usuario.find_by(email: 'katnega@gmail.com')
 avaliador206 = Organizador.find_by(usuario: avaliador206)
 OrganizadorMailer.avaliador_cadastrado(avaliador206).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário raira.arjs@gmail.com"
 avaliador207 = Usuario.find_by(email: 'raira.arjs@gmail.com')
 avaliador207 = Organizador.find_by(usuario: avaliador207)
 OrganizadorMailer.avaliador_cadastrado(avaliador207).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário andreilson.oliveira@ifrn.edu.br"
 avaliador209 = Usuario.find_by(email: 'andreilson.oliveira@ifrn.edu.br')
 avaliador209 = Organizador.find_by(usuario: avaliador209)
 OrganizadorMailer.avaliador_cadastrado(avaliador209).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário angelycalanynne@gmail.com"
 avaliador210 = Usuario.find_by(email: 'angelycalanynne@gmail.com')
 avaliador210 = Organizador.find_by(usuario: avaliador210)
 OrganizadorMailer.avaliador_cadastrado(avaliador210).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário antonio.neto3@ifrn.edu.br"
 avaliador212 = Usuario.find_by(email: 'antonio.neto3@ifrn.edu.br')
 avaliador212 = Organizador.find_by(usuario: avaliador212)
 OrganizadorMailer.avaliador_cadastrado(avaliador212).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário edson.filho@ifrn.edu.br"
 avaliador213 = Usuario.find_by(email: 'edson.filho@ifrn.edu.br')
 avaliador213 = Organizador.find_by(usuario: avaliador213)
 OrganizadorMailer.avaliador_cadastrado(avaliador213).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário antoniomarques.santos@ifma.edu.br"
 avaliador214 = Usuario.find_by(email: 'antoniomarques.santos@ifma.edu.br')
 avaliador214 = Organizador.find_by(usuario: avaliador214)
 OrganizadorMailer.avaliador_cadastrado(avaliador214).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário arilene.lucena@ifrn.edu.br"
 avaliador215 = Usuario.find_by(email: 'arilene.lucena@ifrn.edu.br')
 avaliador215 = Organizador.find_by(usuario: avaliador215)
 OrganizadorMailer.avaliador_cadastrado(avaliador215).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário brunaraissags@gmail.com"
 avaliador216 = Usuario.find_by(email: 'brunaraissags@gmail.com')
 avaliador216 = Organizador.find_by(usuario: avaliador216)
 OrganizadorMailer.avaliador_cadastrado(avaliador216).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário bruno.barbalho@ifrn.edu.br"
 avaliador217 = Usuario.find_by(email: 'bruno.barbalho@ifrn.edu.br')
 avaliador217 = Organizador.find_by(usuario: avaliador217)
 OrganizadorMailer.avaliador_cadastrado(avaliador217).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário brunojosebj19@gmail.com"
 avaliador218 = Usuario.find_by(email: 'brunojosebj19@gmail.com')
 avaliador218 = Organizador.find_by(usuario: avaliador218)
 OrganizadorMailer.avaliador_cadastrado(avaliador218).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário camila.pacelly@ifrn.edu.br"
 avaliador219 = Usuario.find_by(email: 'camila.pacelly@ifrn.edu.br')
 avaliador219 = Organizador.find_by(usuario: avaliador219)
 OrganizadorMailer.avaliador_cadastrado(avaliador219).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário carlindoavelino@gmail.com"
 avaliador220 = Usuario.find_by(email: 'carlindoavelino@gmail.com')
 avaliador220 = Organizador.find_by(usuario: avaliador220)
 OrganizadorMailer.avaliador_cadastrado(avaliador220).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário eduardo.freire@ifrn.edu.br"
 avaliador221 = Usuario.find_by(email: 'eduardo.freire@ifrn.edu.br')
 avaliador221 = Organizador.find_by(usuario: avaliador221)
 OrganizadorMailer.avaliador_cadastrado(avaliador221).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário dantas.ceres@ifrn.edu.br"
 avaliador222 = Usuario.find_by(email: 'dantas.ceres@ifrn.edu.br')
 avaliador222 = Organizador.find_by(usuario: avaliador222)
 OrganizadorMailer.avaliador_cadastrado(avaliador222).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário charlyene.souza@ifrn.edu.br"
 avaliador223 = Usuario.find_by(email: 'charlyene.souza@ifrn.edu.br')
 avaliador223 = Organizador.find_by(usuario: avaliador223)
 OrganizadorMailer.avaliador_cadastrado(avaliador223).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cleiton.medeiros@ifrn.edu.br"
 avaliador224 = Usuario.find_by(email: 'cleiton.medeiros@ifrn.edu.br')
 avaliador224 = Organizador.find_by(usuario: avaliador224)
 OrganizadorMailer.avaliador_cadastrado(avaliador224).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cleonecc@gmail.com"
 avaliador225 = Usuario.find_by(email: 'cleonecc@gmail.com')
 avaliador225 = Organizador.find_by(usuario: avaliador225)
 OrganizadorMailer.avaliador_cadastrado(avaliador225).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário cristiane_nascimento_fernandes@outlook.com"
 avaliador226 = Usuario.find_by(email: 'cristiane_nascimento_fernandes@outlook.com')
 avaliador226 = Organizador.find_by(usuario: avaliador226)
 OrganizadorMailer.avaliador_cadastrado(avaliador226).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário damiaoneto222@gmail.com"
 avaliador227 = Usuario.find_by(email: 'damiaoneto222@gmail.com')
 avaliador227 = Organizador.find_by(usuario: avaliador227)
 OrganizadorMailer.avaliador_cadastrado(avaliador227).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário danielaksx@hotmail.com"
 avaliador228 = Usuario.find_by(email: 'danielaksx@hotmail.com')
 avaliador228 = Organizador.find_by(usuario: avaliador228)
 OrganizadorMailer.avaliador_cadastrado(avaliador228).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário uchoa.danielle@gmail.com"
 avaliador229 = Usuario.find_by(email: 'uchoa.danielle@gmail.com')
 avaliador229 = Organizador.find_by(usuario: avaliador229)
 OrganizadorMailer.avaliador_cadastrado(avaliador229).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário danilo.souza@ifrn.edu.br"
 avaliador230 = Usuario.find_by(email: 'danilo.souza@ifrn.edu.br')
 avaliador230 = Organizador.find_by(usuario: avaliador230)
 OrganizadorMailer.avaliador_cadastrado(avaliador230).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário galvao.lennon@ifrn.edu.br"
 avaliador231 = Usuario.find_by(email: 'galvao.lennon@ifrn.edu.br')
 avaliador231 = Organizador.find_by(usuario: avaliador231)
 OrganizadorMailer.avaliador_cadastrado(avaliador231).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário djalma.neto@ifrn.edu.br"
 avaliador232 = Usuario.find_by(email: 'djalma.neto@ifrn.edu.br')
 avaliador232 = Organizador.find_by(usuario: avaliador232)
 OrganizadorMailer.avaliador_cadastrado(avaliador232).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário edilberto.borja@ifrn.edu.br"
 avaliador233 = Usuario.find_by(email: 'edilberto.borja@ifrn.edu.br')
 avaliador233 = Organizador.find_by(usuario: avaliador233)
 OrganizadorMailer.avaliador_cadastrado(avaliador233).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário edjanemikaelly@hotmail.com"
 avaliador234 = Usuario.find_by(email: 'edjanemikaelly@hotmail.com')
 avaliador234 = Organizador.find_by(usuario: avaliador234)
 OrganizadorMailer.avaliador_cadastrado(avaliador234).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário eliane_gyn@brturbo.com.br"
 avaliador235 = Usuario.find_by(email: 'eliane_gyn@brturbo.com.br')
 avaliador235 = Organizador.find_by(usuario: avaliador235)
 OrganizadorMailer.avaliador_cadastrado(avaliador235).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário elizomar.nobre@ifrn.edu.br"
 avaliador236 = Usuario.find_by(email: 'elizomar.nobre@ifrn.edu.br')
 avaliador236 = Organizador.find_by(usuario: avaliador236)
 OrganizadorMailer.avaliador_cadastrado(avaliador236).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário elmarjunior12@gmail.com"
 avaliador237 = Usuario.find_by(email: 'elmarjunior12@gmail.com')
 avaliador237 = Organizador.find_by(usuario: avaliador237)
 OrganizadorMailer.avaliador_cadastrado(avaliador237).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário elvismedeiros.mm@gmail.com"
 avaliador238 = Usuario.find_by(email: 'elvismedeiros.mm@gmail.com')
 avaliador238 = Organizador.find_by(usuario: avaliador238)
 OrganizadorMailer.avaliador_cadastrado(avaliador238).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário erikacristinaeq@yahoo.com.br"
 avaliador239 = Usuario.find_by(email: 'erikacristinaeq@yahoo.com.br')
 avaliador239 = Organizador.find_by(usuario: avaliador239)
 OrganizadorMailer.avaliador_cadastrado(avaliador239).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário euza.raquel@ifrn.edu.br"
 avaliador240 = Usuario.find_by(email: 'euza.raquel@ifrn.edu.br')
 avaliador240 = Organizador.find_by(usuario: avaliador240)
 OrganizadorMailer.avaliador_cadastrado(avaliador240).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário evalidiaml@hotmail.com"
 avaliador241 = Usuario.find_by(email: 'evalidiaml@hotmail.com')
 avaliador241 = Organizador.find_by(usuario: avaliador241)
 OrganizadorMailer.avaliador_cadastrado(avaliador241).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário fabio.garcia@ifrn.edu.br"
 avaliador242 = Usuario.find_by(email: 'fabio.garcia@ifrn.edu.br')
 avaliador242 = Organizador.find_by(usuario: avaliador242)
 OrganizadorMailer.avaliador_cadastrado(avaliador242).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário felipe.alves.paulo@gmail.com"
 avaliador243 = Usuario.find_by(email: 'felipe.alves.paulo@gmail.com')
 avaliador243 = Organizador.find_by(usuario: avaliador243)
 OrganizadorMailer.avaliador_cadastrado(avaliador243).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário felipe.lima@ifrn.edu.br"
 avaliador244 = Usuario.find_by(email: 'felipe.lima@ifrn.edu.br')
 avaliador244 = Organizador.find_by(usuario: avaliador244)
 OrganizadorMailer.avaliador_cadastrado(avaliador244).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário flanelsonifba@gmail.com"
 avaliador245 = Usuario.find_by(email: 'flanelsonifba@gmail.com')
 avaliador245 = Organizador.find_by(usuario: avaliador245)
 OrganizadorMailer.avaliador_cadastrado(avaliador245).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário fjamille@hotmail.com"
 avaliador246 = Usuario.find_by(email: 'fjamille@hotmail.com')
 avaliador246 = Organizador.find_by(usuario: avaliador246)
 OrganizadorMailer.avaliador_cadastrado(avaliador246).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário natalia_silva_18@hotmail.com"
 avaliador247 = Usuario.find_by(email: 'natalia_silva_18@hotmail.com')
 avaliador247 = Organizador.find_by(usuario: avaliador247)
 OrganizadorMailer.avaliador_cadastrado(avaliador247).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário francisco.souza@ifrn.edu.br"
 avaliador248 = Usuario.find_by(email: 'francisco.souza@ifrn.edu.br')
 avaliador248 = Organizador.find_by(usuario: avaliador248)
 OrganizadorMailer.avaliador_cadastrado(avaliador248).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário genivan@gmail.com"
 avaliador249 = Usuario.find_by(email: 'genivan@gmail.com')
 avaliador249 = Organizador.find_by(usuario: avaliador249)
 OrganizadorMailer.avaliador_cadastrado(avaliador249).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário francival007@gmail.com"
 avaliador250 = Usuario.find_by(email: 'francival007@gmail.com')
 avaliador250 = Organizador.find_by(usuario: avaliador250)
 OrganizadorMailer.avaliador_cadastrado(avaliador250).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gilmara.freire@ifrn.edu.br"
 avaliador251 = Usuario.find_by(email: 'gilmara.freire@ifrn.edu.br')
 avaliador251 = Organizador.find_by(usuario: avaliador251)
 OrganizadorMailer.avaliador_cadastrado(avaliador251).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gregory_vinicios@hotmail.com"
 avaliador252 = Usuario.find_by(email: 'gregory_vinicios@hotmail.com')
 avaliador252 = Organizador.find_by(usuario: avaliador252)
 OrganizadorMailer.avaliador_cadastrado(avaliador252).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário guilhermeddf@ppgsc.ufrn.br"
 avaliador253 = Usuario.find_by(email: 'guilhermeddf@ppgsc.ufrn.br')
 avaliador253 = Organizador.find_by(usuario: avaliador253)
 OrganizadorMailer.avaliador_cadastrado(avaliador253).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário guilherme.sachs@ifpr.edu.br"
 avaliador254 = Usuario.find_by(email: 'guilherme.sachs@ifpr.edu.br')
 avaliador254 = Organizador.find_by(usuario: avaliador254)
 OrganizadorMailer.avaliador_cadastrado(avaliador254).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gustavo.brito@ifrn.edu.br"
 avaliador255 = Usuario.find_by(email: 'gustavo.brito@ifrn.edu.br')
 avaliador255 = Organizador.find_by(usuario: avaliador255)
 OrganizadorMailer.avaliador_cadastrado(avaliador255).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário gu_spanic@hotmail.com"
 avaliador256 = Usuario.find_by(email: 'gu_spanic@hotmail.com')
 avaliador256 = Organizador.find_by(usuario: avaliador256)
 OrganizadorMailer.avaliador_cadastrado(avaliador256).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário iasmim.soares@hotmail.com"
 avaliador257 = Usuario.find_by(email: 'iasmim.soares@hotmail.com')
 avaliador257 = Organizador.find_by(usuario: avaliador257)
 OrganizadorMailer.avaliador_cadastrado(avaliador257).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário israelamiriam@hotmail.com"
 avaliador258 = Usuario.find_by(email: 'israelamiriam@hotmail.com')
 avaliador258 = Organizador.find_by(usuario: avaliador258)
 OrganizadorMailer.avaliador_cadastrado(avaliador258).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ivamasullo@hotmail.com"
 avaliador259 = Usuario.find_by(email: 'ivamasullo@hotmail.com')
 avaliador259 = Organizador.find_by(usuario: avaliador259)
 OrganizadorMailer.avaliador_cadastrado(avaliador259).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jandara.aassis@gmail.com"
 avaliador260 = Usuario.find_by(email: 'jandara.aassis@gmail.com')
 avaliador260 = Organizador.find_by(usuario: avaliador260)
 OrganizadorMailer.avaliador_cadastrado(avaliador260).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jarley.nascimento@ifrn.edu.br"
 avaliador261 = Usuario.find_by(email: 'jarley.nascimento@ifrn.edu.br')
 avaliador261 = Organizador.find_by(usuario: avaliador261)
 OrganizadorMailer.avaliador_cadastrado(avaliador261).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário joaildomaia@hotmail.com"
 avaliador262 = Usuario.find_by(email: 'joaildomaia@hotmail.com')
 avaliador262 = Organizador.find_by(usuario: avaliador262)
 OrganizadorMailer.avaliador_cadastrado(avaliador262).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário kaio-ca-valcante@hotmail.com"
 avaliador263 = Usuario.find_by(email: 'kaio-ca-valcante@hotmail.com')
 avaliador263 = Organizador.find_by(usuario: avaliador263)
 OrganizadorMailer.avaliador_cadastrado(avaliador263).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário joao.queiroz@ifrn.edu.br"
 avaliador264 = Usuario.find_by(email: 'joao.queiroz@ifrn.edu.br')
 avaliador264 = Organizador.find_by(usuario: avaliador264)
 OrganizadorMailer.avaliador_cadastrado(avaliador264).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário joaovidalrn@hotmail.com"
 avaliador265 = Usuario.find_by(email: 'joaovidalrn@hotmail.com')
 avaliador265 = Organizador.find_by(usuario: avaliador265)
 OrganizadorMailer.avaliador_cadastrado(avaliador265).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jonas.almada@ifce.edu.br"
 avaliador266 = Usuario.find_by(email: 'jonas.almada@ifce.edu.br')
 avaliador266 = Organizador.find_by(usuario: avaliador266)
 OrganizadorMailer.avaliador_cadastrado(avaliador266).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário muller.jonas@hotmail.com.br"
 avaliador267 = Usuario.find_by(email: 'muller.jonas@hotmail.com.br')
 avaliador267 = Organizador.find_by(usuario: avaliador267)
 OrganizadorMailer.avaliador_cadastrado(avaliador267).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário magnaldo.araujjo@ifrn.edu.br"
 avaliador268 = Usuario.find_by(email: 'magnaldo.araujjo@ifrn.edu.br')
 avaliador268 = Organizador.find_by(usuario: avaliador268)
 OrganizadorMailer.avaliador_cadastrado(avaliador268).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário jyp.leite@ifrn.edu.br"
 avaliador270 = Usuario.find_by(email: 'jyp.leite@ifrn.edu.br')
 avaliador270 = Organizador.find_by(usuario: avaliador270)
 OrganizadorMailer.avaliador_cadastrado(avaliador270).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário juanfflorencio@gmail.com"
 avaliador271 = Usuario.find_by(email: 'juanfflorencio@gmail.com')
 avaliador271 = Organizador.find_by(usuario: avaliador271)
 OrganizadorMailer.avaliador_cadastrado(avaliador271).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário julisg@live.com"
 avaliador272 = Usuario.find_by(email: 'julisg@live.com')
 avaliador272 = Organizador.find_by(usuario: avaliador272)
 OrganizadorMailer.avaliador_cadastrado(avaliador272).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário julyenne.lima@gmail.com"
 avaliador273 = Usuario.find_by(email: 'julyenne.lima@gmail.com')
 avaliador273 = Organizador.find_by(usuario: avaliador273)
 OrganizadorMailer.avaliador_cadastrado(avaliador273).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário karlosthadeu@gmail.com"
 avaliador274 = Usuario.find_by(email: 'karlosthadeu@gmail.com')
 avaliador274 = Organizador.find_by(usuario: avaliador274)
 OrganizadorMailer.avaliador_cadastrado(avaliador274).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário eyglys.araujo@ifrn.edu.br"
 avaliador275 = Usuario.find_by(email: 'eyglys.araujo@ifrn.edu.br')
 avaliador275 = Organizador.find_by(usuario: avaliador275)
 OrganizadorMailer.avaliador_cadastrado(avaliador275).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário kleberluiz.ufs@gmail.com"
 avaliador276 = Usuario.find_by(email: 'kleberluiz.ufs@gmail.com')
 avaliador276 = Organizador.find_by(usuario: avaliador276)
 OrganizadorMailer.avaliador_cadastrado(avaliador276).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário lais.correia@ifrn.edu.br"
 avaliador277 = Usuario.find_by(email: 'lais.correia@ifrn.edu.br')
 avaliador277 = Organizador.find_by(usuario: avaliador277)
 OrganizadorMailer.avaliador_cadastrado(avaliador277).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário laura.rampazzo@ifsp.edu.br"
 avaliador279 = Usuario.find_by(email: 'laura.rampazzo@ifsp.edu.br')
 avaliador279 = Organizador.find_by(usuario: avaliador279)
 OrganizadorMailer.avaliador_cadastrado(avaliador279).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário laysi_araujo@hotmail.com"
 avaliador280 = Usuario.find_by(email: 'laysi_araujo@hotmail.com')
 avaliador280 = Organizador.find_by(usuario: avaliador280)
 OrganizadorMailer.avaliador_cadastrado(avaliador280).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário leandro.luttiane@ifrn.edu.br"
 avaliador281 = Usuario.find_by(email: 'leandro.luttiane@ifrn.edu.br')
 avaliador281 = Organizador.find_by(usuario: avaliador281)
 OrganizadorMailer.avaliador_cadastrado(avaliador281).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário lidiane.alves06@gmail.com"
 avaliador282 = Usuario.find_by(email: 'lidiane.alves06@gmail.com')
 avaliador282 = Organizador.find_by(usuario: avaliador282)
 OrganizadorMailer.avaliador_cadastrado(avaliador282).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário ligia.gonzaga@ifrn.edu.br"
 avaliador283 = Usuario.find_by(email: 'ligia.gonzaga@ifrn.edu.br')
 avaliador283 = Organizador.find_by(usuario: avaliador283)
 OrganizadorMailer.avaliador_cadastrado(avaliador283).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário luan.oliveira@ifpb.edu.br"
 avaliador284 = Usuario.find_by(email: 'luan.oliveira@ifpb.edu.br')
 avaliador284 = Organizador.find_by(usuario: avaliador284)
 OrganizadorMailer.avaliador_cadastrado(avaliador284).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário lucas_ramosjp@hotmail.com"
 avaliador285 = Usuario.find_by(email: 'lucas_ramosjp@hotmail.com')
 avaliador285 = Organizador.find_by(usuario: avaliador285)
 OrganizadorMailer.avaliador_cadastrado(avaliador285).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário luciana.rabelo@ifrn.edu.br"
 avaliador287 = Usuario.find_by(email: 'luciana.rabelo@ifrn.edu.br')
 avaliador287 = Organizador.find_by(usuario: avaliador287)
 OrganizadorMailer.avaliador_cadastrado(avaliador287).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário luciano.cipriano88@gmail.com"
 avaliador288 = Usuario.find_by(email: 'luciano.cipriano88@gmail.com')
 avaliador288 = Organizador.find_by(usuario: avaliador288)
 OrganizadorMailer.avaliador_cadastrado(avaliador288).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário lucileide.dantas@ifrn.edu.br"
 avaliador290 = Usuario.find_by(email: 'lucileide.dantas@ifrn.edu.br')
 avaliador290 = Organizador.find_by(usuario: avaliador290)
 OrganizadorMailer.avaliador_cadastrado(avaliador290).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário lucimar.f@hotmail.com"
 avaliador291 = Usuario.find_by(email: 'lucimar.f@hotmail.com')
 avaliador291 = Organizador.find_by(usuario: avaliador291)
 OrganizadorMailer.avaliador_cadastrado(avaliador291).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maikon.maia@ifrn.edu.br"
 avaliador292 = Usuario.find_by(email: 'maikon.maia@ifrn.edu.br')
 avaliador292 = Organizador.find_by(usuario: avaliador292)
 OrganizadorMailer.avaliador_cadastrado(avaliador292).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcela.silva@ifrn.edu.br"
 avaliador293 = Usuario.find_by(email: 'marcela.silva@ifrn.edu.br')
 avaliador293 = Organizador.find_by(usuario: avaliador293)
 OrganizadorMailer.avaliador_cadastrado(avaliador293).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcelo.oliveira@ifms.edu.br"
 avaliador294 = Usuario.find_by(email: 'marcelo.oliveira@ifms.edu.br')
 avaliador294 = Organizador.find_by(usuario: avaliador294)
 OrganizadorMailer.avaliador_cadastrado(avaliador294).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcia.dantas@ifrn.edu.br"
 avaliador295 = Usuario.find_by(email: 'marcia.dantas@ifrn.edu.br')
 avaliador295 = Organizador.find_by(usuario: avaliador295)
 OrganizadorMailer.avaliador_cadastrado(avaliador295).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marciarluiz@yahoo.com.br"
 avaliador296 = Usuario.find_by(email: 'marciarluiz@yahoo.com.br')
 avaliador296 = Organizador.find_by(usuario: avaliador296)
 OrganizadorMailer.avaliador_cadastrado(avaliador296).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcio.bezerra@ifrn.edu.br"
 avaliador297 = Usuario.find_by(email: 'marcio.bezerra@ifrn.edu.br')
 avaliador297 = Organizador.find_by(usuario: avaliador297)
 OrganizadorMailer.avaliador_cadastrado(avaliador297).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário nilaof@gmail.com"
 avaliador298 = Usuario.find_by(email: 'nilaof@gmail.com')
 avaliador298 = Organizador.find_by(usuario: avaliador298)
 OrganizadorMailer.avaliador_cadastrado(avaliador298).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marcos.oliveira@ifrn.edu.br"
 avaliador299 = Usuario.find_by(email: 'marcos.oliveira@ifrn.edu.br')
 avaliador299 = Organizador.find_by(usuario: avaliador299)
 OrganizadorMailer.avaliador_cadastrado(avaliador299).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário socorromarya@gmail.com"
 avaliador300 = Usuario.find_by(email: 'socorromarya@gmail.com')
 avaliador300 = Organizador.find_by(usuario: avaliador300)
 OrganizadorMailer.avaliador_cadastrado(avaliador300).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário msmcunha@gmail.com"
 avaliador301 = Usuario.find_by(email: 'msmcunha@gmail.com')
 avaliador301 = Organizador.find_by(usuario: avaliador301)
 OrganizadorMailer.avaliador_cadastrado(avaliador301).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário elizabeth55_@hotmail.com"
 avaliador302 = Usuario.find_by(email: 'elizabeth55_@hotmail.com')
 avaliador302 = Organizador.find_by(usuario: avaliador302)
 OrganizadorMailer.avaliador_cadastrado(avaliador302).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário jahynne.dantas@ifrn.edu.br"
 avaliador303 = Usuario.find_by(email: 'jahynne.dantas@ifrn.edu.br')
 avaliador303 = Organizador.find_by(usuario: avaliador303)
 OrganizadorMailer.avaliador_cadastrado(avaliador303).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário mariana.dias@ifrn.edu.br"
 avaliador304 = Usuario.find_by(email: 'mariana.dias@ifrn.edu.br')
 avaliador304 = Organizador.find_by(usuario: avaliador304)
 OrganizadorMailer.avaliador_cadastrado(avaliador304).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário marilson.mineiro@ifrn.edu.br"
 avaliador305 = Usuario.find_by(email: 'marilson.mineiro@ifrn.edu.br')
 avaliador305 = Organizador.find_by(usuario: avaliador305)
 OrganizadorMailer.avaliador_cadastrado(avaliador305).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário profmartacp2@gmail.com"
 avaliador306 = Usuario.find_by(email: 'profmartacp2@gmail.com')
 avaliador306 = Organizador.find_by(usuario: avaliador306)
 OrganizadorMailer.avaliador_cadastrado(avaliador306).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário meire.celedonio@ifrn.edu.br"
 avaliador307 = Usuario.find_by(email: 'meire.celedonio@ifrn.edu.br')
 avaliador307 = Organizador.find_by(usuario: avaliador307)
 OrganizadorMailer.avaliador_cadastrado(avaliador307).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário miqueiasgeo@gmail.com"
 avaliador308 = Usuario.find_by(email: 'miqueiasgeo@gmail.com')
 avaliador308 = Organizador.find_by(usuario: avaliador308)
 OrganizadorMailer.avaliador_cadastrado(avaliador308).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário monica_limap@hotmail.com"
 avaliador309 = Usuario.find_by(email: 'monica_limap@hotmail.com')
 avaliador309 = Organizador.find_by(usuario: avaliador309)
 OrganizadorMailer.avaliador_cadastrado(avaliador309).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário monicabritosaa@gmail.com"
 avaliador310 = Usuario.find_by(email: 'monicabritosaa@gmail.com')
 avaliador310 = Organizador.find_by(usuario: avaliador310)
 OrganizadorMailer.avaliador_cadastrado(avaliador310).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário morganamelo10@gmail.com"
 avaliador311 = Usuario.find_by(email: 'morganamelo10@gmail.com')
 avaliador311 = Organizador.find_by(usuario: avaliador311)
 OrganizadorMailer.avaliador_cadastrado(avaliador311).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário nadir.arruda@ifrn.edu.br"
 avaliador312 = Usuario.find_by(email: 'nadir.arruda@ifrn.edu.br')
 avaliador312 = Organizador.find_by(usuario: avaliador312)
 OrganizadorMailer.avaliador_cadastrado(avaliador312).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário nathalia.araujo@ifrn.edu.br"
 avaliador313 = Usuario.find_by(email: 'nathalia.araujo@ifrn.edu.br')
 avaliador313 = Organizador.find_by(usuario: avaliador313)
 OrganizadorMailer.avaliador_cadastrado(avaliador313).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário neilson.lima@ifrn.edu.br"
 avaliador314 = Usuario.find_by(email: 'neilson.lima@ifrn.edu.br')
 avaliador314 = Organizador.find_by(usuario: avaliador314)
 OrganizadorMailer.avaliador_cadastrado(avaliador314).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário maccchipaloma@hotmail.com"
 avaliador315 = Usuario.find_by(email: 'maccchipaloma@hotmail.com')
 avaliador315 = Organizador.find_by(usuario: avaliador315)
 OrganizadorMailer.avaliador_cadastrado(avaliador315).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário patricia.pinheiro@ifap.edu.br"
 avaliador316 = Usuario.find_by(email: 'patricia.pinheiro@ifap.edu.br')
 avaliador316 = Organizador.find_by(usuario: avaliador316)
 OrganizadorMailer.avaliador_cadastrado(avaliador316).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário paulo.douglas.lima@fisica.ufrn.br"
 avaliador317 = Usuario.find_by(email: 'paulo.douglas.lima@fisica.ufrn.br')
 avaliador317 = Organizador.find_by(usuario: avaliador317)
 OrganizadorMailer.avaliador_cadastrado(avaliador317).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário paulo.cunha@ifap.edu.br"
 avaliador318 = Usuario.find_by(email: 'paulo.cunha@ifap.edu.br')
 avaliador318 = Organizador.find_by(usuario: avaliador318)
 OrganizadorMailer.avaliador_cadastrado(avaliador318).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
 puts "Procurando usuário rafael.moraes@ifrn.edu.br"
 avaliador320 = Usuario.find_by(email: 'rafael.moraes@ifrn.edu.br')
 avaliador320 = Organizador.find_by(usuario: avaliador320)
 OrganizadorMailer.avaliador_cadastrado(avaliador320).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário raquel.coelho@ifrn.edu.br"
 avaliador321 = Usuario.find_by(email: 'raquel.coelho@ifrn.edu.br')
 avaliador321 = Organizador.find_by(usuario: avaliador321)
 OrganizadorMailer.avaliador_cadastrado(avaliador321).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário renatocgadm@hotmail.com"
 avaliador322 = Usuario.find_by(email: 'renatocgadm@hotmail.com')
 avaliador322 = Organizador.find_by(usuario: avaliador322)
 OrganizadorMailer.avaliador_cadastrado(avaliador322).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário robertacynthia@gmail.com"
 avaliador323 = Usuario.find_by(email: 'robertacynthia@gmail.com')
 avaliador323 = Organizador.find_by(usuario: avaliador323)
 OrganizadorMailer.avaliador_cadastrado(avaliador323).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário robson.oliveira@ifrn.edu.br"
 avaliador324 = Usuario.find_by(email: 'robson.oliveira@ifrn.edu.br')
 avaliador324 = Organizador.find_by(usuario: avaliador324)
 OrganizadorMailer.avaliador_cadastrado(avaliador324).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rocco.nelson@ifrn.edu.br"
 avaliador325 = Usuario.find_by(email: 'rocco.nelson@ifrn.edu.br')
 avaliador325 = Organizador.find_by(usuario: avaliador325)
 OrganizadorMailer.avaliador_cadastrado(avaliador325).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rodrigopaiva@bol.com.br"
 avaliador326 = Usuario.find_by(email: 'rodrigopaiva@bol.com.br')
 avaliador326 = Organizador.find_by(usuario: avaliador326)
 OrganizadorMailer.avaliador_cadastrado(avaliador326).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rodrigo.vidal@ifrn.edu.br"
 avaliador327 = Usuario.find_by(email: 'rodrigo.vidal@ifrn.edu.br')
 avaliador327 = Organizador.find_by(usuario: avaliador327)
 OrganizadorMailer.avaliador_cadastrado(avaliador327).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário romildo.oliveira@ifrn.edu.br"
 avaliador328 = Usuario.find_by(email: 'romildo.oliveira@ifrn.edu.br')
 avaliador328 = Organizador.find_by(usuario: avaliador328)
 OrganizadorMailer.avaliador_cadastrado(avaliador328).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rosangela.silva@ifrn.edu.br"
 avaliador329 = Usuario.find_by(email: 'rosangela.silva@ifrn.edu.br')
 avaliador329 = Organizador.find_by(usuario: avaliador329)
 OrganizadorMailer.avaliador_cadastrado(avaliador329).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário roseaneidalino@gmail.com"
 avaliador330 = Usuario.find_by(email: 'roseaneidalino@gmail.com')
 avaliador330 = Organizador.find_by(usuario: avaliador330)
 OrganizadorMailer.avaliador_cadastrado(avaliador330).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário saviorennan@gmail.com"
 avaliador331 = Usuario.find_by(email: 'saviorennan@gmail.com')
 avaliador331 = Organizador.find_by(usuario: avaliador331)
 OrganizadorMailer.avaliador_cadastrado(avaliador331).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário silvana_sg_13@hotmail.com"
 avaliador332 = Usuario.find_by(email: 'silvana_sg_13@hotmail.com')
 avaliador332 = Organizador.find_by(usuario: avaliador332)
 OrganizadorMailer.avaliador_cadastrado(avaliador332).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário talita.massena@ifsertao-pe.edu.br"
 avaliador333 = Usuario.find_by(email: 'talita.massena@ifsertao-pe.edu.br')
 avaliador333 = Organizador.find_by(usuario: avaliador333)
 OrganizadorMailer.avaliador_cadastrado(avaliador333).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário tatiane.almeida@ifrn.edu.br"
 avaliador334 = Usuario.find_by(email: 'tatiane.almeida@ifrn.edu.br')
 avaliador334 = Organizador.find_by(usuario: avaliador334)
 OrganizadorMailer.avaliador_cadastrado(avaliador334).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário thales.ramos@ifrn.edu.br"
 avaliador335 = Usuario.find_by(email: 'thales.ramos@ifrn.edu.br')
 avaliador335 = Organizador.find_by(usuario: avaliador335)
 OrganizadorMailer.avaliador_cadastrado(avaliador335).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário thiagoalexxandre316@gmail.com"
 avaliador336 = Usuario.find_by(email: 'thiagoalexxandre316@gmail.com')
 avaliador336 = Organizador.find_by(usuario: avaliador336)
 OrganizadorMailer.avaliador_cadastrado(avaliador336).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário victor.carvalho@ifrn.edu.br"
 avaliador337 = Usuario.find_by(email: 'victor.carvalho@ifrn.edu.br')
 avaliador337 = Organizador.find_by(usuario: avaliador337)
 OrganizadorMailer.avaliador_cadastrado(avaliador337).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário viviane.medeiros@ifrn.edu.br"
 avaliador338 = Usuario.find_by(email: 'viviane.medeiros@ifrn.edu.br')
 avaliador338 = Organizador.find_by(usuario: avaliador338)
 OrganizadorMailer.avaliador_cadastrado(avaliador338).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 puts "Procurando usuário rodrigo.pessoa@ifrn.edu.br"
 avaliador339 = Usuario.find_by(email: 'rodrigo.pessoa@ifrn.edu.br')
 avaliador339 = Organizador.find_by(usuario: avaliador339)
 OrganizadorMailer.avaliador_cadastrado(avaliador339).deliver_now
-sleep(10)
+puts "Terminado"
+sleep(15)
 
 
     puts "Concluído!"
