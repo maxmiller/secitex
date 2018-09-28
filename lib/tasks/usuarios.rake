@@ -4296,12 +4296,11 @@ sleep(15)
       if sorteados.include? trabalho.id.to_i
       else
         i = i + 1
-        #puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-        #trabalho.definir_avaliadores
-        #sleep(30)
-        #puts "Finalizado"
+        puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
+        trabalho.definir_avaliadores
+        sleep(20)
+        puts "Finalizado"
       end
-      puts trabalho.id.to_s
     end
     puts "Concluído"
   end
