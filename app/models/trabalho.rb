@@ -51,12 +51,14 @@ class Trabalho < ApplicationRecord
 
   def situacao_avaliacao_geral
     avaliacoes = self.avaliacoes
+    if avaliacoes.length != 2
+      return AvaliacaoTrabalho::SITUACOES[:pendente]
+    end
     avaliacoes.each do |avaliacao|
       if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
         return AvaliacaoTrabalho::SITUACOES[:pendente]
       end
     end
-    return AvaliacaoTrabalho::SITUACOES[:pendente]
     return AvaliacaoTrabalho::SITUACOES[:avaliado]
   end
 

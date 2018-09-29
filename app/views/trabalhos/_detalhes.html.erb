@@ -4,7 +4,15 @@
   <strong>Evento:</strong>
   <%= @trabalho.linha.evento.nome %>
 </p>
+<p>
+  <strong>Área:</strong>
+  <%= @trabalho.linha.nome %>
+</p>
 
+<p>
+  <strong>Tipo de trabalho:</strong>
+  <%= @trabalho.tipo_trabalho.nome %>
+</p>
 <p><strong>Resumo</strong></p>
 
 <p><%= @trabalho.resumo %></p>
@@ -25,16 +33,6 @@
 <% end %>
 
 <p>
-  <strong>Área:</strong>
-  <%= @trabalho.linha.nome %>
-</p>
-
-<p>
-  <strong>Tipo de trabalho:</strong>
-  <%= @trabalho.tipo_trabalho.nome %>
-</p>
-
-<p>
   <strong>Avaliação:</strong>
-  <%= situacao(@trabalho.situacao).html_safe %>
+  <%= @trabalho.status_situacao(@trabalho.situacao_avaliacao_geral).html_safe %>
 </p>
