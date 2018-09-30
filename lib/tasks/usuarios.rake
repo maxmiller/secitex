@@ -176,8 +176,8 @@ namespace :usuarios do
       if numero_de_avaliadores == 0
         trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1
       elsif numero_de_avaliadores == 1
-        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if avaliacoes.First.situacao == 5
-        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if avaliacoes.First.situacao == 0
+        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if avaliacoes.first.situacao == 5
+        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if avaliacoes.first.situacao == 0
       elsif numero_de_avaliadores == 2
         trabalhos_com_duas_avaliacoes = trabalhos_com_duas_avaliacoes + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
         trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
