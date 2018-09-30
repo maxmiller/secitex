@@ -163,4 +163,33 @@ namespace :usuarios do
     end
     puts "Concluído"
   end
+
+  desc "Conta avaliacoes"
+  task conta_avaliacoes: :environment do
+    total_trabalhos = Trabalho.all.length
+    trabalhos_com_zero_avaliacoes = 0
+    trabalhos_com_uma_avaliacao = 0
+    trabalhos_com_duas_avaliacoes = 0
+    Trabalho.all.each do |trabalho|
+      avaliacoes = trabalho.avaliacoes
+      numero_de_avaliadores = trabalho.avaliadores.length
+      if numero_de_avaliadores == 0
+        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1
+      elsif numero_de_avaliadores == 1
+        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if avaliacoes.First.situacao == 5
+        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if avaliacoes.First.situacao == 0
+      elsif numero_de_avaliadores == 2
+        trabalhos_com_duas_avaliacoes = trabalhos_com_duas_avaliacoes + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
+        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
+        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+      end
+    end
+    total_de_avaliacoes = 2*trabalhos_com_duas_avaliacoes+trabalhos_com_uma_avaliacao;
+    puts "TOTAL TRABALHOS: "+total_trabalhos.to_s
+    puts "TOTAL DE AVALIAÇÕES: "+total_de_avaliacoes.to_s
+    puts "Trabalhos com 0 avaliacoes: "+trabalhos_com_zero_avaliacoes.to_s
+    puts "Trabalhos com 1 avaliacao: "+trabalhos_com_uma_avaliacao.to_s
+    puts "Trabalhos com 2 avaliacoes: "+trabalhos_com_duas_avaliacoes.to_s
+    puts "Concluído"
+  end
 end
