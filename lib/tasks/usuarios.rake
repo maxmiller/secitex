@@ -149,17 +149,12 @@ namespace :usuarios do
   desc "Atribuir avaliadores"
   task atribuir_avaliadores: :environment do
     i = 0
-    ultimo_sorteado = 875
-    atribuir = false
     Trabalho.all.each do |trabalho|
-      puts trabalho.avaliadores.length
-      if trabalho.avaliadores.length == 0
-        i = i + 1
-        puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-        trabalho.definir_avaliadores
-        sleep(30)
-        puts "Finalizado"
-      end
+      i = i + 1
+      puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
+      trabalho.definir_avaliadores
+      sleep(30)
+      puts "Finalizado"
     end
     puts "Concluído"
   end
@@ -167,29 +162,113 @@ namespace :usuarios do
   desc "Conta avaliacoes"
   task conta_avaliacoes: :environment do
     total_trabalhos = Trabalho.all.length
-    trabalhos_com_zero_avaliacoes = 0
-    trabalhos_com_uma_avaliacao = 0
-    trabalhos_com_duas_avaliacoes = 0
+    total_trabalhos_congic = 0
+    total_trabalhos_mostra = 0
+    total_trabalhos_simposio = 0
+    Trabalho.all.each do |trabalho|
+      puts trabalho.linha.evento.nome
+      if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+        total_trabalhos_simposio = total_trabalhos_simposio + 1
+      elsif trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
+        total_trabalhos_mostra = total_trabalhos_mostra + 1
+      elsif trabalho.linha.evento.nome == "XIV CONGIC"
+        total_trabalhos_congic = total_trabalhos_congic + 1
+      end
+    end
+    puts "Total de trabalhos do CONGIC: "+total_trabalhos_congic.to_s
+    puts "Total de trabalhos do SIMPÓSIO: "+total_trabalhos_simposio.to_s
+    puts "Total de trabalhos da MOSTRA: "+total_trabalhos_mostra.to_s
+
+    trabalhos_com_zero_avaliacoes_total = 0
+    trabalhos_com_zero_avaliacoes_congic = 0
+    trabalhos_com_zero_avaliacoes_simposio = 0
+    trabalhos_com_zero_avaliacoes_mostra = 0
+    trabalhos_com_uma_avaliacao_total = 0
+    trabalhos_com_uma_avaliacao_congic = 0
+    trabalhos_com_uma_avaliacao_simposio = 0
+    trabalhos_com_uma_avaliacao_mostra = 0
+    trabalhos_com_duas_avaliacoes_total = 0
+    trabalhos_com_duas_avaliacoes_congic = 0
+    trabalhos_com_duas_avaliacoes_simposio = 0
+    trabalhos_com_duas_avaliacoes_mostra = 0
     Trabalho.all.each do |trabalho|
       avaliacoes = trabalho.avaliacoes
       numero_de_avaliadores = trabalho.avaliadores.length
       if numero_de_avaliadores == 0
-        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1
+        trabalhos_com_zero_avaliacoes_total = trabalhos_com_zero_avaliacoes_total + 1
+        if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+          trabalhos_com_zero_avaliacoes_simposio = trabalhos_com_zero_avaliacoes_simposio + 1
+        elsif trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
+          trabalhos_com_zero_avaliacoes_mostra = trabalhos_com_zero_avaliacoes_mostra + 1
+        elsif trabalho.linha.evento.nome == "XIV CONGIC"
+          trabalhos_com_zero_avaliacoes_congic = trabalhos_com_zero_avaliacoes_congic + 1
+        end
       elsif numero_de_avaliadores == 1
-        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if avaliacoes.first.situacao == 5
-        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if avaliacoes.first.situacao == 0
+        trabalhos_com_uma_avaliacao_total = trabalhos_com_uma_avaliacao_total + 1 if avaliacoes.first.situacao == 5
+        trabalhos_com_zero_avaliacoes_total = trabalhos_com_zero_avaliacoes_total + 1 if avaliacoes.first.situacao == 0
+        if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+          trabalhos_com_uma_avaliacao_simposio = trabalhos_com_uma_avaliacao_simposio + 1 if avaliacoes.first.situacao == 5
+          trabalhos_com_zero_avaliacoes_simposio = trabalhos_com_zero_avaliacoes_simposio + 1 if avaliacoes.first.situacao == 0
+        elsif trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
+          trabalhos_com_uma_avaliacao_mostra = trabalhos_com_uma_avaliacao_mostra + 1 if avaliacoes.first.situacao == 5
+          trabalhos_com_zero_avaliacoes_mostra = trabalhos_com_zero_avaliacoes_mostra + 1 if avaliacoes.first.situacao == 0
+        elsif trabalho.linha.evento.nome == "XIV CONGIC"
+          trabalhos_com_uma_avaliacao_congic = trabalhos_com_uma_avaliacao_congic + 1 if avaliacoes.first.situacao == 5
+          trabalhos_com_zero_avaliacoes_congic = trabalhos_com_zero_avaliacoes_congic + 1 if avaliacoes.first.situacao == 0
+        end
       elsif numero_de_avaliadores == 2
-        trabalhos_com_duas_avaliacoes = trabalhos_com_duas_avaliacoes + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
-        trabalhos_com_uma_avaliacao = trabalhos_com_uma_avaliacao + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
-        trabalhos_com_zero_avaliacoes = trabalhos_com_zero_avaliacoes + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+          trabalhos_com_duas_avaliacoes_total = trabalhos_com_duas_avaliacoes_total + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
+          trabalhos_com_uma_avaliacao_total = trabalhos_com_uma_avaliacao_total + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
+          trabalhos_com_zero_avaliacoes_total = trabalhos_com_zero_avaliacoes_total + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+        if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+          trabalhos_com_duas_avaliacoes_simposio = trabalhos_com_duas_avaliacoes_simposio + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
+          trabalhos_com_uma_avaliacao_simposio = trabalhos_com_uma_avaliacao_simposio + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
+          trabalhos_com_zero_avaliacoes_simposio = trabalhos_com_zero_avaliacoes_simposio + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+        elsif trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
+          trabalhos_com_duas_avaliacoes_mostra = trabalhos_com_duas_avaliacoes_mostra + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
+          trabalhos_com_uma_avaliacao_mostra = trabalhos_com_uma_avaliacao_mostra + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
+          trabalhos_com_zero_avaliacoes_mostra = trabalhos_com_zero_avaliacoes_mostra + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+        elsif trabalho.linha.evento.nome == "XIV CONGIC"
+          trabalhos_com_duas_avaliacoes_congic = trabalhos_com_duas_avaliacoes_congic + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 10
+          trabalhos_com_uma_avaliacao_congic = trabalhos_com_uma_avaliacao_congic + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 5
+          trabalhos_com_zero_avaliacoes_congic = trabalhos_com_zero_avaliacoes_congic + 1 if (avaliacoes.first.situacao + avaliacoes.last.situacao ) == 0
+        end
       end
     end
-    total_de_avaliacoes = 2*trabalhos_com_duas_avaliacoes+trabalhos_com_uma_avaliacao;
-    puts "TOTAL TRABALHOS: "+total_trabalhos.to_s
-    puts "TOTAL DE AVALIAÇÕES: "+total_de_avaliacoes.to_s
-    puts "Trabalhos com 0 avaliacoes: "+trabalhos_com_zero_avaliacoes.to_s
-    puts "Trabalhos com 1 avaliacao: "+trabalhos_com_uma_avaliacao.to_s
-    puts "Trabalhos com 2 avaliacoes: "+trabalhos_com_duas_avaliacoes.to_s
+    total_de_avaliacoes = 2*trabalhos_com_duas_avaliacoes_total+trabalhos_com_uma_avaliacao_total;
+    total_de_avaliacoes_mostra = 2*trabalhos_com_duas_avaliacoes_mostra+trabalhos_com_uma_avaliacao_mostra;
+    total_de_avaliacoes_simposio = 2*trabalhos_com_duas_avaliacoes_simposio+trabalhos_com_uma_avaliacao_simposio;
+    total_de_avaliacoes_congic = 2*trabalhos_com_duas_avaliacoes_congic+trabalhos_com_uma_avaliacao_congic;
+    puts "TOTAL TRABALHOS SUBMETIDOS: "+total_trabalhos.to_s
+    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS: "+total_de_avaliacoes.to_s
+    puts "Trabalhos com 0 avaliacoes total: "+trabalhos_com_zero_avaliacoes_total.to_s
+    puts "Trabalhos com 1 avaliacao total: "+trabalhos_com_uma_avaliacao_total.to_s
+    puts "Trabalhos com 2 avaliacoes total: "+trabalhos_com_duas_avaliacoes_total.to_s
+    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS MOSTRA: "+total_de_avaliacoes_mostra.to_s
+    puts "Trabalhos com 0 avaliacoes total mostra: "+trabalhos_com_zero_avaliacoes_mostra.to_s
+    puts "Trabalhos com 1 avaliacao total mostra: "+trabalhos_com_uma_avaliacao_mostra.to_s
+    puts "Trabalhos com 2 avaliacoes total mostra: "+trabalhos_com_duas_avaliacoes_mostra.to_s
+    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS SIMPOSIO: "+total_de_avaliacoes_simposio.to_s
+    puts "Trabalhos com 0 avaliacoes total simposio: "+trabalhos_com_zero_avaliacoes_simposio.to_s
+    puts "Trabalhos com 1 avaliacao total simposio: "+trabalhos_com_uma_avaliacao_simposio.to_s
+    puts "Trabalhos com 2 avaliacoes total simposio: "+trabalhos_com_duas_avaliacoes_simposio.to_s
+    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS CONGIC: "+total_de_avaliacoes_congic.to_s
+    puts "Trabalhos com 0 avaliacoes total congic: "+trabalhos_com_zero_avaliacoes_congic.to_s
+    puts "Trabalhos com 1 avaliacao total congic: "+trabalhos_com_uma_avaliacao_congic.to_s
+    puts "Trabalhos com 2 avaliacoes total congic: "+trabalhos_com_duas_avaliacoes_congic.to_s
+
+
+
     puts "Concluído"
+  end
+
+  task remove_avaliacoes_pendentes: :environment do
+    Trabalho.all.each do |trabalho|
+      avaliacoes = trabalho.avaliacoes
+      avaliacoes.each do |avaliacao|
+        puts "Remover "+avaliacao.organizador.nome+" de "+avaliacao.trabalho.titulo+" "+avaliacao.created_at.to_s if avaliacao.situacao == 0
+        avaliacao.destroy if avaliacao.situacao==0
+      end
+    end
   end
 end
