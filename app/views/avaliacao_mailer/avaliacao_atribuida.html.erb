@@ -2,7 +2,9 @@
 
 <p>A avaliação de um trabalho foi atribuída para você.</p>
 
-<p>Você tem um prazo de 48h para avaliar esse trabalho.</p>
+<p>Você tem um prazo de 24h para avaliar esse trabalho. Caso a avaliação não seja realizada nesse prazo, ela será cancelada e o trabalho será redistribuído para outro avaliador.</p>
+
+<p>A avaliação do trabalho deve ser feita através do sistema de submissão e avaliação de trabalhos da SECITEX: <%= link_to "http://submissaosecitex.ifrn.edu.br", "http://submissaosecitex.ifrn.edu.br" %>. Os critérios utilizados devem ser os citados no site do evento e que também estão disponíveis no formulário de avaliação disponível no sistema de avaliações.</p> 
 
 <h1>Dados do trabalho</h1>
 
@@ -13,10 +15,7 @@
 <p><strong>Área:</strong> <%= @trabalho.linha.nome %></p>
 
 <p>
-  <strong>Resumo:</strong><br>
-  <%= @trabalho.resumo %>
-</p>
-
-<p>
   <strong>Download:</strong> <%= link_to "Clique aqui", @download %>
 </p>
+
+<p>Caso você seja autor desse trabalho, comunique a comissão organizadora do evento para que a avaliação seja cancelada e o trabalho seja enviado para outro avaliador.</p>

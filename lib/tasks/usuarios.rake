@@ -151,9 +151,8 @@ namespace :usuarios do
     i = 0
     Trabalho.all.each do |trabalho|
       i = i + 1
-      #puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-      #trabalho.definir_avaliadores
-      sleep(30)
+      puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
+      trabalho.definir_avaliadores
       puts "Finalizado"
     end
     puts "Total de: "+i.to_s+" trabalhos"

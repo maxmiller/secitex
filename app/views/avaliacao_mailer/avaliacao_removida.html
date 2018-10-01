@@ -1,0 +1,15 @@
+<p>Caro(a) <%= @avaliador.nome %>,</p>
+
+<p>A avaliação de um trabalho foi removida de você.</p>
+
+<p>Como até o presente momento a avaliação do trabalho detalhado a seguir não foi realizada por você, iremos redistribuir o trabalho para ser avaliado por outro avaliador.</p>
+
+<h1>Dados do trabalho</h1>
+
+<p><strong>Título:</strong> <%= @trabalho.titulo %></p>
+
+<p><strong>Evento:</strong> <%= @trabalho.linha.evento.nome %></p>
+
+<p><strong>Área:</strong> <%= @trabalho.linha.nome %></p>
+
+

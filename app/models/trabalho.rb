@@ -100,7 +100,11 @@ class Trabalho < ApplicationRecord
   end
 
   def definir_avaliadores
-    2.times { self.atribuir_avaliador }
+    2.times { self.atribuir_avaliador } if self.avaliacoes.length == 0
+    self.atribuir_avaliador if self.avaliacoes.length == 1
+  end
+
+  def remover_avaliadores
   end
 
   def avaliacoes_linha_atual
@@ -140,6 +144,7 @@ class Trabalho < ApplicationRecord
     end
 
     AvaliacaoMailer.avaliacao_atribuida(avaliador, self).deliver_now
+    sleep(15)
     self.avaliacoes << AvaliacaoTrabalho.new(trabalho: self, organizador: avaliador)
   end
 

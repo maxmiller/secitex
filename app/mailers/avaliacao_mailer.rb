@@ -10,7 +10,14 @@ class AvaliacaoMailer < ApplicationMailer
       @download = "http://submissaosecitex.ifrn.edu.br" + @trabalho.download
     end
 
-    mail to: avaliador.email, subject: '[IV SECITEX] Avaliação atribuída para você'
+    mail to: avaliador.email, subject: '[IV SECITEX] Avaliação do trabalho #'+trabalho.id.to_s+' atribuída para você'
+  end
+
+  def avaliacao_removida(avaliador, trabalho)
+    @avaliador = avaliador
+    @trabalho = trabalho
+
+    mail to: avaliador.email, subject: '[IV SECITEX] Avaliação removida de você'
   end
 
   def trabalho_aprovado(trabalho)
