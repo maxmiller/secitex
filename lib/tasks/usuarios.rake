@@ -151,11 +151,12 @@ namespace :usuarios do
     i = 0
     Trabalho.all.each do |trabalho|
       i = i + 1
-      puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
-      trabalho.definir_avaliadores
+      #puts "Sorteando "+i.to_s+"º trabalho: "+trabalho.titulo+" id= "+trabalho.id.to_s
+      #trabalho.definir_avaliadores
       sleep(30)
       puts "Finalizado"
     end
+    puts "Total de: "+i.to_s+" trabalhos"
     puts "Concluído"
   end
 
@@ -257,18 +258,19 @@ namespace :usuarios do
     puts "Trabalhos com 1 avaliacao total congic: "+trabalhos_com_uma_avaliacao_congic.to_s
     puts "Trabalhos com 2 avaliacoes total congic: "+trabalhos_com_duas_avaliacoes_congic.to_s
 
-
-
     puts "Concluído"
   end
 
   task remove_avaliacoes_pendentes: :environment do
+    i = 0
     Trabalho.all.each do |trabalho|
       avaliacoes = trabalho.avaliacoes
       avaliacoes.each do |avaliacao|
-        puts "Remover "+avaliacao.organizador.nome+" de "+avaliacao.trabalho.titulo+" "+avaliacao.created_at.to_s if avaliacao.situacao == 0
-        avaliacao.destroy if avaliacao.situacao==0
+        #puts "Remover "+avaliacao.organizador.nome+" de "+avaliacao.trabalho.titulo+" "+avaliacao.created_at.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
+        i = i + 1 if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
+        #avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
       end
     end
+    puts i.to_s
   end
 end
