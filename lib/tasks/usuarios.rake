@@ -266,9 +266,8 @@ namespace :usuarios do
     Trabalho.all.each do |trabalho|
       avaliacoes = trabalho.avaliacoes
       avaliacoes.each do |avaliacao|
-        #puts "Remover "+avaliacao.organizador.nome+" de "+avaliacao.trabalho.titulo+" "+avaliacao.created_at.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
         i = i + 1 if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
-        #avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
+        avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA")
       end
     end
     puts i.to_s
