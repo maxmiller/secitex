@@ -274,7 +274,7 @@ namespace :usuarios do
       avaliacoes = trabalho.avaliacoes
       avaliacoes.each do |avaliacao|
         
-        diferenca_dias = (DateTime.now-avaliacao.created_at.to_datetime).to_i
+        diferenca_dias = ((DateTime.now+(3.0/24)-avaliacao.created_at.to_datetime).to_i
 
         i = i + 1 if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
         puts 'Data de criação: '+avaliacao.created_at.to_datetime.to_s+' --- Data atual: '+DateTime.now.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
@@ -305,13 +305,5 @@ namespace :usuarios do
     end
     puts "Total de: "+i.to_s+" trabalhos atribuidos"
     puts "Concluído"
-  end
-
-  desc "Atribuir avaliacoes para um avaliador"
-  task teste: :environment do
-    Trabalho.all.each do |trabalho|
-      puts 'Trabalho: '+trabalho.id.to_s
-      sleep(15)
-    end
   end
 end
