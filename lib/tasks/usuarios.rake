@@ -280,7 +280,7 @@ namespace :usuarios do
         puts 'Data de criação: '+avaliacao.created_at.to_datetime.to_s+' --- Data atual: '+DateTime.now.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
         puts 'Diferença: '+diferenca_dias.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
         puts 'Avaliacao: '+avaliacao.situacao.to_s
-        puts 'Evento: '+avaliacao.linha.evento.nome
+        puts 'Evento: '+trabalho.linha.evento.nome
         #avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
       end
     end
