@@ -133,6 +133,20 @@ class Trabalho < ApplicationRecord
   def atribuir_avaliador
     avaliadores_candidatos = (self.linha.organizadores - self.avaliadores)
 
+    if self.id == 910 || self.id == 1087 || self.id ==1008 || self.id == 1089
+      autor = Organizador.find_by(id: 323)
+      avaliadores_candidatos = avaliadores_candidatos - autor
+    elsif self.id == 1182
+      autor = Organizador.find_by(id: 222)
+      avaliadores_candidatos = avaliadores_candidatos - autor
+    elsif self.id == 699 || self.id == 1192
+      autor = Organizador.find_by(id: 230)
+      avaliadores_candidatos = avaliadores_candidatos - autor
+    elsif self.id == 1236
+      autor = Organizador.find_by(id: 152)
+      avaliadores_candidatos = avaliadores_candidatos - autor
+    end
+
     if avaliadores_candidatos.empty?
       raise RuntimeError, 'Não há avaliadores suficientes para atribuir!'
     end
