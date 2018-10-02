@@ -276,4 +276,27 @@ namespace :usuarios do
     end
     puts i.to_s
   end
+
+  desc "Atribuir avaliacoes para um avaliador"
+  task atribuir_avaliacoes_para_avaliador: :environment do
+    n = 3
+    i = 0
+    avaliador_id = 9 #rodrigo
+    avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
+    avaliador = Organizador.find_by(usuario: avaliador)
+
+    Trabalho.all.each do |trabalho|
+      avaliador_possui_area = avaliador.linhas.ids.include?trabalho.linha.id
+      if trabalho.avaliacoes.length < 2 && avaliador_possui_area
+        i = i + 1
+        puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo
+        #trabalho.definir_avaliacao_para_avaliador(avaliador)
+        puts "Finalizado"
+      end
+      break if i == n
+    end
+    puts "Total de: "+i.to_s+" trabalhos atribuidos"
+    puts "Concluído"
+  end
+
 end
