@@ -278,16 +278,7 @@ namespace :usuarios do
         
         i = i + 1 if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
 
-        puts 'Data de criação: '+avaliacao.created_at.to_datetime.to_s+' --- Data atual: '+DateTime.now.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
-        puts 'Diferença: '+diferenca_dias.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
-        puts 'Avaliacao: '+avaliacao.situacao.to_s  if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
-        puts 'Evento: '+trabalho.linha.evento.nome  if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
-        if avaliacao.organizador.email == "carolinaveras@yahoo.com"
-          puts "Uhuuuuuu" if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
-        end
-
-
-        #avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
+        avaliacao.destroy if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
       end
     end
     puts i.to_s
