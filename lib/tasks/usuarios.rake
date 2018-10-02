@@ -95,10 +95,20 @@ namespace :usuarios do
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
       puts "Criando usuário danielaterto@gmail.com"
-      avaliador1 = Usuario.create(nome: 'Thayse Azevedo da Silva', email: 'thayse.azevedo@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Francisco Valdenir Lima', email: 'valdenirlima10@hotmail.com', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_biologia_geral, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_simposio_saude , organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_meio_ambiente, organizador: avaliador1, coordenador: false)
+      OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+      sleep(15)
+
+      puts "Criando usuário danielaterto@gmail.com"
+      avaliador2 = Usuario.create(nome: 'Rafael Ferreira da Silva', email: 'rafael.silva@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador2 = Organizador.create(usuario: avaliador2)
+      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador2, coordenador: false)
+      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+      sleep(15)
+
 
 =begin
       avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
