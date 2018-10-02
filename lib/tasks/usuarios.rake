@@ -307,4 +307,11 @@ namespace :usuarios do
     puts "Concluído"
   end
 
+  desc "Atribuir avaliacoes para um avaliador"
+  task teste: :environment do
+    Trabalho.all.each do |trabalho|
+      puts 'Trabalho: '+trabalho.id.to_s
+      sleep(15)
+    end
+  end
 end
