@@ -21,6 +21,7 @@ class Ability
       can :manage, Organizador
       can [ :show, :index, :edit, :update, :aprovar_nota_empenho, :aprovar_pagamento, :avaliar_isencao ], Participante
       can [ :show, :index, :edit, :update, :certificar ], Minicurso
+      can [ :show, :index ], Equipe
       can [ :show, :index, :ver_autores ], Trabalho
       can [ :show, :index ], Pagamento
       can [ :show, :index, :edit, :update ], AvaliacaoTrabalho

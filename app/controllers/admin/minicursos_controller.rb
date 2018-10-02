@@ -9,7 +9,7 @@ class Admin::MinicursosController < ApplicationController
   def new
     authorize! :new, Minicurso
     @minicurso = Minicurso.new
-    @trabalho.ministrantes.build
+    @minicurso.ministrantes.build
   end
 
   def create
