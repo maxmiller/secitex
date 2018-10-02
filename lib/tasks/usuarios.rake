@@ -274,8 +274,8 @@ namespace :usuarios do
       avaliacoes = trabalho.avaliacoes
       avaliacoes.each do |avaliacao|
         
-        diferenca_dias = (DateTime.now-avaliacao.created_at.to_datetime-(3.0/24)).to_i
-
+        diferenca_dias = (DateTime.now-avaliacao.created_at.to_datetime).to_i
+        puts (DateTime.now-avaliacao.created_at.to_datetime).to_s
         i = i + 1 if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
         puts 'Data de criação: '+avaliacao.created_at.to_datetime.to_s+' --- Data atual: '+DateTime.now.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
         puts 'Diferença: '+diferenca_dias.to_s if (avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA" && diferenca_dias >= 1)
