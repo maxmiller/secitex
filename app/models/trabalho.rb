@@ -135,16 +135,16 @@ class Trabalho < ApplicationRecord
 
     if self.id == 910 || self.id == 1087 || self.id ==1008 || self.id == 1089
       autor = Organizador.find_by(id: 323)
-      avaliadores_candidatos = avaliadores_candidatos - autor.to_a
+      avaliadores_candidatos = avaliadores_candidatos - autor.to_ary
     elsif self.id == 1182
       autor = Organizador.find_by(id: 222)
-      avaliadores_candidatos = avaliadores_candidatos - autor.to_a
+      avaliadores_candidatos = avaliadores_candidatos - autor.to_ary
     elsif self.id == 699 || self.id == 1192
       autor = Organizador.find_by(id: 230)
-      avaliadores_candidatos = avaliadores_candidatos - autor.to_a
+      avaliadores_candidatos = avaliadores_candidatos - autor.to_ary
     elsif self.id == 1236
       autor = Organizador.find_by(id: 152)
-      avaliadores_candidatos = avaliadores_candidatos - autor.to_a
+      avaliadores_candidatos = avaliadores_candidatos - autor.to_ary
     end
 
     if avaliadores_candidatos.empty?
