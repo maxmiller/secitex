@@ -323,7 +323,8 @@ namespace :usuarios do
       if avaliador.organizador.nil?
         i = i + 1
       else
-        puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome
+        avaliacoes = avaliador.avaliacoes
+        puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s
       end
     end
     puts i.to_s
