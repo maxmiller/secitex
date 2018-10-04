@@ -174,7 +174,6 @@ namespace :usuarios do
     total_trabalhos_mostra = 0
     total_trabalhos_simposio = 0
     Trabalho.all.each do |trabalho|
-      puts trabalho.linha.evento.nome
       if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
         total_trabalhos_simposio = total_trabalhos_simposio + 1
       elsif trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
@@ -303,4 +302,17 @@ namespace :usuarios do
     puts "Total de: "+i.to_s+" trabalhos atribuidos"
     puts "Concluído"
   end
+
+  desc "Mostrar avaliacoes pendentes"
+  task mostra_avaliacoes_pendentes: :environment do
+    Trabalho.all.each do |trabalho|
+      avaliacoes = trabalho.avaliacoes
+      avaliacoes.each do |avaliacao|
+        if avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
+          puts "Trabalho: "+trabalho.id.to_s + "Avaliador: "+avaliador.nome+" - "+avaliador.email
+        end
+      end
+    end
+  end
+
 end
