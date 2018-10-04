@@ -320,7 +320,7 @@ namespace :usuarios do
   task mostra_avaliadores_zerados: :environment do
     i = 0
     Membro.all.each do |avaliador|
-      if avaliador.nil?
+      if avaliador.organizador.nil?
         i = i + 1
       else
         puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome
