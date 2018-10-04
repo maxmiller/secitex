@@ -308,6 +308,7 @@ namespace :usuarios do
     Trabalho.all.each do |trabalho|
       avaliacoes = trabalho.avaliacoes
       avaliacoes.each do |avaliacao|
+        avaliador = avaliacao.organizador
         if avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
           puts "Trabalho: "+trabalho.id.to_s + "Avaliador: "+avaliador.nome+" - "+avaliador.email
         end
