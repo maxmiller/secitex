@@ -318,14 +318,11 @@ namespace :usuarios do
 
   desc "Mostrar avaliadores que nao avaliaram nada"
   task mostra_avaliadores_zerados: :environment do
-    Trabalho.all.each do |trabalho|
-      avaliacoes = trabalho.avaliacoes
-      avaliacoes.each do |avaliacao|
-        avaliador = avaliacao.organizador
-        if avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
-          puts trabalho.linha.evento.nome+";"+trabalho.id.to_s+";"+avaliador.nome+";"+avaliador.email
-        end
+    Membros.all.each do |avaliador|
+      if avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
+        puts avaliador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome
       end
+    end
     end
   end
 
