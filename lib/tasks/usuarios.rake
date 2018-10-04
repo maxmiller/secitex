@@ -318,7 +318,7 @@ namespace :usuarios do
 
   desc "Mostrar avaliadores que nao avaliaram nada"
   task mostra_avaliadores_zerados: :environment do
-    Membros.all.each do |avaliador|
+    Membro.all.each do |avaliador|
       puts avaliador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome
     end
   end
