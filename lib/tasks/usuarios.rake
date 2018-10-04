@@ -325,7 +325,7 @@ namespace :usuarios do
       else
         cont = 0
         AvaliacaoTrabalho.all.each do |avaliacao|
-          if avaliacao.organizador_id == avaliador.id
+          if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5
             cont = cont + 1
           end
         end
