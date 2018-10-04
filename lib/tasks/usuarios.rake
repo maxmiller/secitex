@@ -323,8 +323,13 @@ namespace :usuarios do
       if avaliador.organizador.nil?
         i = i + 1
       else
-        avaliacoes = AvaliacaoTrabalho.find_by(organizador_id: avaliador.organizador_id)
-        puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s
+        cont = 0
+        AvaliacaoTrabalho.all.each do |avaliacao|
+          if avaliacao.organizador_id = avaliador.id
+            cont = cont + 1
+          end
+        end
+        puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+cont.to_s
       end
     end
     puts i.to_s
