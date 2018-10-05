@@ -342,17 +342,13 @@ namespace :usuarios do
   task mostra_avaliadores_zerados: :environment do
     i = 0
     Membro.all.each do |avaliador|
-      if avaliador.organizador.nil?
-        i = i + 1
-      else
-        cont = 0
-        AvaliacaoTrabalho.all.each do |avaliacao|
-          if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5
-            cont = cont + 1
-          end
+      cont = 0
+      AvaliacaoTrabalho.all.each do |avaliacao|
+        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5
+          cont = cont + 1
         end
-        puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+cont.to_s
       end
+      puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+cont.to_s
     end
     puts i.to_s
   end
