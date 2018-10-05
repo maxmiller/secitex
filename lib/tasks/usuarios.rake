@@ -343,12 +343,13 @@ namespace :usuarios do
     i = 0
     Membro.all.each do |avaliador|
       cont = 0
-      AvaliacaoTrabalho.all.each do |avaliacao|
-        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5
-          cont = cont + 1
-        end
-      end
-      puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+cont.to_s
+      avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.id)
+#      AvaliacaoTrabalho.all.each do |avaliacao|
+#        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5 && 
+#          cont = cont + 1
+#        end
+#      end
+      puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s
     end
     puts i.to_s
   end
