@@ -355,6 +355,9 @@ namespace :usuarios do
   #      end
         if avaliacoesFinalizadas.length == 0 and avaliador.created_at < Time.parse("2018-10-01")
           puts "=========> Remover: "+avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
+          avaliacoesPendentes.all.each do |avaliacao_pendente|
+              puts avaliacao_pendente.situacao
+          end
         else
           #puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
         end
