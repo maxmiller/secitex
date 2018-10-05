@@ -320,15 +320,17 @@ namespace :usuarios do
     i = 0
     Membro.all.each do |avaliador|
       cont = 0
-      avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.id)
-      avaliacoesPendentes = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 0)
-      avaliacoesFinalizadas = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 5)
-#      AvaliacaoTrabalho.all.each do |avaliacao|
-#        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5 && 
-#          cont = cont + 1
-#        end
-#      end
-      puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
+      if avaliador.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
+        avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.id)
+        avaliacoesPendentes = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 0)
+        avaliacoesFinalizadas = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 5)
+  #      AvaliacaoTrabalho.all.each do |avaliacao|
+  #        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5 && 
+  #          cont = cont + 1
+  #        end
+  #      end
+        puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
+      end
     end
     puts i.to_s
   end
