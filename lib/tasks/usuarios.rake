@@ -322,8 +322,8 @@ namespace :usuarios do
       cont = 0
       if avaliador.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
         avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id)
-        avaliacoesPendentes = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 0)
-        avaliacoesFinalizadas = AvaliacaoTrabalho.where(organizador_id: avaliador.id).where(situacao: 5)
+        avaliacoesPendentes = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id).where(situacao: 0)
+        avaliacoesFinalizadas = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id).where(situacao: 5)
   #      AvaliacaoTrabalho.all.each do |avaliacao|
   #        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5 && 
   #          cont = cont + 1
