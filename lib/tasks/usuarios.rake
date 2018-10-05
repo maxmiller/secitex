@@ -99,6 +99,19 @@ namespace :usuarios do
 #      avaliador1 = Organizador.create(usuario: avaliador1)
 #      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador1, coordenador: false)
 
+      puts "Criando usuário renan.santos@ifrn.edu.br"
+      avaliador2 = Usuario.find_by(email: 'renan.santos@ifrn.edu.br')
+      avaliador2 = Organizador.find_by(usuario: avaliador2)
+      avaliador3 = Usuario.find_by(email: 'jonas.damasceno@ifrn.edu.br')
+      avaliador3 = Organizador.find_by(usuario: avaliador3)
+      avaliador4 = Usuario.find_by(email: 'rhodriggo.virginio@ifrn.edu.br')
+      avaliador4 = Organizador.find_by(usuario: avaliador4)
+      avaliador5 = Usuario.find_by(email: 'goulart.camila@ifrn.edu.br')
+      avaliador5 = Organizador.find_by(usuario: avaliador5)
+      avaliador6 = Usuario.find_by(email: 'jose.souza@ifrn.edu.br')
+      avaliador6 = Organizador.find_by(usuario: avaliador6)
+      avaliador7 = Usuario.find_by(email: 'julianna.paulino@ifrn.edu.br')
+      avaliador7 = Organizador.find_by(usuario: avaliador7)
 
 
       OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
