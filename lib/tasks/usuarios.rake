@@ -329,7 +329,7 @@ namespace :usuarios do
 #          cont = cont + 1
 #        end
 #      end
-      puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.to_s+";"+avaliacoesFinalizadas
+      puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.to_s+";"+avaliacoesFinalizadas.to_s
     end
     puts i.to_s
   end
