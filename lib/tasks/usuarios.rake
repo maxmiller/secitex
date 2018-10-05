@@ -99,41 +99,8 @@ namespace :usuarios do
 #      avaliador1 = Organizador.create(usuario: avaliador1)
 #      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador1, coordenador: false)
 
-      puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador2 = Usuario.create(nome: 'Renan César Santos de Lima', email: 'renan.santos@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador2 = Organizador.create(usuario: avaliador2)
-      Membro.create(linha: linha_congic_letras, organizador: avaliador2, coordenador: false)
-      Membro.create(linha: linha_congic_linguistica, organizador: avaliador2, coordenador: false)
-
-     puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador3 = Usuario.create(nome: 'Jonas Damasceno Batista de Araujo', email: 'jonas.damasceno@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador3 = Organizador.create(usuario: avaliador3)
-      Membro.create(linha: linha_congic_engenharia_eletrica, organizador: avaliador3, coordenador: false)
-      
-
-      puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador4 = Usuario.create(nome: 'Rhodriggo Mendes Virginio', email: 'rhodriggo.virginio@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador4 = Organizador.create(usuario: avaliador4)
-      Membro.create(linha: linha_congic_fisica, organizador: avaliador4, coordenador: false)
-
-      puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador5 = Usuario.create(nome: 'Camila Goulart de Campos', email: 'goulart.camila@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador5 = Organizador.create(usuario: avaliador5)
-      Membro.create(linha: linha_congic_sociologia, organizador: avaliador5, coordenador: false)
 
 
-     puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador6 = Usuario.create(nome: 'Jose Carlos Vieira de Souza', email: 'jose.souza@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador6 = Organizador.create(usuario: avaliador6)
-      Membro.create(linha: linha_congic_matematica, organizador: avaliador6, coordenador: false)
-
-     puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador7 = Usuario.create(nome: 'Julianna Kelly Paulino Bezerra de Azevedo', email: 'julianna.paulino@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador7 = Organizador.create(usuario: avaliador7)
-      Membro.create(linha: linha_congic_sociologia, organizador: avaliador7, coordenador: false)
-
-      OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-      sleep(15)
       OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
       sleep(15)
       OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
