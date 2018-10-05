@@ -94,28 +94,43 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
-=begin
       puts "Criando usuário danielaterto@gmail.com"
-      avaliador1 = Usuario.create(nome: 'Andre Luiz Rodrigues Bezerra', email: 'andre.lrbezerra@gmail.com', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Ermerson de Oliveira Capistrano', email: 'ermerson.capistrano@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
+      Membro.create(linha: linha_congic_administracao, organizador: avaliador1, coordenador: false)
 
-      Membro.create(linha: linha_congic_comunicacao, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_educacao, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_filosofia, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_sociologia, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_artes, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_letras, organizador: avaliador1, coordenador: false)
+      puts "Criando usuário danielaterto@gmail.com"
+      avaliador2 = Usuario.create(nome: 'Max Miller da Silveira', email: 'max.silveira@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador2 = Organizador.create(usuario: avaliador2)
+      Membro.create(linha: linha_congic_ciencias_computacao, organizador: avaliador2, coordenador: false)
 
+      puts "Criando usuário danielaterto@gmail.com"
+      avaliador3 = Usuario.create(nome: 'Wagner Lopes Torquato', email: 'wagner.torquato@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador3 = Organizador.create(usuario: avaliador3)
+      Membro.create(linha: linha_congic_engenharia_mecanica, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_congic_engenharia_materiais_metalurgica, organizador: avaliador3, coordenador: false)
+
+      puts "Criando usuário danielaterto@gmail.com"
+      avaliador4 = Usuario.create(nome: 'Kadydja Karla Nascimento Chagas', email: 'kadydja.chagas@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador4 = Organizador.create(usuario: avaliador4)
+      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_congic_educacao, organizador: avaliador4, coordenador: false)
 
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       sleep(15)
+      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+      sleep(15)
+      OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
+      sleep(15)
+      OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now
+      sleep(15)
 
-
+=begin
       avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador2 = Organizador.create(usuario: avaliador2)
       Membro.create(linha: linha_congic_ecologia_meio_ambiente, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_congic_zootecnia_e_medicina_veterinaria, organizador: avaliador2, coordenador: false)
-=end
+
       puts "Procurando usuário thiago.loureiro@ifrn.edu.br"
       avaliador18 = Usuario.find_by(email: 'thiago.loureiro@ifrn.edu.br')
       avaliador18 = Organizador.find_by(usuario: avaliador18)
@@ -125,7 +140,7 @@ namespace :usuarios do
       Membro.create(linha: linha_simposio_trabalho, organizador: avaliador18, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador18).deliver_now
 
-=begin
+
       puts "Procurando usuário charles.souza@ifrn.edu.br"
       avaliador17 = Usuario.find_by(email: 'charles.souza@ifrn.edu.br')
       avaliador17 = Organizador.find_by(usuario: avaliador17)
