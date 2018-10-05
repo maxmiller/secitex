@@ -95,34 +95,12 @@ namespace :usuarios do
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
       puts "Criando usuário danielaterto@gmail.com"
-      avaliador1 = Usuario.create(nome: 'Ermerson de Oliveira Capistrano', email: 'ermerson.capistrano@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Ana Paula Borba Costa', email: 'paula.borba@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
       Membro.create(linha: linha_congic_administracao, organizador: avaliador1, coordenador: false)
-
-      puts "Criando usuário danielaterto@gmail.com"
-      avaliador2 = Usuario.create(nome: 'Max Miller da Silveira', email: 'max.silveira@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador2 = Organizador.create(usuario: avaliador2)
-      Membro.create(linha: linha_congic_ciencias_computacao, organizador: avaliador2, coordenador: false)
-
-      puts "Criando usuário danielaterto@gmail.com"
-      avaliador3 = Usuario.create(nome: 'Wagner Lopes Torquato', email: 'wagner.torquato@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador3 = Organizador.create(usuario: avaliador3)
-      Membro.create(linha: linha_congic_engenharia_mecanica, organizador: avaliador3, coordenador: false)
-      Membro.create(linha: linha_congic_engenharia_materiais_metalurgica, organizador: avaliador3, coordenador: false)
-
-      puts "Criando usuário danielaterto@gmail.com"
-      avaliador4 = Usuario.create(nome: 'Kadydja Karla Nascimento Chagas', email: 'kadydja.chagas@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador4 = Organizador.create(usuario: avaliador4)
-      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador4, coordenador: false)
-      Membro.create(linha: linha_congic_educacao, organizador: avaliador4, coordenador: false)
+      Membro.create(linha: linha_congic_comunicacao, organizador: avaliador1, coordenador: false)
 
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now
       sleep(15)
 
 =begin
@@ -351,6 +329,7 @@ namespace :usuarios do
 #        end
 #      end
       puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s
+      sleep(15)
     end
     puts i.to_s
   end
