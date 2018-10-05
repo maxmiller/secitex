@@ -146,10 +146,6 @@ class Trabalho < ApplicationRecord
       end
     end
 
-    avaliadores_suspensos.all.each do |avaliador|
-      puts avaliador.nome
-    end
-    return
     avaliadores_candidatos = avaliadores_candidatos - avaliadores_suspensos
 
 
