@@ -133,6 +133,26 @@ class Trabalho < ApplicationRecord
   def atribuir_avaliador
     avaliadores_candidatos = (self.linha.organizadores - self.avaliadores)
 
+    avaliadores_suspensos = Array.new
+
+    Membro.all.each do |avaliador|
+      if avaliador.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
+        avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id)
+        avaliacoesPendentes = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id).where(situacao: 0)
+        avaliacoesFinalizadas = AvaliacaoTrabalho.where(organizador_id: avaliador.organizador.id).where(situacao: 5)
+        if avaliacoesFinalizadas.length == 0 and avaliador.created_at < Time.parse("2018-10-01")
+          avaliadores_suspensos << avaliador.organizador
+        end
+      end
+    end
+
+    avaliadores_suspensos.all.each do |avaliador|
+      puts avaliador.nome
+    end
+    return
+    avaliadores_candidatos = avaliadores_candidatos - avaliadores_suspensos
+
+
     if self.id == 910 || self.id == 1087 || self.id ==1008 || self.id == 1089
       autor = Organizador.find_by(id: 323)
       avaliadores_candidatos = avaliadores_candidatos - Array(autor)
@@ -145,6 +165,9 @@ class Trabalho < ApplicationRecord
     elsif self.id == 1236
       autor = Organizador.find_by(id: 152)
       avaliadores_candidatos = avaliadores_candidatos - Array(autor)
+    elsif self.id == 215
+      autor = Organizador.find_by(id: 345)
+      avaliadores_candidatos = avaliadores_candidatos - Array(autor) 
     end
 
     if avaliadores_candidatos.empty?
