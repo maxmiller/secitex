@@ -94,11 +94,10 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
-      puts "Criando usuário danielaterto@gmail.com"
-      avaliador1 = Usuario.create(nome: 'Ana Paula Borba Costa', email: 'paula.borba@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      puts "Criando usuário gustavo.brito@ifrn.edu.br"
+      avaliador1 = Usuario.create(nome: 'Gustavo Andre Pereira de Brito', email: 'gustavo.brito@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_administracao, organizador: avaliador1, coordenador: false)
-      Membro.create(linha: linha_congic_comunicacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador1, coordenador: false)
 
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       sleep(15)
@@ -329,7 +328,7 @@ namespace :usuarios do
 #          cont = cont + 1
 #        end
 #      end
-      puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.to_s+";"+avaliacoesFinalizadas.to_s
+      puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
     end
     puts i.to_s
   end
