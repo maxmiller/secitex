@@ -94,38 +94,26 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
-#      puts "Criando usuário gustavo.brito@ifrn.edu.br"
-#      avaliador1 = Usuario.create(nome: 'Gustavo Andre Pereira de Brito', email: 'gustavo.brito@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-#      avaliador1 = Organizador.create(usuario: avaliador1)
-#      Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador1, coordenador: false)
+      puts "Criando usuário gustavo.brito@ifrn.edu.br"
+      avaliador1 = Usuario.create(nome: 'Artur Fabiano Araújo de Albuquerque', email: 'artur.albuquerque@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Organizador.create(usuario: avaliador1)
+      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_cultura, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_educacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_artes, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_educacao, organizador: avaliador1, coordenador: false)
 
-      puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador2 = Usuario.find_by(email: 'renan.santos@ifrn.edu.br')
+#      puts "Criando usuário renan.santos@ifrn.edu.br"
       avaliador2 = Organizador.find_by(usuario: avaliador2)
-      avaliador3 = Usuario.find_by(email: 'jonas.damasceno@ifrn.edu.br')
-      avaliador3 = Organizador.find_by(usuario: avaliador3)
-      avaliador4 = Usuario.find_by(email: 'rhodriggo.virginio@ifrn.edu.br')
-      avaliador4 = Organizador.find_by(usuario: avaliador4)
-      avaliador5 = Usuario.find_by(email: 'goulart.camila@ifrn.edu.br')
-      avaliador5 = Organizador.find_by(usuario: avaliador5)
-      avaliador6 = Usuario.find_by(email: 'jose.souza@ifrn.edu.br')
-      avaliador6 = Organizador.find_by(usuario: avaliador6)
-      avaliador7 = Usuario.find_by(email: 'julianna.paulino@ifrn.edu.br')
-      avaliador7 = Organizador.find_by(usuario: avaliador7)
+      avaliador2 = Usuario.find_by(email: 'gustavo.brito@ifrn.edu.br')
+      Membro.create(linha: linha_simposio_cultura, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_simposio_educacao, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_simposio_saude, organizador: avaliador2, coordenador: false)
 
-
-      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+      OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador5).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador6).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador7).deliver_now
-
+      OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+ 
 =begin
       avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador2 = Organizador.create(usuario: avaliador2)
@@ -156,6 +144,7 @@ namespace :usuarios do
 
       avaliador252 = Usuario.find_by(email: 'danielaterto@gmail.com')
       avaliador252 = Organizador.find_by(usuario: avaliador252)
+
       OrganizadorMailer.avaliador_cadastrado(avaliador252).deliver_now
       sleep(15)
 
