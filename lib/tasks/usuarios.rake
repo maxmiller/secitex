@@ -99,8 +99,17 @@ namespace :usuarios do
       avaliador1 = Organizador.create(usuario: avaliador1)
       Membro.create(linha: linha_congic_educacao_fisica, organizador: avaliador1, coordenador: false)
 
+      puts "Criando usuário renan.santos@ifrn.edu.br"
+      avaliador2 = Usuario.create(nome: 'Renan César Santos de Lima', email: 'renan.santos@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador2 = Organizador.create(usuario: avaliador2)
+      Membro.create(linha: linha_congic_letras, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_congic_linguistica, organizador: avaliador2, coordenador: false)
+
+
+
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       sleep(15)
+      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
 
 =begin
       avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
@@ -329,7 +338,7 @@ namespace :usuarios do
   #          cont = cont + 1
   #        end
   #      end
-        if avaliacoesFinalizadas.length == 0
+        if avaliacoesFinalizadas.length == 0 and avaliador.created_at < Time.parse("2018-10-01")
           puts "=========> Remover: "+avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
         else
           #puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
