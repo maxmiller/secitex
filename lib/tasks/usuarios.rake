@@ -328,7 +328,6 @@ namespace :usuarios do
 #        end
 #      end
       puts avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s
-      sleep(15)
     end
     puts i.to_s
   end
