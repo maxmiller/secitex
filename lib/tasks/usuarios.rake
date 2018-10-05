@@ -356,7 +356,7 @@ namespace :usuarios do
           puts "=========> Remover: "+avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
           avaliacoesPendentes.all.each do |avaliacao_pendente|
               puts avaliacao_pendente.situacao
-              avaliacao_pendente.destroy
+              #avaliacao_pendente.destroy
           end
         else
           #puts avaliador.created_at.to_s+";"+avaliador.organizador.nome+";"+avaliador.linha.evento.nome+";"+avaliador.linha.nome+";"+avaliacoes.length.to_s+";"+avaliacoesPendentes.length.to_s+";"+avaliacoesFinalizadas.length.to_s
