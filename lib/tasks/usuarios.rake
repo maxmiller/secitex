@@ -344,6 +344,7 @@ namespace :usuarios do
     Membro.all.each do |avaliador|
       cont = 0
       avaliacoes = AvaliacaoTrabalho.where(organizador_id: avaliador.id)
+      puts avaliacoes
 #      AvaliacaoTrabalho.all.each do |avaliacao|
 #        if avaliacao.organizador_id == avaliador.id && avaliacao.situacao == 5 && 
 #          cont = cont + 1
