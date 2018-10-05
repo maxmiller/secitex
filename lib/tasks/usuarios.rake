@@ -94,6 +94,7 @@ namespace :usuarios do
       linha_congic_engenharia_quimica  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Química')
       linha_congic_engenharia_sanitaria  = Linha.find_by(nome: 'ENGENHARIAS - Engenharia Sanitária')
 
+=begin
       puts "Criando usuário danielaterto@gmail.com"
       avaliador1 = Usuario.create(nome: 'Andre Luiz Rodrigues Bezerra', email: 'andre.lrbezerra@gmail.com', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
@@ -108,17 +109,23 @@ namespace :usuarios do
 
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       sleep(15)
-=begin
+
+
       avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador2 = Organizador.create(usuario: avaliador2)
       Membro.create(linha: linha_congic_ecologia_meio_ambiente, organizador: avaliador2, coordenador: false)
       Membro.create(linha: linha_congic_zootecnia_e_medicina_veterinaria, organizador: avaliador2, coordenador: false)
-
-      puts "Procurando usuário patricia.souza@ifrn.edu.br"
-      avaliador18 = Usuario.find_by(email: 'patricia.souza@ifrn.edu.br')
+=end
+      puts "Procurando usuário thiago.loureiro@ifrn.edu.br"
+      avaliador18 = Usuario.find_by(email: 'thiago.loureiro@ifrn.edu.br')
       avaliador18 = Organizador.find_by(usuario: avaliador18)
-      Membro.create(linha: linha_congic_educacao, organizador: avaliador18, coordenador: false)
+      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador18, coordenador: false)
+      Membro.create(linha: linha_simposio_educacao, organizador: avaliador18, coordenador: false)
+      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador18, coordenador: false)
+      Membro.create(linha: linha_simposio_trabalho, organizador: avaliador18, coordenador: false)
+      OrganizadorMailer.avaliador_cadastrado(avaliador18).deliver_now
 
+=begin
       puts "Procurando usuário charles.souza@ifrn.edu.br"
       avaliador17 = Usuario.find_by(email: 'charles.souza@ifrn.edu.br')
       avaliador17 = Organizador.find_by(usuario: avaliador17)
