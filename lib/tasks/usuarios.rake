@@ -308,7 +308,7 @@ namespace :usuarios do
       if trabalho.avaliacoes.length < 2 && avaliador_possui_area
         i = i + 1
         puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo+" ("+trabalho.id.to_s+")"
-        #trabalho.definir_avaliacao_para_avaliador(avaliador)
+        trabalho.definir_avaliacao_para_avaliador(avaliador)
         puts "Finalizado"
       end
       break if i == n
