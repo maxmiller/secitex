@@ -297,9 +297,9 @@ namespace :usuarios do
 
   desc "Atribuir avaliacoes para um avaliador"
   task atribuir_avaliacoes_para_avaliador: :environment do
-    n = 5
+    n = 3
     i = 0
-    avaliador_id = 9
+    avaliador_id = 4
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
 
