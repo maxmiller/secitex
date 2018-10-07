@@ -148,11 +148,10 @@ class Trabalho < ApplicationRecord
 
     avaliadores_candidatos = avaliadores_candidatos - avaliadores_suspensos
 
-
     if self.id == 910 || self.id == 1087 || self.id ==1008 || self.id == 1089
       autor = Organizador.find_by(id: 323)
       avaliadores_candidatos = avaliadores_candidatos - Array(autor)
-    elsif self.id == 1182
+    elsif self.id == 1182 || self.id == 54
       autor = Organizador.find_by(id: 222)
       avaliadores_candidatos = avaliadores_candidatos - Array(autor)
     elsif self.id == 699 || self.id == 1192
@@ -163,7 +162,10 @@ class Trabalho < ApplicationRecord
       avaliadores_candidatos = avaliadores_candidatos - Array(autor)
     elsif self.id == 215
       autor = Organizador.find_by(id: 345)
-      avaliadores_candidatos = avaliadores_candidatos - Array(autor) 
+      avaliadores_candidatos = avaliadores_candidatos - Array(autor)
+    elsif self.id == 322
+      autor = Organizador.find_by(id: 357)
+      avaliadores_candidatos = avaliadores_candidatos - Array(autor)
     end
 
     if avaliadores_candidatos.empty?
