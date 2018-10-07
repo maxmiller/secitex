@@ -299,17 +299,21 @@ namespace :usuarios do
   task atribuir_avaliacoes_para_avaliador: :environment do
     n = 5
     i = 0
-    avaliador_id = 13
+    avaliador_id = 9
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
 
     Trabalho.all.each do |trabalho|
       avaliador_possui_area = avaliador.linhas.ids.include?trabalho.linha.id
       if trabalho.avaliacoes.length < 2 && avaliador_possui_area
-        i = i + 1
-        puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo+" ("+trabalho.id.to_s+")"
-        trabalho.definir_avaliacao_para_avaliador(avaliador)
-        puts "Finalizado"
+        if trabalho.avaliacoes.length == 1 && trabalho.avaliacoes.first.organizador == avaliador
+          puts "Avaliador já avalia trabalho "+trabalho.id.to_s
+        else
+          i = i + 1
+          puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo+" ("+trabalho.id.to_s+")"
+          trabalho.definir_avaliacao_para_avaliador(avaliador)
+          puts "Finalizado"
+        end
       end
       break if i == n
     end
