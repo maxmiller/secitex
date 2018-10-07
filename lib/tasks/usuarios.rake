@@ -324,7 +324,7 @@ namespace :usuarios do
       avaliacoes.each do |avaliacao|
         avaliador = avaliacao.organizador
         if avaliacao.situacao == 0 && trabalho.linha.evento.nome != "VI MOSTRA TECNOLÓGICA"
-          puts avaliacao.id.to_s+";"+avaliacao.created_at.to_s+";"+trabalho.linha.evento.nome+";"++trabalho.linha.id+";"+trabalho.linha.nome+";"+trabalho.id.to_s+";"+avaliador.nome+";"+avaliador.email
+          puts avaliacao.id.to_s+";"+avaliacao.created_at.to_s+";"+trabalho.linha.evento.nome+";"++trabalho.linha.id.to_s+";"+trabalho.linha.nome+";"+trabalho.id.to_s+";"+avaliador.nome+";"+avaliador.email
         end
       end
     end
