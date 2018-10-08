@@ -100,6 +100,7 @@ namespace :usuarios do
       avaliador1 = Organizador.create(usuario: avaliador1)
       Membro.create(linha: linha_congic_fisica, organizador: avaliador1, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
+      puts avaliador1.id.to_s
       sleep(15)
 
  
@@ -364,10 +365,10 @@ namespace :usuarios do
   task mostra_areas_pendentes: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.avaliacoes.length == 1
-        puts trabalho.linha.evento.nome+" "+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
       elsif trabalho.avaliacoes.length == 0
-        puts trabalho.linha.evento.nome+" "+trabalho.linha.nome
-        puts trabalho.linha.evento.nome+" "+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
       end
     end
   end
