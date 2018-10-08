@@ -304,8 +304,7 @@ namespace :usuarios do
     avaliador_id = STDIN.gets
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
-    puts avaliador.nome
-    return
+    
     Trabalho.all.each do |trabalho|
       avaliador_possui_area = avaliador.linhas.ids.include?trabalho.linha.id
       if trabalho.avaliacoes.length < 2 && avaliador_possui_area
