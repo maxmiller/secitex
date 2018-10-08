@@ -317,7 +317,7 @@ namespace :usuarios do
           puts "Finalizado"
         end
       end
-      break if i == n
+      break if i == n.to_i
     end
     puts "Total de: "+i.to_s+" trabalhos atribuidos"
     puts "Concluído"
