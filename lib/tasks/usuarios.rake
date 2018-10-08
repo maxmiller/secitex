@@ -313,7 +313,7 @@ namespace :usuarios do
         else
           i = i + 1
           puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo+" ("+trabalho.id.to_s+")"
-          #trabalho.definir_avaliacao_para_avaliador(avaliador)
+          trabalho.definir_avaliacao_para_avaliador(avaliador)
           puts "Finalizado"
         end
       end
