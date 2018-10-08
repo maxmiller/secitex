@@ -298,10 +298,10 @@ namespace :usuarios do
   desc "Atribuir avaliacoes para um avaliador"
   task atribuir_avaliacoes_para_avaliador: :environment do
     puts "Digite a quantidade de trabalhos"
-    n = gets
+    n = STDIN.gets
     i = 0
     puts "Digite o id do avaliador"
-    avaliador_id = gets
+    avaliador_id = STDIN.gets
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
     puts avaliador.nome
