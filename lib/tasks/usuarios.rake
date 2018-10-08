@@ -261,41 +261,22 @@ namespace :usuarios do
     total_de_avaliacoes_mostra = 2*trabalhos_com_duas_avaliacoes_mostra+trabalhos_com_uma_avaliacao_mostra;
     total_de_avaliacoes_simposio = 2*trabalhos_com_duas_avaliacoes_simposio+trabalhos_com_uma_avaliacao_simposio;
     total_de_avaliacoes_congic = 2*trabalhos_com_duas_avaliacoes_congic+trabalhos_com_uma_avaliacao_congic;
-    puts "TOTAL TRABALHOS SUBMETIDOS: "+total_trabalhos.to_s
-    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS: "+total_de_avaliacoes.to_s
-    puts "Trabalhos com 0 avaliacoes total: "+trabalhos_com_zero_avaliacoes_total.to_s
-    puts "Trabalhos com 1 avaliacao total: "+trabalhos_com_uma_avaliacao_total.to_s
-    puts "Trabalhos com 2 avaliacoes total: "+trabalhos_com_duas_avaliacoes_total.to_s
-    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS MOSTRA: "+total_de_avaliacoes_mostra.to_s
-    puts "Trabalhos com 0 avaliacoes total mostra: "+trabalhos_com_zero_avaliacoes_mostra.to_s
-    puts "Trabalhos com 1 avaliacao total mostra: "+trabalhos_com_uma_avaliacao_mostra.to_s
-    puts "Trabalhos com 2 avaliacoes total mostra: "+trabalhos_com_duas_avaliacoes_mostra.to_s
-    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS SIMPOSIO: "+total_de_avaliacoes_simposio.to_s
-    puts "Trabalhos com 0 avaliacoes total simposio: "+trabalhos_com_zero_avaliacoes_simposio.to_s
-    puts "Trabalhos com 1 avaliacao total simposio: "+trabalhos_com_uma_avaliacao_simposio.to_s
-    puts "Trabalhos com 2 avaliacoes total simposio: "+trabalhos_com_duas_avaliacoes_simposio.to_s
-    puts "TOTAL DE AVALIAÇÕES JÁ REALIZADAS CONGIC: "+total_de_avaliacoes_congic.to_s
-    puts "Trabalhos com 0 avaliacoes total congic: "+trabalhos_com_zero_avaliacoes_congic.to_s
-    puts "Trabalhos com 1 avaliacao total congic: "+trabalhos_com_uma_avaliacao_congic.to_s
-    puts "Trabalhos com 2 avaliacoes total congic: "+trabalhos_com_duas_avaliacoes_congic.to_s
 
-
-puts "-----------------------------"
-puts "AVALIACÕES DA SECITEX - 08/10"
-puts "-----------------------------"
-puts "Avaliações Já realizadas"
-puts "Total: "+total_de_avaliacoes.to_s+" de "+(2*total_trabalhos).to_s
-puts "Mostra: "+total_de_avaliacoes_mostra.to_s+" de "+(2*total_trabalhos_mostra).to_s
-puts "Simpósio: "+total_de_avaliacoes_simposio.to_s+" de "+(2*total_trabalhos_simposio).to_s
-puts "CONGIC: "+total_de_avaliacoes_congic.to_s+" de "+(2*total_trabalhos_congic).to_s
-puts "-----------------------------"
-puts "Trabalhos com avaliação concluída"
-puts "Total: "+trabalhos_com_duas_avaliacoes_total.to_s+" de "+total_trabalhos.to_s
-puts "Mostra: "+trabalhos_com_duas_avaliacoes_mostra.to_s+" de "+total_trabalhos_mostra.to_s
-puts "Simpósio: "+trabalhos_com_duas_avaliacoes_simposio.to_s+" de "+total_trabalhos_simposio.to_s
-puts "CONGIC: "+trabalhos_com_duas_avaliacoes_congic.to_s+" de "+total_trabalhos_congic.to_s
-puts "-----------------------------"
-
+    puts "-----------------------------"
+    puts "AVALIACÕES DA SECITEX - 08/10"
+    puts "-----------------------------"
+    puts "Avaliações Já realizadas"
+    puts "Total: "+total_de_avaliacoes.to_s+" de "+(2*total_trabalhos).to_s
+    puts "Mostra: "+total_de_avaliacoes_mostra.to_s+" de "+(2*total_trabalhos_mostra).to_s
+    puts "Simpósio: "+total_de_avaliacoes_simposio.to_s+" de "+(2*total_trabalhos_simposio).to_s
+    puts "CONGIC: "+total_de_avaliacoes_congic.to_s+" de "+(2*total_trabalhos_congic).to_s
+    puts "-----------------------------"
+    puts "Trabalhos com avaliação concluída"
+    puts "Total: "+trabalhos_com_duas_avaliacoes_total.to_s+" de "+total_trabalhos.to_s
+    puts "Mostra: "+trabalhos_com_duas_avaliacoes_mostra.to_s+" de "+total_trabalhos_mostra.to_s
+    puts "Simpósio: "+trabalhos_com_duas_avaliacoes_simposio.to_s+" de "+total_trabalhos_simposio.to_s
+    puts "CONGIC: "+trabalhos_com_duas_avaliacoes_congic.to_s+" de "+total_trabalhos_congic.to_s
+    puts "-----------------------------"
 
     puts "Concluído"
   end
@@ -316,12 +297,15 @@ puts "-----------------------------"
 
   desc "Atribuir avaliacoes para um avaliador"
   task atribuir_avaliacoes_para_avaliador: :environment do
-    n = 5
+    puts "Digite a quantidade de trabalhos"
+    n = gets
     i = 0
-    avaliador_id = 115
+    puts "Digite o id do avaliador"
+    avaliador_id = gets
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
-
+    puts avaliador.nome
+    return
     Trabalho.all.each do |trabalho|
       avaliador_possui_area = avaliador.linhas.ids.include?trabalho.linha.id
       if trabalho.avaliacoes.length < 2 && avaliador_possui_area
@@ -330,7 +314,7 @@ puts "-----------------------------"
         else
           i = i + 1
           puts "Adicionando "+avaliador.nome+" em "+trabalho.titulo+" ("+trabalho.id.to_s+")"
-          trabalho.definir_avaliacao_para_avaliador(avaliador)
+          #trabalho.definir_avaliacao_para_avaliador(avaliador)
           puts "Finalizado"
         end
       end
