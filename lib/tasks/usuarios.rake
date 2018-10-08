@@ -299,7 +299,7 @@ namespace :usuarios do
   task atribuir_avaliacoes_para_avaliador: :environment do
     n = 5
     i = 0
-    avaliador_id = 360
+    avaliador_id = 56
     avaliador = Usuario.find_by(autenticavel_id: avaliador_id)
     avaliador = Organizador.find_by(usuario: avaliador)
 
