@@ -358,4 +358,12 @@ namespace :usuarios do
     end
   end
 
+  desc "Mostrar avaliadores que nao avaliaram nada"
+  task mostra_avaliadores_zerados: :environment do
+    Trabalho.all.each do |trabalho|
+      if trabalho.avaliacoes.length != 2
+        puts trabalho.linha.evento.nome+" "+trabalho.linha.nome
+      end
+    end
+  end
 end
