@@ -96,55 +96,16 @@ namespace :usuarios do
 
       puts "Criando usuário gustavo.brito@ifrn.edu.br"
 
-      avaliador1 = Usuario.create(nome: 'Anderson Luiz Pinheiro de Oliveira', email: 'anderson.pinheiro@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Ana Eliza Trajano Soares', email: 'trajano.ana@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_fisica, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_sociologia, organizador: avaliador1, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-
-      avaliador2 = Usuario.create(nome: 'Marcio Marreiro das Chagas', email: 'marcio.marreiro@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      sleep(15)
+      avaliador2 = Usuario.create(nome: 'Julianna Kelly Paulino Bezerra de Azevedo', email: 'julianna.paulino@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador2 = Organizador.create(usuario: avaliador2)
-      Membro.create(linha: linha_congic_administracao, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_congic_sociologia, organizador: avaliador2, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
 
-      avaliador3 = Usuario.create(nome: 'Silvia Regina Pereira de Mendonca', email: 'silvia.mendonca@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador3 = Organizador.create(usuario: avaliador3)
-      Membro.create(linha: linha_congic_matematica, organizador: avaliador3, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
-
-      avaliador4 = Usuario.create(nome: 'Rodrigo Lopes Barreto', email: 'barreto.rodrigo@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador4 = Organizador.create(usuario: avaliador4)
-      Membro.create(linha: linha_congic_engenharia_eletrica, organizador: avaliador4, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador4).deliver_now      
-
-      avaliador5 = Usuario.create(nome: 'Rodrigo Lopes Barreto', email: 'barreto.rodrigo@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador5 = Organizador.create(usuario: avaliador5)
-      Membro.create(linha: linha_congic_engenharia_eletrica, organizador: avaliador5, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador5).deliver_now      
-
-      avaliador6 = Usuario.create(nome: 'Jeronimo Mailson Cipriano Carlos Leite', email: 'mailson.carlos@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador6 = Organizador.create(usuario: avaliador6)
-      Membro.create(linha: linha_congic_arquitetura_urbanismo, organizador: avaliador6, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador6).deliver_now
-
-      avaliador7 = Organizador.find_by(id: 14)
-      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_direitos_humanos_justica, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_educacao, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_meio_ambiente, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador7, coordenador: false)
-      Membro.create(linha: linha_simposio_trabalho, organizador: avaliador7, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador7).deliver_now
- 
-      avaliador8 = Organizador.find_by(id: 14)
-      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_direitos_humanos_justica, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_educacao, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_meio_ambiente, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador8, coordenador: false)
-      Membro.create(linha: linha_simposio_trabalho, organizador: avaliador8, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador8).deliver_now
  
 =begin
       avaliador1 = Usuario.find_by(email: 'artur.albuquerque@ifrn.edu.br')
