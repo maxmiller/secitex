@@ -367,8 +367,10 @@ namespace :usuarios do
       if trabalho.avaliacoes.length == 1
         puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
       elsif trabalho.avaliacoes.length == 0
-        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
-        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id.to_s+";"+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id.to_s+";"+trabalho.linha.nome
+      elsif trabalho.avaliacoes.length > 2
+        puts "ERRO: "+trabalho.id.to_s
       end
     end
   end
