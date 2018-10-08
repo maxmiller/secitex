@@ -279,6 +279,24 @@ namespace :usuarios do
     puts "Trabalhos com 1 avaliacao total congic: "+trabalhos_com_uma_avaliacao_congic.to_s
     puts "Trabalhos com 2 avaliacoes total congic: "+trabalhos_com_duas_avaliacoes_congic.to_s
 
+
+puts "-----------------------------"
+puts "AVALIACÕES DA SECITEX - 08/10"
+puts "-----------------------------"
+puts "Avaliações Já realizadas"
+puts "Total: "+total_de_avaliacoes.to_s+" de "+(2*total_trabalhos).to_s
+puts "Mostra: "+total_de_avaliacoes_mostra.to_s+" de "+(2*total_trabalhos_mostra).to_s
+puts "Simpósio: "+total_de_avaliacoes_simposio.to_s+" de "+(2*total_trabalhos_simposio).to_s
+puts "CONGIC: "+total_de_avaliacoes_congic.to_s+" de "+(2*total_trabalhos_congic).to_s
+puts "-----------------------------"
+puts "Trabalhos com avaliação concluída"
+puts "Total: "+trabalhos_com_duas_avaliacoes_total.to_s+" de "+total_trabalhos.to_s
+puts "Mostra: "+trabalhos_com_duas_avaliacoes_mostra.to_s+" de "+total_trabalhos_mostra.to_s
+puts "Simpósio: "+trabalhos_com_duas_avaliacoes_simposio.to_s+" de "+total_trabalhos_simposio.to_s
+puts "CONGIC: "+trabalhos_com_duas_avaliacoes_congic.to_s+" de "+total_trabalhos_congic.to_s
+puts "-----------------------------"
+
+
     puts "Concluído"
   end
 
