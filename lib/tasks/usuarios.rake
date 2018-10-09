@@ -96,12 +96,28 @@ namespace :usuarios do
 
       puts "Criando usuário gustavo.brito@ifrn.edu.br"
 
-      avaliador1 = Usuario.create(nome: 'Daniel Enos Cavalcanti Rodrigues de Macedo', email: 'enosmacedo@gmail.com', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Denise Cristina Momo', email: 'denise.cristina@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_ciencias_computacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_cultura, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_direitos_humanos_justica, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_educacao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_meio_ambiente, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_saude, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_simposio_trabalho, organizador: avaliador1, coordenador: false)
+
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       puts avaliador1.id.to_s
       sleep(15)
+
+ 
+
+ 
+
+ 
+ 
+ 
 
 
  
