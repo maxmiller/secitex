@@ -382,8 +382,8 @@ namespace :usuarios do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome != "VI SIMPÓSIO DE EXTENSÃO"
         avaliacoes = trabalho.avaliacoes
-        nota_1 = avaliacoes.first.criterio1.to_i + avaliacoes.first.criterio2.to_i + avaliacoes.first.criterio3.to_i + avaliacoes.first.criterio4.to_i + avaliacoes.first.criterio5.to_i + avaliacoes.first.criterio_6.to_i
-        nota_2 = avaliacoes.last.criterio1.to_i + avaliacoes.last.criterio2.to_i + avaliacoes.last.criterio3.to_i + avaliacoes.last.criterio4.to_i + avaliacoes.last.criterio5.to_i + avaliacoes.last.criterio_6.to_i
+        nota_1 = avaliacoes.first.criterio1.to_i + avaliacoes.first.criterio2.to_i + avaliacoes.first.criterio3.to_i + avaliacoes.first.criterio4.to_i + avaliacoes.first.criterio5.to_i + avaliacoes.first.criterio6.to_i
+        nota_2 = avaliacoes.last.criterio1.to_i + avaliacoes.last.criterio2.to_i + avaliacoes.last.criterio3.to_i + avaliacoes.last.criterio4.to_i + avaliacoes.last.criterio5.to_i + avaliacoes.last.criterio6.to_i
         puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+nota_1.to_s+";"+nota_2.to_s
       end
     end
