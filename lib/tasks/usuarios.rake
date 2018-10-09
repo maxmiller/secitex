@@ -96,19 +96,14 @@ namespace :usuarios do
 
       puts "Criando usuário gustavo.brito@ifrn.edu.br"
 
-      avaliador1 = Usuario.create(nome: 'Walney Gomes da Silva', email: 'walney.gomes@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Emanuel Neto Alves de Oliveira', email: 'emanuel.oliveira@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_engenharia_civil, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_ciencias_tecnologia_alimentos, organizador: avaliador1, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       puts avaliador1.id.to_s
       sleep(15)
 
-      avaliador2 = Usuario.create(nome: 'Priscylla Cinthya Alves Gondim', email: 'priscylla.gondim@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador2 = Organizador.create(usuario: avaliador2)
-      Membro.create(linha: linha_congic_engenharia_civil, organizador: avaliador2, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
-      puts avaliador2.id.to_s
-      sleep(15)
+ 
 
  
 =begin
