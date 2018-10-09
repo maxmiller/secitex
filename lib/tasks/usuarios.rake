@@ -365,7 +365,7 @@ namespace :usuarios do
   task mostra_areas_pendentes: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.avaliacoes.length == 1
-        puts trabalho.linha.evento.nome+";"+trabalho.linha.id+";"+trabalho.linha.nome
+        puts trabalho.linha.evento.nome+";"+trabalho.linha.id.to_s+";"+trabalho.linha.nome
       elsif trabalho.avaliacoes.length == 0
         puts trabalho.linha.evento.nome+";"+trabalho.linha.id.to_s+";"+trabalho.linha.nome
         puts trabalho.linha.evento.nome+";"+trabalho.linha.id.to_s+";"+trabalho.linha.nome
