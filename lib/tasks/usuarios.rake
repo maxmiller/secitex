@@ -96,11 +96,28 @@ namespace :usuarios do
 
       puts "Criando usuário gustavo.brito@ifrn.edu.br"
 
-      avaliador1 = Usuario.create(nome: 'Emanuel Neto Alves de Oliveira', email: 'emanuel.oliveira@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Adriana Claudia Camara da Silva', email: 'adriana.silva@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
-      Membro.create(linha: linha_congic_ciencias_tecnologia_alimentos, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_biologia_geral, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_ecologia_meio_ambiente, organizador: avaliador1, coordenador: false)
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       puts avaliador1.id.to_s
+      sleep(15)
+
+      avaliador2 = Usuario.create(nome: 'Tarcimaria Rocha Lula Gomes da Silva', email: 'tarcimaria.gomes@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador2 = Organizador.create(usuario: avaliador2)
+      Membro.create(linha: linha_congic_comunicacao, organizador: avaliador2, coordenador: false)
+      Membro.create(linha: linha_congic_direito, organizador: avaliador2, coordenador: false)
+      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
+      puts avaliador2.id.to_s
+      sleep(15)
+ 
+      avaliador3 = Usuario.create(nome: 'Elizomar de Assis Nobre', email: 'elizomar.nobre@ifrn.edu.br', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador3 = Organizador.create(usuario: avaliador3)
+      Membro.create(linha: linha_congic_agronomia, organizador: avaliador3, coordenador: false)
+      Membro.create(linha: linha_congic_ciencias_tecnologia_alimentos, organizador: avaliador3, coordenador: false)
+      OrganizadorMailer.avaliador_cadastrado(avaliador3).deliver_now
+      puts avaliador3.id.to_s
       sleep(15)
 
  
