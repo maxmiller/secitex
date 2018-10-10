@@ -397,11 +397,10 @@ namespace :usuarios do
   task mostra_trabalhos_simposio: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
-        
         if trabalho.participante.campus.nome == "NENHUM"
-          puts trabalho.titulo";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus
         else
-          puts trabalho.titulo";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
         end
       end
     end
