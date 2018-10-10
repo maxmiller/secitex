@@ -377,7 +377,7 @@ namespace :usuarios do
     end
   end
 
-  desc "Mostrar areas pendentes de avaliacao"
+  desc "Mostrar notas simposio"
   task mostra_notas_simposio: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
@@ -389,9 +389,23 @@ namespace :usuarios do
         else
           puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.campus.nome+";"+nota_1.to_s+";"+nota_2.to_s
         end
-        
       end
     end
   end
+
+  desc "Mostrar trabalhos simposio"
+  task mostra_trabalhos_simposio: :environment do
+    Trabalho.all.each do |trabalho|
+      if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+        
+        if trabalho.participante.campus.nome == "NENHUM"
+          puts trabalho.titulo";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus
+        else
+          puts trabalho.titulo";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
+        end
+      end
+    end
+  end
+
 
 end
