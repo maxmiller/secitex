@@ -96,10 +96,11 @@ namespace :usuarios do
 
       puts "Criando usuário gustavo.brito@ifrn.edu.br"
 
-      avaliador1 = Usuario.create(nome: 'Fernando Freire', email: 'fernando.ofreire@hotmail.com', password: '#$852$#', perfil: membro_comissao_cientifica)
+      avaliador1 = Usuario.create(nome: 'Gilene Moura Cavalcante de Medeiros', email: 'gilene_moura@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
       avaliador1 = Organizador.create(usuario: avaliador1)
       
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_filosofia, organizador: avaliador1, coordenador: false)
+      Membro.create(linha: linha_congic_sociologia, organizador: avaliador1, coordenador: false)
       
       OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
       puts avaliador1.id.to_s
@@ -397,6 +398,19 @@ namespace :usuarios do
   task mostra_trabalhos_simposio: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
+        if trabalho.participante.campus.nome == "NENHUM"
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
+        else
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus.nome
+        end
+      end
+    end
+  end
+
+  desc "Mostrar trabalhos simposio"
+  task mostra_avaliadores_area: :environment do
+    Membros.all.each do |membro|
+      if membro.linhatrabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
         if trabalho.participante.campus.nome == "NENHUM"
           puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
         else
