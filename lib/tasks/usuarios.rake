@@ -420,7 +420,7 @@ namespace :usuarios do
     end
   end
 
-  desc "Mostrar notas simposio"
+  desc "Mostrar notas mostra"
   task mostra_notas_mostra: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA"
@@ -435,5 +435,22 @@ namespace :usuarios do
       end
     end
   end
+
+  desc "Mostrar notas congic"
+  task mostra_notas_mostra: :environment do
+    Trabalho.all.each do |trabalho|
+      if trabalho.linha.evento.nome == "XIV CONGIC"
+        avaliacoes = trabalho.avaliacoes
+        nota_1 = avaliacoes.first.criterio1.to_i + avaliacoes.first.criterio2.to_i + avaliacoes.first.criterio3.to_i + avaliacoes.first.criterio4.to_i + avaliacoes.first.criterio5.to_i + avaliacoes.first.criterio6.to_i
+        nota_2 = avaliacoes.last.criterio1.to_i + avaliacoes.last.criterio2.to_i + avaliacoes.last.criterio3.to_i + avaliacoes.last.criterio4.to_i + avaliacoes.last.criterio5.to_i + avaliacoes.last.criterio6.to_i
+        if trabalho.participante.campus.nome == "NENHUM"
+          puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.instituicao+";"+nota_1.to_s+";"+nota_2.to_s
+        else
+          puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.campus.nome+";"+nota_1.to_s+";"+nota_2.to_s
+        end
+      end
+    end
+  end
+
 
 end
