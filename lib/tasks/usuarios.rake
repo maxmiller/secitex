@@ -399,9 +399,9 @@ namespace :usuarios do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO"
         if trabalho.participante.campus.nome == "NENHUM"
-          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";---"
         else
-          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus.nome
+          puts trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.nome+";"+trabalho.participante.email+";"+trabalho.participante.instituicao+";"+trabalho.participante.campus.nome
         end
       end
     end
