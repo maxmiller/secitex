@@ -437,7 +437,7 @@ namespace :usuarios do
   end
 
   desc "Mostrar notas congic"
-  task mostra_notas_mostra: :environment do
+  task mostra_notas_congic: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "XIV CONGIC"
         avaliacoes = trabalho.avaliacoes
