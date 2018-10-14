@@ -15,9 +15,9 @@ class Minicurso < ApplicationRecord
   before_create :definir_avaliacao
 
   AVALIACAO = {
-    reprovado: -1,
+    nao_aceito: -1,
     pendente: 0,
-    aprovado: 1
+    aceito: 1
   }
 
   def definir_avaliacao
@@ -25,7 +25,7 @@ class Minicurso < ApplicationRecord
   end
 
   def self.aprovados
-    self.where(avaliacao: AVALIACAO[:aprovado])
+    self.where(avaliacao: AVALIACAO[:aceito])
   end
 
   def self.com_vagas
@@ -45,7 +45,7 @@ class Minicurso < ApplicationRecord
   end
 
   def aprovado?
-    self.avaliacao == AVALIACAO[:aprovado]
+    self.avaliacao == AVALIACAO[:aceito]
   end
 
   #def carga_horaria
