@@ -1,10 +1,10 @@
 module Admin::MinicursosHelper
   
   def avaliacao_minicurso(avaliacao)
-    if avaliacao == Minicurso::AVALIACAO[:aprovado]
-      return "<span class='label label-success'>Aprovado</span>"
+    if avaliacao == Minicurso::AVALIACAO[:aceito]
+      return "<span class='label label-success'>Aceito</span>"
     elsif avaliacao == Minicurso::AVALIACAO[:reprovado]
-      return "<span class='label label-danger'>Reprovado</span>"
+      return "<span class='label label-danger'>Não aceito</span>"
     else
       return "<span class='label label-default'>Pendente</span>"
     end
