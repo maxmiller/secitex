@@ -461,7 +461,7 @@ namespace :usuarios do
         autores = trabalho.autores
         nome_autores = ""
         autores.each do |autor|
-          nome_autores = nome_autores+autor.nome
+          nome_autores = nome_autores+";"+autor.nome
         end        
         if trabalho.participante.campus.nome == "NENHUM"
           puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.instituicao+";"+nome_autores
