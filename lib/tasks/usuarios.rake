@@ -458,16 +458,17 @@ namespace :usuarios do
     lista.each do |valor|
       trabalho = Trabalho.find_by(id: valor)
       if trabalho.linha.evento.nome == "XIV CONGIC"
-        
+        autores = trabalho.autores
+        nome_autores = ""
+        autores.each do |autor|
+          nome_autores = nome_autores+autor.nome
+        end        
         if trabalho.participante.campus.nome == "NENHUM"
           #puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.instituicao
         else
           #puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.tipo_trabalho.nome+";"+trabalho.linha.nome+";"+trabalho.participante.campus.nome
         end
-        autores = trabalho.autores
-        autores.each do |autor|
-          print ";"+autor.nome
-        end
+
       else
         puts "ERRO"
       end
