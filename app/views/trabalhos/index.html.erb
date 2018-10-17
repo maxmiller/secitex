@@ -35,16 +35,16 @@
           <td><%= trabalho.tipo_trabalho.nome %></td>
           <t
           <!--td--><%#= situacao(trabalho.situacao).html_safe %><!--/td-->
-          <% if trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:avaliado] %>
+          <% if trabalho.situacao != Trabalho::SITUACOES[:pendente] %>
             <td><%= trabalho.nota_geral.to_s.html_safe %></td>
-          <% elsif trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:pendente] %>
+          <% else %>
             <td>---</td>
           <% end %>
-          <td><%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %></td>
+          <td><%= trabalho.status_situacao(trabalho.situacao).html_safe %></td>
           <td>
             <div class="btn-group">
               <% if trabalho.aprovado? and can? :aceite, trabalho %>
-                <%= link_to fa_icon('envelope'), trabalho_aceite_path(trabalho, format: :pdf), class: "btn btn-primary btn-sm", title: 'Carta de aceite' %>
+                <%#= link_to fa_icon('envelope'), trabalho_aceite_path(trabalho, format: :pdf), class: "btn btn-primary btn-sm", title: 'Carta de aceite' %>
               <% end %>
               <%= link_to fa_icon('download'), trabalho.download, title: 'Download', class: 'btn btn-primary btn-sm' %>
               <%= link_to fa_icon('eye'), trabalho, title: 'Detalhar', class: 'btn btn-primary btn-sm' %>

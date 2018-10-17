@@ -33,12 +33,12 @@
         </td>
         <td>
           <% if trabalho.avaliacao_geral_pendente? %>
-            <%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %>
+            <%= trabalho.status_situacao(trabalho.situacao).html_safe %>
           <% else %>
             <%= trabalho.nota_geral %>
           <% end %>
         </td>
-        <td><%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %></td>
+        <td><%= trabalho.status_situacao(trabalho.situacao).html_safe %></td>
         <td>
           <div class="btn-group">
             <% if can? :show, trabalho %>

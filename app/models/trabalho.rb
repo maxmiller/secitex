@@ -18,6 +18,16 @@ class Trabalho < ApplicationRecord
   }
   validates_attachment :arquivo, presence: true, content_type: { content_type: [ "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ] }
 
+  SITUACOES = {
+    reprovado: -1,
+    pendente: 0,
+    aprovado_mas_nao_classificado: 1,
+    aprovado_e_classificado: 2,
+    avaliado: 3,
+    finalista: 4,
+    nao_finalista: 5
+  }
+
   def download
     if Rails.env.production?
       return "/#{self.arquivo.url}"
@@ -77,21 +87,20 @@ class Trabalho < ApplicationRecord
   end
 
   def status_situacao(situacao)
-    if situacao == AvaliacaoTrabalho::SITUACOES[:aprovado]
-      return "<span class='label label-success'>Aprovado</span>"
-    elsif situacao == AvaliacaoTrabalho::SITUACOES[:reprovado]
+    if situacao == Trabalho::SITUACOES[:aprovado_e_classificado]
+      return "<span class='label label-success'>Aprovado e classificado</span>"
+    elsif situacao == Trabalho::SITUACOES[:reprovado]
       return "<span class='label label-danger'>Reprovado</span>"
-    elsif situacao == AvaliacaoTrabalho::SITUACOES[:outra_linha]
-      return "<span class='label label-warning'>Outra linha</span>"
-    elsif situacao == AvaliacaoTrabalho::SITUACOES[:aceito]
-      return "<span class='label label-success'>Aceito</span>"
-    elsif situacao == AvaliacaoTrabalho::SITUACOES[:nao_aceito]
-      return "<span class='label label-danger'>Não aceito</span>"
-    elsif situacao == AvaliacaoTrabalho::SITUACOES[:avaliado]
-      #return "<span class='label label-info'>Avaliado</span><br/><span class='label label-info'>Aguardando resultado</span>"
+    elsif situacao == Trabalho::SITUACOES[:aprovado_mas_nao_classificado]
+      return "<span class='label label-warning'>Aprovado mas não classificado</span>"
+    elsif situacao == Trabalho::SITUACOES[:avaliado]
       return "<span class='label label-info'>Avaliado</span>"
-    else
+    elsif situacao == Trabalho::SITUACOES[:pendente]
       return "<span class='label label-default'>Pendente</span>"
+    elsif situacao == Trabalho::SITUACOES[:finalista]
+      return "<span class='label label-success'>Finalista</span>"
+    elsif situacao == Trabalho::SITUACOES[:nao_finalista]
+      return "<span class='label label-danger'>Não finalista</span>"
     end
   end
 
@@ -185,35 +194,6 @@ class Trabalho < ApplicationRecord
     AvaliacaoMailer.avaliacao_atribuida(avaliador, self).deliver_now
     sleep(15)
     self.avaliacoes << AvaliacaoTrabalho.new(trabalho: self, organizador: avaliador)
-  end
-
-  def situacao
-    return AvaliacaoTrabalho::SITUACOES[:pendente]
-    avaliacoes = self.avaliacoes_linha_atual
-    avaliacoes.each do |avaliacao|
-      if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
-        return AvaliacaoTrabalho::SITUACOES[:pendente]
-      end
-    end
-
-    aprovadas = 0
-    reprovadas = 0
-    outra_linha = 0
-    avaliacoes.each do |avaliacao|
-      aprovadas = aprovadas + 1 if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:aprovado]
-      reprovadas = reprovadas + 1 if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:reprovado]
-      outra_linha = outra_linha + 1 if avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:outra_linha]
-    end
-
-    if aprovadas > reprovadas and aprovadas > outra_linha
-      return AvaliacaoTrabalho::SITUACOES[:aprovado]
-    elsif reprovadas > aprovadas and reprovadas > outra_linha
-      return AvaliacaoTrabalho::SITUACOES[:reprovado]
-    elsif outra_linha > aprovadas and outra_linha > reprovadas
-      return AvaliacaoTrabalho::SITUACOES[:outra_linha]
-    else
-      return AvaliacaoTrabalho::SITUACOES[:pendente]
-    end
   end
 
   def self.aprovados

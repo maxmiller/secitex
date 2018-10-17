@@ -34,13 +34,13 @@
 
 <p>
   <strong>Situação:</strong>
-  <%= @trabalho.status_situacao(@trabalho.situacao_avaliacao_geral).html_safe %>
+  <%= @trabalho.status_situacao(@trabalho.situacao).html_safe %>
 </p>
 <p>
   <strong>Nota:</strong>
-  <% if @trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:avaliado] %>
+  <% if @trabalho.situacao != Trabalho::SITUACOES[:pendente] %>
     <td><%= @trabalho.nota_geral.to_s.html_safe %></td>
-  <% elsif @trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:pendente] %>
+  <% else %>
     <td>---</td>
   <% end %>
 </p>
