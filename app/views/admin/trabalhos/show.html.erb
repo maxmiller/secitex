@@ -65,8 +65,17 @@
 </p>
 
 <p>
-  <strong>Avaliação:</strong>
-  <%= situacao(@trabalho.situacao).html_safe %>
+  <strong>Situação:</strong>
+  <%= @trabalho.status_situacao(@trabalho.situacao_avaliacao_geral).html_safe %>
+</p>
+
+<p>
+  <strong>Nota:</strong>
+  <% if @trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:avaliado] %>
+    <td><%= @trabalho.nota_geral.to_s.html_safe %></td>
+  <% elsif @trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:pendente] %>
+    <td>---</td>
+  <% end %>
 </p>
 
 <% if can? :index, AvaliacaoTrabalho %>
