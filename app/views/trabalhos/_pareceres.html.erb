@@ -8,4 +8,11 @@
     </p>
     <% index += 1 %>
   <% end %>
+  <p>
+    <h4>Avaliador <%= (index+1) %></h4>
+    <strong>Nota:</strong> <%= @trabalho.nota_geral.to_s.html_safe %><br>
+    <strong>Comentário:</strong> <%= avaliacao.parecer %>
+  </p>
+  <% index += 1 %>
+  <hr>
 <% end %>

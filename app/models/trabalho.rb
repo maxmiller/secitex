@@ -34,7 +34,6 @@ class Trabalho < ApplicationRecord
   def nota_geral
     avaliacao1 = self.avaliacoes.first
     avaliacao2 = self.avaliacoes.last
-    return "---"
     nota1 = avaliacao1.criterio1.to_i + avaliacao1.criterio2.to_i + avaliacao1.criterio3.to_i + avaliacao1.criterio4.to_i + avaliacao1.criterio5.to_i + avaliacao1.criterio6.to_i
     nota2 = avaliacao2.criterio1.to_i + avaliacao2.criterio2.to_i + avaliacao2.criterio3.to_i + avaliacao2.criterio4.to_i + avaliacao2.criterio5.to_i + avaliacao2.criterio6.to_i
 
@@ -89,7 +88,8 @@ class Trabalho < ApplicationRecord
     elsif situacao == AvaliacaoTrabalho::SITUACOES[:nao_aceito]
       return "<span class='label label-danger'>Não aceito</span>"
     elsif situacao == AvaliacaoTrabalho::SITUACOES[:avaliado]
-      return "<span class='label label-info'>Avaliado</span><br/><span class='label label-info'>Aguardando resultado</span>"
+      #return "<span class='label label-info'>Avaliado</span><br/><span class='label label-info'>Aguardando resultado</span>"
+      return "<span class='label label-info'>Avaliado</span>"
     else
       return "<span class='label label-default'>Pendente</span>"
     end

@@ -21,7 +21,8 @@
         <th>Evento</th>
         <th>Área</th>
         <th>Tipo de trabalho</th>
-        <th>Avaliação</th>
+        <th>Nota</th>
+        <th>Situação</th>
         <th colspan="3">Opções</th>
       </tr>
     </thead>
@@ -34,6 +35,11 @@
           <td><%= trabalho.tipo_trabalho.nome %></td>
           <t
           <!--td--><%#= situacao(trabalho.situacao).html_safe %><!--/td-->
+          <% if trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:avaliado] %>
+            <td><%= trabalho.nota_geral.to_s.html_safe %></td>
+          <% elsif trabalho.situacao_avaliacao_geral == AvaliacaoTrabalho::SITUACOES[:pendente] %>
+            <td>---</td>
+          <% end %>
           <td><%= trabalho.status_situacao(trabalho.situacao_avaliacao_geral).html_safe %></td>
           <td>
             <div class="btn-group">
