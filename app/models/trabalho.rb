@@ -101,8 +101,6 @@ class Trabalho < ApplicationRecord
       return "<span class='label label-success'>Finalista</span>"
     elsif situacao == Trabalho::SITUACOES[:nao_finalista]
       return "<span class='label label-danger'>Não finalista</span>"
-    else
-      return "<span class='label label-default'>Pendente</span>"
     end
   end
 
