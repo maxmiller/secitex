@@ -19,7 +19,7 @@ class Trabalho < ApplicationRecord
   validates_attachment :arquivo, presence: true, content_type: { content_type: [ "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ] }
 
   SITUACOES = {
-    nao_selecionado: 6,
+    nao_selecionado: -1,
     pendente: 0,
     apto_mas_nao_selecionado: 1,
     selecionado: 2,
