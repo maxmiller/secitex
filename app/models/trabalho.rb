@@ -91,7 +91,7 @@ class Trabalho < ApplicationRecord
       return "<span class='label label-success'>Selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:nao_selecionado]
       return "<span class='label label-danger'>Não selecionado</span>"
-    elsif situacao == Trabalho::SITUACOES[:aprovado_mas_nao_classificado]
+    elsif situacao == Trabalho::SITUACOES[:apto_mas_nao_selecionado]
       return "<span class='label label-warning'>Apto mas não selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:avaliado]
       return "<span class='label label-info'>Avaliado</span>"
