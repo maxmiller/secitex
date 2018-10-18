@@ -19,10 +19,10 @@ class Trabalho < ApplicationRecord
   validates_attachment :arquivo, presence: true, content_type: { content_type: [ "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ] }
 
   SITUACOES = {
-    reprovado: -1,
+    nao_selecionado: -1,
     pendente: 0,
-    aprovado_mas_nao_classificado: 1,
-    aprovado_e_classificado: 2,
+    apto_mas_nao_selecionado: 1,
+    selecionado: 2,
     avaliado: 3,
     finalista: 4,
     nao_finalista: 5
@@ -87,12 +87,12 @@ class Trabalho < ApplicationRecord
   end
 
   def status_situacao(situacao)
-    if situacao == Trabalho::SITUACOES[:aprovado_e_classificado]
-      return "<span class='label label-success'>Aprovado e classificado</span>"
+    if situacao == Trabalho::SITUACOES[:selecionado]
+      return "<span class='label label-success'>Selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:reprovado]
-      return "<span class='label label-danger'>Reprovado</span>"
+      return "<span class='label label-danger'>Não selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:aprovado_mas_nao_classificado]
-      return "<span class='label label-warning'>Aprovado mas não classificado</span>"
+      return "<span class='label label-warning'>Apto mas não selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:avaliado]
       return "<span class='label label-info'>Avaliado</span>"
     elsif situacao == Trabalho::SITUACOES[:pendente]
