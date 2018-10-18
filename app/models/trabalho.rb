@@ -89,7 +89,7 @@ class Trabalho < ApplicationRecord
   def status_situacao(situacao)
     if situacao == Trabalho::SITUACOES[:selecionado]
       return "<span class='label label-success'>Selecionado</span>"
-    elsif situacao == Trabalho::SITUACOES[:reprovado]
+    elsif situacao == Trabalho::SITUACOES[:nao_selecionado]
       return "<span class='label label-danger'>Não selecionado</span>"
     elsif situacao == Trabalho::SITUACOES[:aprovado_mas_nao_classificado]
       return "<span class='label label-warning'>Apto mas não selecionado</span>"
