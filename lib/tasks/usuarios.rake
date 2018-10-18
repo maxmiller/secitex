@@ -475,7 +475,7 @@ namespace :usuarios do
     end
   end
   desc "Mostrar aptos nao selecionados congic"
-  task mostra_notas_congic: :environment do
+  task mostra_aptos_nao_selecionado_congic: :environment do
     Trabalho.all.each do |trabalho|
       if trabalho.linha.evento.nome == "XIV CONGIC" && trabalho.situacao != 2
         puts trabalho.id.to_s+";"+trabalho.titulo+";"+trabalho.nota_geral.to_s+";"+trabalho.situacao.to_s
