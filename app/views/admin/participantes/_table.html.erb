@@ -12,12 +12,13 @@
     <% pular = false %>
     <% participantes.each do |participante| %>
       <% i = i + 1 %>
-      <% if participante.id == 2029 %>
-        <% pular = true %>
-      <% end %>
       <% if pular == true %>
         <% pular = false %>
         <% break %>
+      <% end %>
+
+      <% if participante.id == 2029 %>
+        <% pular = true %>
       <% end %>
       <tr>
         <td><%= participante.nome %></td>
