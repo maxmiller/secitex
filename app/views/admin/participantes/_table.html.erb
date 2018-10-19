@@ -8,12 +8,6 @@
     <th width="20%">Opções</th>
   </thead>
   <tbody>
-    <% i = 0 %>
-    <% participantes.each do |participante| %>
-      <% i = i + 1 %>
-      <% if i == 3227 %>
-        <% next %>
-      <% end %>
       <tr>
         <td><%= participante.nome %></td>
         <td><%= participante.tipo_participante.nome %></td>
