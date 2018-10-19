@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% participantes.each do |participante| %>
-      <% if participante.nil? %>
+      <% if participante.nil? || participante.blank? || participante.empty? %>
         <% break %>
       <% end %>
       <tr>
