@@ -486,7 +486,7 @@ namespace :usuarios do
   desc "Mostra participantes"
   task mostra_participantes: :environment do
     Participante.all.each do |participante|
-      puts participante.usuario.nome
+      puts participante.nome
     end
   end
 
