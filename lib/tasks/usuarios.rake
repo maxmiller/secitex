@@ -484,12 +484,9 @@ namespace :usuarios do
   end
 
   desc "Mostra participantes"
-  task mostra_participantes: :environment do
-    Participante.all.each do |participante|
-      if participante.id != 2035
-        print participante.id.to_s+" "
-        puts participante.nome
-      end
+  task mostra_inscritos: :environment do
+    Inscricao.all.each do |inscricao|
+        puts inscricao.participante.nome+";"+inscricao.participante.email+";"+inscricao.minicurso.titulo
     end
   end
 
