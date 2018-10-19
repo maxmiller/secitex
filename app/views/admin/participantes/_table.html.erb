@@ -8,6 +8,7 @@
     <th width="20%">Opções</th>
   </thead>
   <tbody>
+    <% participantes.each do |participante| %>
       <tr>
         <td><%= participante.nome %></td>
         <td><%= participante.tipo_participante.nome %></td>
