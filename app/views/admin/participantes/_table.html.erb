@@ -9,9 +9,14 @@
   </thead>
   <tbody>
     <% i = 0 %>
+    <% pular = false %>
     <% participantes.each do |participante| %>
       <% i = i + 1 %>
-      <% if i == 3227 %>
+      <% if participante.id == 2029 %>
+        <% pular = true >
+      <% end %>
+      <% if pular == true %>
+        <% pular = false %>
         <% break %>
       <% end %>
       <tr>
