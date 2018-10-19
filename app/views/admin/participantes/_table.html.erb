@@ -8,17 +8,7 @@
     <th width="20%">Opções</th>
   </thead>
   <tbody>
-    <% i = 0 %>
-    <% pular = false %>
     <% participantes.each do |participante| %>
-      <% i = i + 1 %>
-      <% if participante.id == 2029 %>
-        <% pular = true %>
-      <% end %>
-      <% if pular == true %>
-        <% pular = false %>
-        <% break %>
-      <% end %>
       <tr>
         <td><%= participante.nome %></td>
         <td><%= participante.tipo_participante.nome %></td>
