@@ -9,9 +9,8 @@
   </thead>
   <tbody>
     <% participantes.each do |participante| %>
-      <% puts participante.nome %>
-      <% if participante.nome.nil? %>
-        <% next %>
+      <% if participante.nil? %>
+        <% break %>
       <% end %>
       <tr>
         <td><%= participante.nome %></td>
