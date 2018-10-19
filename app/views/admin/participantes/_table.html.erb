@@ -9,6 +9,7 @@
   </thead>
   <tbody>
     <% participantes.each do |participante| %>
+      <% puts participante.nome %>
       <% if participante.nil? %>
         <% next %>
       <% end %>
