@@ -8,8 +8,10 @@
     <th width="20%">Opções</th>
   </thead>
   <tbody>
+    <% i = 0 %>
     <% participantes.each do |participante| %>
-      <% if participante.nil? || participante.blank? || participante.empty? %>
+      <% i = i + 1 %>
+      <% if i == 3228 %>
         <% break %>
       <% end %>
       <tr>
