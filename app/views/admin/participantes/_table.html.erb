@@ -9,16 +9,10 @@
   </thead>
   <tbody>
     <% i = 0 %>
-    <% pular = false %>
     <% participantes.each do |participante| %>
       <% i = i + 1 %>
-      <% if pular == true %>
-        <% pular = false %>
+      <% if i == 3227 %>
         <% break %>
-      <% end %>
-
-      <% if participante.id == 2030 %>
-        <% pular = true %>
       <% end %>
       <tr>
         <td><%= participante.nome %></td>
