@@ -487,7 +487,8 @@ namespace :usuarios do
   task mostra_participantes: :environment do
     Participante.all.each do |participante|
       if participante.id != 2035
-        puts participante.id.to_s+" "+participante.nome
+        print participante.id.to_s+" "
+        puts participante.nome
       end
     end
   end
