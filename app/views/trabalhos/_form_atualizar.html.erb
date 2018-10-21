@@ -1,0 +1,143 @@
+<%= content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $("#trabalho_participante_id").select2({
+        theme: "bootstrap"
+      });
+    });
+
+
+    $(function() {
+      var fieldsCount,
+          maxFieldsCount = 4,
+          $addLink = $('a.add_nested_fields');
+
+      function toggleAddLink() {
+        $addLink.toggle(fieldsCount <= maxFieldsCount)
+      }
+
+      $(document).on('nested:fieldAdded', function() {
+        fieldsCount += 1;
+        toggleAddLink();
+      });
+
+      $(document).on('nested:fieldRemoved', function() {
+        fieldsCount -= 1;
+        toggleAddLink();
+      });  
+
+      // count existing nested fields after page was loaded
+      fieldsCount = $('form .fields').length;
+      toggleAddLink();
+
+      if ($("select#trabalho_linha_evento_id").val() == "") {
+        $("select#trabalho_linha_id option").remove();
+        var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+        $(row).appendTo("select#trabalho_linha_id");
+        $("select#trabalho_tipo_trabalho_id option").remove();
+        var row2 = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+        $(row2).appendTo("select#trabalho_tipo_trabalho_id");
+      }
+
+    });
+
+    
+
+    $(function() {
+        
+      $("select#trabalho_linha_evento_id").change(function() {
+        var id_value_string = $(this).val();
+        if (id_value_string == "") {
+          $("select#trabalho_linha_id option").remove();
+          $("select#trabalho_tipo_trabalho_id option").remove();
+          var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+          $(row).appendTo("select#trabalho_linha_id");
+          $(row).appendTo("select#trabalho_tipo_trabalho_id");
+        } else {
+        // Send the request and update linhas dropdown
+          var url1 = '/get_linhas_by_evento/' + id_value_string;
+          var url2 = '/get_tipo_trabalhos_by_evento/' + id_value_string;
+          $.ajax({
+          dataType: "json",
+          cache: false,
+          url: url1,
+          timeout: 5000,
+          error: function(XMLHttpRequest, errorTextStatus, error) {
+            alert("Failed to submit : " + errorTextStatus + " ;" + error);
+          },
+          success: function(data) {
+            // Clear all options from linha select
+            $("select#trabalho_linha_id option").remove();
+            //put in a empty default line
+            var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+            $(row).appendTo("select#trabalho_linha_id");
+            // Fill course select
+            $.each(data, function(i, j) {
+              row = "<option value=\"" + j.id + "\">" + j.nome + "</option>";
+              $(row).appendTo("select#trabalho_linha_id");
+            });
+          }
+        });
+
+        $.ajax({
+          dataType: "json",
+          cache: false,
+          url: url2,
+          timeout: 5000,
+          error: function(XMLHttpRequest, errorTextStatus, error) {
+            alert("Failed to submit : " + errorTextStatus + " ;" + error);
+          },
+          success: function(data) {
+
+            // Clear all options from linha select
+            $("select#trabalho_tipo_trabalho_id option").remove();
+            //put in a empty default line
+            var row = "<option value=\"" + "" + "\">" + "Selecione" + "</option>";
+            $(row).appendTo("select#trabalho_tipo_trabalho_id");
+            // Fill course select
+            $.each(data, function(i, j) {
+              row = "<option value=\"" + j.id + "\">" + j.nome + "</option>";
+              $(row).appendTo("select#trabalho_tipo_trabalho_id");
+            });
+          }
+        });
+      }
+    });
+  });
+  </script>
+<% end %>
+<%= @trabalho.inspect %>
+<br>
+<strong>Evento: </strong><%= @trabalho.linha.evento.nome %>
+<br><br>
+<strong>Área: </strong><%= @trabalho.linha.nome %>
+<br><br>
+<strong>Tipo de Trabalho: </strong><%= @trabalho.tipo_trabalho.nome %>
+<br><br>
+<strong>Título: </strong><%= @trabalho.titulo %>
+<br><br>
+<strong>Resumo: </strong><br><%= @trabalho.resumo %>
+<br><br>
+<strong>Autores: </strong><br>
+<% @trabalho.autores.each do |autor| %>
+  <%= autor.nome %><br>
+<% end %>
+<br>
+<strong>Arquivo da Versão Inicial (doc ou docx): </strong><%= link_to fa_icon('download')+"&nbsp;Download da Versão Inicial".html_safe, @trabalho.download, title: 'Download', class: 'btn btn-primary btn-sm' %>
+<br><br>
+<div class="alert alert-danger" role="alert"><strong>Atenção:</strong> A versão final dos trabalhos deve ser enviada em formato PDF. Essa versão deve obedecer ao modelo disponibilizado no site do evento. Devem constar nela a identificação dos autores e as correções sugeridas pelos avaliadores. Caso a versão final do trabalho não obedeça a esses requisitos, ele não será publicado nos anais do evento.</div>
+<%= bootstrap_nested_form_for(@trabalho, html: { multipart: true }) do |f| %>
+  <% if @trabalho.arquivo_final.exists? %>
+    <strong>Arquivo da Versão Final (pdf): </strong><%= link_to fa_icon('download')+"&nbsp;Download da Versão Final Enviada".html_safe, @trabalho.download_final, title: 'Download', class: 'btn btn-primary btn-sm' %>
+    <br><br>
+    <div class="alert alert-info" role="alert">Parabéns, você já enviou a versão final do seu trabalho.</div>
+    <%= f.file_field :arquivo_final, label: 'Deseja re-enviar a versão final (pdf)?' %>
+  <% else %>
+    <strong>Arquivo da Versão Final (pdf): </strong>
+    <div class="alert alert-danger" role="alert"><strong>Atenção:</strong> você ainda não enviou a versão final do seu trabalho.</div>
+    <%= f.file_field :arquivo_final, label: 'Deseja enviar a versão final (pdf)?' %>
+  <% end %>
+
+  
+  <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+<% end %>

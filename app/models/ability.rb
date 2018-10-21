@@ -70,6 +70,7 @@ class Ability
       can [ :show, :aceite ], Minicurso, participante_id: usuario.autenticavel.id
       can [ :show, :aceite, :ver_autores ], Trabalho, participante_id: usuario.autenticavel.id
       can [ :show ], Equipe, participante_id: usuario.autenticavel.id
+      can [ :edit, :update ], Trabalho, participante_id: usuario.autenticavel.id
     end
 
     # Define abilities for the passed in user here. For example:

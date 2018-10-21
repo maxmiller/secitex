@@ -49,6 +49,11 @@
               <%= link_to fa_icon('download'), trabalho.download, title: 'Download', class: 'btn btn-primary btn-sm' %>
               <%= link_to fa_icon('eye'), trabalho, title: 'Detalhar', class: 'btn btn-primary btn-sm' %>
             </div>
+            <% if trabalho.aprovado? %>
+              <div class="btn-group">
+                <a href="<%= edit_trabalho_path(trabalho) %>" class="btn btn-info btn-sm"><%= fa_icon 'upload' %> Enviar Versão Final do Trabalho</a>
+              </div>
+            <% end %>
           </td>
         </tr>
       <% end %>

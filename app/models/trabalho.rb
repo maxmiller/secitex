@@ -18,6 +18,13 @@ class Trabalho < ApplicationRecord
   }
   validates_attachment :arquivo, presence: true, content_type: { content_type: [ "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ] }
 
+  has_attached_file :arquivo_final, {
+    path: "public/system/:class/:attachment/:id/:style/:filename",
+    url: "system/:class/:attachment/:id/:style/:filename"
+  }
+  validates_attachment :arquivo_final, presence: true, content_type: { content_type: "application/pdf" }
+
+
   SITUACOES = {
     nao_selecionado: -1,
     pendente: 0,
@@ -33,6 +40,14 @@ class Trabalho < ApplicationRecord
       return "/#{self.arquivo.url}"
     else
       return "/#{self.arquivo.url}"
+    end
+  end
+
+  def download_final
+    if Rails.env.production?
+      return "/#{self.arquivo_final.url}"
+    else
+      return "/#{self.arquivo_final.url}"
     end
   end
 
@@ -205,7 +220,7 @@ class Trabalho < ApplicationRecord
   end
 
   def aprovado?
-    return self.situacao == AvaliacaoTrabalho::SITUACOES[:aprovado]
+    return self.situacao == Trabalho::SITUACOES[:selecionado] || self.situacao == Trabalho::SITUACOES[:finalista]
   end
 
   def reprovado?

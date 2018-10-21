@@ -35,6 +35,11 @@
 <p>
   <strong>Situação:</strong>
   <%= @trabalho.status_situacao(@trabalho.situacao).html_safe %>
+  <% if @trabalho.aprovado? %>
+    <!--div class="btn-group"-->
+      <a href="<%= edit_trabalho_path(@trabalho) %>" class="btn btn-info btn-sm"><%= fa_icon 'upload' %> Enviar Versão Final do Trabalho</a>
+    <!--/div-->
+  <% end %>
 </p>
 <p>
   <strong>Nota:</strong>

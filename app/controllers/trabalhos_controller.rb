@@ -106,7 +106,7 @@ class TrabalhosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trabalho_params
-      params.require(:trabalho).permit(:evento_id, :titulo, :resumo, :linha_id, :participante_id, :tipo_trabalho_id, :arquivo, autores_attributes: [ :nome ], evento_attributes: [ :id])
+      params.require(:trabalho).permit(:evento_id, :titulo, :resumo, :linha_id, :participante_id, :tipo_trabalho_id, :arquivo, :arquivo_final, autores_attributes: [ :nome ], evento_attributes: [ :id])
     end
 
     def set_participante
