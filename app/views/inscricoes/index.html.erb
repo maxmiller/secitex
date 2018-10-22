@@ -11,6 +11,9 @@
       <div class="panel-body">
         <dl class="dl-horizontal">
           <dt>Situacao</dt><dd><%= inscricao.status_situacao().html_safe %></dd>
+          <% if inscricao.situacao == Inscricao::SITUACOES[:suplente] %>
+            <dt>Colocação na lista<br>de suplência</dt><dd><br><%= inscricao.colocacao_suplencia %></dd>
+          <% end %>
           <dt>Tipo</dt><dd><%= inscricao.minicurso.tipo_minicurso.nome %></dd>
           <% inscricao.minicurso.ministrantes.all.each_with_index do |ministrante,index| %>
             <dt><%= 'Ministrante(s)' if index==0 %></dt><dd><%= ministrante.nome %></dd>

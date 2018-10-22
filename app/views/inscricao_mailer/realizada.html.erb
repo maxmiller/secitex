@@ -5,7 +5,7 @@
 <% if @inscricao.situacao == Inscricao::SITUACOES[:suplente] %>
 	<p>Devido ao limite de vagas desse minicurso/oficina, a sua inscrição não está confirmada. Você se encontra na lista de suplentes. Caso alguma vaga seja liberada até a data final das inscrições nos minicursos/oficinas, você será comunicado por e-mail e terá a sua inscrição confirmada. Além disso, caso algum participante não compareça ao minicurso/oficina, os inscritos na lista de suplência terão prioridade para assumir as vagas liberadas de acordo com a sua colocação na lista. Assim, caso tenha interesse, compareça ao local 5 minutos antes de iniciar o minicurso/oficina para verificar se alguma vaga foi liberada.</p>
 <% elsif @inscricao.situacao == Inscricao::SITUACOES[:confirmado] %>
-	<p>Por gentileza, esteja atento a data, horário e local de realização do minicurso/oficina, chegando ao local com antecedência de 10 minutos. Os inscritos que não chegarem ao local nesse horário estão passíveis de perder sua inscrição para outro participante inscrito na lista de suplentes do minicurso/oficina.</p>
+	<p>Por gentileza, esteja atento a data, horário e local de realização do minicurso/oficina, chegando ao local com antecedência de 10 minutos. Os inscritos que não chegarem ao local nesse horário estão passiveis de perder sua inscrição para outro participante inscrito na lista de suplentes do minicurso/oficina.</p>
 <% end %>
 
 <dl class="dl-horizontal">

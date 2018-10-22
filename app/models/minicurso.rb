@@ -54,6 +54,10 @@ class Minicurso < ApplicationRecord
     self.vagas <= self.participantes.size
   end
 
+  def tem_suplentes?
+    self.vagas < self.participantes.size
+  end
+
   def aprovado?
     self.avaliacao == AVALIACAO[:aceito]
   end

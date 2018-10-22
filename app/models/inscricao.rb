@@ -12,10 +12,27 @@ class Inscricao < ApplicationRecord
     InscricaoMailer.cancelada(self).deliver_now
   end
 
+  after_destroy do
+    if self.minicurso.tem_suplentes? and self.situacao == Inscricao::SITUACOES[:confirmado]
+      primeiro_suplente = Inscricao.where(minicurso_id: self.minicurso.id, situacao: 0).order(created_at: :asc).first
+      primeiro_suplente.update(situacao: 1)
+      InscricaoMailer.atualizada(primeiro_suplente).deliver_now
+    end
+  end
+
   SITUACOES = {
     suplente: 0,
     confirmado: 1
   }
+
+  def colocacao_suplencia
+    inscricoes = Inscricao.where(minicurso_id: self.minicurso.id, situacao: 0).order(created_at: :asc)
+    inscricoes.each.each_with_index do |inscricao,index|
+      if inscricao == self
+        return index + 1
+      end
+    end
+  end
 
   def status_situacao()
     if self.situacao == Inscricao::SITUACOES[:suplente]
