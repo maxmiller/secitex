@@ -37,15 +37,41 @@ class Minicurso < ApplicationRecord
   end
 
   def vagas_disponiveis
-    self.vagas - self.participantes.size
+    if self.participantes.length >= self.vagas
+      return 0
+    else
+      return self.vagas - self.participantes.size
+    end
   end
 
   def tem_vagas?
-    self.vagas_disponiveis > 0
+    #self.vagas_disponiveis > 0
+    (2 * self.vagas - self.participantes.size) > 0
+  end
+
+  def tem_suplencia?
+    #self.vagas_disponiveis > 0
+    self.vagas <= self.participantes.size
   end
 
   def aprovado?
     self.avaliacao == AVALIACAO[:aceito]
+  end
+
+  def quantidade_de_inscritos
+    if self.participantes.length > self.vagas
+      return self.vagas
+    else
+      return self.participantes.length
+    end
+  end
+
+  def quantidade_de_suplentes
+    if self.participantes.length > self.vagas
+      return self.participantes.length - self.vagas
+    else
+      return 0
+    end
   end
 
   #def carga_horaria

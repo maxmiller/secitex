@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_205113) do
+ActiveRecord::Schema.define(version: 2018_10_22_150210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2018_10_20_205113) do
     t.boolean "certificado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "situacao"
     t.index ["minicurso_id"], name: "index_inscricoes_on_minicurso_id"
     t.index ["participante_id"], name: "index_inscricoes_on_participante_id"
   end
@@ -189,6 +190,8 @@ ActiveRecord::Schema.define(version: 2018_10_20_205113) do
     t.string "equipe"
     t.string "data_horario"
     t.string "espaco"
+    t.string "data"
+    t.string "horario"
     t.index ["linha_id"], name: "index_minicursos_on_linha_id"
     t.index ["participante_id"], name: "index_minicursos_on_participante_id"
     t.index ["tipo_minicurso_id"], name: "index_minicursos_on_tipo_minicurso_id"

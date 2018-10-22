@@ -1,0 +1,22 @@
+<p>Caro(a) <%= @inscricao.participante.nome %>,</p>
+
+<p>Sua inscrição no minicurso/oficina <strong><%= @inscricao.minicurso.titulo.upcase %></strong> foi atualizada com sucesso!</p>
+
+<p>Parabéns, uma vaga foi liberada para esse minicurso/oficina. Assim, a sua inscrição foi confirmada. Por gentileza, esteja atento a data, horário e local de realização do minicurso/oficina, chegando ao local com antecedência de 10 minutos. Os inscritos que não chegarem ao local nesse horário estão passíveis de perder sua inscrição para outro participante inscrito na lista de suplentes do minicurso/oficina.</p>
+
+<dl class="dl-horizontal">
+  <dt>Situacao</dt><dd><%= @inscricao.status_situacao().html_safe %></dd>
+  <dt>Tipo</dt><dd><%= @inscricao.minicurso.tipo_minicurso.nome %></dd>
+  <% @inscricao.minicurso.ministrantes.all.each_with_index do |ministrante,index| %>
+  	<dt><%= 'Ministrante(s)' if index==0 %></dt><dd><%= ministrante.nome %></dd>
+  <% end %>
+  <!--dt>Ministrante</dt--><!--dd--><%#= @inscricao.minicurso.participante.nome %><!--/dd-->
+  <!--dt>Objetivos</dt--><!--dd><%= @inscricao.minicurso.objetivos %></dd-->
+  <!--dt>Metodologia</dt--><!--dd--><%#= @inscricao.minicurso.metodologia %><!--/dd-->
+  <!--dt>Programação</dt--><!--dd--><%#= @inscricao.minicurso.programacao %><!--/dd-->
+  <dt>Local</dt><dd><%= @inscricao.minicurso.local %></dd>
+  <dt>Data</dt><dd><%= @inscricao.minicurso.data %></dd>
+  <dt>Horário</dt><dd><%= @inscricao.minicurso.horario %></dd>
+
+</dl>
+

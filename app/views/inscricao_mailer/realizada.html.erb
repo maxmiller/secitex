@@ -1,14 +1,26 @@
 <p>Caro(a) <%= @inscricao.participante.nome %>,</p>
 
-<p>Sua inscrição no minicurso <strong><%= @inscricao.minicurso.titulo.upcase %></strong> foi realizada com sucesso!</p>
+<p>Sua inscrição no minicurso/oficina <strong><%= @inscricao.minicurso.titulo.upcase %></strong> foi realizada com sucesso!</p>
 
-<p>Por gentileza, esteja atento ao horário e local de realização do minicurso.</p>
+<% if @inscricao.situacao == Inscricao::SITUACOES[:suplente] %>
+	<p>Devido ao limite de vagas desse minicurso/oficina, a sua inscrição não está confirmada. Você se encontra na lista de suplentes. Caso alguma vaga seja liberada até a data final das inscrições nos minicursos/oficinas, você será comunicado por e-mail e terá a sua inscrição confirmada. Além disso, caso algum participante não compareça ao minicurso/oficina, os inscritos na lista de suplência terão prioridade para assumir as vagas liberadas de acordo com a sua colocação na lista. Assim, caso tenha interesse, compareça ao local 5 minutos antes de iniciar o minicurso/oficina para verificar se alguma vaga foi liberada.</p>
+<% elsif @inscricao.situacao == Inscricao::SITUACOES[:confirmado] %>
+	<p>Por gentileza, esteja atento a data, horário e local de realização do minicurso/oficina, chegando ao local com antecedência de 10 minutos. Os inscritos que não chegarem ao local nesse horário estão passíveis de perder sua inscrição para outro participante inscrito na lista de suplentes do minicurso/oficina.</p>
+<% end %>
 
 <dl class="dl-horizontal">
-  <dt>Ministrante</dt><dd><%= @inscricao.minicurso.participante.nome %></dd>
-  <dt>Objetivos</dt><dd><%= @inscricao.minicurso.objetivos %></dd>
-  <dt>Metodologia</dt><dd><%= @inscricao.minicurso.metodologia %></dd>
-  <dt>Programação</dt><dd><%= @inscricao.minicurso.programacao %></dd>
+  <dt>Situacao</dt><dd><%= @inscricao.status_situacao().html_safe %></dd>
+  <dt>Tipo</dt><dd><%= @inscricao.minicurso.tipo_minicurso.nome %></dd>
+  <% @inscricao.minicurso.ministrantes.all.each_with_index do |ministrante,index| %>
+  	<dt><%= 'Ministrante(s)' if index==0 %></dt><dd><%= ministrante.nome %></dd>
+  <% end %>
+  <!--dt>Ministrante</dt--><!--dd--><%#= @inscricao.minicurso.participante.nome %><!--/dd-->
+  <!--dt>Objetivos</dt--><!--dd><%= @inscricao.minicurso.objetivos %></dd-->
+  <!--dt>Metodologia</dt--><!--dd--><%#= @inscricao.minicurso.metodologia %><!--/dd-->
+  <!--dt>Programação</dt--><!--dd--><%#= @inscricao.minicurso.programacao %><!--/dd-->
   <dt>Local</dt><dd><%= @inscricao.minicurso.local %></dd>
-  <dt>Horário</dt><dd>10/05/2017 das 13h30 as 15h30 e das 16h30 as 18h30</dd>
+  <dt>Data</dt><dd><%= @inscricao.minicurso.data %></dd>
+  <dt>Horário</dt><dd><%= @inscricao.minicurso.horario %></dd>
+
 </dl>
+

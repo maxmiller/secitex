@@ -13,7 +13,11 @@ class InscricoesController < ApplicationController
     minicurso = Minicurso.find(params[:minicurso_id])
     if minicurso
       if minicurso.tem_vagas?
-        @inscricao = Inscricao.new(minicurso: minicurso, participante: current_user.autenticavel)
+        if minicurso.tem_suplencia?
+          @inscricao = Inscricao.new(minicurso: minicurso, participante: current_user.autenticavel, situacao: 0)
+        else
+          @inscricao = Inscricao.new(minicurso: minicurso, participante: current_user.autenticavel, situacao: 1)
+        end
         current_user.autenticavel.update_attribute(:minicurso_id, minicurso.id)
         redirect_to inscricoes_path, notice: 'Inscrição realizada com sucesso!'
       else
@@ -26,7 +30,12 @@ class InscricoesController < ApplicationController
 
   def create
     authorize! :new, Inscricao
-    inscricao = Inscricao.new(minicurso_id: params[:minicurso_id], participante_id: current_user.autenticavel.id)
+    minicurso = Minicurso.find(params[:minicurso_id])
+    if minicurso.tem_suplencia?
+      inscricao = Inscricao.new(minicurso_id: params[:minicurso_id], participante_id: current_user.autenticavel.id, situacao: 0)
+    else
+      inscricao = Inscricao.new(minicurso_id: params[:minicurso_id], participante_id: current_user.autenticavel.id, situacao: 1)
+    end
     if inscricao.save
       redirect_to inscricoes_path, notice: 'Inscrição realizada com sucesso!'
     else

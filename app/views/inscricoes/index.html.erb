@@ -1,7 +1,7 @@
 <h1><%= fa_icon 'pencil' %> Suas inscrições</h1>
 
 <% if @inscricoes.empty? %>
-  <div class="alert alert-success" role="alert"><strong>Atenção:</strong> Você ainda não está inscrito em minicursos.</div>
+  <div class="alert alert-success" role="alert"><strong>Atenção:</strong> Você ainda não está inscrito em minicursos ou oficinas.</div>
 <% else %>
   <% @inscricoes.each do |inscricao| %>
     <div class="panel panel-success">
@@ -10,11 +10,17 @@
       </div>
       <div class="panel-body">
         <dl class="dl-horizontal">
-          <dt>Ministrante</dt><dd><%= inscricao.minicurso.participante.nome %></dd>
+          <dt>Situacao</dt><dd><%= inscricao.status_situacao().html_safe %></dd>
+          <dt>Tipo</dt><dd><%= inscricao.minicurso.tipo_minicurso.nome %></dd>
+          <% inscricao.minicurso.ministrantes.all.each_with_index do |ministrante,index| %>
+            <dt><%= 'Ministrante(s)' if index==0 %></dt><dd><%= ministrante.nome %></dd>
+          <% end %>
           <dt>Objetivos</dt><dd><%= inscricao.minicurso.objetivos %></dd>
-          <dt>Metodologia</dt><dd><%= inscricao.minicurso.metodologia %></dd>
+          <!--dt>Metodologia</dt--><!--dd--><%#= inscricao.minicurso.metodologia %><!--/dd-->
           <dt>Programação</dt><dd><%= inscricao.minicurso.programacao %></dd>
           <dt>Local</dt><dd><%= inscricao.minicurso.local %></dd>
+          <dt>Data</dt><dd><%= inscricao.minicurso.data %></dd>
+          <dt>Horário</dt><dd><%= inscricao.minicurso.horario %></dd>
         </dl>
       </div>
       <div class="panel-footer">
@@ -26,10 +32,10 @@
   <% end %>
 <% end %>
 
-<h1><%= fa_icon 'graduation-cap' %> Minicursos</h1>
+<h1><%= fa_icon 'graduation-cap' %> Minicursos e Oficinas</h1>
 
 <% if @minicursos.empty? %>
-  <p>Nenhum minicurso encontrado.</p>
+  <div class="alert alert-warning" role="alert"><strong>Atenção:</strong> Não existem mais minicursos ou oficinas com vagas disponíveis.</div>
 <% else %>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <% @minicursos.each_with_index do |minicurso, index| %>
@@ -44,21 +50,37 @@
         <div id="collapse<%= index %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= index %>">
           <div class="panel-body">
             <dl class="dl-horizontal">
-              <dt>Ministrante</dt><dd><%= minicurso.participante.nome %></dd>
+              <dt>Tipo</dt><dd><%= minicurso.tipo_minicurso.nome %></dd>
+              <% minicurso.ministrantes.all.each_with_index do |ministrante,index| %>
+                <dt><%= 'Ministrante(s)' if index==0 %></dt><dd><%= ministrante.nome %></dd>
+              <% end %>
               <dt>Objetivos</dt><dd><%= minicurso.objetivos %></dd>
-              <dt>Metodologia</dt><dd><%= minicurso.metodologia %></dd>
+              <!--dt>Metodologia</dt--><!--dd--><%#= minicurso.metodologia %><!--/dd-->
               <dt>Programação</dt><dd><%= minicurso.programacao %></dd>
               <dt>Local</dt><dd><%= minicurso.local %></dd>
+              <dt>Data</dt><dd><%= minicurso.data %></dd>
+              <dt>Horário</dt><dd><%= minicurso.horario %></dd>
               <dt>Vagas disponíveis</dt><dd><%= minicurso.vagas_disponiveis %> vaga(s)</dd>
+              <dt>Inscritos</dt><dd><%= minicurso.quantidade_de_inscritos %></dd>
+              <dt>Suplentes</dt><dd><%= minicurso.quantidade_de_suplentes %></dd>
             </dl>
-            <% if @inscricoes.size < Config.instance.quantidade_maxima_inscricoes_minicursos %>
+            <div class="alert alert-info" role="alert"><strong>Atenção:</strong> Após o preenchimento de todas as vagas do minicurso/oficina, será disponibilizada uma lista de suplência para preencher eventuais vagas que venham a surgir em decorrência da desistência dos inscritos. O limite de vagas nessa lista é igual ao do número de vagas do minicurso/oficina.</div>
+            <%# if @inscricoes.size < Config.instance.quantidade_maxima_inscricoes_minicursos %>
+            <% if @inscricoes.find_by minicurso_id: minicurso.id %>
+              <p>Você já está inscrito nesse minicurso</p>
+            <% else %>
               <div class="btn-group">
                 <%= form_tag(inscricoes_path, method: :post) do %>
                   <%= hidden_field_tag :minicurso_id, minicurso.id %>
-                  <%= submit_tag "Quero me inscrever", class: 'btn btn-primary' %>
+                  <% if minicurso.tem_suplencia? %>
+                    <%= submit_tag "Quero me inscrever como suplente", class: 'btn btn-primary' %>
+                  <% else %>
+                    <%= submit_tag "Quero me inscrever", class: 'btn btn-primary' %>
+                  <% end %>
                 <% end %>
               </div>
             <% end %>
+            <%# end %>
           </div>
         </div>
       </div>
