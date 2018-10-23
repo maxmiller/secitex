@@ -23,7 +23,7 @@ class AvaliacaoMailer < ApplicationMailer
   def trabalho_aprovado(trabalho)
     @trabalho = trabalho
 
-    mail to: trabalho.participante.email, subject: '[IV SECITEX] Trabalho aprovado!'
+    mail to: trabalho.participante.email, subject: '[IV SECITEX] Seu trabalho foi selecionado!'
   end
 
   def trabalho_reprovado(trabalho)
