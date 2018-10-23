@@ -18,7 +18,7 @@ namespace :avaliacao do
     puts "Enviando mensagem para os proponentes de minicursos... "
     Minicurso.all.each_with_index do |minicurso,index|
       if minicurso.aprovado? and index >=10
-        puts index.to_s+"Enviando email para "+minicurso.titulo
+        puts "Enviando email para "+minicurso.titulo
         AvaliacaoMailer.minicurso_aprovado(minicurso).deliver_now
         sleep(20)
       else
@@ -34,8 +34,8 @@ namespace :avaliacao do
     Equipe.all.each_with_index do |equipe,index|
       if equipe.validada?
         puts index.to_s+" Enviando email para "+equipe.nome
-        AvaliacaoMailer.equipe_validada(equipe).deliver_now
-        sleep(15)
+        #AvaliacaoMailer.equipe_validada(equipe).deliver_now
+        sleep(5)
       else
       #  AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
       end
