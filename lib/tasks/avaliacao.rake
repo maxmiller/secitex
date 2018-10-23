@@ -16,10 +16,10 @@ namespace :avaliacao do
   desc "Notificar proponentes de minicursos sobre aprovação e reprovação de propostas"
   task notificar_minicursos: :environment do
     puts "Enviando mensagem para os proponentes de minicursos... "
-    Minicurso.all.each do |minicurso|
+    Minicurso.all.each_with_index do |minicurso,index|
       if minicurso.aprovado?
-        puts "Enviando email para "+minicurso.titulo
-        AvaliacaoMailer.minicurso_aprovado(minicurso).deliver_now
+        puts index.to_s+"Enviando email para "+minicurso.titulo
+        #AvaliacaoMailer.minicurso_aprovado(minicurso).deliver_now
         sleep(15)
       else
       #  AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
@@ -31,9 +31,9 @@ namespace :avaliacao do
   desc "Notificar proponentes de equipes sobre validação de propostas"
   task notificar_equipes: :environment do
     puts "Enviando mensagem para os proponentes de equipes... "
-    Equipe.all.each do |equipe|
+    Equipe.all.each_with_index do |equipe,index|
       if equipe.validada?
-        puts "Enviando email para "+equipe.nome
+        puts index.to_s+" Enviando email para "+equipe.nome
         AvaliacaoMailer.equipe_validada(equipe).deliver_now
         sleep(15)
       else
