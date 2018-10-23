@@ -6,8 +6,9 @@ namespace :avaliacao do
     Trabalho.all.each do |trabalho|
       if trabalho.aprovado?
         AvaliacaoMailer.trabalho_aprovado(trabalho).deliver_now
+        sleep(20)
       else
-        AvaliacaoMailer.trabalho_reprovado(trabalho).deliver_now
+        #AvaliacaoMailer.trabalho_reprovado(trabalho).deliver_now
       end
     end
     puts "Concluído!"

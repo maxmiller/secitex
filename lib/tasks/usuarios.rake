@@ -500,9 +500,9 @@ namespace :usuarios do
           nome_autores = nome_autores+"^"+autor.nome
         end
         if trabalho.participante.campus.nome == "NENHUM"
-          puts trabalho.titulo+"^"+trabalho.resumo
+          puts trabalho.titulo+";"+trabalho.participante.nome+";"+trabalho.participante.email
         else
-          puts trabalho.titulo+"^"+trabalho.resumo
+          puts trabalho.titulo+";"+trabalho.participante.nome+";"+trabalho.participante.email
         end
       end
     end
