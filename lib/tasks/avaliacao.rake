@@ -5,6 +5,7 @@ namespace :avaliacao do
     print "Enviando mensagem para os autores de trabalhos... "
     Trabalho.all.each do |trabalho|
       if trabalho.aprovado?
+        puts "Enviando email para "+trabalho.titulo
         AvaliacaoMailer.trabalho_aprovado(trabalho).deliver_now
         sleep(20)
       else
@@ -18,7 +19,7 @@ namespace :avaliacao do
   task notificar_minicursos: :environment do
     puts "Enviando mensagem para os proponentes de minicursos... "
     Minicurso.all.each_with_index do |minicurso,index|
-      if minicurso.aprovado? and index >=10
+      if minicurso.aprovado?
         puts "Enviando email para "+minicurso.titulo
         AvaliacaoMailer.minicurso_aprovado(minicurso).deliver_now
         sleep(20)
