@@ -35,13 +35,19 @@ class AvaliacaoMailer < ApplicationMailer
   def minicurso_aprovado(minicurso)
     @minicurso = minicurso
 
-    mail to: minicurso.participante.email, subject: '[IV SECITEX] Sua proposta de minicurso foi aprovada!'
+    mail to: minicurso.participante.email, subject: '[IV SECITEX] Sua proposta de minicurso/oficina foi aceita!'
   end
 
   def minicurso_reprovado(minicurso)
     @minicurso = minicurso
 
     mail to: minicurso.participante.email, subject: '[IV SECITEX] Avaliação da sua proposta de minicurso'
+  end
+
+  def equipe_validada(equipe)
+    @equipe = equipe
+
+    mail to: equipe.participante.email, subject: '[IV SECITEX] Sua equipe para a olimpíada de robótica foi validada!'
   end
 
 end

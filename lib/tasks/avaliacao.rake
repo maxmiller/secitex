@@ -15,14 +15,32 @@ namespace :avaliacao do
 
   desc "Notificar proponentes de minicursos sobre aprovação e reprovação de propostas"
   task notificar_minicursos: :environment do
-    print "Enviando mensagem para os proponentes de minicursos... "
+    puts "Enviando mensagem para os proponentes de minicursos... "
     Minicurso.all.each do |minicurso|
       if minicurso.aprovado?
+        puts "Enviando email para "+minicurso.titulo
         AvaliacaoMailer.minicurso_aprovado(minicurso).deliver_now
+        sleep(15)
       else
-        AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
+      #  AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
       end
     end
     puts "Concluído!"
   end
+
+  desc "Notificar proponentes de equipes sobre validação de propostas"
+  task notificar_equipes: :environment do
+    puts "Enviando mensagem para os proponentes de equipes... "
+    Equipe.all.each do |equipe|
+      if equipe.validada?
+        puts "Enviando email para "+equipe.nome
+        AvaliacaoMailer.equipe_validada(equipe).deliver_now
+        sleep(15)
+      else
+      #  AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
+      end
+    end
+    puts "Concluído!"
+  end
+
 end

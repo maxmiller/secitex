@@ -21,6 +21,10 @@ class Equipe < ApplicationRecord
     end
   end
 
+  def validada?
+    self.status == STATUS[:validada]
+  end
+
   private
 
   #def validar_alunos
