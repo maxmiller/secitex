@@ -34,8 +34,8 @@ namespace :avaliacao do
     Equipe.all.each_with_index do |equipe,index|
       if equipe.validada?
         puts index.to_s+" Enviando email para "+equipe.nome
-        #AvaliacaoMailer.equipe_validada(equipe).deliver_now
-        sleep(5)
+        AvaliacaoMailer.equipe_validada(equipe).deliver_now
+        sleep(20)
       else
       #  AvaliacaoMailer.minicurso_reprovado(minicurso).deliver_now
       end
