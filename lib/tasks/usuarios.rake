@@ -493,7 +493,7 @@ namespace :usuarios do
   desc "Mostrar trabalhos selecionados simposio"
   task mostra_trabalhos_selecionados_simposio: :environment do
     Trabalho.all.each do |trabalho|
-      if trabalho.linha.evento.nome == "IV SIMPÓSIO DE EXTENSÃO" && trabalho.situacao == 2
+      if trabalho.linha.evento.nome == "VI SIMPÓSIO DE EXTENSÃO" && trabalho.situacao == 2
         autores = trabalho.autores
         nome_autores = ""
         autores.each do |autor|
