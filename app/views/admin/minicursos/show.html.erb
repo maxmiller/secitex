@@ -24,7 +24,7 @@
 
 
 <p><strong>Avaliação:</strong> <%= avaliacao_minicurso(@minicurso.avaliacao).html_safe %></p>
-<% if @minicurso.avaliacao==AVALIACAO[:aceito] %>
+<% if @minicurso.avaliacao==Minicurso::AVALIACAO[:aceito] %>
   <hr>
   <h4>Dados da aprovação:</h4>
   <p><strong>Local:</strong> <%= @minicurso.local %></p>
