@@ -1,5 +1,12 @@
 <p><strong>Avaliação:</strong> <%= avaliacao_minicurso(@minicurso.avaliacao).html_safe %></p>
-
+<% if @minicurso.avaliacao==Minicurso::AVALIACAO[:aceito] %>
+  <hr>
+  <h4>Dados da aprovação:</h4>
+  <p><strong>Local:</strong> <%= @minicurso.local %></p>
+  <p><strong>Data:</strong> <%= @minicurso.data %></p>
+  <p><strong>Horário:</strong> <%= @minicurso.horario %></p>
+  <hr>
+<% end %>
 <dl>
   <dt>Título</dt>
   <dd><%= @minicurso.titulo %></dd>
