@@ -1,17 +1,17 @@
 <table id="datatable" class="table table-bordered table-hover">
   <thead>
     <th width="30%">Nome</th>
-    <th width="10%">Tipo de Participante</th>
-    <th width="15%">Instituição</th>
+    <th width="20%">E-mail</th>
+    <th width="10%">Instituição</th>
     <th width="15%">Campus</th>
     <th width="10%">Observações</th>
-    <th width="20%">Opções</th>
+    <th width="15%">Opções</th>
   </thead>
   <tbody>
     <% participantes.each do |participante| %>
       <tr>
         <td><%= participante.nome %></td>
-        <td><%= participante.tipo_participante.nome %></td>
+        <td><%= participante.email %></td>
         <td><%= participante.instituicao %></td>
         <td>
           <% if participante.ifrn? %>

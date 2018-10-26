@@ -107,44 +107,6 @@ namespace :usuarios do
       sleep(15)
 
  
-=begin
-      avaliador1 = Usuario.find_by(email: 'artur.albuquerque@ifrn.edu.br')
-      avaliador1 = Organizador.find_by(usuario: avaliador1)
-
-#      puts "Criando usuário renan.santos@ifrn.edu.br"
-      avaliador2 = Usuario.find_by(email: 'gustavo.brito@ifrn.edu.br')
-      avaliador2 = Organizador.find_by(usuario: avaliador2)
-      
-      Membro.create(linha: linha_simposio_cultura, organizador: avaliador2, coordenador: false)
-      Membro.create(linha: linha_simposio_educacao, organizador: avaliador2, coordenador: false)
-      Membro.create(linha: linha_simposio_saude, organizador: avaliador2, coordenador: false)
-
-      OrganizadorMailer.avaliador_cadastrado(avaliador1).deliver_now
-      sleep(15)
-      OrganizadorMailer.avaliador_cadastrado(avaliador2).deliver_now
- =end
-=begin
-      avaliador2 = Usuario.create(nome: 'Anísia Karla de Lima Galvão', email: 'aklg2@yahoo.com.br', password: '#$852$#', perfil: membro_comissao_cientifica)
-      avaliador2 = Organizador.create(usuario: avaliador2)
-      Membro.create(linha: linha_congic_ecologia_meio_ambiente, organizador: avaliador2, coordenador: false)
-      Membro.create(linha: linha_congic_zootecnia_e_medicina_veterinaria, organizador: avaliador2, coordenador: false)
-
-      puts "Procurando usuário thiago.loureiro@ifrn.edu.br"
-      avaliador18 = Usuario.find_by(email: 'thiago.loureiro@ifrn.edu.br')
-      avaliador18 = Organizador.find_by(usuario: avaliador18)
-      Membro.create(linha: linha_simposio_comunicacao, organizador: avaliador18, coordenador: false)
-      Membro.create(linha: linha_simposio_educacao, organizador: avaliador18, coordenador: false)
-      Membro.create(linha: linha_simposio_tecnologia_producao, organizador: avaliador18, coordenador: false)
-      Membro.create(linha: linha_simposio_trabalho, organizador: avaliador18, coordenador: false)
-      OrganizadorMailer.avaliador_cadastrado(avaliador18).deliver_now
-
-
-      puts "Procurando usuário charles.souza@ifrn.edu.br"
-      avaliador17 = Usuario.find_by(email: 'charles.souza@ifrn.edu.br')
-      avaliador17 = Organizador.find_by(usuario: avaliador17)
-      Membro.create(linha: linha_congic_artes, organizador: avaliador17, coordenador: false)
-      Membro.create(linha: linha_congic_comunicacao, organizador: avaliador17, coordenador: false)
-=end     
       puts "Concluído!"
   end
 
@@ -509,5 +471,12 @@ namespace :usuarios do
     end
   end
 
+  desc "Cadastra secretário"
+  task cadastra_secretario: :environment do
+    secretario = Perfil.find_by(slug: 'secretario')
+
+    usuario_secretario = Usuario.create(nome: 'Secretário da SECITEX', email: 'secitex@ifrn.edu.br', password: '123456', perfil: secretario)
+    usuario_secretario = Organizador.create(usuario: usuario_secretario)
+  end
 
 end

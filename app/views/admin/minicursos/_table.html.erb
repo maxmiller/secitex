@@ -15,7 +15,7 @@
         <tr>
           <td><%= minicurso.titulo %></td>
           <td><%= minicurso.inscricoes.size %></td>
-          <td><%= avaliacao_minicurso(minicurso.avaliacao).html_safe %></td>
+          <td><%= minicurso.avaliacao_minicurso.html_safe %></td>
           <td>
             <div class="btn-group">
               <% if can? :show, minicurso %>

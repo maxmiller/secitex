@@ -24,7 +24,7 @@ class Admin::InscricoesController < ApplicationController
   private
 
   def inscricao_params
-    params.require(:inscricao).permit(:participante_id, :minicurso_id)
+    params.require(:inscricao).permit(:participante_id, :minicurso_id, :situacao)
   end
 
 end

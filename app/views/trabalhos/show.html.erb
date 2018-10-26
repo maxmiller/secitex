@@ -14,7 +14,7 @@
 </div>
 
 <%= render partial: 'detalhes' %>
-<%= render partial: 'pareceres' %>
-<% if @trabalho.reprovado? %>
+<% if current_user == @trabalho.participante.usuario %>
   <%= render partial: 'pareceres' %>
 <% end %>
+

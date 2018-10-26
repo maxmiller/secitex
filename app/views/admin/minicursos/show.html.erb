@@ -30,6 +30,7 @@
   <p><strong>Local:</strong> <%= @minicurso.local %></p>
   <p><strong>Data:</strong> <%= @minicurso.data %></p>
   <p><strong>Horário:</strong> <%= @minicurso.horario %></p>
+  <p><strong>Lista de inscritos:</strong> <%#= link_to @minicurso.lista_inscritos %></p>
   <hr>
 <% end %>
 <dl>
@@ -98,17 +99,25 @@
   <table class="table table-bordered table-hover">
     <thead>
       <th>Nome</th>
-      <th>Emitir certificado?</th>
+      <th>Situação</th>
       <th>Opções</th>
     </thead>
     <tbody>
       <% @minicurso.inscricoes.each do |inscricao| %>
         <tr>
           <td><%= link_to inscricao.participante.nome, admin_participante_path(inscricao.participante) %></td>
-          <td><%#= emitir_certificado?(inscricao) %></td>
+          <!--td--><%#= emitir_certificado?(inscricao) %><!--/td-->
+          <td>
+            <%= inscricao.status_situacao.html_safe %>
+            <% if inscricao.situacao == Inscricao::SITUACOES[:suplente] %>
+              (Colocação na lista de suplência: <%= inscricao.colocacao_suplencia %>)
+            <% end %>
+          </td>
           <td>
             <div class="btn-group">
-              <%= link_to fa_icon('trash'), admin_inscricao_path(inscricao), method: :delete, class: "btn btn-primary btn-sm", data: { confirm: 'Tem certeza que deseja excluir essa inscrição?' } %>
+              <% if can? :destroy, Inscricao %>
+                <%= link_to fa_icon('trash'), admin_inscricao_path(inscricao), method: :delete, class: "btn btn-primary btn-sm", data: { confirm: 'Tem certeza que deseja excluir essa inscrição?' } %>
+              <% end %>
             </div>
           </td>
         </tr>
@@ -124,6 +133,7 @@
   <%= bootstrap_form_for @inscricao, url: admin_inscricoes_path do |f| %>
     <%= f.select :participante_id, Participante.select(method: 'confirmados') %>
     <%= f.hidden_field :minicurso_id, value: @minicurso.id %>
+    <%= f.hidden_field :situacao, value: 1 %>
     <%= f.submit 'Enviar' %>
   <% end %>
 <% end %>

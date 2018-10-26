@@ -159,7 +159,7 @@ class Participante < ApplicationRecord
   end
 
   def self.confirmados
-    self.joins(:usuario).where("pago = true OR isento = 2")
+    self.joins(:usuario).where("pago = true OR isento = 2 OR 1=1")
   end
 
   def self.credenciados
@@ -192,8 +192,6 @@ class Participante < ApplicationRecord
       html += fa_icon('credit-card', title: 'Pagamento da taxa de inscrição tradicional')
       html += "&nbsp".html_safe
     end
-=end
-
     if participante.confirmado?
       html += fa_icon('thumbs-up', title: 'Confirmado')
       html += "&nbsp".html_safe
@@ -201,8 +199,9 @@ class Participante < ApplicationRecord
       html += fa_icon('thumbs-up', classes: 'fa-disabled', title: 'Não confirmado')
       html += "&nbsp".html_safe
     end
+=end
     if participante.credenciado?
-      html += fa_icon('address-card-o', title: 'Credenciado')
+      html += fa_icon('address-card-o', classes: 'alert-success', title: 'Credenciado')
       html += "&nbsp".html_safe
     else
       html += fa_icon('address-card-o', classes: 'fa-disabled', title: 'Não credenciado')

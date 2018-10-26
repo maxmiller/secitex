@@ -20,6 +20,16 @@ class Minicurso < ApplicationRecord
     aceito: 1
   }
 
+  def avaliacao_minicurso
+    if self.avaliacao == Minicurso::AVALIACAO[:aceito]
+      return "<span class='label label-success'>Aceito</span>"
+    elsif self.avaliacao == Minicurso::AVALIACAO[:nao_aceito]
+      return "<span class='label label-danger'>Não aceito</span>"
+    else
+      return "<span class='label label-default'>Pendente</span>"
+    end
+  end
+
   def definir_avaliacao
     self.avaliacao = AVALIACAO[:pendente]
   end
