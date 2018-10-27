@@ -18,8 +18,8 @@ namespace :avaliacao do
   desc "Comunicar autores sobre o envio da versão final de trabalhos selcionados"
   task versao_final_trabalhos: :environment do
     print "Enviando mensagem para os autores de trabalhos... "
-    Trabalho.all.each do |trabalho|
-      if trabalho.aprovado? and (not trabalho.versao_final_enviada?)
+    Trabalho.all.where(arquivo_final_file_name: nil) do |trabalho|
+      if trabalho.aprovado?
         puts "Enviando email para "+trabalho.titulo
         #AvaliacaoMailer.trabalho_final(trabalho).deliver_now
         #sleep(20)
