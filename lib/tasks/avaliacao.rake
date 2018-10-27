@@ -15,6 +15,21 @@ namespace :avaliacao do
     puts "Concluído!"
   end
 
+  desc "Comunicar autores sobre o envio da versão final de trabalhos selcionados"
+  task versao_final_trabalhos: :environment do
+    print "Enviando mensagem para os autores de trabalhos... "
+    Trabalho.all.each do |trabalho|
+      if trabalho.aprovado? and (not trabalho.versao_final_enviada?)
+        puts "Enviando email para "+trabalho.titulo
+        #AvaliacaoMailer.trabalho_final(trabalho).deliver_now
+        #sleep(20)
+      else
+        #AvaliacaoMailer.trabalho_reprovado(trabalho).deliver_now
+      end
+    end
+    puts "Concluído!"
+  end
+
   desc "Notificar proponentes de minicursos sobre aprovação e reprovação de propostas"
   task notificar_minicursos: :environment do
     puts "Enviando mensagem para os proponentes de minicursos... "
