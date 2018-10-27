@@ -32,6 +32,12 @@ class AvaliacaoMailer < ApplicationMailer
     mail to: trabalho.participante.email, subject: '[IV SECITEX] Avaliação do seu trabalho'
   end
 
+  def trabalho_final(trabalho)
+    @trabalho = trabalho
+
+    mail to: trabalho.participante.email, subject: '[IV SECITEX] Envio da versão final do trabalho #'+trabalho.id.to_s+'!'
+  end
+
   def minicurso_aprovado(minicurso)
     @minicurso = minicurso
 

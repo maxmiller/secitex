@@ -123,6 +123,10 @@ class Trabalho < ApplicationRecord
     self.arquivo.destroy
   end
 
+  def versao_final_enviada?
+    (not self.arquivo_final.nil?)
+  end
+
   def definir_avaliacao_para_avaliador(avaliador)
     AvaliacaoMailer.avaliacao_atribuida(avaliador, self).deliver_now
     sleep(15)
