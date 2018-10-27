@@ -19,6 +19,7 @@ namespace :avaliacao do
   task versao_final_trabalhos: :environment do
     print "Enviando mensagem para os autores de trabalhos... "
     Trabalho.all.where(arquivo_final_file_name: [nil, ""]) do |trabalho|
+      puts trabalho.inspect
       if trabalho.aprovado?
         puts "Enviando email para "+trabalho.titulo
         #AvaliacaoMailer.trabalho_final(trabalho).deliver_now
