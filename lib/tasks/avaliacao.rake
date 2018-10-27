@@ -18,7 +18,7 @@ namespace :avaliacao do
   desc "Comunicar autores sobre o envio da versão final de trabalhos selcionados"
   task versao_final_trabalhos: :environment do
     print "Enviando mensagem para os autores de trabalhos... "
-    Trabalho.all.where(arquivo_final_file_name: [nil, ""]) do |trabalho|
+    Trabalho.all do |trabalho|
       puts trabalho.inspect
       if trabalho.aprovado?
         puts "Enviando email para "+trabalho.titulo
