@@ -21,7 +21,7 @@ namespace :avaliacao do
     Trabalho.all.where(arquivo_final_file_name: nil).each do |trabalho|
       if trabalho.aprovado?
         puts "Enviando email para "+trabalho.titulo
-        #AvaliacaoMailer.trabalho_final(trabalho).deliver_now
+        AvaliacaoMailer.trabalho_final(trabalho).deliver_now
         sleep(20)
       else
         #AvaliacaoMailer.trabalho_reprovado(trabalho).deliver_now
