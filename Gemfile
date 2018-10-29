@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.7'
@@ -18,6 +17,10 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'google_drive'
 gem 'rest-client'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

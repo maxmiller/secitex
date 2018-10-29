@@ -55,7 +55,13 @@ class Admin::MinicursosController < ApplicationController
     @minicurso = Minicurso.includes(:inscricoes).find(params[:minicurso_id])
     authorize! :show, @minicurso
     respond_to do |format|
-      format.csv
+      format.csv do
+        headers["Content-Type"] = "text/csv; charset=ISO-8859-1; header=present"
+        headers['Content-Disposition'] = "attachment;filename="+@minicurso.titulo+".xls"
+      end
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename="+@minicurso.titulo+".xlsx"
+      }
     end
   end
 

@@ -1,3 +1,9 @@
-<% @minicurso.inscricoes.each do |inscricao| %>
-"<%= inscricao.participante.nome.mb_chars.upcase.to_s %>";"<%= inscricao.participante.documento %>";"<%= inscricao.participante.email %>"
+<%= "Nome".mb_chars.upcase.to_s %>;"<%= "Situação" %>";<%= "Colocação na Suplência".mb_chars.upcase.to_s %>
+<% confirmados = @minicurso.inscricoes.where(situacao: 1).order(created_at: :asc) %>
+<% confirmados.each do |confirmado| %>
+	<%= confirmado.participante.nome.mb_chars.upcase.to_s %>;<%= (confirmado.situacao == 1)? "Confirmado": "Suplente" %>;<%= confirmado.created_at %>;<%= confirmado.updated_at %>
+<% end %>
+<% suplentes = @minicurso.inscricoes.where(situacao: 0) %>
+<% suplentes.each_with_index do |suplente,index| %>
+	<%= suplente.participante.nome.mb_chars.upcase.to_s %>;<%= (suplente.situacao == 1)? "Confirmado": "Suplente" %>;<%= suplente.created_at %>;<%= suplente.updated_at %>;<%= (index+1).to_s %>
 <% end %>

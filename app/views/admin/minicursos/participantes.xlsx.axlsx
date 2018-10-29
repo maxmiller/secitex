@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+
+inscricoes = @minicurso.inscricoes
+
+wb.add_worksheet(name: "Inscritos") do |sheet|
+  # Create the header row
+  sheet.add_row ["Nome", "Situação", "Colocação na Suplência", "Criado em", "Atualizado em"]
+  confirmados = @minicurso.inscricoes.where(situacao: 1).order(created_at: :asc)
+  suplentes = @minicurso.inscricoes.where(situacao: 0).order(created_at: :asc)
+  # Create entries for each inscricao
+  confirmados.each do |confirmado|
+  	sheet.add_row [confirmado.participante.nome, "Confirmado", "", confirmado.created_at.to_s, confirmado.updated_at.to_s ]
+  end
+  suplentes.each_with_index do |suplente,index|
+  	sheet.add_row [suplente.participante.nome, "Suplente", (index+1).to_s, suplente.created_at.to_s, suplente.updated_at.to_s ]
+  end
+end

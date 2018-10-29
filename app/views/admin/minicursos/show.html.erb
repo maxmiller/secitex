@@ -30,7 +30,7 @@
   <p><strong>Local:</strong> <%= @minicurso.local %></p>
   <p><strong>Data:</strong> <%= @minicurso.data %></p>
   <p><strong>Horário:</strong> <%= @minicurso.horario %></p>
-  <p><strong>Lista de inscritos:</strong> <%#= link_to @minicurso.lista_inscritos %></p>
+  <p><strong>Lista de inscritos:</strong> <%= link_to "Lista de inscritos", admin_minicurso_participantes_path(minicurso_id: @minicurso.id, format: :xlsx) %></p>
   <hr>
 <% end %>
 <dl>

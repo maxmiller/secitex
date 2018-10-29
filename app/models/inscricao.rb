@@ -26,15 +26,7 @@ class Inscricao < ApplicationRecord
   }
 
   def emitir_certificado?
-    puts "===========================fff"
-    puts "===========================fff"
-    puts "===========================fff"
-    puts "===========================fff"
-    puts "===========================fff"
-    puts "===========================fff"
-    if self.certificado.nil?
-      return "<span class='label label-warning'>Suplente</span>"
-    elsif self.certificado
+    if self.certificado
       return "Sim"
     else
       return "Não"
