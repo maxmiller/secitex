@@ -60,7 +60,7 @@ class Admin::MinicursosController < ApplicationController
         headers['Content-Disposition'] = "attachment;filename="+@minicurso.titulo+".xls"
       end
       format.xlsx {
-        response.headers['Content-Disposition'] = "attachment; filename="+@minicurso.titulo+".xlsx"
+        response.headers['Content-Disposition'] = "filename="+@minicurso.titulo.parameterize.underscore+".xlsx"
       }
     end
   end
