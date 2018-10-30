@@ -4,14 +4,14 @@ inscricoes = @minicurso.inscricoes
 
 wb.add_worksheet(name: "Inscritos") do |sheet|
   # Create the header row
-  sheet.add_row ["Nome", "Situação", "Colocação na Suplência"]
+  sheet.add_row ["Nome", "E-mail", "Situação", "Colocação na Suplência"]
   confirmados = @minicurso.inscricoes.where(situacao: 1).order(created_at: :asc)
   suplentes = @minicurso.inscricoes.where(situacao: 0).order(created_at: :asc)
   # Create entries for each inscricao
   confirmados.each do |confirmado|
-  	sheet.add_row [confirmado.participante.nome, "Confirmado", ""]
+  	sheet.add_row [confirmado.participante.nome, confirmado.participante.email, "Confirmado", ""]
   end
   suplentes.each_with_index do |suplente,index|
-  	sheet.add_row [suplente.participante.nome, "Suplente", (index+1).to_s ]
+  	sheet.add_row [suplente.participante.nome, suplente.participante.email, "Suplente", (index+1).to_s ]
   end
 end
