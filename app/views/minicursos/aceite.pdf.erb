@@ -1,10 +1,7 @@
-<p>Prezado(a) autor(a)</p>
+<p>Prezado(a) <strong><%= @minicurso.participante.nome %></strong>,</p>
+<br>
 
-<p>
-  <strong><%= @minicurso.participante.nome %></strong>
+<p class="justify">a comissão organizadora da IV Semana de Ciência, Tecnologia e Extensão do IFRN (SECITEX), que será realizada no campus Natal Central do IFRN nos dias 29, 30 e 31 de outubro de 2018, tem a satisfação de comunicar que seu minicurso/oficina, intitulado <%= @minicurso.titulo.upcase %>, foi <strong>APROVADO</strong> para apresentação no evento.
 </p>
 
-<p class="justify">A Comissão Organizadora da IV SECITEX tem a satisfação de comunicar que seu minicurso ou oficina, intitulado <%= @minicurso.titulo.upcase %>, foi <strong>APROVADO</strong> pela Comissão Organizadora.
-</p>
-
-<p class="justify">O local e o horário da realização do seu minicurso ou oficina serão divulgados, posteriormente, na página do evento.</p>
+<p class="justify">O local, a data e o horário da realização do seu minicurso/oficina serão divulgados, posteriormente, na página do evento.</p>
