@@ -139,15 +139,15 @@ class Participante < ApplicationRecord
   end
 
   def respondeu_questionario?
-    if self.respondeu_questionario
+    #if self.respondeu_questionario
       return true
-    else
-      if questionario_respondido_por?(self.documento)
-        self.update_attribute(:respondeu_questionario, true)
-        return true
-      end
-      return false
-    end
+    #else
+    #  if questionario_respondido_por?(self.documento)
+    #    self.update_attribute(:respondeu_questionario, true)
+    #    return true
+    #  end
+    #  return false
+    #end
   end
 
   def self.select2(params)

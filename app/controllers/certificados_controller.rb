@@ -25,9 +25,9 @@ class CertificadosController < ApplicationController
     @certificado = Certificado.find(params[:id])
     authorize! :show, @certificado
 
-    if @certificado.usuario.participante? and (not @certificado.usuario.autenticavel.respondeu_questionario?)
-      redirect_to Config.instance.url_questionario_avaliacao
-    else
+    #if @certificado.usuario.participante? and (not @certificado.usuario.autenticavel.respondeu_questionario?)
+    #  redirect_to Config.instance.url_questionario_avaliacao
+    #else
       respond_to do |format|
         format.pdf do
           render pdf: 'certificado',
@@ -44,7 +44,7 @@ class CertificadosController < ApplicationController
                  }
         end
       end
-    end
+    #end
   end
 
   private

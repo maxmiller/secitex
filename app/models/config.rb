@@ -35,7 +35,7 @@ class Config < ApplicationRecord
   end
 
   def exibir_certificados?
-    false
+    true
   end
 
   private
