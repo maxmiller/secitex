@@ -12,7 +12,7 @@
   </strong>
 </p>
 
-<p class="justify">A Comissão Organizadora da IV Semana de Ciência, Tecnologia e Extensão do IFRN tem a satisfação de comunicar que seu trabalho, intitulado <%= @trabalho.titulo.upcase %>, foi <strong>APROVADO</strong> pela Comissão Científica para apresentação em forma de <%= @trabalho.tipo_trabalho %>.
+<p class="justify">a Comissão Organizadora da IV Semana de Ciência, Tecnologia e Extensão do IFRN (SECITEX), que será realizada no campus Natal Central do IFRN nos dias 29, 30 e 31 de outubro de 2018, tem a satisfação de comunicar que seu trabalho, intitulado <%= @trabalho.titulo.upcase %>, foi <strong>APROVADO</strong> para apresentação <%= (@trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA")? "na": "no" %> <%= @trabalho.linha.evento.nome %> na modalidade <%= @trabalho.tipo_trabalho %>.
 </p>
 
 <p class="justify">O local e o horário da apresentação do seu trabalho serão divulgados, posteriormente, na página do evento.</p>
