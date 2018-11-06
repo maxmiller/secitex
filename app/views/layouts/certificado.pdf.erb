@@ -10,10 +10,11 @@
       }
       .content {
         z-index: 10;
-        margin-top: 8.2cm;
-        margin-right: 1cm;
-        margin-left: 1cm;
+        margin-top: 9.2cm;
+        margin-right: 2.6cm;
+        margin-left: 2.6cm;
         text-align: justify;
+        line-height: 0.6cm;
       }
       .background {
         width: 29cm;
@@ -26,7 +27,7 @@
   </head>
   <body>
     <div class="container">
-      <%= wicked_pdf_image_tag 'certificado.jpg', class: 'background' %>
+      <%= wicked_pdf_image_tag 'Secitex2018-Certificado-v2', class: 'background' %>
     </div>
     <div class="content">
       <%= yield %>

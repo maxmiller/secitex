@@ -15,7 +15,7 @@ namespace :certificados do
 
     print "Gerando certificados de participação para inscritos... "
     Participante.credenciados.each do |participante|
-      texto = "<strong>#{participante.usuario.nome.upcase}</strong>, nascido(a) no <strong>#{participante.pais.nome.upcase}</strong>, participou do"
+      texto = "<strong>#{participante.usuario.nome.upcase}</strong>, participou da"
       Certificado.create(usuario: participante.usuario, texto: texto, titulo: 'Certificado de participação')
     end
     puts "Concluído!"
@@ -23,7 +23,7 @@ namespace :certificados do
     print "Gerando certificados de participação para os organizadores... "
     Organizador.all.each do |organizador|
       texto = "<strong>#{organizador.usuario.nome.upcase}</strong>, nascido(a) no <strong>Brasil</strong>, participou do"
-      Certificado.create(usuario: organizador.usuario, texto: texto, titulo: 'Certificado de participação')
+      #Certificado.create(usuario: organizador.usuario, texto: texto, titulo: 'Certificado de participação')
     end
     puts "Concluído!"
 

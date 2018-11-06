@@ -3,11 +3,12 @@ class Certificado < ApplicationRecord
 
   before_create :definir_texto, :processar_fragmentos
 
-  INICIO = "Certificamos que "
-  FINAL = " III Seminário Internacional de Educação a Distância, realizado no Campus de Educação a Distância do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, entre os dias 10 e 12 de maio de 2017."
+  INICIO = ""
+  FINAL = " IV SECITEX, realizada no Campus Natal Central do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, no período de 29 a 31 de outubro de 2018."
 
   def data
-    I18n.l self.created_at, format: :long
+    "31 de outubro de 2018"
+    #I18n.l self.created_at, format: :long
   end
 
   private
