@@ -39,6 +39,7 @@ class CertificadosController < ApplicationController
                  grayscale: false,
                  no_background: false,
                  show_as_html: params.key?('debug'),
+                 page_offset: 2,
                  margin: {
                    top: 0, bottom: 0, left: 0, right: 0
                  }

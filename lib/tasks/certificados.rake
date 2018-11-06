@@ -15,14 +15,14 @@ namespace :certificados do
 
     print "Gerando certificados de participação para inscritos... "
     Participante.credenciados.each do |participante|
-      texto = "<strong>#{participante.usuario.nome.upcase}</strong>, participou da"
+      texto = "<strong>#{participante.usuario.nome.mb_chars.upcase}</strong>, participou da"
       Certificado.create(usuario: participante.usuario, texto: texto, titulo: 'Certificado de participação')
     end
     puts "Concluído!"
 
     print "Gerando certificados de participação para os organizadores... "
     Organizador.all.each do |organizador|
-      texto = "<strong>#{organizador.usuario.nome.upcase}</strong>, nascido(a) no <strong>Brasil</strong>, participou do"
+      texto = "<strong>#{organizador.usuario.nome.mb_chars.upcase}</strong>, nascido(a) no <strong>Brasil</strong>, participou do"
       #Certificado.create(usuario: organizador.usuario, texto: texto, titulo: 'Certificado de participação')
     end
     puts "Concluído!"
@@ -86,6 +86,18 @@ namespace :certificados do
       if participante.motivo_isencao == 'Organizador'
         texto = "<strong>#{participante.nome.upcase}</strong>, nascido(a) no <strong>#{participante.pais.nome.upcase}</strong>, atuou na organização do"
         Certificado.create(usuario: participante.usuario, texto: texto, titulo: 'Certificado de organização')
+      end
+    end
+    puts "Concluído!"
+  end
+
+  desc "Certificados de avaliação de trabalhos"
+  task avaliacao_trabalho: :environment do
+    puts "Gerando certificados de avaliação de trabalhos... "
+    AvaliacaoTrabalho.all.each do |avaliacao|
+      if avaliacao.situacao == 5
+        texto = "<strong>#{avaliacao.organizador.nome.mb_chars.upcase}</strong>, avaliou o trabalho intitulado <em>#{avaliacao.trabalho.titulo.mb_chars.upcase}</em> durante a "
+        Certificado.create(usuario: avaliacao.organizador.usuario, texto: texto, titulo: 'Certificado de avaliação')
       end
     end
     puts "Concluído!"
