@@ -25,13 +25,13 @@ class Inscricao < ApplicationRecord
     confirmado: 1
   }
 
-  def emitir_certificado?
-    if self.certificado
-      return "Sim"
-    else
-      return "Não"
-    end
-  end
+  #def emitir_certificado?
+  #  if self.certificado
+  #    return "Sim"
+  #  else
+  #    return "Não"
+  #  end
+  #end
 
   def colocacao_suplencia
     inscricoes = Inscricao.where(minicurso_id: self.minicurso.id, situacao: 0).order(created_at: :asc)

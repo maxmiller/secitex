@@ -58,8 +58,29 @@ namespace :certificados do
   task apresentacao_minicurso: :environment do
     print "Gerando certificados de apresentação de minicursos... "
     Minicurso.aprovados.each do |minicurso|
-      texto = "<strong>#{minicurso.participante.nome.upcase}</strong>, nascido(a) no <strong>#{minicurso.participante.pais.nome.upcase}</strong>, ministrou o minicurso <strong>#{minicurso.titulo.upcase}</strong>, com carga-horária de 4 horas, no"
-      Certificado.create(usuario: minicurso.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de minicurso')
+      lista_ministrantes = ""
+      ministrantes = minicurso.ministrantes;
+      ministrantes.each_with_index do |ministrante,index|
+        lista_ministrantes = lista_ministrantes + ministrante.nome.mb_chars.upcase
+        puts index.to_s
+        if (index+1) == ministrantes.size-1
+          lista_ministrantes = lista_ministrantes + " e "
+        elsif (index+1) != ministrantes.size
+          lista_ministrantes = lista_ministrantes + ", "
+        end
+      end
+      if ministrantes.size == 1
+        texto_ministrar = "ministrou"
+      else
+        texto_ministrar = "ministraram"
+      end
+      if minicurso.tipo_minicurso.nome == "MINICURSO"
+        texto_tipo = "o minicurso"
+      else
+        texto_tipo = "a oficina"
+      end
+      texto = "<strong>#{lista_ministrantes}</strong>, "+texto_ministrar+" "+texto_tipo+" <strong>#{minicurso.titulo.mb_chars.upcase}</strong>, com carga-horária de "+minicurso.carga_horaria.to_s+" horas, na"
+      Certificado.create(usuario: minicurso.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de minicurso/oficina')
     end
     puts "Concluído!"
   end
@@ -68,8 +89,13 @@ namespace :certificados do
   task participacao_minicurso: :environment do
     print "Gerando certificados de participação em minicursos... "
     Inscricao.emitir_certificados.each do |inscricao|
-      texto = "<strong>#{inscricao.participante.nome.upcase}</strong>, nascido(a) no <strong>#{inscricao.participante.pais.nome.upcase}</strong>, participou do minicurso <strong>#{inscricao.minicurso.titulo.upcase}</strong>, com carga-horária de 4 horas, no"
-      Certificado.create(usuario: inscricao.participante.usuario, texto: texto, titulo: 'Certificado de participação de minicurso')
+      if inscricao.minicurso.tipo_minicurso.nome == "MINICURSO"
+        texto_tipo = "do minicurso"
+      else
+        texto_tipo = "da oficina"
+      end
+      texto = "<strong>#{inscricao.participante.nome.mb_chars.upcase}</strong>, participou "+texto_tipo+" <strong>#{inscricao.minicurso.titulo.mb_chars.upcase}</strong>, com carga-horária de "+inscricao.minicurso.carga_horaria.to_s+" horas, na"
+      Certificado.create(usuario: inscricao.participante.usuario, texto: texto, titulo: 'Certificado de participação de minicurso/oficina')
     end
     puts "Concluído!"
   end
