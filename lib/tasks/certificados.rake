@@ -39,6 +39,32 @@ namespace :certificados do
     puts "Concluído!"
   end
 
+  desc "Certificados de apresentação de trabalhos do congic"
+  task apresentacao_trabalho_congic: :environment do
+    print "Gerando certificados de apresentação de trabalhos... "
+    Trabalho.aprovados.each do |trabalho|
+      if trabalho.linha.evento.nome == "XIV CONGIC"
+        lista_autores = ""
+        trabalho.autores.each_with_index do |autor,index|
+          lista_autores = lista_autores + "<strong>#{autor.nome.mb_chars.upcase}</strong>"
+          if (index+1) == trabalho.autores.size-1
+            lista_autores = lista_autores + " e "
+          elsif (index+1) != trabalho.autores.size
+            lista_autores = lista_autores + ", "
+          end
+        end
+        if trabalho.autores.size == 1
+          texto_apresentar = "apresentou"
+        else
+          texto_apresentar = "apresentaram"
+        end
+        texto = lista_autores+", "+texto_apresentar+" o trabalho <strong>#{trabalho.titulo.mb_chars.upcase}</strong>, selecionado para o <strong>XIV CONGIC</strong>, na modalidade <strong>#{trabalho.tipo_trabalho.mb_chars.nome}</strong>, na"
+        Certificado.create(usuario: trabalho.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de trabalho CONGIC')
+      end
+    end
+    puts "Concluído!"
+  end
+
   desc "Certificados de aprovação de trabalhos"
   task aprovacao_trabalho: :environment do
     print "Gerando certificados de aprovação de trabalhos... "
@@ -61,8 +87,7 @@ namespace :certificados do
       lista_ministrantes = ""
       ministrantes = minicurso.ministrantes;
       ministrantes.each_with_index do |ministrante,index|
-        lista_ministrantes = lista_ministrantes + ministrante.nome.mb_chars.upcase
-        puts index.to_s
+        lista_ministrantes = lista_ministrantes + "<strong>#{ministrante.nome.mb_chars.upcase}</strong>"
         if (index+1) == ministrantes.size-1
           lista_ministrantes = lista_ministrantes + " e "
         elsif (index+1) != ministrantes.size
@@ -79,8 +104,9 @@ namespace :certificados do
       else
         texto_tipo = "a oficina"
       end
-      texto = "<strong>#{lista_ministrantes}</strong>, "+texto_ministrar+" "+texto_tipo+" <strong>#{minicurso.titulo.mb_chars.upcase}</strong>, com carga-horária de "+minicurso.carga_horaria.to_s+" horas, na"
+      texto = lista_ministrantes+", "+texto_ministrar+" "+texto_tipo+" <strong>#{minicurso.titulo.mb_chars.upcase}</strong>, com carga-horária de "+minicurso.carga_horaria.to_s+" horas, na"
       Certificado.create(usuario: minicurso.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de minicurso/oficina')
+      puts texto
     end
     puts "Concluído!"
   end
