@@ -5,6 +5,7 @@ class Certificado < ApplicationRecord
 
   INICIO = ""
   FINAL = " IV SECITEX, realizada no Campus Natal Central do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, no período de 29 a 31 de outubro de 2018."
+  FINAL_PARTICIPACAO = " IV SECITEX, realizada no Campus Natal Central do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, no período de 29 a 31 de outubro de 2018, com carga horária de 20h."
 
   def data
     "31 de outubro de 2018"
@@ -14,7 +15,11 @@ class Certificado < ApplicationRecord
   private
 
   def definir_texto
-    self.texto = INICIO + self.texto + FINAL
+    if self.texto.end_with?(", participou da")
+      self.texto = INICIO + self.texto + FINAL_PARTICIPACAO
+    else
+      self.texto = INICIO + self.texto + FINAL
+    end
   end
 
   def processar_fragmentos

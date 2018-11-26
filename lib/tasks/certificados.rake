@@ -43,7 +43,7 @@ namespace :certificados do
   task apresentacao_trabalho_congic: :environment do
     print "Gerando certificados de apresentação de trabalhos... "
     Trabalho.aprovados.each do |trabalho|
-      if trabalho.linha.evento.nome == "XIV CONGIC"
+      if trabalho.linha.evento.nome == "XIV CONGIC" && trabalho.certificado == true
         lista_autores = ""
         trabalho.autores.each_with_index do |autor,index|
           lista_autores = lista_autores + "<strong>#{autor.nome.mb_chars.upcase}</strong>"
@@ -58,8 +58,34 @@ namespace :certificados do
         else
           texto_apresentar = "apresentaram"
         end
-        texto = lista_autores+", "+texto_apresentar+" o trabalho <strong>#{trabalho.titulo.mb_chars.upcase}</strong>, selecionado para o <strong>XIV CONGIC</strong>, na modalidade <strong>#{trabalho.tipo_trabalho.mb_chars.nome}</strong>, na"
+        texto = lista_autores+", "+texto_apresentar+" o trabalho <strong>#{trabalho.titulo.mb_chars.upcase}</strong>, selecionado para o <strong>XIV CONGIC</strong>, na modalidade <strong>#{trabalho.tipo_trabalho.nome.mb_chars}</strong>, na"
         Certificado.create(usuario: trabalho.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de trabalho CONGIC')
+      end
+    end
+    puts "Concluído!"
+  end
+
+  desc "Certificados de apresentação de trabalhos da mostra"
+  task apresentacao_trabalho_mostra: :environment do
+    print "Gerando certificados de apresentação de trabalhos... "
+    Trabalho.aprovados.each do |trabalho|
+      if trabalho.linha.evento.nome == "VI MOSTRA TECNOLÓGICA" && trabalho.certificado == true
+        lista_autores = ""
+        trabalho.autores.each_with_index do |autor,index|
+          lista_autores = lista_autores + "<strong>#{autor.nome.mb_chars.upcase}</strong>"
+          if (index+1) == trabalho.autores.size-1
+            lista_autores = lista_autores + " e "
+          elsif (index+1) != trabalho.autores.size
+            lista_autores = lista_autores + ", "
+          end
+        end
+        if trabalho.autores.size == 1
+          texto_apresentar = "apresentou"
+        else
+          texto_apresentar = "apresentaram"
+        end
+        texto = lista_autores+", "+texto_apresentar+" o trabalho <strong>#{trabalho.titulo.mb_chars.upcase}</strong>, finalista da <strong>VI MOSTRA TECNOLÓGICA</strong>, na"
+        Certificado.create(usuario: trabalho.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de trabalho MOSTRA TECNOLÓGICA')
       end
     end
     puts "Concluído!"
