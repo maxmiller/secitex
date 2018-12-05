@@ -132,7 +132,6 @@ namespace :certificados do
       end
       texto = lista_ministrantes+", "+texto_ministrar+" "+texto_tipo+" <strong>#{minicurso.titulo.mb_chars.upcase}</strong>, com carga-horária de "+minicurso.carga_horaria.to_s+" horas, na"
       Certificado.create(usuario: minicurso.participante.usuario, texto: texto, titulo: 'Certificado de apresentação de minicurso/oficina')
-      puts texto
     end
     puts "Concluído!"
   end
