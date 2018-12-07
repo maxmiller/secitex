@@ -18,12 +18,8 @@ namespace :usuarios do
   task adicionar_coordenadores: :environment do
     puts "Criando coordenadores... "
     coordenador_comissao_cientifica = Perfil.find_by(slug: 'coordenador_comissao_cientifica')
-    sarah = Usuario.create(nome: 'Sarah Thomaz de Lima Sá', email: 'sarah.sa@ifrn.edu.br', password: '#$852$#', perfil: coordenador_comissao_cientifica)
-    sarah = Organizador.create(usuario: sarah)
-
-    ramon = Usuario.create(nome: 'Ramon Evangelista dos Anjos Paiva', email: 'ramonpaiva.prof@gmail.com', password: '#$852$#', perfil: coordenador_comissao_cientifica)
-    ramon = Organizador.create(usuario: ramon)
-
+    emanoel = Usuario.create(nome: 'Emanoel Flores de Lima', email: 'emanoel.lima@ifrn.edu.br', password: '#$852$#', perfil: coordenador_comissao_cientifica)
+    emanoel = Organizador.create(usuario: emanoel)
 
     puts "Concluído!"
   end
