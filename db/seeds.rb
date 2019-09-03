@@ -12,14 +12,14 @@ print 'Definindo configurações... '
 
 config = Config.create(
   dev: true, # Alterar para false quando em produção
-  data_abertura_inscricoes: Date.new(2018, 8, 16),
-  data_encerramento_inscricoes: Date.new(2018, 10, 29),
-  data_inicio_submissao_trabalhos: Date.new(2018, 8, 16),
-  data_termino_submissao_trabalhos: Date.new(2018, 9, 16),
-  data_inicio_submissao_minicursos: Date.new(2018, 9, 22),
-  data_termino_submissao_minicursos: Date.new(2018, 9, 16),
-  data_inicio_inscricoes_minicursos: Date.new(2018, 10, 1),
-  data_termino_inscricoes_minicursos: Date.new(2018, 10, 15),
+  data_abertura_inscricoes: Date.new(2019, 8, 29),
+  data_encerramento_inscricoes: Date.new(2019, 10, 25),
+  data_inicio_submissao_trabalhos: Date.new(2019, 8, 29),
+  data_termino_submissao_trabalhos: Date.new(2019, 9, 30),
+  data_inicio_submissao_minicursos: Date.new(2019, 8, 29),
+  data_termino_submissao_minicursos: Date.new(2019, 9, 30),
+  data_inicio_inscricoes_minicursos: Date.new(2019, 10, 1),
+  data_termino_inscricoes_minicursos: Date.new(2019, 10, 20),
   prazo_redefinir_senha: 1, # dia
   prazo_pagamento: 5, # dias
   quantidade_maxima_inscricoes_minicursos: 1 # minicurso
@@ -60,7 +60,7 @@ print "Criando usuários... "
 #clauber.autenticavel = Organizador.create(usuario: clauber)
 #clauber.save
 
-clauber = Usuario.new(nome: 'Clauber Bezerra', email: 'clauber.bezerra@ifrn.edu.br', password: '321Alter@r', perfil: admin)
+clauber = Usuario.new(nome: 'Max Miller da Silveira', email: 'max.silveira@ifrn.edu.br', password: 'max@123', perfil: admin)
 clauber.autenticavel = Organizador.create(usuario: clauber)
 clauber.save
 
@@ -93,15 +93,16 @@ puts "concluído!"
 =end
 print "Criando eventos... "
 
-congic = Evento.create(nome: 'XIV CONGIC')
-mostra_tecnologica = Evento.create(nome: 'VI MOSTRA TECNOLÓGICA')
-simposio_extensao = Evento.create(nome: 'VI SIMPÓSIO DE EXTENSÃO')
+congic = Evento.create(nome: 'VI EXPOTEC')
+#mostra_tecnologica = Evento.create(nome: 'VI MOSTRA TECNOLÓGICA')
+#simposio_extensao = Evento.create(nome: 'VI SIMPÓSIO DE EXTENSÃO')
 
 puts "concluído!"
 
 print "Criando linhas de pesquisa... "
 
 # LINHAS DO SIMPOSIO DE EXTENSAO
+=begin
 linha_simposio_comunicacao = Linha.create(nome: 'Comunicação', slug: 'comunicacao', evento: simposio_extensao)
 linha_simposio_cultura = Linha.create(nome: 'Cultura', slug: 'cultura', evento: simposio_extensao)
 linha_simposio_direitos_humanos_justica = Linha.create(nome: 'Direitos Humanos e Justiça', slug: 'direitos_humanos_justica', evento: simposio_extensao)
@@ -121,6 +122,7 @@ linha_mostra_ciencias_exatas_terra = Linha.create(nome: 'Ciências Exatas e da T
 linha_mostra_ciencias_humanas = Linha.create(nome: 'Ciências Humanas', slug: 'ciencias_humanas', evento: mostra_tecnologica)
 linha_mostra_ciencias_sociais_aplicadas = Linha.create(nome: 'Ciências Sociais Aplicadas', slug: 'ciencias_sociais_aplicadas', evento: mostra_tecnologica)
 linha_mostra_engenharias = Linha.create(nome: 'Engenharias', slug: 'engenharias', evento: mostra_tecnologica)
+=end
 
 # LINHAS DO CONGIC
 linha_congic_artes = Linha.create(nome: 'ARTES, LETRAS E LINGUÍSTICA - Artes', slug: 'artes', evento: congic)
@@ -185,11 +187,11 @@ puts "concluído!"
 
 print "Adicionando tipos de trabalhos... "
 
-TipoTrabalho.create(nome: 'Artigo Científico - Apresentação Oral', slug: 'apresentacao_oral_congic', evento: congic)
+#TipoTrabalho.create(nome: 'Artigo Científico - Apresentação Oral', slug: 'apresentacao_oral_congic', evento: congic)
 TipoTrabalho.create(nome: 'Resumo Expandido - Apresentação em Pôster', slug: 'poster_congic', evento: congic)
-TipoTrabalho.create(nome: 'Mostra Tecnológica', slug: 'mostra_tecnologica', evento: mostra_tecnologica)
-TipoTrabalho.create(nome: 'Mostra de Extensão', slug: 'mostra_extensao', evento: simposio_extensao)
-TipoTrabalho.create(nome: 'Pôster', slug: 'poster_extensao', evento: simposio_extensao)
+TipoTrabalho.create(nome: 'Sala Temática', slug: 'sala_tematica', evento: congic)
+#TipoTrabalho.create(nome: 'Mostra de Extensão', slug: 'mostra_extensao', evento: simposio_extensao)
+#TipoTrabalho.create(nome: 'Pôster', slug: 'poster_extensao', evento: simposio_extensao)
 
 puts "concluído!"
 
@@ -468,9 +470,9 @@ puts "concluído!"
 
 print "Criando cidades... "
 
-Cidade.create(estado_id: 20, codigo: 2408102, nome: "Natal")
+#Cidade.create(estado_id: 20, codigo: 2408102, nome: "Natal")
 
-=begin
+#begin
 Cidade.create(estado_id: 9, codigo: 5200050, nome: "Abadia de Goiás")
 Cidade.create(estado_id: 13, codigo: 3100104, nome: "Abadia dos Dourados")
 Cidade.create(estado_id: 9, codigo: 5200100, nome: "Abadiânia")
@@ -6036,5 +6038,5 @@ Cidade.create(estado_id: 15, codigo: 2517407, nome: "Zabelê")
 Cidade.create(estado_id: 25, codigo: 3557154, nome: "Zacarias")
 Cidade.create(estado_id: 10, codigo: 2114007, nome: "Zé Doca")
 Cidade.create(estado_id: 24, codigo: 4219853, nome: "Zortéa")
-=end
+#end
 puts "concluído!"

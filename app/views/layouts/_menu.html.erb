@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><strong>IV SECITEX</strong></a>
+      <a class="navbar-brand" href="#"><strong>VI EXPOTEC</strong></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,33 +34,11 @@
             <li><a href="<%= admin_trabalhos_path %>"><%= fa_icon 'file-text-o' %> Trabalhos</a></li>
           <% end %>
         <% end %>
-        <% if current_user.tem_perfil?('participante') %>
-          <% if can? :index, Minicurso %>
-            <li><a href="<%= minicursos_path %>"><%= fa_icon 'graduation-cap' %> Minicursos e Oficinas</a></li>
-          <% end %>
-          <% if Config.instance.permitir_inscricao_minicursos? and current_user.autenticavel.confirmado? %>
-            <li><a href="<%= inscricoes_path %>"><%= fa_icon 'pencil' %> Inscrições</a></li>
-          <% end %>
-        <% else %>
-          <% if can? :index, Minicurso %>
-            <li><a href="<%= admin_minicursos_path %>"><%= fa_icon 'graduation-cap' %> Minicursos e Oficinas</a></li>
-          <% end %>
-        <% end %>
-
-        <% if current_user.tem_perfil?('participante') %>
-          <% if can? :index, Equipe %>
-            <li><a href="<%= equipes_path %>"><%= fa_icon 'trophy' %> Olimpíada de Robótica</a></li>
-          <% end %>
-        <% else %>
-          <% if can? :index, Equipe %>
-            <li><a href="<%= admin_equipes_path %>"><%= fa_icon 'trophy' %> Olimpíada de Robótica</a></li>
-          <% end %>
-        <% end %>
-
+      
         <% if can? :index, Organizador %>
           <li><a href="<%= admin_organizadores_path %>"><%= fa_icon 'user' %> Organizadores</a></li>
         <% end %>
-        
+
         <% if Config.instance.exibir_certificados? %>
           <li><a href="<%= certificados_path %>"><%= fa_icon 'certificate' %> Certificados</a></li>
         <% end %>

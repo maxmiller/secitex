@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_121505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alunos", force: :cascade do |t|
-    t.string "nome"
-    t.string "matricula"
-    t.bigint "equipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["equipe_id"], name: "index_alunos_on_equipe_id"
-  end
-
   create_table "autores", id: :serial, force: :cascade do |t|
     t.string "nome"
     t.integer "trabalho_id"
@@ -187,7 +178,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_121505) do
     t.integer "carga_horaria"
     t.integer "quantidade_vezes"
     t.bigint "linha_id"
-    t.string "equipe"
     t.string "data_horario"
     t.string "espaco"
     t.string "data"
@@ -331,7 +321,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_121505) do
     t.index ["perfil_id"], name: "index_usuarios_on_perfil_id"
   end
 
-  add_foreign_key "alunos", "equipes"
   add_foreign_key "autores", "trabalhos"
   add_foreign_key "avaliacoes_trabalhos", "linhas"
   add_foreign_key "avaliacoes_trabalhos", "organizadores"

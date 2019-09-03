@@ -90,7 +90,7 @@ class Trabalho < ApplicationRecord
     avaliacao = self.avaliacoes.where(organizador_id: organizador.id).first
     return avaliacao.situacao == AvaliacaoTrabalho::SITUACOES[:pendente]
   end
-  
+
   def avaliacao_geral_pendente?
     avaliacoes = self.avaliacoes
     avaliacoes.each do |avaliacao|

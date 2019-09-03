@@ -1,6 +1,7 @@
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.7'
+ruby '2.6.3'
+
 
 gem 'bootstrap_form'
 gem 'validates_cpf_cnpj'
@@ -94,4 +95,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-

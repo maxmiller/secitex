@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:usuario_id] = nil
-    redirect_to "http://eventos.ifrn.edu.br/secitex2018"
+    redirect_to "http://eventos.ifrn.edu.br/expotecca"
   end
 
   private

@@ -84,7 +84,7 @@
         $("#participante_instituicao").parent().show();
         $("#participante_campus_id").val("23");
         $("#participante_campus_id").parent().hide();
-        
+
       }
 
     }
@@ -99,7 +99,7 @@
     <%= usuario.password_field :password, placeholder: 'Mínimo de 4 caracteres', label: 'Senha *' %>
     <%= usuario.password_field :password_confirmation, placeholder: 'Repita a senha', label: 'Confirmação de senha *' %>
   <% end %>
- 
+
   <%= participante.select :pais_id, Pais.select, {selected: 33, label: 'País *'}, {onchange: 'verificar_pais()'} %>
   <%= participante.select :cidade_id, select2_default_option(@participante), label: 'Cidade' %>
   <%= participante.text_field :documento, label: 'CPF/Passaporte *', placeholder: 'Apenas números' %>
@@ -112,6 +112,5 @@
   <%= participante.file_field :nota_empenho, label: 'Nota de empenho (pdf)' %>
   <%= participante.check_box :possui_necessidades_especiais, label: 'Você possui alguma necessidade específica?', onchange: "toggle('necessidades_especiais')" %>
   <%= participante.text_area :necessidades_especiais, label: 'Descreva a(s) sua(s) necessidade(s) específica(s)' %>
-  <%= recaptcha_tags %>
   <%= participante.submit 'Enviar', class: 'btn btn-primary' %>
 <% end %>

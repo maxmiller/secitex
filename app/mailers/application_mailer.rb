@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "secitex@ifrn.edu.br"
+  default from: "expotec.ca@ifrn.edu.br"
   layout 'mailer'
 
   def url_pagamento(participante)
