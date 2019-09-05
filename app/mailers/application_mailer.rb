@@ -6,7 +6,7 @@ class ApplicationMailer < ActionMailer::Base
     if Rails.env.development?
       return "http://localhost:3000/participantes/#{participante.id}/pagar"
     else
-      return "http://submissaosecitex.ifrn.edu.br/login/participantes/#{participante.id}/pagar"
+      return "http://191.252.185.219/login/participantes/#{participante.id}/pagar"
     end
   end
 
