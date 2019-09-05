@@ -42,14 +42,19 @@ Rails.application.routes.draw do
   resources :participantes do
     get 'pagar'
   end
-  
+
   resources :certificados
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   #root 'participantes#new'
-  root 'sessions#new'
+  if not Config.first.nil? and Config.instance.inscricoes_abertas?
+    root 'participantes#new'
+  else
+    root 'sessions#new'
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -74,11 +79,11 @@ Rails.application.routes.draw do
   get 'pagamentos/aprovado'
   get 'pagamentos/falhou'
   get 'usuarios/:usuario_id/personificar' => 'sessions#personificar', as: :personificar
-  get 'get_linhas_by_evento/:evento_id', to: 'linhas#get_linhas_by_evento'  
+  get 'get_linhas_by_evento/:evento_id', to: 'linhas#get_linhas_by_evento'
   get 'get_tipo_trabalhos_by_evento/:evento_id', to: 'tipo_trabalhos#get_tipo_trabalhos_by_evento'
   #get 'linha_search' => 'linhas#linha_search'
   #get 'tipo_trabalhos_search' => 'tipo_trabalhos#tipo_trabalhos_search'
-  get 'get_linhas_minicursos', to: 'linhas#get_linhas_minicursos'  
+  get 'get_linhas_minicursos', to: 'linhas#get_linhas_minicursos'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

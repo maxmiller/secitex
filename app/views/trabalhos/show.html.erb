@@ -14,7 +14,6 @@
 </div>
 
 <%= render partial: 'detalhes' %>
-<% if current_user == @trabalho.participante.usuario %>
+<% if current_user == @trabalho.participante.usuario and not @trabalho.pendente? %>
   <%= render partial: 'pareceres' %>
 <% end %>
-

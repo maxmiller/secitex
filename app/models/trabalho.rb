@@ -22,7 +22,7 @@ class Trabalho < ApplicationRecord
     path: "public/system/:class/:attachment/:id/:style/:filename",
     url: "system/:class/:attachment/:id/:style/:filename"
   }
-  validates_attachment :arquivo_final, presence: true, content_type: { content_type: "application/pdf" }
+  #validates_attachment :arquivo_final, presence: true, content_type: { content_type: "application/pdf" }
 
 
   SITUACOES = {
@@ -98,7 +98,8 @@ class Trabalho < ApplicationRecord
         return true
       end
     end
-    return false
+
+    return avaliacoes.empty?
   end
 
   def status_situacao(situacao)

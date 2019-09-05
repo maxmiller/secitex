@@ -1,0 +1,8 @@
+=== puma startup: 2019-09-05 09:32:47 -0300 ===
+[17820] * Starting control server on unix:///var/folders/4n/zyxdyyg531z1fb1lqnd3g_xh0000gn/T/puma-status-1567686767369-17820
+[17820] - Worker 1 (pid: 17825) booted, phase: 0
+[17820] - Worker 0 (pid: 17824) booted, phase: 0
+[17820] - Gracefully shutting down workers...
+[17820] === puma shutdown: 2019-09-05 09:32:54 -0300 ===
+[17820] - Goodbye!
+Exiting

@@ -24,7 +24,7 @@
       $(document).on('nested:fieldRemoved', function() {
         fieldsCount -= 1;
         toggleAddLink();
-      });  
+      });
 
       // count existing nested fields after page was loaded
       fieldsCount = $('form .fields').length;
@@ -41,10 +41,10 @@
 
     });
 
-    
+
 
     $(function() {
-        
+
       $("select#trabalho_linha_evento_id").change(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
@@ -108,6 +108,16 @@
 <% end %>
 
 <%= bootstrap_nested_form_for(@trabalho, html: { multipart: true }) do |f| %>
+
+
+<% if not notice.blank? %>
+<div class="alert alert-success alert-dismissible" role="alert">
+<%= notice %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+ </button>
+</div>
+<% end %>
   <p>Todos os campos são obrigatórios.</p>
   <%= f.fields_for :linha do |linha| %>
     <%= linha.select :evento_id, Evento.select, prompt: 'Selecione' %>
@@ -140,6 +150,6 @@
   </div>
   <div class="alert alert-danger" role="alert"><strong>Atenção:</strong> Os nomes dos autores não devem constar no arquivo submetido. Eles devem ser informados apenas no formulário de submissão. Os trabalhos submetidos com os nomes dos autores no arquivo não serão aceitos.</div>
   <%= f.file_field :arquivo, label: 'Arquivo (doc ou docx)' %>
-  
+
   <%= f.submit 'Enviar', class: 'btn btn-primary' %>
 <% end %>

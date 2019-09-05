@@ -38,6 +38,7 @@ class TrabalhosController < ApplicationController
   # POST /trabalhos.json
   def create
     @trabalho = Trabalho.new(trabalho_params)
+    @trabalho.situacao = Trabalho::SITUACOES[:pendente]
     authorize! :create, Trabalho
     respond_to do |format|
       if @trabalho.save
@@ -45,7 +46,8 @@ class TrabalhosController < ApplicationController
         format.html { redirect_to trabalhos_path, notice: 'Trabalho enviado com sucesso!' }
         format.json { render :show, status: :created, location: @trabalho }
       else
-        format.html { render :new }
+        puts(@trabalho.errors.full_messages)
+        format.html { render :new, notice: @trabalho.errors }
         format.json { render json: @trabalho.errors, status: :unprocessable_entity }
       end
     end
