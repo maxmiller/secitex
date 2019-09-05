@@ -1,6 +1,6 @@
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.5.1'
 
 
 gem 'bootstrap_form'

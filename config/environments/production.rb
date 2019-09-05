@@ -40,20 +40,6 @@ Rails.application.configure do
 
   #config.action_mailer.default_url_options = { host: '0.0.0.0:3000' }
   config.action_mailer.delivery_method = :letter_opener
-  =begin
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.ifrn.edu.br',
-    port: 587,
-    domain: 'ifrn.edu.br',
-    user_name: "#{Rails.application.secrets.email_username}",
-    password: "#{Rails.application.secrets.email_password}",
-    authentication: :login,
-    enable_starttls_auto: true,
-    openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE
-  }
-  =end
 end
 
 Rails.application.config.middleware.use ExceptionNotification::Rack,

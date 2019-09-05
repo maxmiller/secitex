@@ -49,12 +49,15 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   #root 'participantes#new'
-  if not Config.first.nil? and Config.instance.inscricoes_abertas?
-    root 'participantes#new'
-  else
-    root 'sessions#new'
-  end
-
+  begin 
+  	if not Config.first.nil? and Config.instance.inscricoes_abertas?
+    		root 'participantes#new'
+  	else
+    		root 'sessions#new'
+  	end
+   rescue
+ 	puts 'Realizando migração'
+   end 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
