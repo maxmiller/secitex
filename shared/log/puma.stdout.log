@@ -844,3 +844,128 @@ Completed 200 OK in 298ms (Views: 251.9ms | ActiveRecord: 38.1ms)
 [18339] === puma shutdown: 2019-09-05 10:29:29 -0300 ===
 [18339] - Goodbye!
 Exiting
+=== puma startup: 2019-09-11 12:03:26 +0000 ===
+[847] * Starting control server on unix:///tmp/puma-status-1568203406330-847
+[853] + Gemfile in context: /vagrant/Gemfile
+[856] + Gemfile in context: /vagrant/Gemfile
+[861] + Gemfile in context: /vagrant/Gemfile
+[864] + Gemfile in context: /vagrant/Gemfile
+[869] + Gemfile in context: /vagrant/Gemfile
+[872] + Gemfile in context: /vagrant/Gemfile
+[877] + Gemfile in context: /vagrant/Gemfile
+[881] + Gemfile in context: /vagrant/Gemfile
+[885] + Gemfile in context: /vagrant/Gemfile
+[889] + Gemfile in context: /vagrant/Gemfile
+[893] + Gemfile in context: /vagrant/Gemfile
+[897] + Gemfile in context: /vagrant/Gemfile
+[903] + Gemfile in context: /vagrant/Gemfile
+[901] + Gemfile in context: /vagrant/Gemfile
+[909] + Gemfile in context: /vagrant/Gemfile
+[913] + Gemfile in context: /vagrant/Gemfile
+[917] + Gemfile in context: /vagrant/Gemfile
+[921] + Gemfile in context: /vagrant/Gemfile
+[925] + Gemfile in context: /vagrant/Gemfile
+[927] + Gemfile in context: /vagrant/Gemfile
+[933] + Gemfile in context: /vagrant/Gemfile
+[936] + Gemfile in context: /vagrant/Gemfile
+[941] + Gemfile in context: /vagrant/Gemfile
+[945] + Gemfile in context: /vagrant/Gemfile
+[949] + Gemfile in context: /vagrant/Gemfile
+[953] + Gemfile in context: /vagrant/Gemfile
+[957] + Gemfile in context: /vagrant/Gemfile
+[961] + Gemfile in context: /vagrant/Gemfile
+[965] + Gemfile in context: /vagrant/Gemfile
+[969] + Gemfile in context: /vagrant/Gemfile
+[973] + Gemfile in context: /vagrant/Gemfile
+[977] + Gemfile in context: /vagrant/Gemfile
+[981] + Gemfile in context: /vagrant/Gemfile
+[985] + Gemfile in context: /vagrant/Gemfile
+[989] + Gemfile in context: /vagrant/Gemfile
+[993] + Gemfile in context: /vagrant/Gemfile
+[997] + Gemfile in context: /vagrant/Gemfile
+[1001] + Gemfile in context: /vagrant/Gemfile
+[1005] + Gemfile in context: /vagrant/Gemfile
+[1009] + Gemfile in context: /vagrant/Gemfile
+[1013] + Gemfile in context: /vagrant/Gemfile
+[1017] + Gemfile in context: /vagrant/Gemfile
+[1021] + Gemfile in context: /vagrant/Gemfile
+[1025] + Gemfile in context: /vagrant/Gemfile
+[1029] + Gemfile in context: /vagrant/Gemfile
+[1033] + Gemfile in context: /vagrant/Gemfile
+[1037] + Gemfile in context: /vagrant/Gemfile
+[1041] + Gemfile in context: /vagrant/Gemfile
+[1045] + Gemfile in context: /vagrant/Gemfile
+[1049] + Gemfile in context: /vagrant/Gemfile
+[1054] + Gemfile in context: /vagrant/Gemfile
+[1058] + Gemfile in context: /vagrant/Gemfile
+[1062] + Gemfile in context: /vagrant/Gemfile
+[1066] + Gemfile in context: /vagrant/Gemfile
+[1070] + Gemfile in context: /vagrant/Gemfile
+[1074] + Gemfile in context: /vagrant/Gemfile
+[1078] + Gemfile in context: /vagrant/Gemfile
+[1082] + Gemfile in context: /vagrant/Gemfile
+[1086] + Gemfile in context: /vagrant/Gemfile
+[1090] + Gemfile in context: /vagrant/Gemfile
+[1094] + Gemfile in context: /vagrant/Gemfile
+[1098] + Gemfile in context: /vagrant/Gemfile
+[1102] + Gemfile in context: /vagrant/Gemfile
+[1106] + Gemfile in context: /vagrant/Gemfile
+[1110] + Gemfile in context: /vagrant/Gemfile
+[1114] + Gemfile in context: /vagrant/Gemfile
+[1118] + Gemfile in context: /vagrant/Gemfile
+[1122] + Gemfile in context: /vagrant/Gemfile
+[1126] + Gemfile in context: /vagrant/Gemfile
+[1130] + Gemfile in context: /vagrant/Gemfile
+[1134] + Gemfile in context: /vagrant/Gemfile
+[1138] + Gemfile in context: /vagrant/Gemfile
+[1142] + Gemfile in context: /vagrant/Gemfile
+[1146] + Gemfile in context: /vagrant/Gemfile
+[1150] + Gemfile in context: /vagrant/Gemfile
+[1154] + Gemfile in context: /vagrant/Gemfile
+[1158] + Gemfile in context: /vagrant/Gemfile
+[1162] + Gemfile in context: /vagrant/Gemfile
+[1166] + Gemfile in context: /vagrant/Gemfile
+[1170] + Gemfile in context: /vagrant/Gemfile
+[1174] + Gemfile in context: /vagrant/Gemfile
+[1178] + Gemfile in context: /vagrant/Gemfile
+[1182] + Gemfile in context: /vagrant/Gemfile
+[1186] + Gemfile in context: /vagrant/Gemfile
+[1190] + Gemfile in context: /vagrant/Gemfile
+[1194] + Gemfile in context: /vagrant/Gemfile
+[1198] + Gemfile in context: /vagrant/Gemfile
+[1202] + Gemfile in context: /vagrant/Gemfile
+[1206] + Gemfile in context: /vagrant/Gemfile
+[1210] + Gemfile in context: /vagrant/Gemfile
+[1214] + Gemfile in context: /vagrant/Gemfile
+[1218] + Gemfile in context: /vagrant/Gemfile
+[1222] + Gemfile in context: /vagrant/Gemfile
+[1226] + Gemfile in context: /vagrant/Gemfile
+[1230] + Gemfile in context: /vagrant/Gemfile
+[1234] + Gemfile in context: /vagrant/Gemfile
+[1238] + Gemfile in context: /vagrant/Gemfile
+[1242] + Gemfile in context: /vagrant/Gemfile
+[1246] + Gemfile in context: /vagrant/Gemfile
+[1250] + Gemfile in context: /vagrant/Gemfile
+[1254] + Gemfile in context: /vagrant/Gemfile
+[1258] + Gemfile in context: /vagrant/Gemfile
+[1262] + Gemfile in context: /vagrant/Gemfile
+[1266] + Gemfile in context: /vagrant/Gemfile
+[1270] + Gemfile in context: /vagrant/Gemfile
+[1274] + Gemfile in context: /vagrant/Gemfile
+[1278] + Gemfile in context: /vagrant/Gemfile
+[1282] + Gemfile in context: /vagrant/Gemfile
+[1286] + Gemfile in context: /vagrant/Gemfile
+[1290] + Gemfile in context: /vagrant/Gemfile
+[847] - Gracefully shutting down workers...
+[1290] Early termination of worker
+[1286] Early termination of worker
+[847] === puma shutdown: 2019-09-11 12:03:52 +0000 ===
+[847] - Goodbye!
+=== puma startup: 2019-09-11 12:05:42 +0000 ===
+[1439] * Starting control server on unix:///tmp/puma-status-1568203542717-1439
+[1439] - Worker 0 (pid: 1450) booted, phase: 0
+[1439] - Worker 1 (pid: 1455) booted, phase: 0
+[1439] - Gracefully shutting down workers...
+[1439] === puma shutdown: 2019-09-11 12:06:02 +0000 ===
+[1439] - Goodbye!
+Exiting
