@@ -969,3 +969,19 @@ Exiting
 [1439] === puma shutdown: 2019-09-11 12:06:02 +0000 ===
 [1439] - Goodbye!
 Exiting
+=== puma startup: 2019-09-11 12:24:07 +0000 ===
+[868] * Starting control server on unix:///tmp/puma-status-1568204647740-868
+[868] - Worker 0 (pid: 879) booted, phase: 0
+[868] - Worker 1 (pid: 883) booted, phase: 0
+[868] - Gracefully shutting down workers...
+[868] === puma shutdown: 2019-09-11 12:24:27 +0000 ===
+[868] - Goodbye!
+Exiting
+=== puma startup: 2019-09-11 12:24:31 +0000 ===
+[906] * Starting control server on unix:///tmp/puma-status-1568204671669-906
+[906] - Worker 1 (pid: 928) booted, phase: 0
+[906] - Worker 0 (pid: 923) booted, phase: 0
+[906] - Gracefully shutting down workers...
+[906] === puma shutdown: 2019-09-11 12:25:53 +0000 ===
+[906] - Goodbye!
+Exiting
