@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: expotec
+  password: expotec123
+  host: localhost
+
+development:
+  <<: *default
+  database: expotec_dev
+
+test:
+  <<: *default
+  database: expotec_test
+
+
+production:
+  <<: *default
+  database: expotec_prod
