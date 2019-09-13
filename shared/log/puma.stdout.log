@@ -1,7 +1,0 @@
-=== puma startup: 2019-09-06 08:07:03 -0300 ===
-[49612] * Starting control server on unix:///tmp/puma-status-1567768023985-49612
-[49612] - Worker 1 (pid: 49623) booted, phase: 0
-[49612] - Worker 0 (pid: 49619) booted, phase: 0
-[49612] - Gracefully shutting down workers...
-[49612] === puma shutdown: 2019-09-13 10:01:50 -0300 ===
-[49612] - Goodbye!

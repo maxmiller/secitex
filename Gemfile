@@ -1,6 +1,8 @@
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source 'https://rubygems.org'
 
-ruby '2.5.1'
+
+ruby '2.5.5'
 
 
 gem 'bootstrap_form'
@@ -23,30 +25,19 @@ gem 'rubyzip', '>= 1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
-# Use mysql as the database for Active Record
+gem 'rails', '~> 5.2.3'
 # gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'pg', '1.0.0'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Use SCSS for stylesheets
+gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'puma', '~> 4.1', '>= 4.1.1'
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 1.0', group: :doc
+gem 'json', '~> 2.2'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -54,16 +45,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'better_errors'
-# Use Unicorn as the app server
-# gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-#gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
-#gem 'active_record_query_trace'
-
-gem "letter_opener", :group => :development
+gem "letter_opener"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
