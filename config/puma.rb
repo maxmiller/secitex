@@ -8,11 +8,11 @@ workers 2
 threads 1, 6
 app_dir = File.expand_path("../..", __FILE__)
 shared_dir = "#{app_dir}/shared"
-rails_env = ENV['RAILS_ENV'] || "development"
+rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
-#bind "unix://#{shared_dir}/sockets/puma.sock"
-bind "tcp://localhost:3000"
-stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
+bind "unix://#{shared_dir}/sockets/puma.sock"
+#bind "tcp://0.0.0.0:3000"
+stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", false
 
 pidfile "#{shared_dir}/pids/puma.pid"
 state_path "#{shared_dir}/pids/puma.state"
@@ -25,4 +25,4 @@ on_worker_boot do
 end
 
 
-plugin :tmp_restart
+#plugin :tmp_restart

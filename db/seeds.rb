@@ -11,7 +11,7 @@
 print 'Definindo configurações... '
 
 config = Config.create(
-  dev: false, # Alterar para false quando em produção
+  dev: true, # Alterar para false quando em produção
   data_abertura_inscricoes: Date.new(2019, 8, 29),
   data_encerramento_inscricoes: Date.new(2019, 10, 25),
   data_inicio_submissao_trabalhos: Date.new(2019, 8, 29),
