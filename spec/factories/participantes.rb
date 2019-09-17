@@ -5,17 +5,17 @@ FactoryBot.define do
     cidade
     pais
     instituicao { Faker::Company.name }
-    possui_necessidades_especiais false
+    possui_necessidades_especiais {false}
     association :usuario, factory: :usuario_participante
   end
 
   factory :tipo_participante_outros, class: TipoParticipante do
-    nome 'Outros'
-    slug 'outros'
+    nome {'Outros'}
+    slug {'outros'}
   end
 
   factory :tipo_participante_estudante, class: TipoParticipante do
-    nome 'Estudante'
-    slug 'estudante'
+    nome {'Estudante'}
+    slug{ 'estudante'}
   end
 end

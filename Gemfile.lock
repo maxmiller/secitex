@@ -68,9 +68,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap_form (4.2.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
+    bootstrap_form (2.7.0)
     builder (3.2.3)
     byebug (11.0.1)
     cancancan (1.17.0)
@@ -355,7 +353,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   bootsnap (>= 1.1.0)
-  bootstrap_form
+  bootstrap_form (~> 2.7)
   byebug
   cancancan (~> 1.10)
   capybara

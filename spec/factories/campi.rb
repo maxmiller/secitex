@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :campus do
-    nome "MyString"
-    sigla "MyString"
+    nome { "MyString" }
+    sigla { "MyString" }
   end
 end

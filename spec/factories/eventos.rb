@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :evento do
-    nome "MyString"
+    nome {"MyString"}
   end
 end

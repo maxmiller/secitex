@@ -5198,3 +5198,38 @@ Exiting
 [23430] + Gemfile in context: /vagrant/Gemfile
 [23435] + Gemfile in context: /vagrant/Gemfile
 [23441] + Gemfile in context: /vagrant/Gemfile
+=== puma startup: 2019-09-13 10:30:10 -0300 ===
+[34232] * Starting control server on unix:///var/folders/8t/y0lh55zd513c0ns6q16lr1780000gn/T/puma-status-1568381410370-34232
+[34232] ! Terminating timed out worker: 34638
+[34232] ! Terminating timed out worker: 34639
+[34232] ! Terminating timed out worker: 34649
+[34232] ! Terminating timed out worker: 34650
+Realizando migração
+[34232] - Worker 0 (pid: 34698) booted, phase: 0
+Realizando migração
+[34232] - Worker 1 (pid: 34703) booted, phase: 0
+[34232] - Gracefully shutting down workers...
+=== puma startup: 2019-09-13 11:17:27 -0300 ===
+[947] * Starting control server on unix:///var/folders/8t/y0lh55zd513c0ns6q16lr1780000gn/T/puma-status-1568384247931-947
+[947] - Worker 1 (pid: 952) booted, phase: 0
+[947] - Worker 0 (pid: 951) booted, phase: 0
+[947] - Gracefully shutting down workers...
+[947] === puma shutdown: 2019-09-13 11:17:34 -0300 ===
+[947] - Goodbye!
+Exiting
+=== puma startup: 2019-09-13 11:20:37 -0300 ===
+[1047] * Starting control server on unix:///var/folders/8t/y0lh55zd513c0ns6q16lr1780000gn/T/puma-status-1568384437237-1047
+[1047] - Worker 1 (pid: 1052) booted, phase: 0
+[1047] - Worker 0 (pid: 1051) booted, phase: 0
+[1047] - Gracefully shutting down workers...
+[1047] === puma shutdown: 2019-09-13 11:24:07 -0300 ===
+[1047] - Goodbye!
+Exiting
+=== puma startup: 2019-09-17 09:13:32 -0300 ===
+[11773] * Starting control server on unix:///var/folders/8t/y0lh55zd513c0ns6q16lr1780000gn/T/puma-status-1568722412532-11773
+[11773] - Worker 1 (pid: 11778) booted, phase: 0
+[11773] - Worker 0 (pid: 11777) booted, phase: 0
+[11773] - Gracefully shutting down workers...
+[11773] === puma shutdown: 2019-09-17 09:15:55 -0300 ===
+[11773] - Goodbye!
+Exiting

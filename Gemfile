@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '2.5.5'
 
 
-gem 'bootstrap_form'
+gem "bootstrap_form", "~> 2.7"
 gem 'validates_cpf_cnpj'
 gem 'validates'
 gem "select2-rails"
