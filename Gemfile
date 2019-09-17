@@ -2,7 +2,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 source 'https://rubygems.org'
 
 
-ruby '2.5.5'
+ruby '2.5.1'
 
 
 gem "bootstrap_form", "~> 2.7"
