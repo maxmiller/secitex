@@ -19,6 +19,15 @@ class Admin::ParticipantesController < ApplicationController
     end
   end
 
+  def destroy
+    authorize! :destroy, Participante
+    @participante.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_participantes_path, notice: 'Participante excluído com sucesso!' }
+    end
+  end
+
   def aprovar_nota_empenho
     authorize! :aprovar_nota_empenho, Participante
     @participante = Participante.find(params[:participante_id])

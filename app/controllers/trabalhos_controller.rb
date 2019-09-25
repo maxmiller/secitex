@@ -42,7 +42,7 @@ class TrabalhosController < ApplicationController
     authorize! :create, Trabalho
     respond_to do |format|
       if @trabalho.save
-        ParticipanteMailer.trabalho_submetido(@trabalho.participante, @trabalho).deliver_now
+       # ParticipanteMailer.trabalho_submetido(@trabalho.participante, @trabalho).deliver_now
         format.html { redirect_to trabalhos_path, notice: 'Trabalho enviado com sucesso!' }
         format.json { render :show, status: :created, location: @trabalho }
       else

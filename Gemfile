@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
-
+gem 'dump'
 gem "bootstrap_form", "~> 2.7"
 gem 'validates_cpf_cnpj'
 gem 'validates'

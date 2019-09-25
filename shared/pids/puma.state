@@ -1,4 +1,4 @@
 ---
-pid: 11773
-control_url: unix:///var/folders/8t/y0lh55zd513c0ns6q16lr1780000gn/T/puma-status-1568722412532-11773
-control_auth_token: c12e867bd886ddf1bbdc8a4f99692f1
+pid: 37573
+control_url: unix:///tmp/puma-status-1569410745441-37573
+control_auth_token: c1d94dcb8eb2df7147689680b62d3988
